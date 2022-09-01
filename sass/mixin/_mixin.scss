@@ -1,16 +1,16 @@
 // vw
 @function size($s){
-    @return $s / 1920 * 100 +vw;
+    @return calc($s / 1920 * 100) +vw;
 }
 
 // rwd
 @function rwd($t){
-    @return $t / 414 * 100 +vw;
+    @return calc($t / 414 * 100) +vw;
 }
 
 // rwd 手機 414px 斷點
 @mixin mobile(){
-    @media screen and (max-width:414px) {
+    @media screen and (max-width:415px) {
         @content;
     }
 }
