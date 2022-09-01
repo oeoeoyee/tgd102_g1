@@ -1,0 +1,67 @@
+// vw
+@function size($s){
+    @return $s / 1920 * 100 +vw;
+}
+
+// rwd
+@function rwd($t){
+    @return $t / 414 * 100 +vw;
+}
+
+// rwd 手機 414px 斷點
+@mixin mobile(){
+    @media screen and (max-width:414px) {
+        @content;
+    }
+}
+
+
+// 如何使用function:範例:
+// header{
+//     屬性: function名稱(變數);
+//     width: size(1920);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // 寬高
+// @mixin size($w, $h:null) {
+//     width: ($w / 1920) * 100 + vw;
+//     // height: ($h / 100) * 100 + vh;
+    
+//     @if $h != null{
+//         height : $h / 100 * 100 + vh;
+//     }@else{
+//         height : auto;
+//     }
+
+// }
+
+// // margin
+// @mixin m($m , $dir:null) {
+//     margin#{$dir}: $m / 1920 * 100 +vw;
+// }
+
+// // example
+// // .q {
+// //     @include m(100 , -top) ;
+// // }
+
+// // padding
+// @mixin p($p , $dir:null) {
+//     // padding#{$dir}: $p / 1920 * 100 +vw;
+    
+// }
+
+

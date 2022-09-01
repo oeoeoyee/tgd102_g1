@@ -1,0 +1,19 @@
+.infocard{
+    width: size(699);
+    height: size(211);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: size(1) solid $darkline;
+    padding: 40px 30px 28px 40px;
+    h3{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    div{
+        width: 100%;
+        height: size(3);
+        background-color: $lightline;
+    }
+}

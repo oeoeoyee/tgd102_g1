@@ -1,0 +1,75 @@
+// $h1: size(64);
+// $h2: size(48);
+// $h3: size(36);
+// $h4: size(24);
+// $h5: size(20);
+// $p: size(18);
+// !!!!!!字體用下面的函式!!!!!!!!!
+
+
+// h1
+@mixin h1() {
+    font-size: size(64);
+    font-weight: bold;
+
+    @include mobile(){
+        font-size: rwd(36);
+        @content;
+    }
+}
+
+
+// h2
+@mixin h2() {
+    font-size: size(48);
+    font-weight: bold;
+
+    @include mobile(){
+        font-size: rwd(30);
+        @content;
+    }
+}
+
+// h3
+@mixin h3() {
+    font-size: size(36);
+    font-weight: bold;
+
+    @include mobile(){
+        font-size: rwd(30);
+        @content;
+    }
+}
+
+// h4
+@mixin h4() {
+    font-size: size(24);
+    font-weight: bold;
+
+    @include mobile(){
+        font-size: rwd(24);
+        @content;
+    }
+}
+
+// h5
+@mixin h5() {
+    font-size: size(20);
+    font-weight: bold;
+
+    @include mobile(){
+        font-size: rwd(20);
+        @content;
+    }
+}
+
+// p
+@mixin p() {
+    font-size: size(18);
+
+    @include mobile() {
+        font-size: rwd(16);
+        @content;
+    }
+}
+

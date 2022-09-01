@@ -1,0 +1,46 @@
+// reset css
+@import 'base/reset';
+
+// 字型
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
+
+// mixin
+@import 'mixin/mixin';
+
+// var
+@import 'base/font';
+@import 'base/color';
+@import 'base/other';
+
+// compoent
+@import 'component/btn';
+@import 'component/title';
+@import 'component/infocard';
+
+// layout
+@import 'layout/headerfooter';
+
+// page
+@import 'page/index';
+@import 'page/about';
+@import 'page/event';
+@import 'page/exhibition';
+@import 'page/news';
+@import 'page/login';
+
+
+body{
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.wrapper{
+    // @include size(1920);
+    width: size(1920);
+}
+
+h1{
+    @include h1();
+}
+
+
+

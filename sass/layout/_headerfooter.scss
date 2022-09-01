@@ -1,0 +1,59 @@
+
+
+/* --------------- header ---------------*/
+
+// $h1: size(64);
+header{
+    display: flex;
+    width: size(1920);
+    background-color: $darkgray;
+    justify-content: center;
+    align-items: center;
+
+    @include mobile(){
+        justify-content: left;
+    }
+
+
+// logo
+    .logo{
+        margin-right: size(627);
+        img{
+            width: size(66);
+
+            @include mobile(){
+                width: rwd(32);
+            }
+        }
+    }
+
+
+// 導覽列
+    nav{
+        ul{
+            display: flex;
+            align-items: center;
+            @include mobile(){
+                display: none;
+            }
+            li{
+                margin-right: size(35);
+                a{
+                    text-decoration: none;
+                    color: #F0EFEB;
+                    @include h4();
+                    font-weight: normal;
+                    // font-size: size(24);
+
+                    // 會員icon
+                    i{
+                        font-size: size(50);
+                    }
+                }
+            }
+        }
+    }
+
+
+
+}
