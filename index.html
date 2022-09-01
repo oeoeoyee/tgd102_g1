@@ -1,65 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="./css/style.css">
-
-    <title>溯．REVERSE|首頁</title>
+    @@include('./layout/head.html', {
+        "title" : "首頁"
+    })
 </head>
 <body>
 
     <div class="wrapper">
-        <header>
-            <a href="#" class="logo"><img src="./images/logo.png" alt=""></a>
-            <nav>
-                <ul>
-                    <li><a href="#">關於我們</a></li>
-                    <li><a href="#">特別展覽</a></li>
-                    <li><a href="#">常設展覽</a></li>
-                    <li><a href="#">最新消息</a></li>
-                    <li><a href="#">線上購票</a></li>
-                    <li><a href="#"><i class="fa-regular fa-circle-user"></i></a></li>
-                </ul>
-            </nav>
-        </header>
+        <!-- header -->
+        @@include('./layout/header.html')
+        
 
-        <div class="test">
-            <h1>name</h1>
-            <input type="submit" value="提交" class="btn_s_remind">
-            <br>
-            <input type="submit" value="返回" class="btn_s_default">
-            <br>
-            <a href="" class="btn_m">BUY TICKET
-                <span>&rarr;</span>
-            </a>
-            <br>
-            <a href="" class="btn_l">SEE MORE
-                <span>&rarr;</span>
-            </a>
-            <br>
-            <a href="" class="btn_xl">MORE NEWS
-                <span>&rarr;</span>
-            </a>
-            <br>
-            <div class="title">
-                <h2>最新消息</h2>
-                <p>追溯藝術家們於館內展出的歷史典藏</p>
-                <div></div>
-            </div>
-            <div class="infocard">
-                <h3>518博物館日 期間限定優惠
-                    <span>&rarr;</span>
-                </h3>
-                <p>新一季常設展覽多出十九世紀主題，......</p>
-                <div></div>
-                <p>活動訊息</p>
-                <p>2022.05</p>
-            </div>
-        </div>
-
+        
+        <!-- footer -->
+        @@include('./layout/footer.html')
+        
     </div>
 </body>
 </html>
