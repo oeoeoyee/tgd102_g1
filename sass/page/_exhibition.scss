@@ -1,0 +1,51 @@
+h1 {
+  @include h1();
+  // color:
+}
+
+h2 {
+  @include h2();
+}
+
+h3 {
+  @include h3();
+}
+
+h4 {
+  @include h4();
+}
+
+h5 {
+  @include h5();
+}
+
+// 常設展至頂大圖
+.ex_bigBanner img {
+  width: 100%;
+}
+
+.ex_main {
+  li {
+    div {
+      // padding: 0 size(315);
+      margin: 0 auto;
+    }
+  }
+}
+
+$list: img1 img2 img3 img4 img5;
+
+@each $img in $list {
+  .ex_#{$img} {
+    background-image: url("../../images/exp_Img/ex_#{$img}.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 600px;
+  }
+}
+
+.ex_main1 {
+  div {
+  }
+}

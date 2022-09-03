@@ -1,24 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-hant">
+
   <head>
-    @@include('layout/head.html',{ "title":'溯．REVERSE|常設展覽' })
+    @@include('./layout/head.html',{ "title":'常設展覽' })
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
+
   <body>
+
     <div class="wrapper">
-      @@include('layout/header.html')
-      <div class="bigBanner">
-        <img src="images/exp_Img/ex_banner1.jpg" alt="" />
+      @@include('./layout/header.html')
+
+      <div class="ex_bigBanner">
+        <img src="./images/exp_Img/ex_banner1.jpg" alt="" />
       </div>
-      <div>
+
+      <div class="ex_main">
+
         <h1>常設展覽</h1>
         <h2>十九世紀</h2>
+
+        <ul>
+          <li class="ex_main1">
+            <!-- Class = 背景圖/ -->
+
+            <div class="ex_img1">
+              <!-- ex_name -->
+              <h3>新藝術運動</h3>
+              <!-- ex_day -->
+              <h5>2022.03.04 - 2023.10.22</h5>
+              <!-- ex_room -->
+              <h4>ROOM</h4>
+            </div>
+
+          </li>
+
+          <li class="ex_main2">
+
+            <div class="ex_img2">
+
+              <h3>新藝術運動</h3>
+              <h5>2022.03.04 - 2023.10.22</h5>
+              <h4>ROOM</h4>
+            </div>
+
+          </li>
+
+        </ul>
+        
       </div>
-      @@include('layout/footer.html')
+      @@include('./layout/footer.html')
     </div>
   </body>
 </html>
