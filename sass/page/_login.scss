@@ -1,6 +1,140 @@
+// login.html
+// signin.html
+
+
+// =======login.html========
+// banner
 .login_banner{
     width: 100%;
     img{
         width: 100%;
+    }
+}
+
+// 上面
+.login_top{
+    @include input_out();
+
+    h2{
+        color: $black;
+        @include h2();
+        text-align: center;
+        margin: size(72) 0;
+    }
+
+    ul{
+        margin: 0 auto;
+        width: 100%;
+        margin-bottom: size(39);
+        // 電子信箱(帳號)/密碼
+        li{
+            input{
+                @include p();
+                color: $black;
+                border: none;
+                border: 1px solid $line_mid;
+                width: 100%;
+                @include input();
+            }
+        }
+
+        // 記住我/忘記密碼
+        .login_ckbox_out{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            // 記住我
+            .login_ckbox{
+                #login_ckbox{
+                    width: auto;
+                    height: auto;
+                    margin: auto;
+                }
+                span{
+                    @include p();
+                    color: $black;
+                }
+            }
+
+            // 忘記密碼
+            a{
+                @include p();
+                color: $black;
+            }
+        }
+    }
+
+    // 按鈕
+    .login_btn_out{
+        display: flex;
+        justify-content: center;
+
+        // 記住我
+        input{
+            margin-right: size(96);
+        }
+
+        // 忘記密碼
+        // a{}
+    }
+    
+}
+
+// 分隔線
+.login_line{
+    width: size(1216);
+    height: size(1);
+    background-color: $black;
+    margin: 0 auto;
+    margin-bottom: size(72);
+    margin-top: size(41);
+}
+
+// 其他登入
+.login_bottom{
+    @include input_out();
+    margin-bottom: size(72);
+    h4{
+        @include h4();
+        color: $black;
+        text-align: center;
+        margin-bottom: size(32);
+    }
+
+    .login_icon{
+        display: flex;
+        justify-content: space-between;
+        width: size(239);
+        margin: 0 auto;
+        a{
+            
+            img{
+                width: size(45);
+                
+            }
+        }
+    }
+
+}
+
+
+// =======signin.html========
+
+// 上面
+.signin_out{
+    margin-bottom: size(64);
+
+    ul{
+        .ckbox_center{
+            justify-content: center;
+        }
+    }
+    // 按鈕
+    .signin_btn_out{
+    
+        input{
+            margin-right: 0!important;
+        }
     }
 }

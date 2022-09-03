@@ -1,0 +1,11 @@
+@mixin input_out($w:530){
+    width: size($w);
+    margin: 0 auto;
+}
+
+@mixin input($w:530, $h:40, $mb:32){
+    width: size($w);
+    height: size($h);
+    margin-bottom: size($mb);
+    padding-left: size(12);
+}
