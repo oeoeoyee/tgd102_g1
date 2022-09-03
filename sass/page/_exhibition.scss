@@ -1,51 +1,87 @@
 h1 {
   @include h1();
-  // color:
+  // color: $white;
 }
 
 h2 {
   @include h2();
+  // color: $white;
 }
 
 h3 {
   @include h3();
+  color: $white;
 }
 
 h4 {
   @include h4();
+  color: $white;
 }
 
 h5 {
   @include h5();
+  color: $white;
+}
+
+p {
+  @include p();
 }
 
 // 常設展至頂大圖
 .ex_bigBanner img {
   width: 100%;
+  display: block;
 }
 
-.ex_main {
-  li {
-    div {
-      // padding: 0 size(315);
-      margin: 0 auto;
+.ex_list {
+  .ex_title {
+    h1 {
+      line-height: size(140);
+      text-align: center;
     }
+  }
+
+  .ex_main_img {
+    background-image: url("../../images/exp_Img/ex_f_img1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    width: 100%;
+    height: size(600);
   }
 }
 
+.ex_first {
+  .ex_main_img {
+    h2 {
+      line-height: size(600);
+    }
+  }
+
+  li {
+    &:nth-child(even) {
+      text-align: left;
+    }
+    &:nth-child(odd) {
+      text-align: right;
+    }
+  }
+}
+// 圖片
 $list: img1 img2 img3 img4 img5;
 
 @each $img in $list {
   .ex_#{$img} {
     background-image: url("../../images/exp_Img/ex_#{$img}.jpg");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+
     width: 100%;
-    height: 600px;
+    height: size(600);
   }
 }
 
-.ex_main1 {
-  div {
-  }
-}
+// .ex_main1 {
+//   div {
+//   }
+// }

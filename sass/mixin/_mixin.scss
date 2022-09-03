@@ -3,7 +3,7 @@
     @return calc($s / 1920 * 100) +vw;
 }
 
-// rwd
+// rwdz
 @function rwd($t){
     @return calc($t / 414 * 100) +vw;
 }
