@@ -5,7 +5,7 @@
 .event_0{
 
     margin-top:size(96) ;
-    margin-bottom: size(96);
+    margin-bottom: size(160);
     h1{
         @include h1();
         color: $line_dark;
@@ -85,6 +85,8 @@
                 width: size(276);
                 margin-top: size(16);
                 color: #747474;
+                font-weight:200;
+                line-height: 1.4;
             }
            }
         }
@@ -129,6 +131,8 @@
                  width: size(276);
                  margin-top: size(16);
                  color: #747474;
+                 font-weight:200;
+                 line-height: 1.4;
              }
             }
          }
@@ -202,6 +206,8 @@
                  width: size(276);
                  margin-top: size(16);
                  color: #747474;
+                 font-weight:200;
+                 line-height: 1.4;
              }
             }
          }
@@ -246,6 +252,8 @@
                   width: size(276);
                   margin-top: size(16);
                   color: #747474;
+                  font-weight:200;
+                  line-height: 1.4;
               }
              }
           }
@@ -267,3 +275,66 @@
     background-color: $line_dark;
 }
 
+.event_3{
+    clear: both;
+    padding-top: size(96);
+    box-sizing: border-box;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    .event_pass_title{
+        
+        width: size(1400);
+        margin: 0 auto;
+        padding: 0 size(16) size(16);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        border-bottom: size(3) solid $line_mid;
+        h2{
+            @include h2();
+        }
+        select{
+            width: size(148);
+            height: size(32);
+            @include h5();
+            padding-left: size(8);
+            line-height: size(32);
+        }
+    }
+    .event_pass{
+        &:hover{
+            cursor: pointer;
+        }
+        line-height: 1.4;
+        display: flex;
+        margin: 0 auto;
+        width: size(1311);
+        border-bottom: size(1) solid $line_mid;
+        .event_pass_img{
+            margin-right: size(160);
+            display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+            div{
+                overflow: hidden;
+                width: size(428);
+                img{
+                    width: size(428);
+                    &:hover{
+                        transform: scale(1.1);
+                        transition: all .3s ease-in-out;
+                    }
+                }
+                
+            }
+        }
+
+    }
+}
+
+.events_btn{
+    width: size(1311);
+    margin: size(64) auto size(96);
+}

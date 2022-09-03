@@ -5,7 +5,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    border-bottom: size(1) solid $line_mid;
+    // border-bottom: size(1) solid $line_mid;
     box-sizing: border-box;
     h3{
         @include h3();
