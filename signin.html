@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         @@include('./layout/head.html', {
-            "title" : "會員登入"
+            "title" : "註冊會員"
         })
     </head>
     <body>
@@ -17,54 +17,51 @@
             </div>
 
             <!-- 上面 -->
-            <div class="login_top">
+            <div class="login_top signin_out">
 
-                <h2>會員登入</h2>
+                <h2>註冊</h2>
 
                 <form method="post" action="#">
                     <ul>
+                        <!-- 姓名 -->
+                        <li>
+                            <input type="text" placeholder="請輸入姓名" name="name">
+                        </li>
                         <!-- 電子信箱(帳號) -->
                         <li>
                             <input type="email" placeholder="請輸入電子信箱" name="email">
+                        </li>
+                        <!-- 手機 -->
+                        <li>
+                            <input type="number" placeholder="請輸入手機號碼(範例：0912-345-678)" name="phone">
                         </li>
                         <!-- 密碼 -->
                         <li>
                             <input type="password" placeholder="密碼：英數混合，六至十二字" name="pwd">
                         </li>
-
-                        <!-- 記住我/忘記密碼 -->
-                        <li class="login_ckbox_out">
+                        <!-- 確認密碼 -->
+                        <li>
+                            <input type="password" placeholder="請再次輸入密碼" name="pwd">
+                        </li>
+                        <!-- 訂閱 -->
+                        <li class="login_ckbox_out ckbox_center">
                             <div class="login_ckbox">
                                 <label for="login_ckbox">
-                                    <input type="checkbox" id="login_ckbox" name="login_rem" value="記住我">
-                                    <span>記住我</span>
+                                    <input type="checkbox" id="login_ckbox" name="signin_sub" value="訂閱電子報">
+                                    <span>我想訂閱電子報</span>
                                 </label>
                             </div>
-                            <a href="#">忘記密碼</a>
-                        </li>   
+                        </li>
+
                     </ul>
 
                     <!-- 按鈕 -->
-                    <div class="login_btn_out">
-                        <input type="submit" value="登入" class="btn_s_remind">
-                        <a href="signin.html" class="btn_s_default">註冊</a>
+                    <div class="login_btn_out signin_btn_out">
+                        <input type="submit" value="註冊" class="btn_s_remind">
                     </div>
                 </form>
 
             </div>
-
-            <!-- 分隔線 -->
-            <div class="login_line"></div>
-
-            <!-- 其他登入 -->
-            <div class="login_bottom">
-                <h4>以其他方式登入</h4>
-                <div class="login_icon">
-                    <a href="#" alt=""><img src="./images/login_03_g.png" alt=""></a>
-                    <a href="#"><img src="./images/login_02_fb.png" alt=""></a>
-                </div>
-            </div>
-
             
             
             <!-- footer -->

@@ -16,9 +16,11 @@
 @import 'component/btn';
 @import 'component/title';
 @import 'component/infocard';
+@import 'component/input';
 
 // layout
 @import 'layout/headerfooter';
+@import 'layout/back_nav';
 
 // page
 @import 'page/index';
@@ -27,6 +29,7 @@
 @import 'page/exhibition';
 @import 'page/news';
 @import 'page/login';
+@import 'page/back';
 
 
 body{
