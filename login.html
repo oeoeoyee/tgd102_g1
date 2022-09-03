@@ -11,10 +11,25 @@
             <!-- header -->
             @@include('./layout/header.html')
             
-            <div class="banner">
+            <div class="login_banner">
                 <img src="./images/login_01.png" alt="">
             </div>
-    
+
+            <h2>會員登錄</h2>
+
+            <form method="post" action="">
+                <input type="text" placeholder="請輸入電子信箱">
+                <input type="text" placeholder="密碼：英數混合，六至十二字">
+                <input type="checkbox" name="login_rem" id="">記住我
+                <a href="#">忘記密碼</a>
+                <input type="submit" value="登入" class="btn_s_remind">
+                <a href="#" class="btn_s_default">註冊</a>
+            </form>
+
+            <!-- 分隔線 -->
+            <div class="login_line"></div>
+
+            
             
             <!-- footer -->
             @@include('./layout/footer.html')

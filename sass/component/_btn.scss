@@ -24,7 +24,7 @@
 // 按鈕(寬100，灰色)
 .btn_s_default{
     @include btn(100, 40, $white, $black, $lightgray);
-    border: 1px solid $line_mid;
+    outline: 1px solid $line_mid;
     text-align: center;
     @include mobile(){
         padding-left: rwd(8);
