@@ -1,0 +1,17 @@
+// back_member
+
+
+
+
+// =======back_member=========
+.back_out{
+    display: flex;
+    background-color: $rice;
+
+    // 右邊
+    .back_main{
+        h2{
+            font-size: size(40);
+        }
+    }
+}

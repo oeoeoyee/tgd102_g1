@@ -1,8 +1,10 @@
+// input 外殼
 @mixin input_out($w:530){
     width: size($w);
     margin: 0 auto;
 }
 
+// input
 @mixin input($w:530, $h:40, $mb:32){
     width: size($w);
     height: size($h);
