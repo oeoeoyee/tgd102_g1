@@ -1,5 +1,7 @@
 // login.html
 // signin.html
+// member.html
+// ticket.html
 
 
 // =======login.html========
@@ -94,7 +96,7 @@
 // 其他登入
 .login_bottom{
     @include input_out();
-    margin-bottom: size(72);
+    // margin-bottom: size(72);
     h4{
         @include h4();
         color: $black;
@@ -118,12 +120,11 @@
 
 }
 
-
 // =======signin.html========
 
 // 上面
 .signin_out{
-    margin-bottom: size(64);
+    // margin-bottom: size(64);
 
     ul{
         .ckbox_center{
@@ -138,3 +139,47 @@
         }
     }
 }
+
+// =========member.html===========
+
+.member{
+    width: size(1181);
+    
+    .center{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0;
+
+        li{
+            width: size(303);
+            height: size(303);
+            border: size(2) solid $black;
+            
+            a{
+                text-decoration: none;
+                color: $black;
+                @include h3();
+                text-align: center;
+                line-height: size(303);
+                display: block;
+            }
+        }
+
+    }
+}
+
+// =========ticket.html===========
+
+.ticket{
+    width: size(741);
+
+    li{
+        padding-top: size(110);
+
+        a{
+            line-height: size(44)!important;
+        }
+    }
+}
+
+
