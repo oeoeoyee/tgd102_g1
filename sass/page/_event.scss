@@ -47,94 +47,14 @@
         }
         // 當期展覽02
         .event_now_1{
-           display: flex;
            margin-top: size(272);
            margin-left: size(190);
-           .event_title1{
-                margin-right: size(12);
-                .event_no{
-                    @include h3();
-                }
-                .event_name{
-                    @include h3();
-                    margin-top: size(246);
-                    width: size(40);
-                    line-height: size(50);
-                }
-           }
-           .event_content1{
-            position: relative;
-            img{
-                width:size(348) ;
-                height:size(631) ;
-            }
-            .event_room{
-                @include h4();
-                position: absolute;
-                right:size(8);
-                top:size(593);
-                color:$white;
-            }
-            .event_date{
-                @include h4();
-                width: size(296);
-                margin-top: size(40);
-            }
-            h5{
-                font-size: size(20);
-                width: size(276);
-                margin-top: size(16);
-                color: #747474;
-                font-weight:200;
-                line-height: 1.4;
-            }
-           }
         }
         // 當期展覽01
         .event_now_2{
-            display: flex;
+            // display: flex;
             margin-top: size(64);
             margin-left: size(190);
-            .event_title2{
-                 margin-right: size(12);
-                 .event_no{
-                     @include h3();
-                 }
-                 .event_name{
-                     @include h3();
-                     margin-top: size(96);
-                     width: size(40);
-                     line-height: size(50);
-                 }
-            }
-            .event_content2{
-             position: relative;
-             img{
-                 width:size(348) ;
-                 height:size(631) ;
-             }
-             .event_room{
-                 @include h4();
-                 position: absolute;
-                 right:size(8);
-                 top:size(593);
-                 color:$white;
-             }
-             .event_date{
-                 @include h4();
-                 width: size(296);
-                 margin-top: size(40);
- 
-             }
-             h5{
-                 font-size: size(20);
-                 width: size(276);
-                 margin-top: size(16);
-                 color: #747474;
-                 font-weight:200;
-                 line-height: 1.4;
-             }
-            }
          }
     }
 }
@@ -168,95 +88,14 @@
         display: flex;
         // 展覽預告02
         .event_future_1{
-            display: flex;
             margin-top: size(140);
             margin-left: size(88);
-            .event_title1{
-                 margin-right: size(12);
-                 .event_no{
-                     @include h3();
-                 }
-                 .event_name{
-                     @include h3();
-                     margin-top: size(300);
-                     width: size(40);
-                     line-height: size(50);
-                 }
-            }
-            .event_content1{
-             position: relative;
-             img{
-                 width:size(348) ;
-                 height:size(631) ;
-             }
-             .event_room{
-                 @include h4();
-                 position: absolute;
-                 right:size(8);
-                 top:size(593);
-                 color:$white;
-             }
-             .event_date{
-                 @include h4();
-                 width: size(296);
-                 margin-top: size(40);
-             }
-             h5{
-                 font-size: size(20);
-                 width: size(276);
-                 margin-top: size(16);
-                 color: #747474;
-                 font-weight:200;
-                 line-height: 1.4;
-             }
-            }
          }
          // 展覽預告02
          .event_future_2{
-             display: flex;
              margin-top: size(348);
              margin-left: size(190);
-             .event_title2{
-                  margin-right: size(12);
-                  .event_no{
-                      @include h3();
-                  }
-                  .event_name{
-                      @include h3();
-                      margin-top: size(350);
-                      width: size(40);
-                      line-height: size(50);
-                  }
-             }
-             .event_content2{
-              position: relative;
-              img{
-                  width:size(348) ;
-                  height:size(631) ;
-              }
-              .event_room{
-                  @include h4();
-                  position: absolute;
-                  right:size(8);
-                  top:size(593);
-                  color:$white;
-              }
-              .event_date{
-                  @include h4();
-                  width: size(296);
-                  margin-top: size(40);
-  
-              }
-              h5{
-                  font-size: size(20);
-                  width: size(276);
-                  margin-top: size(16);
-                  color: #747474;
-                  font-weight:200;
-                  line-height: 1.4;
-              }
-             }
-          }
+           }
     }
 
     .event_future_right{
@@ -279,9 +118,6 @@
     clear: both;
     padding-top: size(96);
     box-sizing: border-box;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
     .event_pass_title{
         
         width: size(1400);
@@ -338,3 +174,58 @@
     width: size(1311);
     margin: size(64) auto size(96);
 }
+
+
+
+
+//展覽卡片
+.event_now_c{
+    display: flex;
+
+    // display: inline-block;
+    .event_title_c{
+        margin-right: size(12);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .event_no{
+            @include h3();
+        }
+        .event_name{
+            @include h3();
+            // margin-top: size(96);
+            margin-bottom: size(176);
+            width: size(40);
+            line-height: size(50);
+        }
+    }
+    .event_content_c{
+    position: relative;
+    height: size(805);
+        img{
+            width:size(348) ;
+            height:size(631) ;
+        }
+        .event_room{
+            @include h4();
+            position: absolute;
+            right:size(8);
+            top:size(593);
+            color:$white;
+        }
+        .event_date{
+            @include h4();
+            width: size(296);
+            margin-top: size(40);
+
+        }
+        h5{
+            font-size: size(20);
+            width: size(276);
+            margin-top: size(16);
+            color: #747474;
+            font-weight:200;
+            line-height: 1.4;
+        }
+    }
+    }
