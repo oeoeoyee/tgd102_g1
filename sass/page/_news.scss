@@ -1,0 +1,116 @@
+// 頁面置中
+.news_becenter{
+    width: size(1420);
+    margin: 0 auto;
+}
+
+// 兩則置頂消息
+.news_top{
+    display: flex;
+    width: 100%;
+    img{
+        display: block;
+        width: 47%;
+    }
+    .news_top_word{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:start;
+        width: 53%;
+        border: size(1) solid $line_light;
+        h3{
+            border-bottom: size(1) solid $line_light;
+            width: 100%;
+            height: size(214);
+            line-height: size(214);
+            padding-left: size(120);
+            @include h3();
+        }
+        div{
+            display: flex;
+            width: 100%;
+            height: size(760);
+            h4{
+                border-right: size(1) solid $line_light;
+                display: flex;
+                align-items: flex-end;
+                width: 55%;
+                padding: size(0) size(240) size(100) size(120);
+                @include h4();
+                line-height: size(30);
+            }
+            p{
+                display: flex;
+                align-items: flex-end;
+                width: 45%;
+                padding: size(0) size(100) size(100) size(60);
+                @include p();
+                line-height: 1.5;
+                color: $darkgray;
+            }
+        }
+    }
+}
+
+// banner
+.news_banner{
+    height: size(974);
+    background-image: url('/images/news_01.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: size(480) size(0) size(0) size(280);
+    h1{
+        @include h1();
+    }
+}
+
+// 選擇消息類別的nav
+.news_nav{
+    margin-top: size(96);
+    margin-bottom: size(32);
+    text-align: right;
+    h4{
+        display: inline-block;
+        margin-left: size(24);
+        @include h4();
+        font-weight: normal;
+    }
+    h4:first-child{
+        color: $lightgray;
+    }
+}
+
+// 消息列
+.news_list{
+    li{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: size(1) solid $line_mid;
+        img{
+            width: size(428);
+            height: size(252);
+            object-fit: cover;
+        }
+    }
+}
+
+// 消息頁數選擇
+.news_page{
+    display: flex;
+    margin-top: size(100);
+    li{
+        width: 18%;
+        height: size(72);
+        border: size(1) solid $line_light;
+        @include p();
+        text-align: center;
+        line-height: size(72);
+    }
+    li:first-child{
+        width: 5%;
+    }
+    li:last-child{
+        width: 5%;
+    }
+}
