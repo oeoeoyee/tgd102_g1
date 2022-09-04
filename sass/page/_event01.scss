@@ -11,7 +11,7 @@
                 width: size(832);
                 line-height: 1.2;
                 &:nth-child(2){
-                    margin-top: size(32);
+                    margin-top: size(24);
                 }
             }
         }
@@ -66,13 +66,13 @@
         div{
             margin-right: size(121);
             img{
-                width: (280);
-                height: (360);
+                width: size(280);
+                height: size(360);
             }
         }
         img{
-            width: (501);
-            height: (746);
+            width: size(501);
+            height: size(746);
         }
         
         .event01_2_annotation{
@@ -183,12 +183,14 @@
                 }
                 img{
                     margin-top: size(32);
+                    width: size(820)
                 }
                 h5{
                     @include h5();
                     margin-top: size(16);
                     width: size(454);
                     font-weight: 200;
+                    line-height: 1.4;
                 }
             }
             
