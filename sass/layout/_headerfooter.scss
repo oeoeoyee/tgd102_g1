@@ -57,3 +57,72 @@ header{
 
 
 }
+
+
+/* --------------- footer ---------------*/
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: $hf_black;
+    color: $rice;
+    padding-top: size(16);
+    padding-bottom: size(16);
+    margin-top: size(72);
+    // 設定所有的p
+    p{
+        @include p();
+        line-height: size(32);
+    }
+    div{
+        h4{
+            margin-top: size(56);
+            margin-bottom: size(24);
+            @include h4();
+            font-weight: normal;
+        }
+    }
+    // 左半邊
+    .footer_left{
+        width: size(800);
+    }
+    // 右半邊
+    .footer_right{
+        width: size(620);
+        padding-left: size(52);
+        // border-left: size(1) solid $black;
+        // 三個社群軟體icon
+        a{
+            display: inline-block;
+            width: size(40);
+            height: size(40);
+            background-color: $rice;
+        }
+        // 電子報
+        input{
+            display: inline-block;
+            height: size(40);
+            border-radius: 0;
+            border: none;
+            font-size: size(16);
+            line-height: size(16);
+            margin-right: size(8);
+        }
+        input:first-of-type{
+            width: size(360);
+        }
+        // all right reserved
+        p{
+            margin-top: size(56);
+        }
+    }
+    // 最下面的聲明文字
+    >p{
+        width: size(1420);
+        margin-top: size(40);
+        a{
+            text-decoration: underline;
+            color: $rice;
+        }
+    }
+}
