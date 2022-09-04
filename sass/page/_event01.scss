@@ -1,0 +1,256 @@
+
+.event01_1{
+    margin-top: size(124);
+    display: flex;
+    .event01_1_left{
+        margin-left: size(270);
+        width: size(980);
+        .event01_1_left_title{
+            h1{
+                @include h1();
+                width: size(832);
+                line-height: 1.2;
+                &:nth-child(2){
+                    margin-top: size(32);
+                }
+            }
+        }
+        .event01_1_left_content{
+            margin-top: size(245);
+            h4{
+                @include h4();
+                &:nth-child(2){
+                    margin-top: size(16);
+                    color: $darkgray;
+                }
+                &:nth-child(3){
+                    margin-top: size(8);
+                    color: $darkgray;
+                }
+            }
+            a{
+                margin-top: size(16);
+            }
+        }
+    }
+    .event01_1_right{
+        img{
+            width: size(540);
+            height: size(1059);
+        }
+    }
+}
+
+.event01_2{
+    margin-top: size(72);
+    margin-left: size(270);
+    .event01_2_title{
+        width: size(902);
+        h2{
+            @include h2();
+        }
+        h4{
+            @include h4();
+            margin-top: size(64)
+        }
+        h5{
+            @include h5();
+            margin-top: size(16);
+            line-height: 1.4;
+            font-weight: 200;
+        }
+    }
+    .event01_2_content{
+        margin-top: size(64);
+        display: flex;
+        div{
+            margin-right: size(121);
+            img{
+                width: (280);
+                height: (360);
+            }
+        }
+        img{
+            width: (501);
+            height: (746);
+        }
+        
+        .event01_2_annotation{
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            div{
+                box-sizing: border-box;
+                width: size(400);
+                margin-left: size(96);
+                border-left: 2px solid $red; 
+                padding-left: size(16);
+                h4{
+                    @include h4();
+                }
+                h5{
+                    @include h5();
+                    margin-top: size(12);
+                    font-weight: 200;
+                    line-height: 1.4;
+                }
+            }
+            
+        }
+    }
+}
+
+.event01_left_line{
+    clear: both;
+    width: size(1160);
+    height: size(3);
+   background-color: $btnhover_gray;
+   margin-top: size(146);
+}
+
+.event01_3{
+    display: flex;
+    margin-bottom: size(190);
+    margin-top: size(200);
+    .event01_3_title{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin-bottom: size(16);
+        margin-right: size(160);
+        margin-left: size(270);
+        width: size(694);
+        h2{
+            @include h2();
+        }
+        h4{
+            @include h4();
+            margin-top: size(64)
+        }
+        h5{
+            @include h5();
+            margin-top: size(16);
+            line-height: 1.4;
+            font-weight: 200;
+        }
+        div{
+            margin-top: size(32);
+            width: size(400);
+            height: size(2);
+            background-color: $line_dark;
+        }
+    }
+    .event01_3_img{
+        img{
+            width: size(541);
+        }
+    }
+}
+
+.event01_4{
+    clear: both;
+    padding-top: size(96);
+    box-sizing: border-box;
+    .event01_4_title{
+        width: size(1400);
+        margin: 0 auto;
+        padding: 0 size(16) size(16);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        border-bottom: size(3) solid $line_mid;
+        h2{
+            @include h2();
+        }
+        p{
+            @include p();
+            color: $darkgray;
+        }
+    }
+    .event01_4_content{
+        width: size(1660);
+        margin-bottom: size(120);
+        margin-top: size(96);
+        overflow: hidden;
+        float: right;
+        
+        ul{
+            display: flex;
+            li{
+                margin-right: size(40);
+                h4{
+                    @include h4();
+                }
+                img{
+                    margin-top: size(32);
+                }
+                h5{
+                    @include h5();
+                    margin-top: size(16);
+                    width: size(454);
+                    font-weight: 200;
+                }
+            }
+            
+        }
+    }
+}
+
+.event01_5{
+    margin-bottom: size(200);
+    .event01_5_textborder{
+        width: size(1400);
+        height: size(64);
+        background-color: $black;
+        margin: size(96) auto size(72);
+        box-sizing: border-box;
+        padding-left: size(16);
+        h4{
+            @include h4();
+            color: $white;
+            line-height: size(64);
+        }
+    }
+    .event01_5_img{
+        position: relative;
+        overflow: hidden;
+        width: size(1400);
+        height: size(480);
+        margin: 0 auto;
+        img{
+            width: size(1400);
+            transform: translateY(size(-300));
+        }
+        .event01_5_text01{
+            position: absolute;
+            width: size(400);
+            height: size(200);
+            top:size(272);
+            right:size(108);
+            h5{
+                @include h5();
+                color: $white;
+                position: absolute
+            }
+            div{
+                margin-left: size(8);
+                margin-top: size(8);
+                width: size(390);
+                height: size(182);
+                display: block;
+                background-color:rgba(0,0,0,.7);
+                box-sizing: border-box;
+                padding-top: size(16);
+                p{
+                    @include p();
+                    width: size(341);
+                    color: $white;
+                    margin: size(0) auto 0;
+                    line-height: 1.6;
+                }
+            }
+
+        }
+    }
+
+}
