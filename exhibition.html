@@ -5,7 +5,7 @@
   </head>
 
   <body>
-    <div class="wrapper">
+    <div class="ex_wrapper">
       @@include('./layout/header.html')
       <!-- ====================================================== -->
       <!-- 大圖 -->
@@ -20,17 +20,52 @@
           <h1>常設展覽</h1>
         </div>
 
-        <!-- 側邊欄 最後再寫 -->
-        <!-- <div class="ex_slide">
+        <!-- 側邊欄 -->
+        <div class="ex_side">
+          <div class="ex_side_bar"></div>
           <ul>
-            <p>十九世紀</p>
-            <li>
-              <p>新藝術運動</p>
+            <!-- 當前展覽 主題 -->
+            <li class="ex_side_main ex_on">
+              <div><h4>十九世紀</h4></div>
+            </li>
+            <!-- 當前展覽 -->
+            <li class="ex_side_now ex_on">
+              <div><p>新藝術運動</p></div>
+            </li>
+            <li class="ex_side_other">
+              <div><p>兵器演進</p></div>
+            </li>
+            <li class="ex_side_other">
+              <div><p>十九世紀事件</p></div>
+            </li>
+            <li class="ex_side_other">
+              <div><p>探索秘境</p></div>
+            </li>
+            <li class="ex_side_other">
+              <div><p>亞細亞霍亂</p></div>
             </li>
           </ul>
-        </div> -->
 
-        <!-- 展覽 ( 最進 ) -->
+          <ul>
+            <!-- 非當前展覽 主題 -->
+            <li class="ex_side_second">
+              <div><h4>十八世紀</h4></div>
+            </li>
+
+            <!-- 非當前展覽 -->
+            <li class="ex_side_other">
+              <div><p>工業革命</p></div>
+            </li>
+            <li class="ex_side_other">
+              <div><p>終極血月</p></div>
+            </li>
+            <li class="ex_side_other">
+              <div><p>埃及神話</p></div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 展覽 ( 進 ) -->
         <ul class="ex_new">
           <div class="ex_main_img">
             <h2>十九世紀</h2>
@@ -39,12 +74,19 @@
             <!-- Class = 背景圖/ -->
 
             <div class="ex_img1">
-              <!-- ex_name -->
+              <!-- 展覽名 -->
               <h3>新藝術運動</h3>
-              <!-- ex_day -->
+              <!-- 日期 -->
               <h5>2022.03.04 - 2023.10.22</h5>
-              <!-- ex_room -->
+              <!-- 廳 -->
               <h4>F ROOM</h4>
+
+              <!-- 內頁連結 -->
+              <div class="ex_link">
+                <a href="exhibition_information.html"
+                  ><i class="fa-solid fa-angles-right"></i
+                ></a>
+              </div>
             </div>
           </li>
 
@@ -53,30 +95,96 @@
               <h3>兵器演進</h3>
               <h5>2022.03.04 - 2023.10.22</h5>
               <h4>G ROOM</h4>
+              <div class="ex_link">
+                <a href="exhibition_information.html"
+                  ><i class="fa-solid fa-angles-right"></i
+                ></a>
+              </div>
             </div>
           </li>
 
-          <li class="ex_main2">
+          <li class="ex_main3">
             <div class="ex_img3">
               <h3>十九世紀事件</h3>
               <h5>2022.03.04 - 2023.10.22</h5>
               <h4>H ROOM</h4>
+              <div class="ex_link">
+                <a href="exhibition_information.html"
+                  ><i class="fa-solid fa-angles-right"></i
+                ></a>
+              </div>
             </div>
           </li>
 
-          <li class="ex_main2">
+          <li class="ex_main4">
             <div class="ex_img4">
               <h3>探索秘境</h3>
               <h5>2022.03.04 - 2023.10.22</h5>
               <h4>I ROOM</h4>
+              <div class="ex_link">
+                <a href="exhibition_information.html"
+                  ><i class="fa-solid fa-angles-right"></i
+                ></a>
+              </div>
             </div>
           </li>
 
-          <li class="ex_main2">
+          <li class="ex_main5">
             <div class="ex_img5">
               <h3>亞細亞霍亂</h3>
               <h5>2022.03.04 - 2023.10.22</h5>
               <h4>J ROOM</h4>
+              <div class="ex_link">
+                <a href="exhibition_information.html"
+                  ><i class="fa-solid fa-angles-right"></i
+                ></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <!-- 展覽 ( 遠 ) -->
+        <ul class="ex_old">
+          <div class="ex_second_img">
+            <h2>十八世紀</h2>
+          </div>
+
+          <li class="ex_main6">
+            <div class="ex_img6">
+              <h3>工業革命</h3>
+              <h5>2022.03.04 - 2023.10.22</h5>
+              <h4>K ROOM</h4>
+              <div class="ex_link">
+                <a href="exhibition_information.html"
+                  ><i class="fa-solid fa-angles-right"></i
+                ></a>
+              </div>
+            </div>
+          </li>
+
+          <li class="ex_main7">
+            <div class="ex_img7">
+              <h3>終極血月</h3>
+              <h5>2022.03.04 - 2023.10.22</h5>
+              <h4>L ROOM</h4>
+              <div class="ex_link">
+                <a href="exhibition_information.html"
+                  ><i class="fa-solid fa-angles-right"></i
+                ></a>
+              </div>
+            </div>
+          </li>
+
+          <li class="ex_main8">
+            <div class="ex_img8">
+              <h3>埃及神話</h3>
+              <h5>2022.03.04 - 2023.10.22</h5>
+              <h4>M ROOM</h4>
+              <div class="ex_link">
+                <a href="exhibition_information.html"
+                  ><i class="fa-solid fa-angles-right"></i
+                ></a>
+              </div>
             </div>
           </li>
         </ul>

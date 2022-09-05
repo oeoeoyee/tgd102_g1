@@ -2,29 +2,31 @@ h1 {
   @include h1();
   // color: $white;
 }
-
 h2 {
   @include h2();
   // color: $white;
 }
-
 h3 {
   @include h3();
   color: $white;
 }
-
 h4 {
   @include h4();
   color: $white;
 }
-
 h5 {
   @include h5();
   color: $white;
 }
-
 p {
   @include p();
+}
+
+// footer mt:0
+.ex_wrapper {
+  footer {
+    margin-top: 0;
+  }
 }
 
 // 常設展至頂大圖
@@ -33,6 +35,7 @@ p {
   display: block;
 }
 
+// 主題
 .ex_list {
   .ex_title {
     h1 {
@@ -43,21 +46,26 @@ p {
 
   .ex_main_img {
     background-image: url("../../images/exp_Img/ex_f_img1.jpg");
+  }
+
+  .ex_second_img {
+    background-image: url("../../images/exp_Img/ex_f_img2.jpg");
+  }
+
+  .ex_second_img,
+  .ex_main_img {
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
     width: 100%;
     height: size(600);
+    line-height: size(600);
   }
 }
 
-.ex_new {
-  .ex_main_img {
-    h2 {
-      line-height: size(600);
-    }
-  }
-
+// 單 雙 分開站
+.ex_new,
+.ex_old {
   li {
     // 單數
     &:nth-child(even) {
@@ -78,18 +86,19 @@ p {
     }
   }
 }
-// 圖片
-$list: img1 img2 img3 img4 img5;
 
+// 展覽資訊
+$list: img1 img2 img3 img4 img5 img6 img7 img8;
 @each $img in $list {
   .ex_#{$img} {
     background-image: url("../../images/exp_Img/ex_#{$img}.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-
     width: 100%;
     height: size(600);
     padding: size(144) size(220) size(47) size(315);
+    position: relative;
+
     h3 {
       margin-bottom: size(256);
     }
@@ -97,13 +106,131 @@ $list: img1 img2 img3 img4 img5;
       margin-top: size(16);
     }
 
+    div {
+      display: none;
+      @include h1();
+      position: absolute;
+      right: size(48);
+      top: 50%;
+      transform: translate(0, -50%);
+      i {
+        color: $red;
+      }
+    }
+
     &:hover {
-      filter: opacity(1);
+      div {
+        display: block;
+      }
     }
   }
 }
 
-// .ex_main1 {
-//   div {
-//   }
-// }
+// 側邊欄
+.ex_side {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: size(315);
+  z-index: 999;
+
+  // 側邊欄中間的棒棒
+  .ex_side_bar {
+    border: size(2) solid $line_mid;
+    transform: rotate(90deg) scaleX(2.5) translate(45%, 0);
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    li {
+      margin-bottom: size(32);
+      position: relative;
+      cursor: pointer;
+    }
+  }
+
+  // 當前展覽 主題
+  .ex_side_main {
+    div {
+      width: size(60);
+      height: size(60);
+      border-radius: 50%;
+      background-color: $red;
+      border: 3px solid $line_dark;
+
+      h4 {
+        width: size(160);
+        position: absolute;
+        text-align: right;
+        top: size(30);
+        right: size(45);
+        transform: translate(0, -50%);
+        text-shadow: 0 0 size(3) $black, 0 0 size(3) $black;
+      }
+    }
+  }
+
+  // 當前展覽
+  .ex_side_now {
+    div {
+      width: size(30);
+      height: size(30);
+      border-radius: 50%;
+      background-color: $black;
+      border: 3px solid $white;
+      position: relative;
+
+      p {
+        width: size(160);
+        position: absolute;
+        top: size(11);
+        left: size(35);
+        transform: translate(0, -50%);
+        color: $white;
+        text-shadow: 0 0 size(3) $black, 0 0 size(3) $black;
+      }
+    }
+  }
+
+  // 非當前展覽 主題
+  .ex_side_second {
+    div {
+      width: size(60);
+      height: size(60);
+      border-radius: 50%;
+      border: 3px solid $line_light;
+
+      h4 {
+        display: none;
+        width: size(160);
+        position: absolute;
+        text-align: right;
+        top: size(30);
+        right: size(45);
+        transform: translate(0, -50%);
+        text-shadow: 0 0 size(3) $black, 0 0 size(3) $black;
+      }
+    }
+  }
+
+  // 非當前展覽
+  .ex_side_other {
+    width: size(30);
+    height: size(30);
+    border-radius: 50%;
+    border: 3px solid $line_light;
+
+    p {
+      display: none;
+      width: size(160);
+      position: absolute;
+      top: size(11);
+      left: size(35);
+      transform: translate(0, -50%);
+      color: $white;
+    }
+  }
+}
