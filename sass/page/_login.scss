@@ -2,6 +2,8 @@
 // signin.html
 // member.html
 // ticket.html
+// signin_suss.html
+// prime_pay.html
 
 
 // =======login.html========
@@ -183,3 +185,170 @@
 }
 
 
+// =======signin_suss.html========
+
+// 上面
+.succ_top{
+    width: size(1200);
+
+    h4{
+        @include h4();
+        text-align: center;
+        margin-bottom: size(72);
+    }
+
+    // 按鈕
+    .succ{
+        margin-bottom: size(72);
+        // 立即訂票 右
+        // a{}
+
+        // 會員中心 左
+        .btn_succ{
+            margin-right: size(135);
+        }
+    }
+}
+
+// prime
+.prime{
+    background-color: $rice;
+    display: flex;
+    justify-content: center;
+    padding: size(72) 0;
+    align-items: center;
+
+    img{
+        width: size(488);
+        margin-right: size(100);
+    }
+
+    section{
+        h3{
+            @include h3();
+            margin-bottom: size(46);
+        }
+    
+        h4{
+            @include h4();
+            font-weight: normal;
+            letter-spacing: 11.5%;
+            line-height: 176%;
+        }
+
+    }
+}
+
+// prime介紹
+.prime_bottom{
+    padding-top: size(80);
+    padding-left: size(402);
+    display: flex;
+
+    // prime 說明
+    .prime_top{
+        margin-right: size(130);
+        h3{
+            margin-bottom: size(32);
+        }
+    
+        ul{
+            li{
+                margin-bottom: size(32);
+                @include h4();
+
+                i{
+                    font-size: size(28);
+                    margin-right: size(25);
+                }
+            }
+        }
+    }
+
+    // 價錢按鈕
+    .price{
+        display: flex;
+        align-items: flex-end;
+
+        h3{
+            @include h3();
+            margin-right: size(44);
+        }
+        a{}
+    }
+
+}
+
+// =========prime_pay.html===========
+
+// prime 介紹
+.prime_main{
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+    // prime 說明
+    .prime_pay{
+        margin-right: 0;
+        padding-bottom: size(53);
+        h3{
+            text-align: center;
+            padding-bottom: size(41);
+        }
+
+        ul{
+            padding-left: size(130);
+            li{
+                
+            }
+        }
+    }
+
+    // 分隔線
+    .pr_line{
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    // 付款方式
+    .payment{
+        padding: size(72) 0;
+        h3{
+            @include h3();
+            margin-bottom: size(32);
+            text-align: center;
+        }
+
+        // 信用卡 / atm
+        ul{
+            display: flex;
+            justify-content: center;
+            
+            .credit{
+                margin-right: size(40);
+            }
+
+            li{
+
+                input{}
+
+                span{
+                    @include p();
+                }
+            }
+        }
+    }
+
+    // 價錢按鈕
+    .price_btn{
+        padding-top: size(72);
+        h3{
+            @include h3();
+            margin-bottom: size(72);
+            text-align: center;
+        }
+
+        input{
+            margin: 0 auto;
+        }
+    }
+}
