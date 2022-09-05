@@ -33,34 +33,36 @@
             <!-- 分隔線 -->
             <div class="login_line pr_line"></div>
 
-            <!-- 付款方式 -->
-            <div class="payment">
-                <h3>請選擇付款方式</h3>
-                <ul>
-                    <!-- 信用卡 -->
-                    <li>
-                        <label for="credit">
-                            <input type="radio" name="pay" id="credit" value="信用卡"><span>信用卡</span>
-                        </label>
-                    </li>
+            <form method="post" action="">
+                <!-- 付款方式 -->
+                <div class="payment">
+                    <h3>請選擇付款方式</h3>
+                    <ul>
+                        <!-- 信用卡 -->
+                        <li class="credit">
+                            <label for="credit">
+                                <input type="radio" name="pay" id="credit" value="信用卡"><span>信用卡</span>
+                            </label>
+                        </li>
 
-                    <!-- ATM -->
-                    <li>
-                        <label for="atm">
-                            <input type="radio" name="pay" id="atm" value="ATM"><span>ATM轉帳</span>
-                        </label>
-                    </li>
-                </ul>
-            </div>
+                        <!-- ATM -->
+                        <li>
+                            <label for="atm">
+                                <input type="radio" name="pay" id="atm" value="ATM"><span>ATM轉帳</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
 
-            <!-- 分隔線 -->
-            <div class="login_line pr_line"></div>
+                <!-- 分隔線 -->
+                <div class="login_line pr_line"></div>
 
-            <!-- 價錢按鈕 -->
-            <div class="price_btn">
-                <h3>總計 NT$3000</h3>
-                <input type="submit" class="btn_s_remind" value="付款">
-            </div>
+                <!-- 價錢按鈕 -->
+                <div class="price_btn">
+                    <h3>總計 NT$3000</h3>
+                    <input type="submit" class="btn_s_remind" value="付款">
+                </div>
+            </form>
 
         </div>
         
