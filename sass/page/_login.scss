@@ -292,6 +292,7 @@
         padding-bottom: size(53);
         h3{
             text-align: center;
+            padding-bottom: size(41);
         }
 
         ul{
@@ -314,14 +315,20 @@
         h3{
             @include h3();
             margin-bottom: size(32);
+            text-align: center;
         }
 
         // 信用卡 / atm
         ul{
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             
+            .credit{
+                margin-right: size(40);
+            }
+
             li{
+
                 input{}
 
                 span{
@@ -337,6 +344,7 @@
         h3{
             @include h3();
             margin-bottom: size(72);
+            text-align: center;
         }
 
         input{
