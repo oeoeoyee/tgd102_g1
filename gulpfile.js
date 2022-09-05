@@ -17,6 +17,13 @@ const sourcemaps = require('gulp-sourcemaps');
 const fileinclude = require('gulp-file-include');
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
+// 圖片
+const imagemin = require('gulp-imagemin');
+// 降轉 babel es6 - > es5
+const babel = require('gulp-babel');
+// 清除舊檔案
+const clean = require('gulp-clean');
+
 
 //1.html
 function includeHTML() {
@@ -57,10 +64,41 @@ function  Jsminify(){
 
 exports.uglify = Jsminify;
 
+// 降轉 babel es6 - > es5
+function babel5() {
+    return src('js/*.js')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(uglify())
+        .pipe(dest('dist/js'));
+}
+
+exports.js_update = babel5;
+
+
 //4.搬家
 function img_move(){
     return src(['images/*.*' , 'images/**/*.*']).pipe(dest('dist/images'))
  }
+ 
+ // mini images
+function min_images(){
+    return src(['images/*.*' , 'images/**/*.*' , 'images/**/**/*.*'])
+    .pipe(imagemin())
+    .pipe(dest('dist/images'))
+}
+
+exports.images_online = min_images; 
+
+
+// 清除舊檔案
+function clear() {
+    return src('dist' ,{ read: false ,allowEmpty: true })//不去讀檔案結構，增加刪除效率  / allowEmpty : 允許刪除空的檔案
+    .pipe(clean({force: true})); //強制刪除檔案 
+}
+
+exports.cls = clear;
 
 
  // 瀏覽器同步
@@ -81,3 +119,6 @@ function img_move(){
 
 //執行
 exports.default = series(parallel(includeHTML , sassstyle ,img_move , Jsminify) ,browser)
+
+// 上線
+exports.online = series(clear, parallel(includeHTML, sassstyle, img_move, babel5));
