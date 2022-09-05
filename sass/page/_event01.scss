@@ -1,11 +1,17 @@
 
 .event01_1{
     margin-top: size(124);
+    @include mobile() {
+        margin-top: rwd(124);
+    }
+
     display: flex;
     .event01_1_left{
         margin-left: size(270);
         width: size(980);
-        .event01_1_left_title{
+
+        
+        &_title{
             h1{
                 @include h1();
                 width: size(832);
@@ -15,7 +21,7 @@
                 }
             }
         }
-        .event01_1_left_content{
+        &_content{
             margin-top: size(245);
             h4{
                 @include h4();
@@ -256,3 +262,19 @@
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
