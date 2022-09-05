@@ -51,7 +51,7 @@ p {
   }
 }
 
-.ex_first {
+.ex_new {
   .ex_main_img {
     h2 {
       line-height: size(600);
@@ -59,11 +59,22 @@ p {
   }
 
   li {
+    // 單數
     &:nth-child(even) {
-      text-align: left;
-    }
-    &:nth-child(odd) {
       text-align: right;
+
+      h3 {
+        text-align: left;
+      }
+    }
+
+    // 雙數
+    &:nth-child(odd) {
+      text-align: left;
+
+      h3 {
+        text-align: right;
+      }
     }
   }
 }
@@ -78,6 +89,17 @@ $list: img1 img2 img3 img4 img5;
 
     width: 100%;
     height: size(600);
+    padding: size(144) size(220) size(47) size(315);
+    h3 {
+      margin-bottom: size(256);
+    }
+    h4 {
+      margin-top: size(16);
+    }
+
+    &:hover {
+      filter: opacity(1);
+    }
   }
 }
 
