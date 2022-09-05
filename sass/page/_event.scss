@@ -3,20 +3,31 @@
 // }
 
 .event_0{
-
     margin-top:size(96) ;
     margin-bottom: size(160);
+    @include mobile() {
+        margin-top:rwd(20) ;
+        margin-bottom: rwd(64);
+    }
     h1{
         @include h1();
         color: $line_dark;
         margin-bottom: size(32);
-        margin-left: size(258);        
+        margin-left: size(258);   
+        @include mobile() {
+            margin-bottom: rwd(16);
+            margin-left: rwd(28); 
+        }     
     }
     .event_right_line{
         width: size(1660);
         height: size(3);
         float: right;
         background-color: $line_dark;
+        @include mobile() {
+            width: rwd(380);
+            height: 2px;
+        }
     }
 }
 
