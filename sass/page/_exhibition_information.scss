@@ -1,0 +1,173 @@
+.ex_info_wrapper {
+  h1 {
+    @include h1();
+  }
+  h2 {
+    @include h2();
+  }
+  h3 {
+    @include h3();
+  }
+  h4 {
+    @include h4();
+  }
+  h5 {
+    @include h5();
+  }
+  p {
+    @include p();
+  }
+
+  .title {
+    margin-bottom: size(64);
+  }
+
+  footer {
+    margin-top: 0;
+  }
+}
+
+// 大圖
+.ex_info_banner {
+  img {
+    display: block;
+  }
+}
+
+// 麵包屑
+.ex_info_bread {
+  display: flex;
+  align-items: center;
+  height: size(160);
+  padding: 0 size(250);
+  background-color: $lightgray;
+  ul {
+    display: flex;
+    li {
+      margin-right: size(30);
+      cursor: pointer;
+    }
+  }
+}
+
+// 簡介
+.ex_info_main {
+  padding: size(88) size(250) size(156);
+
+  .ex_info_main_info {
+    display: flex;
+    img {
+      display: block;
+    }
+
+    .ex_info_line {
+      border: size(1) solid $line_light;
+      margin: 0 size(97);
+    }
+    h4 {
+      color: $black;
+      margin-bottom: size(8);
+    }
+    p {
+      line-height: size(30);
+    }
+  }
+}
+
+// 加入提醒 & 購票提醒
+.ex_info_join,
+.ex_info_buy {
+  height: size(160);
+  background-color: $lightgray;
+  padding: size(32) size(250) 0;
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: size(96);
+    background-color: $white;
+    padding: 0 size(102);
+
+    h5 {
+    }
+    div {
+    }
+  }
+}
+
+// 文物 ( grid )
+.ex_info_art {
+  height: size(1280);
+  padding: size(104) size(250) 0;
+
+  img {
+    display: block;
+  }
+
+  // GRID
+  .ex_info_art_item {
+    display: grid;
+    overflow: hidden;
+
+    // 3 列
+    grid-template-rows: size(540) size(140) size(200);
+
+    // 3 欄
+    grid-template-columns: size(880) size(180) size(360);
+
+    gap: 0;
+    // height: size(880);
+
+    img {
+      display: block;
+      width: 100%;
+      filter: brightness(50%);
+      transition: all .5s;
+
+      &:hover {
+        filter: brightness(100%);
+      }
+    }
+
+    .ex_art_item-0 {
+      grid-row-start: 1;
+      grid-row-end: 4;
+
+      grid-column-start: 1;
+      grid-column-end: 2;
+    }
+    .ex_art_item-1 {
+      grid-row-start: 1;
+      grid-row-end: 2;
+
+      grid-column-start: 2;
+      grid-column-end: 4;
+    }
+    .ex_art_item-2 {
+      grid-row-start: 2;
+      grid-row-end: 4;
+
+      grid-column-start: 3;
+      grid-column-end: 4;
+    }
+    .ex_art_item-3 {
+      grid-row-start: 3;
+      grid-row-end: 4;
+
+      grid-column-start: 2;
+      grid-column-end: 3;
+    }
+    .ex_art_item-4 {
+      grid-row-start: 2;
+      grid-row-end: 3;
+
+      grid-column-start: 2;
+      grid-column-end: 3;
+    }
+  }
+}
+
+// 相關展覽
+.ex_info_other {
+  padding: size(80) size(250) 0;
+}

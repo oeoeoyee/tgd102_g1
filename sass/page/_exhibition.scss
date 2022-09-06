@@ -1,29 +1,28 @@
-h1 {
-  @include h1();
-  // color: $white;
-}
-h2 {
-  @include h2();
-  // color: $white;
-}
-h3 {
-  @include h3();
-  color: $white;
-}
-h4 {
-  @include h4();
-  color: $white;
-}
-h5 {
-  @include h5();
-  color: $white;
-}
-p {
-  @include p();
-}
-
 // footer mt:0
 .ex_wrapper {
+  h1 {
+    @include h1();
+    // color: $white;
+  }
+  h2 {
+    @include h2();
+    // color: $white;
+  }
+  h3 {
+    @include h3();
+    color: $white;
+  }
+  h4 {
+    @include h4();
+    color: $white;
+  }
+  h5 {
+    @include h5();
+    color: $white;
+  }
+  p {
+    @include p();
+  }
   footer {
     margin-top: 0;
   }
@@ -63,7 +62,7 @@ p {
   }
 }
 
-// 單 雙 分開站
+// 展覽通通分開站
 .ex_new,
 .ex_old {
   li {
@@ -138,6 +137,7 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
   // 側邊欄中間的棒棒
   .ex_side_bar {
     border: size(2) solid $line_mid;
+    background-color: $line_mid;
     transform: rotate(90deg) scaleX(2.5) translate(45%, 0);
   }
 
