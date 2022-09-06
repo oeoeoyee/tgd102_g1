@@ -1,8 +1,6 @@
 
 
 /* --------------- header ---------------*/
-
-// $h1: size(64);
 header{
     display: flex;
     width: 100%;
@@ -14,48 +12,56 @@ header{
         justify-content: left;
     }
 
-
-// logo
+    // logo
     .logo{
         margin-right: size(627);
+        margin-top: size(16);
+        margin-bottom: size(16);
         img{
-            width: size(66);
+            height: size(64);
 
             @include mobile(){
-                width: rwd(32);
+                height: rwd(35);
+                margin-top: rwd(16);
+                margin-bottom: rwd(16);
+                margin-left: rwd(16);
             }
         }
     }
 
 
-// 導覽列
+    // 導覽列
     nav{
         ul{
             display: flex;
             align-items: center;
+            justify-content: center;
             @include mobile(){
                 display: none;
             }
             li{
-                margin-right: size(35);
+                margin-right: size(24);
                 a{
                     text-decoration: none;
-                    color: $rice;
+                    color: $white;
                     @include h4();
                     font-weight: normal;
-                    // font-size: size(24);
 
                     // 會員icon
                     i{
                         font-size: size(50);
+                        color: $line_mid;
+                        &:hover{
+                            color: $black;
+                        }
+                    }
+                    &:hover{
+                        color: $black;
                     }
                 }
             }
         }
     }
-
-
-
 }
 
 
@@ -68,23 +74,35 @@ footer{
     color: $rice;
     padding-top: size(16);
     padding-bottom: size(16);
-    margin-top: size(72);
+    margin-top: size(120);
     // 設定所有的p
     p{
-        @include p();
         line-height: size(32);
+        @include p(){
+            line-height: 1.5;
+        };
     }
-    div{
+    h4{
+        margin-top: size(56);
+        margin-bottom: size(24);
+        @include h4();
+        font-weight: normal;
+    }
+    @include mobile(){
+        display: block;
+        width: 100%;
+        padding: rwd(20);
         h4{
-            margin-top: size(56);
-            margin-bottom: size(24);
-            @include h4();
-            font-weight: normal;
+            margin-top: rwd(32);
+            margin-bottom: rwd(16);
         }
     }
     // 左半邊
     .footer_left{
         width: size(800);
+        @include mobile(){
+            width: 100%;
+        }
     }
     // 右半邊
     .footer_right{
@@ -97,11 +115,11 @@ footer{
             width: size(40);
             height: size(40);
             background-color: $rice;
+            margin-right: size(24);
         }
         // 電子報
         input{
             display: inline-block;
-            height: size(40);
             border-radius: 0;
             border: none;
             font-size: size(16);
@@ -109,17 +127,39 @@ footer{
             margin-right: size(8);
         }
         input:first-of-type{
-            width: size(360);
+            @include input(360, 40, 0);
         }
         // all right reserved
         p{
             margin-top: size(56);
+        }
+        @include mobile(){
+            width: 100%;
+            padding-left: 0;
+            a{
+                width: rwd(40);
+                height: rwd(40);
+                margin-right: rwd(24);
+            }
+            input{
+                height: rwd(40);
+                font-size: rwd(16);
+                margin-right: rwd(0);
+            }
+            input:first-of-type{
+                height: rwd(50);
+                width: rwd(352);
+                margin-bottom: rwd(16);
+            }
         }
     }
     // 最下面的聲明文字
     >p{
         width: size(1420);
         margin-top: size(40);
+        @include mobile(){
+            width: 100%;
+        }
         a{
             text-decoration: underline;
             color: $rice;
