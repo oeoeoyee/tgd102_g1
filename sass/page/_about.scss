@@ -1,3 +1,4 @@
+
 //第一標題
 .about1 {
     margin: 0 auto;
@@ -28,9 +29,78 @@
     background-color: $line_dark;
 }
 
+.about2{
+    width: size(1420);
+    margin: 0 auto;
+
+    .about2_innet2{
+        width: size(1174);
+        margin: 0 auto;
+        display: flex;
+        margin-top: size(72);
+
+        .left_picture{
+            img{
+                width: size(529);
+                margin-right: size(116);
+            }
+        }
+
+        .right_picture{
+            img{
+                width: size(529);
+                margin-right: size(116);
+            }
+        }
+
+        .about_inner_ticket{
+            display: flex;
+            width: size(530);
+            text-align: center;
+            margin-top: size(15);
+            margin-bottom: size(28);
+
+            h4{
+                @include h4();
+            }
+
+            .line2_spacing{
+                width: size(1);
+                height: size(29);
+                background-color: $line_dark;
+                margin: 0 size(20);
+            }
+
+            h5{
+                @include h5();
+            }
+
+            h5:nth-child(4){
+                @include h5();
+                margin-left: auto;
+                font-weight: lighter;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
 .about3 {
     margin: 0 auto;
     width: size(1420);
+    
 
     .about3_inner {
         display: flex;
@@ -114,8 +184,9 @@
     }
 }
 
-hr {
+.about_hr {
     height: size(4);
+    width: 100%;
     margin-left: auto;
     margin-top: size(95);
     margin-bottom: size(95);
