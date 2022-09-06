@@ -11,11 +11,34 @@
     z-index: -999;
 }
 
-li{
-    color: $black;
-    @include h1();
-    text-shadow: 2px 2px 10px white;
-    text-align: center;
+.en_txt {
+    display: flex;
+    justify-content: space-around;
 }
 
+.en_txt li{
+    color: $black;
+    @include h2();
+    text-shadow: 2px 2px 10px white;
+    line-height: 1.6;
+}
 
+.en_txt li:nth-child(1){
+    margin-top: size(100);
+}
+
+.en_txt li:nth-child(2){
+    margin-top: size(200);
+}
+
+.en_txt li:nth-child(3){
+    margin-top: size(300);
+}
+
+.en_logobutton{
+    background-color: black;
+    width: size(150);
+    height: size(150);
+    // margin: 0 auto;
+    margin-bottom: size(50)
+}
