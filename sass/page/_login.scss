@@ -4,6 +4,7 @@
 // ticket.html
 // signin_suss.html
 // prime_pay.html
+// member_info.html
 
 
 // =======login.html========
@@ -352,3 +353,89 @@
         }
     }
 }
+
+// ========member_info.html==========
+
+.wrapper .member_h2{
+    @include h2();
+    color: $black;
+    text-align: center;
+    padding: size(73) 0;
+}
+
+.member_out{
+    display: flex;
+    // justify-content: center;
+
+    // 右邊
+    .member_right{
+
+        // 資料表格
+        // ul>li>span
+        ul{
+            li{
+                display: flex;
+                margin-bottom: size(52);
+                @include h4();
+                font-weight: normal;
+                p{
+                    margin-left: size(78);
+                    @include h4();
+                    font-weight: normal;
+                }
+            }
+
+            // 會員條碼
+            .member_code{
+                flex-direction: column;
+                text-align: center;
+                @include h3();
+                margin-top: size(80);
+                img{
+                    margin: 0 auto;
+                    width: size(295);
+                    margin-top: size(32);
+                }
+            }
+        }
+
+        .btn_center{
+            margin: 0 auto;
+            a{
+                margin: 0 auto;
+            }
+        }
+
+
+        // table 找不到可以設定寬度的東東
+        // table{
+        //     // table-layout: fixed;
+        //     // tbody{
+        //         tr{
+                    
+        //             td{
+        //                 padding-bottom: size(57);
+        //                 // width: 50%;
+        //                 @include h4();
+        //                 font-weight: normal;
+        //             }
+
+        //             td:first-child{
+        //                 width: size(190);
+        //                 width: 30%;
+        //             }
+
+        //             .member_code{
+        //                 width: 100%;
+        //                 text-align: center;
+        //             }
+
+        //             .member_code_img{}
+
+        //         }
+        //     // }
+        // }
+    }
+
+}
+

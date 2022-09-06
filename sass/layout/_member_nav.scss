@@ -1,0 +1,24 @@
+.member_nav{
+
+    margin-left: size(370);
+
+    ul{
+        // margin-top: size(240);
+        margin-right: size(220);
+        
+        li{
+            margin-bottom: size(38);
+
+            .bold{
+                font-weight: bold;
+            }
+
+            a{
+                text-decoration: none;
+                color: $black;
+                @include h6();
+                font-weight: normal;
+            }
+        }
+    }
+}

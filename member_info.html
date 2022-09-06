@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "會員資料"
+    })
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- header -->
+        @@include('./layout/header.html')
+
+        <!-- banner -->
+        <div class="login_banner">
+            <img src="./images/login_01.png" alt="">
+        </div>
+
+        <h2 class="member_h2">會員資料</h2>
+
+        <div class="member_out">
+
+            <!-- 左主選單 -->
+            <div class="member_nav">
+            @@include('./layout/member_nav.html')
+            </div>
+
+            <!-- 右邊 -->
+            <div class="member_right">
+
+                <!-- 資料表格 -->
+
+                <!-- ul>li>span -->
+                <form action="">
+                    <ul>
+                        <li>會員編號<p>M0074683</p></li>
+                        <li>入會日期<p>2022/08/24</p></li>
+                        <li>會員等級<p>PRIME (到期日：2023/09/23)</p></li>
+                        <li>會員姓名<p>林布蘭</p></li>
+                        <li>會員電話<p>0987535427</p></li>
+                        <li>電子信箱<p>hfhr343@gmail.com</p></li>
+                        <!-- 會員條碼 -->
+                        <li class="member_code">會員條碼<img src="./images/member_01_qrcode.png" alt=""></li>
+                    </ul>
+                </form>
+                
+                <!-- table 找不到可以設定寬度的東東 -->
+                <!-- <table>
+                    <tbody>
+                        <tr>
+                            <td width="30%">會員編號</td>
+                            <td width="70%">M0074683</td>
+                        </tr>
+                        <tr>
+                            <td>入會日期</td>
+                            <td>2022/08/24</td>
+                        </tr>
+                        <tr>
+                            <td>會員等級</td>
+                            <td>PRIME (到期日：2023/09/23)</td>
+                        </tr>
+                        <tr>
+                            <td>姓名</td>
+                            <td>林布蘭</td>
+                        </tr>
+                        <tr>
+                            <td>電話</td>
+                            <td>0987535427</td>
+                        </tr>
+                        <tr>
+                            <td>電子信箱</td>
+                            <td>hfhr343@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td class="member_code">會員條碼</td>
+                        </tr>
+                        <tr>
+                            <td class="member_code_img"><img src="./images/member_01_qrcode.png" alt=""></td>
+                        </tr>
+                    </tbody>
+                </table> -->
+
+                <!-- 按鈕 -->
+                <div class="btn_center">
+                    <a href="#" class="btn_s_remind">返回</a>
+                </div>
+
+            </div>
+
+        </div>
+        
+
+        
+        <!-- footer -->
+        @@include('./layout/footer.html')
+        
+    </div>
+</body>
+</html>
