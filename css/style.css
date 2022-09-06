@@ -661,6 +661,31 @@ footer > p a {
   margin-left: 2.8645833333vw;
 }
 
+.member_nav {
+  margin-left: 19.2708333333vw;
+}
+.member_nav ul {
+  margin-right: 11.4583333333vw;
+}
+.member_nav ul li {
+  margin-bottom: 1.9791666667vw;
+}
+.member_nav ul li .bold {
+  font-weight: bold;
+}
+.member_nav ul li a {
+  text-decoration: none;
+  color: #292929;
+  font-size: 1.6666666667vw;
+  font-weight: bold;
+  font-weight: normal;
+}
+@media screen and (max-width: 415px) {
+  .member_nav ul li a {
+    font-size: 6.7632850242vw;
+  }
+}
+
 .about1 {
   margin: 0 auto;
   width: 73.9583333333vw;
@@ -1827,6 +1852,7 @@ h5 {
 }
 .prime_main .prime_pay h3 {
   text-align: center;
+  padding-bottom: 2.1354166667vw;
 }
 .prime_main .prime_pay ul {
   padding-left: 6.7708333333vw;
@@ -1842,6 +1868,7 @@ h5 {
   font-size: 1.875vw;
   font-weight: bold;
   margin-bottom: 1.6666666667vw;
+  text-align: center;
 }
 @media screen and (max-width: 415px) {
   .prime_main .payment h3 {
@@ -1850,7 +1877,10 @@ h5 {
 }
 .prime_main .payment ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+}
+.prime_main .payment ul .credit {
+  margin-right: 2.0833333333vw;
 }
 .prime_main .payment ul li span {
   font-size: 0.9375vw;
@@ -1867,6 +1897,7 @@ h5 {
   font-size: 1.875vw;
   font-weight: bold;
   margin-bottom: 3.75vw;
+  text-align: center;
 }
 @media screen and (max-width: 415px) {
   .prime_main .price_btn h3 {
@@ -1874,6 +1905,69 @@ h5 {
   }
 }
 .prime_main .price_btn input {
+  margin: 0 auto;
+}
+
+.wrapper .member_h2 {
+  font-size: 2.5vw;
+  font-weight: bold;
+  color: #292929;
+  text-align: center;
+  padding: 3.8020833333vw 0;
+}
+@media screen and (max-width: 415px) {
+  .wrapper .member_h2 {
+    font-size: 7.2463768116vw;
+  }
+}
+
+.member_out {
+  display: flex;
+}
+.member_out .member_right ul li {
+  display: flex;
+  margin-bottom: 2.7083333333vw;
+  font-size: 1.25vw;
+  font-weight: bold;
+  font-weight: normal;
+}
+@media screen and (max-width: 415px) {
+  .member_out .member_right ul li {
+    font-size: 5.7971014493vw;
+  }
+}
+.member_out .member_right ul li p {
+  margin-left: 4.0625vw;
+  font-size: 1.25vw;
+  font-weight: bold;
+  font-weight: normal;
+}
+@media screen and (max-width: 415px) {
+  .member_out .member_right ul li p {
+    font-size: 5.7971014493vw;
+  }
+}
+.member_out .member_right ul .member_code {
+  flex-direction: column;
+  text-align: center;
+  font-size: 1.875vw;
+  font-weight: bold;
+  margin-top: 4.1666666667vw;
+}
+@media screen and (max-width: 415px) {
+  .member_out .member_right ul .member_code {
+    font-size: 7.2463768116vw;
+  }
+}
+.member_out .member_right ul .member_code img {
+  margin: 0 auto;
+  width: 15.3645833333vw;
+  margin-top: 1.6666666667vw;
+}
+.member_out .member_right .btn_center {
+  margin: 0 auto;
+}
+.member_out .member_right .btn_center a {
   margin: 0 auto;
 }
 
