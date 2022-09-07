@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "訂單明細"
+    })
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- header -->
+        @@include('./layout/header.html')
+
+        <!-- banner -->
+        <div class="login_banner">
+            <img src="./images/login_01.png" alt="">
+        </div>
+
+        <h2 class="member_h2">訂單明細</h2>
+
+        <div class="member_out">
+
+            <!-- 左主選單 -->
+            <div class="member_nav">
+            @@include('./layout/member_nav.html')
+            </div>
+
+            <!-- 右邊 -->
+            <div class="member_right">
+
+                <!-- 資料表格 -->
+
+                <!-- ul>li>span -->
+                <form method="post" action="">
+                    <ul>
+                        <li>訂單編號<p>P0074683</p></li>
+                        <li>訂單日期<p>2022/08/24</p></li>
+                        <li>展覽名稱<p>普通常設展</p></li>
+                        <li>代表姓名<p>林布蘭</p></li>
+                        <li>代表電話<p>0987535427</p></li>
+                        <li>入館日期<p>2022/09/04</p></li>
+                        <li>成人票數<p>5位</p></li>
+                        <li>優待票數<p>2位</p></li>
+                        <li>兒童票數<p>0位</p></li>
+                        <li>語音導覽<p>有</p></li>
+                        <li>費用總計<p>NT$1500</p></li>
+                        <li>付款狀態<p>已付款</p></li>
+                        <li>付款方式<p>信用卡</p></li>
+                        <!-- 會員條碼 -->
+                        <li class="member_code">會員票證<img src="./images/member_01_qrcode.png" alt=""></li>
+                    </ul>
+                </form>
+
+                
+            </div>
+            
+        </div>
+        
+        <!-- 按鈕 -->
+        <div class="btn_center">
+            <a href="#" class="btn_s_remind">返回</a>
+        </div>
+        
+        <!-- footer -->
+        @@include('./layout/footer.html')
+        
+    </div>
+</body>
+</html>

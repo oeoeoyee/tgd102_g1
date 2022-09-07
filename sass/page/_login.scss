@@ -5,6 +5,8 @@
 // signin_suss.html
 // prime_pay.html
 // member_info.html
+// ticket_personal.html
+// ticket_group.html
 
 
 // =======login.html========
@@ -19,6 +21,7 @@
 // 上面
 .login_top{
     @include input_out();
+    margin-bottom: size(41);
 
     h2{
         color: $black;
@@ -34,10 +37,6 @@
         // 電子信箱(帳號)/密碼
         li{
             input{
-                @include p();
-                color: $black;
-                border: none;
-                border: 1px solid $line_mid;
                 width: 100%;
                 @include input();
             }
@@ -48,19 +47,6 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-
-            // 記住我
-            .login_ckbox{
-                #login_ckbox{
-                    width: auto;
-                    height: auto;
-                    margin: auto;
-                }
-                span{
-                    @include p();
-                    color: $black;
-                }
-            }
 
             // 忘記密碼
             a{
@@ -86,20 +72,11 @@
     
 }
 
-// 分隔線
-.login_line{
-    width: size(1216);
-    height: size(1);
-    background-color: $black;
-    margin: 0 auto;
-    margin-bottom: size(72);
-    margin-top: size(41);
-}
 
 // 其他登入
 .login_bottom{
     @include input_out();
-    // margin-bottom: size(72);
+    margin-top: size(72);
     h4{
         @include h4();
         color: $black;
@@ -294,47 +271,13 @@
         h3{
             text-align: center;
             padding-bottom: size(41);
+            @include h3();
         }
 
         ul{
             padding-left: size(130);
             li{
                 
-            }
-        }
-    }
-
-    // 分隔線
-    .pr_line{
-        margin-bottom: 0;
-        margin-top: 0;
-    }
-
-    // 付款方式
-    .payment{
-        padding: size(72) 0;
-        h3{
-            @include h3();
-            margin-bottom: size(32);
-            text-align: center;
-        }
-
-        // 信用卡 / atm
-        ul{
-            display: flex;
-            justify-content: center;
-            
-            .credit{
-                margin-right: size(40);
-            }
-
-            li{
-
-                input{}
-
-                span{
-                    @include p();
-                }
             }
         }
     }
@@ -354,6 +297,35 @@
     }
 }
 
+// 付款方式
+.payment{
+    padding: size(72) 0;
+    h3{
+        @include h3();
+        margin-bottom: size(32);
+        text-align: center;
+    }
+
+    // 信用卡 / atm
+    ul{
+        display: flex;
+        justify-content: center;
+        
+        .credit{
+            margin-right: size(40);
+        }
+
+        li{
+
+            input{}
+
+            span{
+                @include p();
+            }
+        }
+    }
+}
+
 // ========member_info.html==========
 
 .wrapper .member_h2{
@@ -365,10 +337,14 @@
 
 .member_out{
     display: flex;
-    // justify-content: center;
+    justify-content: center;
+    width: size(1420);
+    margin: 0 auto;
 
     // 右邊
     .member_right{
+        flex-grow: 1;
+        // margin-left: size(244);
 
         // 資料表格
         // ul>li>span
@@ -377,9 +353,10 @@
                 display: flex;
                 margin-bottom: size(52);
                 @include h4();
-                font-weight: normal;
+                // font-weight: normal;
+
                 p{
-                    margin-left: size(78);
+                    margin-left: size(32);
                     @include h4();
                     font-weight: normal;
                 }
@@ -387,7 +364,7 @@
 
             // 會員條碼
             .member_code{
-                flex-direction: column;
+                // flex-direction: column;
                 text-align: center;
                 @include h3();
                 margin-top: size(80);
@@ -396,13 +373,6 @@
                     width: size(295);
                     margin-top: size(32);
                 }
-            }
-        }
-
-        .btn_center{
-            margin: 0 auto;
-            a{
-                margin: 0 auto;
             }
         }
 
@@ -436,6 +406,107 @@
         //     // }
         // }
     }
+}
+
+// 按鈕
+.btn_center{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+
+    a{
+        margin: 0 auto;
+    }
+}
+
+// =========ticket_personal.html========
+
+// 上面
+.signin_out{
+    margin-bottom: size(53);
+
+    // 上面選單
+    ul{
+        li{
+            select{
+                @include input();
+            }
+        }
+    }
+}
+
+// 小計
+.total{
+    width: size(430);
+    margin: 0 auto;
+    margin-bottom: size(77);
+
+    h3{
+        @include h3();
+        text-align: center;
+        margin-top: size(78);
+        margin-bottom: size(64);
+    }
+
+    table{
+        width: 100%;
+        tr{
+            
+            td{
+                height: size(50);
+                line-height: size(50);
+                text-align: center;
+                @include h5();
+            }
+        }
+        
+        .cost{
+            // 分隔線
+            border-top: size(1) solid $line_light;
+            td{
+                text-align: right;
+            }
+        }
+    }
+}
+
+// 付款方式
+.ticket_pay{
+    margin-bottom: size(107);
+}
+
+// 購票須知
+
+.notice{
+    width: size(1216);
+    margin: 0 auto;
+
+    h3{
+        text-align: center;
+        @include h3();
+        margin-bottom: size(32);
+    }
+    p{
+        @include h4();
+        font-weight: normal;
+        line-height: size(41);
+
+    }
+
+    // 同意ck
+    .ckbox_center{
+        display: flex;
+        justify-content: center;
+        margin-top: size(40);
+        margin-bottom: size(40);
+    }
 
 }
 
+// ==========ticket_group.html==============
+
+// 上面
+// 專人導覽
+.login_ckbox2{
+    margin-top: size(32);
+}
