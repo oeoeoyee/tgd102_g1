@@ -6,39 +6,98 @@
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-    opacity: 0.7;
     position: absolute;
     z-index: -999;
+    @include mobile() {
+        background: url('/images/entrance_03.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
 }
 
+.en_banner::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+//三個標語
 .en_txt {
     display: flex;
     justify-content: space-around;
-}
-
-.en_txt li{
-    color: $black;
-    @include h2();
-    text-shadow: 2px 2px 10px white;
-    line-height: 1.6;
-}
-
-.en_txt li:nth-child(1){
-    margin-top: size(100);
-}
-
-.en_txt li:nth-child(2){
-    margin-top: size(200);
-}
-
-.en_txt li:nth-child(3){
-    margin-top: size(300);
+    
+    li{
+        color: $black;
+        @include h2();
+        text-shadow: 2px 2px 10px white;
+        line-height: 1.6;
+        @include mobile(){
+            font-size: rwd(24);
+            font-weight: bold;
+        }
+    }
+    li:nth-child(1){
+        margin-top: size(100);
+        @include mobile(){
+            margin-top: rwd(100);
+        }
+    }
+    
+    li:nth-child(2){
+        margin-top: size(200);
+        @include mobile(){
+            margin-top: rwd(200);
+        }
+    }
+    
+    li:nth-child(3){
+        margin-top: size(300);
+        @include mobile(){
+            margin-top: rwd(300);
+        }
+    }
+    
 }
 
 .en_logobutton{
-    background-color: black;
-    width: size(150);
-    height: size(150);
-    // margin: 0 auto;
-    margin-bottom: size(50)
+    width: size(200);
+    height: size(200);
+    position: absolute;
+    left: size(860);
+    bottom: size(150);
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 50%;
+    border: 1px solid #292929;
+    overflow: hidden;
+    @include mobile(){
+        width: rwd(76);
+        height: rwd(76);
+        left: rwd(169);
+        bottom: rwd(150);
+    }
+    img{
+        width: 80%;
+        padding-top: size(30);
+        display: block;
+        margin: 0 auto;
+        @include mobile(){
+            width: 80%;
+            padding-top: rwd(10);
+        }
+    }
 }
+
+.en_container{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+
