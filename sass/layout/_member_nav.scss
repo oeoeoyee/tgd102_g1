@@ -1,10 +1,10 @@
 .member_nav{
 
-    margin-left: size(370);
+    // margin-left: size(370);
+    flex-grow: 1;
 
     ul{
         // margin-top: size(240);
-        margin-right: size(220);
         
         li{
             margin-bottom: size(38);

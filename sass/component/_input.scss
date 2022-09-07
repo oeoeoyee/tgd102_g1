@@ -10,4 +10,30 @@
     height: size($h);
     margin-bottom: size($mb);
     padding-left: size(12);
+    color: $black;
+    border: none;
+    border: size(1) solid $line_mid;
+    @include p();
 }
+
+// 記住我ckbox
+.login_ckbox{
+    #login_ckbox,#login_ckbox2{
+        width: auto;
+        height: auto;
+        margin: auto;
+    }
+    span{
+        @include p();
+        color: $black;
+    }
+}
+
+// line 分隔線
+.login_line{
+    width: size(1216);
+    height: size(1);
+    background-color: $black;
+    margin: 0 auto;
+}
+
