@@ -8,9 +8,13 @@
     <div class="ex_wrapper">
       @@include('./layout/header.html')
       <!-- ====================================================== -->
-      <!-- 大圖 -->
+      <!-- 大圖 ( 自動換圖 ) -->
       <div class="ex_bigBanner">
-        <img src="./images/exp_Img/ex_banner1.jpg" alt="" />
+        <picture>
+          <source srcset="./images/ex_banner1.jpg" media="(min-width:500px)" />
+          <source srcset="./images/ex_rwd_banner1.jpg" media="(max-width:500px)" />
+          <img src="./images/" />
+        </picture>
       </div>
 
       <!-- 展覽區塊 -->
