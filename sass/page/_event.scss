@@ -34,38 +34,59 @@
 .event_now{
     max-width: 100%;
     width: 100%;
-    .event_now_top{
+    &_top{
         h2{
             @include h2();
-            line-height: size(70);
+            margin-bottom: size(16);
             margin-left: size(258);
+            @include mobile() {
+                @include h1();
+                margin-bottom: rwd(8);
+                margin-left: rwd(28);
+            }
         }
         .event_left_line{
             width: size(477);
-            height: size(1.5); //寬度不同?
+            height: size(1.5); 
             background-color: $hf_black;
+            @include mobile() {
+                width: rwd(380);
+                height: 2px;
+            }
         }
     }
-    .event_now_bottom{
+    &_bottom{
         display: flex;
         // 直線
+        @include mobile() {
+            display: block;
+        }
         .event_ver_line{
             margin-left: size(374);
             width: size(1);
             height: size(939);
             margin-top: size(272);
             background-color: $btnhover_gray;
+            @include mobile() {
+                display: none;
+            }
         }
         // 當期展覽02
         .event_now_1{
            margin-top: size(272);
            margin-left: size(190);
+           @include mobile() {
+               margin: rwd(64) auto rwd(64);
+           }
         }
         // 當期展覽01
         .event_now_2{
             // display: flex;
             margin-top: size(64);
             margin-left: size(190);
+            @include mobile() {
+                margin: rwd(64) auto rwd(64);
+            }
          }
     }
 }
@@ -75,37 +96,65 @@
     max-width: 100%;
     background-color: $line_dark;
     height:size(3);
+    @include mobile() {
+        height:2px;
+    }
 }
 
 .event_future{
     display: flex;
     max-width: 100%;
     width: 100%;
+    @include mobile() {
+        display: block;
+    }
     .event_future_left{
         margin-top: size(96);
+        @include mobile() {
+            margin-top: rwd(22); 
+        }
         h2{
             @include h2();
-            line-height: size(70);
+            margin-bottom: size(16);
             margin-left: size(258);
+            @include mobile() {
+                @include h1();
+                margin-bottom: rwd(8);
+                margin-left: rwd(28);
+                
+            }
         }
         .event_left_line{
             width: size(477);
             height: size(1.5);
             background-color: $hf_black;
+            @include mobile() {
+                width: rwd(380);
+                height: 2px;
+            }
         }
     }
     .event_future_mid{
         margin-top: size(96);
         display: flex;
+        @include mobile() {
+            display: block;
+        }
         // 展覽預告02
         .event_future_1{
             margin-top: size(140);
             margin-left: size(88);
+            @include mobile() {
+                margin: rwd(32) auto;
+            }
          }
          // 展覽預告02
          .event_future_2{
              margin-top: size(348);
              margin-left: size(190);
+             @include mobile() {
+                margin: rwd(64) auto;
+            }
            }
     }
 
@@ -114,6 +163,9 @@
         height: size(1000);
         margin-left: size(132);
         background-color: $btnhover_gray;
+        @include mobile() {
+            display: none;
+        }
     }
 }
 
@@ -123,14 +175,21 @@
     height: size(3);
     float: right;
     background-color: $line_dark;
+    @include mobile() {
+        width: rwd(380);
+    margin-top: rwd(0);
+    height: 2px;
+    }
 }
 
 .event_3{
     clear: both;
     padding-top: size(96);
     box-sizing: border-box;
+    @include mobile() {
+        padding-top: rwd(32);  
+    }
     .event_pass_title{
-        
         width: size(1400);
         margin: 0 auto;
         padding: 0 size(16) size(16);
@@ -138,8 +197,16 @@
         justify-content: space-between;
         align-items: flex-end;
         border-bottom: size(3) solid $line_mid;
+        @include mobile() {
+            width: rwd(375);
+            padding: 0 rwd(8) rwd(32);
+            border-bottom: 0;
+        }
         h2{
             @include h2();
+            @include mobile() {
+                @include h1();
+            }
         }
         select{
             width: size(148);
@@ -147,6 +214,13 @@
             @include h5();
             padding-left: size(8);
             line-height: size(32);
+            @include mobile() {
+                width: rwd(148);
+                height: rwd(32);
+                @include p();
+                padding-left: rwd(8);
+                line-height: rwd(32);
+            }
         }
     }
     .event_pass{
@@ -158,17 +232,35 @@
         margin: 0 auto;
         width: size(1311);
         border-bottom: size(1) solid $line_mid;
+        @include mobile() {
+            width: rwd(375);
+            display: block;
+            border-bottom:1px solid $line_mid;
+            margin-top: rwd(16);
+        }
         .event_pass_img{
             margin-right: size(160);
             display: flex;
-                justify-content: center;
-                align-items: center;
-                overflow: hidden;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+                @include mobile() {
+                    margin: 0 auto;
+                    display: block;
+                    width: rwd(375);
+                }
             div{
                 overflow: hidden;
                 width: size(428);
+                @include mobile() {
+                    width: rwd(375); 
+                }
                 img{
                     width: size(428);
+                    @include mobile() {
+                        width: rwd(371);
+                        border: rwd(2) solid $black;
+                    }
                     &:hover{
                         transform: scale(1.1);
                         transition: all .3s ease-in-out;
@@ -184,6 +276,10 @@
 .events_btn{
     width: size(1311);
     margin: size(64) auto size(96);
+    @include mobile() {
+        width: rwd(250);
+        margin: rwd(32) rwd(20) rwd(0);
+    }
 }
 
 
@@ -192,15 +288,27 @@
 //展覽卡片
 .event_now_c{
     display: flex;
+    @include mobile() {
+        display: block;
+    }
 
-    // display: inline-block;
+    
     .event_title_c{
         margin-right: size(12);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        @include mobile() {
+            display: block;
+            width: rwd(375);
+            margin: 0 auto;
+        }
         .event_no{
             @include h3();
+            @include mobile() {
+                display: none;
+            }
+
         }
         .event_name{
             @include h3();
@@ -208,14 +316,23 @@
             margin-bottom: size(176);
             width: size(40);
             line-height: size(50);
+            @include mobile() {
+               display: none;
+            }
         }
     }
     .event_content_c{
     position: relative;
-    height: size(805);
+    // height: size(805);
+    @include mobile() {
+        width: rwd(375);
+        margin: 0 auto;
+    }
         img{
             width:size(348) ;
-            height:size(631) ;
+            @include mobile() {
+                width:rwd(375) ;
+            }
         }
         .event_room{
             @include h4();
@@ -223,11 +340,30 @@
             right:size(8);
             top:size(593);
             color:$white;
+            @include mobile() {
+                right:rwd(8);
+                top:rwd(646);
+            }
+        }
+        .event_name_rwd{
+            display: none;
+            @include mobile() {
+                display: block;
+                @include h4();
+                margin-top: rwd(16);
+                width: rwd(240);
+                line-height: rwd(30);
+            }
         }
         .event_date{
             @include h4();
             width: size(296);
             margin-top: size(40);
+            @include mobile() {
+                @include h5();
+            width: rwd(296);
+            margin-top: rwd(16);
+            }
 
         }
         h5{
@@ -237,6 +373,11 @@
             color: #747474;
             font-weight:200;
             line-height: 1.4;
+            @include mobile() {
+                @include p();
+                width: rwd(358);
+                margin-top: rwd(8);
+            }
         }
     }
     }
