@@ -2,9 +2,10 @@
 // signin.html
 // member.html
 // ticket.html
-// signin_suss.html
+// signin_succ.html
 // prime_pay.html
 // member_info.html
+// order.html
 // ticket_personal.html
 // ticket_group.html
 
@@ -163,7 +164,7 @@
 }
 
 
-// =======signin_suss.html========
+// =======signin_succ.html========
 
 // 上面
 .succ_top{
@@ -417,6 +418,14 @@
     a{
         margin: 0 auto;
     }
+}
+
+// ===========order.html=============
+
+// 按鈕
+.order_btn{
+    width: size(380);
+    justify-content: space-between;
 }
 
 // =========ticket_personal.html========
