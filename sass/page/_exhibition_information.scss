@@ -61,8 +61,15 @@
   height: size(120);
   background-color: $lightgray;
 
+  @include mobile() {
+    height: rwd(64);
+  }
+
   ul {
     display: flex;
+    @include mobile() {
+      justify-content: space-evenly;
+    }
     li {
       margin-right: size(30);
       color: $darkgray;
@@ -78,8 +85,15 @@
 // 簡介
 .ex_info_main {
   padding: size(160) 0;
+  @include mobile() {
+    padding: rwd(24) 0 rwd(88) 0;
+  }
   .ex_info_main_info {
     display: flex;
+    @include mobile() {
+      flex-direction: column;
+    }
+
     img {
       display: block;
       width: 100%;
@@ -93,9 +107,15 @@
     h4 {
       color: $black;
       margin-bottom: size(8);
+      @include mobile() {
+        margin: rwd(16) 0;
+      }
     }
     p {
       line-height: size(30);
+      @include mobile() {
+        line-height: rwd(30);
+      }
     }
   }
 }
@@ -106,6 +126,10 @@
   height: size(160);
   background-color: $lightgray;
   padding-top: size(32);
+  @include mobile() {
+    height: rwd(160);
+    padding-top: rwd(16);
+  }
   div {
     display: flex;
     justify-content: space-between;
@@ -113,10 +137,16 @@
     height: size(96);
     background-color: $white;
     padding: 0 size(102);
-
-    h5 {
+    @include mobile() {
+      height: rwd(120);
+      flex-direction: column;
+      justify-content: space-evenly;
     }
-    div {
+
+    a {
+      @include mobile() {
+        width: rwd(320);
+      }
     }
   }
 }
@@ -124,6 +154,9 @@
 // 文物 ( grid )
 .ex_info_art {
   padding: size(160) 0;
+  @include mobile() {
+    padding: rwd(40) 0;
+  }
 
   // GRID
   .ex_info_art_item {
@@ -139,12 +172,24 @@
 
     gap: 0;
 
+    @include mobile() {
+      // 2 列
+      outline: none;
+      height: rwd(430);
+      grid-template-rows: rwd(320) rwd(120);
+
+      // 3 欄
+      grid-template-columns: rwd(120) rwd(120) rwd(120);
+    }
+
     img {
       display: block;
       width: 100%;
       filter: brightness(50%);
       transition: all 0.5s;
-
+      @include mobile() {
+        width: 100%;
+      }
       &:hover {
         filter: brightness(100%);
       }
@@ -156,6 +201,13 @@
 
       grid-column-start: 1;
       grid-column-end: 2;
+      @include mobile() {
+        grid-row-start: 1;
+        grid-row-end: 3;
+
+        grid-column-start: 1;
+        grid-column-end: 4;
+      }
     }
     .ex_art_item-1 {
       grid-row-start: 1;
@@ -163,6 +215,13 @@
 
       grid-column-start: 2;
       grid-column-end: 4;
+      @include mobile() {
+        grid-row-start: 2;
+        grid-row-end: 3;
+
+        grid-column-start: 1;
+        grid-column-end: 2;
+      }
     }
     .ex_art_item-2 {
       grid-row-start: 2;
@@ -170,6 +229,13 @@
 
       grid-column-start: 3;
       grid-column-end: 4;
+      @include mobile() {
+        grid-row-start: 2;
+        grid-row-end: 3;
+
+        grid-column-start: 2;
+        grid-column-end: 3;
+      }
     }
     .ex_art_item-3 {
       grid-row-start: 3;
@@ -177,6 +243,13 @@
 
       grid-column-start: 2;
       grid-column-end: 3;
+      @include mobile() {
+        grid-row-start: 2;
+        grid-row-end: 3;
+
+        grid-column-start: 3;
+        grid-column-end: 4;
+      }
     }
     .ex_art_item-4 {
       grid-row-start: 2;
@@ -184,6 +257,9 @@
 
       grid-column-start: 2;
       grid-column-end: 3;
+      @include mobile() {
+        display: none;
+      }
     }
   }
 }
@@ -191,6 +267,9 @@
 // 相關展覽
 .ex_info_other {
   padding: size(160) 0;
+  @include mobile() {
+    padding: rwd(40) 0;
+  }
 
   .ex_info_like {
     display: flex;
@@ -201,6 +280,9 @@
       font-size: size(50);
       color: $black;
       margin: size(30);
+      @include mobile() {
+        display: none;
+      }
     }
 
     ul {
@@ -210,11 +292,24 @@
 
       li {
         height: size(600);
+        width: size(460);
         writing-mode: vertical-lr;
         background-repeat: no-repeat;
         background-size: cover;
         text-align: center;
         line-height: size(460);
+        @include mobile() {
+          height: rwd(240);
+          width: rwd(100);
+          line-height: rwd(128);
+          transform: scaleX(1.3);
+        }
+        h3 {
+          display: none;
+          @include mobile() {
+            display: none;
+          }
+        }
       }
     }
     .ex_info_like1 {
@@ -230,21 +325,26 @@
       margin-right: 0;
     }
   }
+}
+.ex_info_btn {
+  ul {
+    display: flex;
+    justify-content: center;
+    li {
+      cursor: pointer;
+      width: size(70);
+      height: size(10);
+      margin: size(24);
+      background-color: $lightgray;
 
-  .ex_info_btn {
-    ul {
-      display: flex;
-      justify-content: center;
-      li {
-        cursor: pointer;
-        width: size(70);
-        height: size(10);
-        margin: size(24) size(24);
-        background-color: $lightgray;
+      @include mobile() {
+        width: rwd(32);
+        height: rwd(8);
+        margin: rwd(42) rwd(16);
+      }
 
-        &:first-child {
-          background-color: $red;
-        }
+      &:first-child {
+        background-color: $red;
       }
     }
   }

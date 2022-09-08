@@ -10,7 +10,11 @@
       <!-- ====================================================== -->
       <!-- 上方大圖 -->
       <div class="ex_info_banner">
-        <img src="./images/ex_a1_banner.jpg" alt="" />
+        <picture>
+          <source srcset="./images/ex_a1_banner.jpg" media="(min-width:500px)" />
+          <source srcset="./images/ex_a1rwd_banner.jpg" media="(max-width:500px)" />
+          <img src="./images/" />
+        </picture>
       </div>
       <!-- 麵包屑 -->
       <div class="ex_info_bread">

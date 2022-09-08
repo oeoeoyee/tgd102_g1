@@ -3,9 +3,7 @@
   h1 {
     @include h1();
   }
-  i {
-    @include h1();
-  }
+
   h2 {
     @include h2();
   }
@@ -151,6 +149,7 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
       top: 50%;
       transform: translate(0, -50%);
       i {
+        @include h1();
         color: $red;
       }
     }
