@@ -1,48 +1,167 @@
+//大標題-分隔線
+.about_hr {
+    height: size(4);
+    width: 100%;
+    margin-left: auto;
+    margin-top: size(95);
+    margin-bottom: size(95);
+    background-color: $line_dark;
 
-//第一標題
-.about1 {
-    margin: 0 auto;
-    width: size(1420);
-    margin-top: size(72);
-
-    .about1_img1 {
-        width: size(1400);
-        margin-bottom: size(58);
-    }
-
-    .about1_p {
-        @include p();
-        width: size(1080);
-        line-height: 2;
-        letter-spacing: size(5); //跟Figma不同
-        margin-top: size(35); //跟Figma不同
-        margin-left: size(35);
+    @include mobile(){
+        display: none;
     }
 }
 
-.line_spacing {
+//標題內分隔線 & 手機分隔線
+.line1_spacing, .line2_spacing, .line3_spacing,
+.line4_spacing, .line5_spacing, .line6_spacing
+    {
     width: size(1660);
     height: size(3);
     margin-left: auto;
     margin-top: size(95);
     margin-bottom: size(95);
     background-color: $line_dark;
+
+    @include mobile(){
+        width: rwd(387);
+        margin-top: rwd(64);
+        height: rwd(3);
+        margin-bottom: rwd(50);
+    }
 }
 
+.line2_spacing{
+    margin-top: rwd(30);
+}
+
+.line4_spacing{
+    margin-top: rwd(45);
+}
+
+.about6_line2{
+    background-color: $black;
+    margin-top: size(35);
+    margin-bottom: size(50);
+    margin-left: size(35);
+    height: size(1);
+    width: size(400);
+    display: none;
+
+        @include mobile(){
+            width: auto;
+            height:rwd(2);
+            margin-top: rwd(16);
+            margin-bottom: rwd(64);
+            display: block;
+        }
+}
+//===============================================
+
+//第一部分  緣起
+.about1 {
+    margin: 0 auto;
+    width: size(1420);
+    margin-top: size(72);
+    
+    @include mobile(){
+        margin-top: 0;
+        width: rwd(414);
+    }
+
+    .title{
+        @include mobile (){
+            margin-left:rwd(27);
+            width: auto;
+        }
+
+        div{
+            @include mobile(){
+                margin-left: auto;
+            }
+        }
+    }
+
+    .about1_img1 {
+        width: size(1400);
+        margin-bottom: size(58);
+
+        @include mobile(){
+            width: rwd(414);
+            margin-bottom: rwd(50);
+        }
+    }
+
+    .about1_p {
+        @include p();
+        width: size(1080);
+        line-height: 2;
+        letter-spacing: size(5); 
+        margin-top: size(35); 
+        margin-left: size(35);
+
+        @include mobile(){
+            margin: 0;
+            width: rwd(330);
+            margin-left: rwd(27);
+        }
+    }
+}
+
+//第二部分  票價資訊
 .about2{
     width: size(1420);
     margin: 0 auto;
 
-    .about2_innet2{
+    @include mobile(){
+        width: rwd(414);
+        margin-top: rwd(32);
+    }
+
+    .title{
+        @include mobile (){
+            margin-left:rwd(27);
+            width: auto;
+        }
+
+        div{
+            @include mobile(){
+                margin-left: auto;
+            }
+        }
+    }
+
+    .btn_m{
+        @include mobile(){
+            margin-bottom: rwd(40);
+        }
+    }
+
+    .about2_inner2{
+        margin: 0 auto;
+    }
+
+    .about2_inner2{
         width: size(1174);
         margin: 0 auto;
         display: flex;
         margin-top: size(72);
 
+        @include mobile(){
+            width: auto;
+            flex-direction: column;
+            margin-left: rwd(27);
+            margin-top: rwd(30);
+        }
+
         .left_picture{
             img{
                 width: size(529);
                 margin-right: size(116);
+
+                @include mobile(){
+                    width: rwd(300);
+                }
             }
         }
 
@@ -50,57 +169,96 @@
             img{
                 width: size(529);
                 margin-right: size(116);
+
+                @include mobile(){
+                    width: rwd(300);
+                    margin-top: rwd(15);
+                }
             }
         }
 
-        .about_inner_ticket{
+// 圖片下方資訊
+        .about2_inner_ticket{
             display: flex;
             width: size(530);
             text-align: center;
             margin-top: size(15);
             margin-bottom: size(28);
 
+            @include mobile(){
+                width: auto;
+                flex-wrap: wrap;
+                margin-top: rwd(15);
+                margin-bottom: rwd(15)
+            }
+            
             h4{
                 @include h4();
+                @include mobile(){
+                    width: auto;
+                    // display: block;
+                    text-align: left;
+                    margin-right: rwd(20);
+                }
             }
 
             .line2_spacing{
-                width: size(1);
+                width: size(3);
                 height: size(29);
                 background-color: $line_dark;
                 margin: 0 size(20);
+
+                @include mobile(){
+                    height: rwd(29);
+                    width: rwd(2);
+                    margin-right: rwd(20);
+                }
             }
 
             h5{
                 @include h5();
+                @include mobile(){
+                    line-height: rwd(28);
+                    margin-bottom: rwd(10);
+                }
             }
-
-            h5:nth-child(4){
-                @include h5();
+            
+            p{
+                @include p();
                 margin-left: auto;
                 font-weight: lighter;
+                @include mobile(){
+                    width: 100%;
+                    display:block;
+                    text-align: left;
+                }
             }
         }
     }
-
-
-
-
-
-
-
-
 }
 
-
-
-
-
-
+//第三部分  導覽服務
 .about3 {
     margin: 0 auto;
     width: size(1420);
-    
+
+    @include mobile(){
+        width: rwd(414);
+        margin-top: rwd(32);
+    }
+
+    .title{
+        @include mobile (){
+            margin-left:rwd(27);
+            width: auto;
+        }
+
+        div{
+            @include mobile(){
+                margin-left: auto;
+            }
+        }
+    }
 
     .about3_inner {
         display: flex;
@@ -108,25 +266,65 @@
         margin: 0 auto;
         margin-top: size(98);
 
+        @include mobile(){
+            flex-direction: column;
+            width: rwd(360);
+        }
+
         .about3_img1 {
             height: size(542);
             margin-right: size(51);
             margin-top: size(36);
+
+            @include mobile(){
+                display: none;
+            }
         }
 
+        .about3_img2{
+            display: none;
+
+            @include mobile(){
+                width: rwd(350);
+                display: block;
+            }
+        }
+        
+//分隔線
         .about3_straight {
             margin-right: size(55);
             margin-left: size(50);
             width: size(3);
             height: size(632);
             background-color: $btnhover_gray;
+
+            @include mobile(){
+                display: none;
+            }
         }
 
+        .about3_line1 {
+            height: size(1);
+            background-color: $btnhover_gray;
+
+            @include mobile(){
+                margin-bottom: rwd(32);
+                margin-top: rwd(32)
+            }
+        }
+
+//右邊文字區
         .about3_inner_right {
-            h3 {
-                @include h3();
+            width: auto;
+
+            h4 {
+                @include h4();
                 margin-top: size(28);
                 margin-bottom: size(32);
+
+                @include mobile(){
+                    margin-bottom: rwd(16);
+                }
             }
 
             p {
@@ -135,17 +333,40 @@
                 margin-bottom: size(33);
             }
 
-            .about3_line {
+            .about3_line2 {
                 height: size(1);
                 background-color: $btnhover_gray;
+                
+                @include mobile(){
+                    display: none;
+                }
             }
         }
     }
 }
 
+//第四部分  開放時間
 .about4 {
     margin: 0 auto;
     width: size(1420);
+
+    @include mobile(){
+        width: rwd(414);
+        margin-top: rwd(32);
+    }
+
+    .title{
+        @include mobile (){
+            margin-left:rwd(27);
+            width: auto;
+        }
+
+        div{
+            @include mobile(){
+                margin-left: auto;
+            }
+        }
+    }
 
     .about4_inner {
         display: flex;
@@ -153,25 +374,52 @@
         width: size(1400);
         margin-top: size(95);
 
+        @include mobile(){
+            flex-direction: column;
+            width: 100%;
+        }
+
+//左邊圖片
         .about4_inner_left {
             margin-right: size(97);
+            @include mobile(){
+                width: rwd(360);
+                margin: 0 auto;
+                margin-bottom: rwd(32);
+            }
 
             .about4_img1 {
                 width: size(880);
                 margin-bottom: size(32);
+                @include mobile(){
+                    width: 100%;
+                    margin-bottom: rwd(16);
+                }
             }
         }
-
+//右邊文字區
         .about4_inner_right {
+            @include mobile(){
+                margin-left: rwd(35);
+                width: rwd(360);
+            }
+
             h4 {
                 @include h4();
                 margin-bottom: size(33);
+                @include mobile(){
+                    margin-bottom: rwd(20);
+                }
             }
 
             h5 {
                 @include h5();
                 margin-bottom: size(16);
                 font-weight: lighter;
+                @include mobile(){
+                    @include p();
+                    margin-bottom: rwd(22);
+                }
             }
 
             .about4_line {
@@ -179,29 +427,49 @@
                 background-color: $btnhover_gray;
                 margin-top: size(72);
                 margin-bottom: size(72);
+                @include mobile(){
+                    width: 100%;
+                    margin-top: rwd(32);
+                    margin-bottom: rwd(32);
+                    height: rwd(1);
+                }
             }
         }
     }
 }
 
-.about_hr {
-    height: size(4);
-    width: 100%;
-    margin-left: auto;
-    margin-top: size(95);
-    margin-bottom: size(95);
-    background-color: $line_dark;
-}
-
+//第五部分  參觀須知
 .about5 {
     margin: 0 auto;
     width: size(1420);
+
+    @include mobile(){
+        width: rwd(414);
+        margin-top: rwd(32);
+    }
+
+    .title{
+        @include mobile (){
+            margin-left:rwd(27);
+            width: auto;
+        }
+
+        div{
+            @include mobile(){
+                margin-left: auto;
+            }
+        }
+    }
 
     .about5_inner {
         margin: 0 auto;
         width: size(1380);
 
+        @include mobile(){
+            width:rwd(360);
+        }
 
+//上方白字黑底標題
         .about5_inner_block {
             background-color: $black;
             margin: size(20) 0;
@@ -212,79 +480,167 @@
                 height: size(60);
                 line-height: size(60);
                 margin-left: size(10);
+
+                @include mobile(){
+                    display: none;
+                }
             }
         }
 
         p {
             @include p();
             margin-bottom: size(30);
+
+            @include mobile(){
+                margin-left: rwd(4);
+                margin-bottom: rwd(20);
+                letter-spacing: rwd(2);
+            }
         }
 
         ul {
             margin-top: size(32);
             list-style: decimal;
             margin-left: size(20);
-            //手機板 跑出去
 
+//下方文字區
             li {
                 margin-bottom: size(32);
-
+                
+                //li的編號超出li 怎麼併在內
                 p {
                     @include p();
+                    @include mobile(){
+                        margin-left: 0;
+                    }
                 }
             }
         }
-
+//警告標誌Icon
         img {
             margin-top: size(60);
+
+            @include mobile(){
+                width: rwd(360);
+                display: block;
+                margin: 0 auto;
+                margin-top: rwd(30);
+            }
         }
     }
 }
 
+//第六部分  交通資訊
 .about6 {
     margin: 0 auto;
     width: size(1420);
 
+    @include mobile(){
+        width: rwd(414);
+        margin-top: rwd(32);
+    }
+
+    .title{
+        @include mobile (){
+            margin-left:rwd(27);
+            width: auto;
+        }
+
+        div{
+            @include mobile(){
+                margin-left: auto;
+            }
+        }
+    }
+
     .about6_inner {
         margin: 0 auto;
 
+        @include mobile(){
+            width: rwd(380);
+        }
+
+//Google地圖((尚未嵌入)
         .about6_img1 {
             margin-top: size(74);
             height: size(480);
+
+            @include mobile(){
+                width: 100%;
+                margin-bottom: rwd(17)
+            }
         }
 
-        h4 {
+        .about6_address {
             @include h4();
             margin-top: size(32);
             margin-left: size(35);
-        }
 
+            @include mobile(){
+                font-size: rwd(18);
+                margin-bottom: rwd(32);
+                margin-left: rwd(5);
+            }
+        }
+//方法一:公車
         .about6_tip1 {
             margin-left: size(35);
             margin-top: size(70);
 
+            @include mobile(){
+                width: auto;
+                margin-left: 0 ;
+                text-align: left
+            }
+
             h4 {
                 @include h4();
+
+                @include mobile(){
+                    font-size: rwd(18);
+                    margin-left: rwd(5);
+                }
             }
 
             .about6_line {
-                background-color: $btnhover_gray;
+                background-color: $black;
                 margin-top: size(35);
                 margin-bottom: size(50);
-                margin-left: size(35);
                 height: size(1);
                 width: size(300);
+
+                @include mobile(){
+                    width: auto;
+                    height:rwd(2);
+                    margin-top: rwd(16);
+                    margin-bottom: rwd(16);
+                    margin-left: rwd(5);
+
+                }
             }
 
+//公車-文字區
             .about6_tip1_inner {
-                margin-left: size(35);
                 display: flex;
+
+                @include mobile(){
+                    width: 100%;
+                    margin-left: rwd(5);
+                }
 
                 ul {
                     width: size(350);
 
+                    @include mobile(){
+                        width: auto;
+                    }
+
                     li {
                         margin-bottom: size(30);
+
+                        @include mobile(){
+                            width: rwd(210);
+                        }
 
                         p {
                             @include p();
@@ -295,48 +651,95 @@
                 h2 {
                     @include h2();
                     margin-top: size(30);
+
+                    @include mobile(){
+                        margin-top: auto;
+                        margin-bottom: auto;
+                    }
                 }
 
                 .station1 {
                     @include p();
                     margin-top: size(45);
                     margin-left: size(50);
+
+                    @include mobile(){
+                        margin-top: auto;
+                        margin-bottom: auto;
+                        margin-left: rwd(20);
+                    }
                 }
             }
         }
 
+//方法二:客運
         .about6_tip2 {
             margin-left: size(35);
             margin-top: size(70);
 
+            @include mobile(){
+                width: auto;
+                margin-left: 0
+            }
+
             h4 {
                 @include h4();
+
+                @include mobile(){
+                    font-size: rwd(18);
+                    margin-left: rwd(5);
+                }
             }
 
             .notice1 {
                 @include p();
                 margin-top: size(50);
-                margin-left: size(35);
+
+                @include mobile(){
+                    letter-spacing: rwd(1.5);
+                    line-height: 1.3;
+                    margin-top: rwd(20);
+                    margin-left: rwd(5);
+
+                }
             }
 
             .about6_line {
-                background-color: $btnhover_gray;
+                background-color: $black;
                 margin-top: size(35);
                 margin-bottom: size(50);
-                margin-left: size(35);
                 height: size(1);
                 width: size(300);
-            }
 
+                @include mobile(){
+                    width:auto;
+                    height:rwd(2);
+                    margin-top: rwd(16);
+                    margin-bottom: rwd(16);
+                    margin-left: rwd(5);
+                }
+            }
+//客運-文字區
             .about6_tip2_inner {
-                margin-left: size(35);
                 display: flex;
+                
+                @include mobile(){
+                    margin-left: rwd(6);
+                }
 
                 ul {
                     width: size(350);
 
+                    @include mobile(){
+                        width: auto;
+                    }
+
                     li {
                         margin-bottom: size(30);
+
+                        @include mobile(){
+                            width: rwd(210);
+                        }
 
                         p {
                             @include p();
@@ -344,68 +747,129 @@
                     }
                 }
 
+//到站箭頭
                 h2 {
                     @include h2();
                     margin-top: size(30);
+
+                    @include mobile(){
+                        margin-top: auto;
+                        margin-bottom: auto;
+                    }
                 }
 
                 .station2 {
                     @include p();
                     margin-top: size(45);
                     margin-left: size(50);
+
+                    @include mobile(){
+                        margin-top: auto;
+                        margin-bottom: auto;
+                        margin-left: rwd(20);
+                    }
                 }
             }
         }
 
+//方法三:捷運
         .about6_tip3 {
             margin-left: size(35);
             margin-top: size(100);
 
+            @include mobile(){
+                width: auto;
+                margin-left: 0
+            }
+
             h4 {
                 @include h4();
+
+                @include mobile(){
+                    font-size: rwd(18);
+                    margin-left: rwd(5);
+                }
             }
 
             .about6_line {
-                background-color: $btnhover_gray;
+                background-color: $black;
                 margin-top: size(35);
                 margin-bottom: size(50);
-                margin-left: size(35);
                 height: size(1);
                 width: size(400);
+
+                @include mobile(){
+                    width: auto;
+                    height:rwd(2);
+                    margin-top: rwd(16);
+                    margin-bottom: rwd(16);
+                    margin-left: rwd(5);
+
+                }
             }
 
+//捷運-文字區
             p {
                 @include p();
-                margin-left: size(35);
+                @include mobile(){
+                    margin-left: rwd(5);
+                }
+
+                @include mobile(){
+                    letter-spacing: rwd(1.5);
+                    line-height: 1.3;
+                }
             }
         }
 
+//方法四:自行開車
         .about6_tip4 {
             margin-left: size(35);
             margin-top: size(100);
 
+            @include mobile(){
+                width: auto;
+                margin-left: 0
+            }
+
             h4 {
                 @include h4();
+
+                @include mobile(){
+                    font-size: rwd(18);
+                    margin-left: rwd(5);
+                }
             }
 
             .about6_line {
-                background-color: $btnhover_gray;
+                background-color: $black;
                 margin-top: size(35);
                 margin-bottom: size(50);
-                margin-left: size(35);
                 height: size(1);
                 width: size(400);
+
+                @include mobile(){
+                    width: auto;
+                    height:rwd(2);
+                    margin-top: rwd(16);
+                    margin-bottom: rwd(16);
+                    margin-left: rwd(5);
+
+                }
             }
 
+//自行開車-文字區
             p {
                 @include p();
-                margin-left: size(35);
+
+                @include mobile(){
+                    letter-spacing: rwd(1.5);
+                    line-height: 1.3;
+                    margin-left: rwd(5);
+                }
             }
         }
-
-
-
-
-
     }
 }
+
+
