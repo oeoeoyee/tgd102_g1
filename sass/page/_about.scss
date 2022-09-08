@@ -56,6 +56,19 @@
             display: block;
         }
 }
+
+.title{
+    @include mobile (){
+        margin-left:rwd(27);
+        width: auto;
+    }
+
+    div{
+        @include mobile(){
+            margin-left: auto;
+        }
+    }
+}
 //===============================================
 
 //第一部分  緣起
@@ -67,19 +80,6 @@
     @include mobile(){
         margin-top: 0;
         width: rwd(414);
-    }
-
-    .title{
-        @include mobile (){
-            margin-left:rwd(27);
-            width: auto;
-        }
-
-        div{
-            @include mobile(){
-                margin-left: auto;
-            }
-        }
     }
 
     .about1_img1 {
@@ -116,19 +116,6 @@
     @include mobile(){
         width: rwd(414);
         margin-top: rwd(32);
-    }
-
-    .title{
-        @include mobile (){
-            margin-left:rwd(27);
-            width: auto;
-        }
-
-        div{
-            @include mobile(){
-                margin-left: auto;
-            }
-        }
     }
 
     .btn_m{
@@ -247,19 +234,6 @@
         margin-top: rwd(32);
     }
 
-    .title{
-        @include mobile (){
-            margin-left:rwd(27);
-            width: auto;
-        }
-
-        div{
-            @include mobile(){
-                margin-left: auto;
-            }
-        }
-    }
-
     .about3_inner {
         display: flex;
         width: size(1194);
@@ -355,19 +329,6 @@
         margin-top: rwd(32);
     }
 
-    .title{
-        @include mobile (){
-            margin-left:rwd(27);
-            width: auto;
-        }
-
-        div{
-            @include mobile(){
-                margin-left: auto;
-            }
-        }
-    }
-
     .about4_inner {
         display: flex;
         margin: 0 auto;
@@ -397,6 +358,7 @@
                 }
             }
         }
+
 //右邊文字區
         .about4_inner_right {
             @include mobile(){
@@ -446,19 +408,6 @@
     @include mobile(){
         width: rwd(414);
         margin-top: rwd(32);
-    }
-
-    .title{
-        @include mobile (){
-            margin-left:rwd(27);
-            width: auto;
-        }
-
-        div{
-            @include mobile(){
-                margin-left: auto;
-            }
-        }
     }
 
     .about5_inner {
@@ -516,6 +465,7 @@
                 }
             }
         }
+
 //警告標誌Icon
         img {
             margin-top: size(60);
@@ -538,19 +488,6 @@
     @include mobile(){
         width: rwd(414);
         margin-top: rwd(32);
-    }
-
-    .title{
-        @include mobile (){
-            margin-left:rwd(27);
-            width: auto;
-        }
-
-        div{
-            @include mobile(){
-                margin-left: auto;
-            }
-        }
     }
 
     .about6_inner {
@@ -582,6 +519,7 @@
                 margin-left: rwd(5);
             }
         }
+
 //方法一:公車
         .about6_tip1 {
             margin-left: size(35);
@@ -719,6 +657,7 @@
                     margin-left: rwd(5);
                 }
             }
+            
 //客運-文字區
             .about6_tip2_inner {
                 display: flex;
@@ -871,5 +810,3 @@
         }
     }
 }
-
-
