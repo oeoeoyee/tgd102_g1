@@ -81,7 +81,6 @@
     margin-top: size(96);
     margin-bottom: size(32);
     text-align: right;
-    @include 
     h4{
         display: inline-block;
         margin-left: size(24);
@@ -113,7 +112,7 @@
         align-items: center;
         border-bottom: size(1) solid $line_mid;
         img{
-            width: 100%;
+            width: size(428);
             height: size(252);
             object-fit: cover;
         }
