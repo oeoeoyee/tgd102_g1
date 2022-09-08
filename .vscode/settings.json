@@ -1,0 +1,10 @@
+{
+    "npm.exclude": "",
+    "liveSassCompile.settings.forceBaseDirectory": "",
+    "liveSassCompile.settings.generateMap": false,
+    "liveSassCompile.settings.includeItems": [
+    
+    ],
+    "liveSassCompile.settings.showAnnouncements": null,
+    "liveSassCompile.settings.rootIsWorkspace": null
+}

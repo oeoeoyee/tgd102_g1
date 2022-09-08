@@ -7,12 +7,21 @@
   }
   h3 {
     @include h3();
+    @include mobile() {
+      font-size: rwd(24);
+    }
   }
   h4 {
     @include h4();
+    @include mobile() {
+      font-size: rwd(20);
+    }
   }
   h5 {
     @include h5();
+    @include mobile() {
+      font-size: rwd(16);
+    }
   }
   p {
     @include p();
@@ -20,6 +29,16 @@
 
   .title {
     margin-bottom: size(64);
+  }
+
+  // 置中 class
+  .ex_center {
+    width: size(1420);
+    margin: 0 auto;
+    @include mobile() {
+      width: rwd(374);
+      margin: 0 auto;
+    }
   }
 
   footer {
@@ -30,6 +49,7 @@
 // 大圖
 .ex_info_banner {
   img {
+    width: 100%;
     display: block;
   }
 }
@@ -38,30 +58,36 @@
 .ex_info_bread {
   display: flex;
   align-items: center;
-  height: size(160);
-  padding: 0 size(250);
+  height: size(120);
   background-color: $lightgray;
+
   ul {
     display: flex;
     li {
       margin-right: size(30);
+      color: $darkgray;
       cursor: pointer;
+
+      &:last-child {
+        color: $black;
+      }
     }
   }
 }
 
 // 簡介
 .ex_info_main {
-  padding: size(88) size(250) size(156);
-
+  padding: size(160) 0;
   .ex_info_main_info {
     display: flex;
     img {
       display: block;
+      width: 100%;
     }
 
     .ex_info_line {
       border: size(1) solid $line_light;
+      background-color: $line_light;
       margin: 0 size(97);
     }
     h4 {
@@ -79,7 +105,7 @@
 .ex_info_buy {
   height: size(160);
   background-color: $lightgray;
-  padding: size(32) size(250) 0;
+  padding-top: size(32);
   div {
     display: flex;
     justify-content: space-between;
@@ -97,32 +123,27 @@
 
 // 文物 ( grid )
 .ex_info_art {
-  height: size(1280);
-  padding: size(104) size(250) 0;
-
-  img {
-    display: block;
-  }
+  padding: size(160) 0;
 
   // GRID
   .ex_info_art_item {
     display: grid;
     overflow: hidden;
+    outline: size(2) solid $line_mid;
 
     // 3 列
-    grid-template-rows: size(540) size(140) size(200);
+    grid-template-rows: size(540) size(140) size(195);
 
     // 3 欄
     grid-template-columns: size(880) size(180) size(360);
 
     gap: 0;
-    // height: size(880);
 
     img {
       display: block;
       width: 100%;
       filter: brightness(50%);
-      transition: all .5s;
+      transition: all 0.5s;
 
       &:hover {
         filter: brightness(100%);
@@ -169,5 +190,62 @@
 
 // 相關展覽
 .ex_info_other {
-  padding: size(80) size(250) 0;
+  padding: size(160) 0;
+
+  .ex_info_like {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      font-size: size(50);
+      color: $black;
+      margin: size(30);
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      flex-shrink: 0;
+
+      li {
+        height: size(600);
+        writing-mode: vertical-lr;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        line-height: size(460);
+      }
+    }
+    .ex_info_like1 {
+      background-image: url("../../images/ex_a7.jpg");
+    }
+
+    .ex_info_like2 {
+      background-image: url("../../images/ex_a8.jpg");
+    }
+
+    .ex_info_like3 {
+      background-image: url("../../images/ex_a9.jpg");
+      margin-right: 0;
+    }
+  }
+
+  .ex_info_btn {
+    ul {
+      display: flex;
+      justify-content: center;
+      li {
+        cursor: pointer;
+        width: size(70);
+        height: size(10);
+        margin: size(24) size(24);
+        background-color: $lightgray;
+
+        &:first-child {
+          background-color: $red;
+        }
+      }
+    }
+  }
 }
