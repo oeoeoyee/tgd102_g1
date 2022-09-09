@@ -37,3 +37,86 @@
     margin: 0 auto;
 }
 
+.back_edit_title{
+@include bk_edit();
+    label{
+        @include label();
+    }
+    input{
+        @include input();
+        margin: 0;
+    }
+    p{
+        @include p();
+        margin-left: 16px;
+        align-self: flex-end;
+        margin-bottom: 0;
+        
+    }
+}
+
+.back_edit_room{
+@include bk_edit();
+    label{
+        @include label();
+    }
+    select{
+        @include input();
+        padding-right: 16px;
+        margin: 0;
+    }
+}
+
+.back_edit_pic{
+@include bk_edit();
+    label{
+        @include label();
+    }
+    div{
+        border: 1px solid $line_mid;
+        @include input();
+        background-color: $white;
+        margin: 0;
+    }
+    button{
+        border: 0;
+        background-color: $btnhover_gray;
+        width: size(100);
+        height: size(40);
+        margin-left: size(16);
+    }
+}
+
+.back_edit_text{
+    display: flex;
+    @include bk_edit();
+    label{
+        @include label();
+        align-self: flex-start;
+    }
+    textarea{
+        width: size(530);
+        height: size(200);
+        resize: none;
+        @include p();
+    }
+    p{
+        @include p();
+        align-self: flex-end;
+        margin: 0 size(16) 0 ;
+    }
+}
+
+.edit_button{
+    display: flex;
+    justify-content: center;
+    margin: size(64) 0;
+    button{
+        border: 0;
+        background-color: $btnhover_gray;
+        width: size(120);
+        height: size(52);
+        margin-right: size(16);
+        @include h5();
+    }
+}

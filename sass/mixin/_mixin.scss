@@ -15,7 +15,17 @@
     }
 }
 
+@mixin bk_edit(){
+    display: flex;
+    align-items: center;
+    margin-top: size(32);
+}
 
+@mixin label(){
+        @include h4();
+        width: size(140);
+        margin-right: size(100);
+}
 // 如何使用function:範例:
 // header{
 //     屬性: function名稱(變數);

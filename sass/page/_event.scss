@@ -16,7 +16,7 @@
         margin-left: size(258);   
         @include mobile() {
             margin-bottom: rwd(16);
-            margin-left: rwd(28); 
+            margin-left: rwd(20); 
         }     
     }
     .event_right_line{
@@ -25,7 +25,7 @@
         float: right;
         background-color: $line_dark;
         @include mobile() {
-            width: rwd(380);
+            width: rwd(394);
             height: 2px;
         }
     }
@@ -42,7 +42,7 @@
             @include mobile() {
                 @include h1();
                 margin-bottom: rwd(8);
-                margin-left: rwd(28);
+                margin-left: rwd(20);
             }
         }
         .event_left_line{
@@ -50,8 +50,9 @@
             height: size(1.5); 
             background-color: $hf_black;
             @include mobile() {
-                width: rwd(380);
+                width: rwd(172);
                 height: 2px;
+                background-color: $line_mid;
             }
         }
     }
@@ -76,7 +77,7 @@
            margin-top: size(272);
            margin-left: size(190);
            @include mobile() {
-               margin: rwd(64) auto rwd(64);
+               margin: rwd(32) auto rwd(64);
            }
         }
         // 當期展覽01
@@ -120,7 +121,7 @@
             @include mobile() {
                 @include h1();
                 margin-bottom: rwd(8);
-                margin-left: rwd(28);
+                margin-left: rwd(20);
                 
             }
         }
@@ -129,8 +130,9 @@
             height: size(1.5);
             background-color: $hf_black;
             @include mobile() {
-                width: rwd(380);
+                width: rwd(172);
                 height: 2px;
+                background-color: $line_mid;
             }
         }
     }
@@ -139,6 +141,7 @@
         display: flex;
         @include mobile() {
             display: block;
+            margin-top: rwd(32);
         }
         // 展覽預告02
         .event_future_1{
@@ -176,7 +179,7 @@
     float: right;
     background-color: $line_dark;
     @include mobile() {
-        width: rwd(380);
+        width: rwd(394);
     margin-top: rwd(0);
     height: 2px;
     }

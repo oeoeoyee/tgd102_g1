@@ -77,7 +77,7 @@
     @include mobile(){
         width: rwd(375);
         height: rwd(253);
-        padding: rwd(36) rwd(12) rwd(24) rwd(22);
+        padding: rwd(36) rwd(12) rwd(24) rwd(0);
         h3{
             @include h4();
             margin-bottom: rwd(16);
@@ -86,11 +86,11 @@
             @include p();
         }
         h5:first-of-type{
-            width: rwd(270);
+            width: rwd(375);
         }
         div{
             height: rwd(1);
-            margin-top: rwd(36);
+            margin-top: rwd(16);
             margin-bottom: rwd(20);
         }
         p:last-of-type{
