@@ -98,7 +98,7 @@
     .event01_2_title{
         width: size(902);
         @include mobile() {
-            width: rwd(339);
+            width: rwd(375);
             margin: rwd(30) auto 0;
             order: 2;
         }
@@ -109,12 +109,12 @@
                 margin-bottom: rwd(16);
                 &::after{
                     content: " ";
-                    width: rwd(375);
+                    width: rwd(394);
                     height: 2px;
                     background-color: $line_light;
                     position: absolute;
                     top:rwd(40);
-                    right: rwd(-37);
+                    left: 0;
                 }
             }
         }
@@ -132,7 +132,7 @@
             font-weight: 200;
             @include mobile() {
                 margin-top: rwd(20);
-                width: rwd(340);
+                width: rwd(375);
                 @include p();
                 line-height: 1.6;
             }
@@ -146,7 +146,7 @@
             margin-top: rwd(32);
             &::before{
                 content: " ";
-                width: rwd(387);
+                width: rwd(394);
                 height: 2px;
                 background-color: $black;
                 position: absolute;
@@ -219,11 +219,12 @@
     margin-top: rwd(64);
     background-color: $black;
    }
-//    &:nth-child(1){
-//     @include mobile() {
-//         display: none;
-//     }
-//    }
+}
+
+.event01_4 + .event01_left_line{
+    @include mobile() {
+        display: none;
+    }
 }
 
 .event01_3{
@@ -231,6 +232,7 @@
     margin-bottom: size(190);
     margin-top: size(200);
     @include mobile() {
+        max-width: 100%;
         flex-direction: column;
         margin-bottom: rwd(64);
         margin-top: rwd(64);
@@ -243,8 +245,9 @@
         width: size(694);
         @include mobile() {
             width: rwd(375);
-            margin: rwd(32) rwd(29) rwd(0) rwd(40);
+            margin: rwd(32) auto rwd(0) ;
             display: block;
+            
         }
         h2{
             @include h2();
@@ -253,12 +256,12 @@
             @include mobile() {
             &::after{
                 content: " ";
-                width: rwd(375);
+                width: rwd(394);
                 height: 2px;
                 background-color: $line_light;
                 position: absolute;
                 top:rwd(40);
-                right: rwd(0);
+                left:0;
             }
         }
         }
@@ -279,7 +282,7 @@
                 margin-top: rwd(16);
                 line-height: 1.6;
                 @include p();
-                width: rwd(340);
+                width: rwd(375);
 
             }
         }
@@ -328,14 +331,14 @@
         border-bottom: size(3) solid $line_mid;
         @include mobile() {
             width: rwd(375);
-            margin: 0 auto;
-            padding: 0 rwd(16) rwd(16) ;
+            margin: 0;
+            padding: 0 rwd(20) rwd(0) ;
             border-bottom: 0;
             flex-direction: column;
             align-items: start;
             &::after{
                 content: "";
-                width: rwd(379);
+                width: rwd(394);
                 height: 2px;
                 background-color: $line_light;
 
@@ -364,40 +367,39 @@
         float: right;
         @include mobile() {
             width: rwd(414);
-            margin-bottom: rwd(0);
-            margin-top: rwd(16);
+            margin-bottom: rwd(64);
+            margin-top: rwd(0);
             float:none;
         }
         
         ul{
             display: flex;
             @include mobile() {
-                // display: block;
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
             }
             li{
                 margin-right: size(40);
                 @include mobile() {
-                    position: relative;
+                    margin: rwd(32) auto 0;
+                    width: rwd(375);
+                    border-bottom: 1px solid $line_light;
+                    padding-bottom: rwd(16);
                     
                 }
                 h4{
                     @include h4();
                     @include mobile() {
-                        position: absolute;
-                        top:rwd(448);
-                        left:rwd(32);
-                        color: $white;
-                        @include h1();
-                        z-index: 2;
                     }
                 }
                 img{
                     margin-top: size(32);
                     width: size(820);
                     @include mobile() {
-                        width: auto;
-                        transform: translateX(rwd(-350));
-                        height: rwd(710);
+                        width: rwd(375);
+                        margin-top: rwd(16);
+                        display: block
                     }
                     
                 }
@@ -408,12 +410,8 @@
                     font-weight: 200;
                     line-height: 1.4;
                     @include mobile() {
-                        position: absolute;
-                        width: rwd(280);
-                        line-height: rwd(30);
-                        top:rwd(502);
-                        left:rwd(32);
-                        color: $white;
+                        width: rwd(375);
+                        margin-top: rwd(16);
                         @include p();
                     }
                 }

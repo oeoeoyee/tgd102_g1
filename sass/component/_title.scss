@@ -27,5 +27,15 @@
     }
 }
 
+.edit_edit_title{
+    h2{
+        @include h2(); 
+    }
+}
+
+.back_main{
+    margin: size(64)  size(64) 0;
+}
+
 
 
