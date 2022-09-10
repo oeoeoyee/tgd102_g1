@@ -12,6 +12,44 @@
     .back_main{
         h2{
             font-size: size(40);
+            // 字粗體
+            // font-weight: bold;
         }
     }
 }
+
+// ================= 有table的頁面 ================== // 
+
+// 標頭(只有搜尋欄)
+.back_table_title{
+    display: flex;
+    justify-content: space-between;
+    h2{
+        display: inline-block;
+    }
+}
+
+// 標頭(有草稿、搜尋欄、新增)
+.back_table_title{
+    div{
+        display: flex;
+        align-items: center;
+        input, span{
+            margin-left: size(20);
+        }
+        span{
+            display: inline-block;
+            width: size(40);
+            height: size(40);
+            background-color: $hf_black;
+        }
+    }
+}
+
+// 看要不要改整體
+// 為了給後台的main寬度
+.back_flexgrow{
+    flex-grow: 1;
+}
+
+// =================  ================== // 

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "後台_訂單管理"
+    })
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <!-- header -->
+        <!-- @@include('./layout/header.html') -->
+
+        <div class="back_out">
+            
+            <!-- 主選單 -->
+            <nav class="back">
+            @@include('./layout/back_nav.html')
+            </nav>
+            
+            <!-- 右邊 -->
+            <div class="back_main back_flexgrow">
+                <div class="back_table_title">
+                    <h2>訂單管理</h2>
+                    <input type="text" class="back_search" name="" id="">
+                </div>
+                <table class="back_table">
+                    <thead>
+                        <tr>
+                            <th>訂單編號</th>
+                            <th>訂單日期</th>
+                            <th>展覽名稱</th>
+                            <th>入館日期</th>
+                            <th>費用</th>
+                            <th>付款方式</th>
+                            <th>會員姓名</th>
+                            <th>付款狀態</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="back_table_udline">P0074683</td>
+                            <td>2022/08/24</td>
+                            <td>亞洲的地獄與幽魂</td>
+                            <td>2022/08/24</td>
+                            <td>$1000</td>
+                            <td>超商</td>
+                            <td>山富國際旅行社</td>
+                            <td>付款中</td>
+                        </tr>
+                        <tr>
+                            <td>P0074683</td>
+                            <td>2022/08/24</td>
+                            <td>亞洲的地獄與幽魂</td>
+                            <td>2022/08/24</td>
+                            <td>$1000</td>
+                            <td>超商</td>
+                            <td>山富國際旅行社</td>
+                            <td>付款中</td>
+                        </tr>
+                        <tr>
+                            <td>P0074683</td>
+                            <td>2022/08/24</td>
+                            <td>亞洲的地獄與幽魂</td>
+                            <td>2022/08/24</td>
+                            <td>$1000</td>
+                            <td>超商</td>
+                            <td>山富國際旅行社</td>
+                            <td>付款中</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul class="news_page">
+                    <li>＜</li>
+                    <li>01</li>
+                    <li>02</li>
+                    <li>03</li>
+                    <li>04</li>
+                    <li>05</li>
+                    <li>＞</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <!-- @@include('./layout/footer.html') -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "後台_電子報清單"
+    })
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <!-- header -->
+        <!-- @@include('./layout/header.html') -->
+
+        <div class="back_out">
+            
+            <!-- 主選單 -->
+            <nav class="back">
+            @@include('./layout/back_nav.html')
+            </nav>
+            
+            <!-- 右邊 -->
+            <div class="back_main back_flexgrow">
+                <div class="back_table_title">
+                    <h2>電子報清單</h2>
+                    <div>
+                        <input type="text" class="back_search" name="" id="">
+                        <span class="icon_create"></span>
+                    </div>
+                </div>
+                <table class="back_table back_table_p0">
+                    <thead>
+                        <tr>
+                            <th>電子報編號</th>
+                            <th>電子報主題</th>
+                            <th>發送時間</th>
+                            <th>狀態</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1123455552</td>
+                            <td class="back_table_udline">2022八月電子報</td>
+                            <td>2022/08/24</td>
+                            <td>草稿</td>
+                        </tr>
+                        <tr>
+                            <td>1123455552</td>
+                            <td>2022八月電子報</td>
+                            <td>2022/08/24</td>
+                            <td>已發送</td>
+                        </tr>
+                        <tr>
+                            <td>1123455552</td>
+                            <td>2022八月電子報</td>
+                            <td>2022/08/24</td>
+                            <td>已發送</td>
+                        </tr>
+                        <tr>
+                            <td>1123455552</td>
+                            <td>2022八月電子報</td>
+                            <td>2022/08/24</td>
+                            <td>已發送</td>
+                        </tr>
+                        <tr>
+                            <td>1123455552</td>
+                            <td>2022八月電子報</td>
+                            <td>2022/08/24</td>
+                            <td>已發送</td>
+                        </tr>
+                        <tr>
+                            <td>1123455552</td>
+                            <td>2022八月電子報</td>
+                            <td>2022/08/24</td>
+                            <td>已發送</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul class="news_page">
+                    <li>＜</li>
+                    <li>01</li>
+                    <li>02</li>
+                    <li>03</li>
+                    <li>04</li>
+                    <li>05</li>
+                    <li>＞</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <!-- @@include('./layout/footer.html') -->
+    </div>
+</body>
+</html>
