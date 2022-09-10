@@ -62,7 +62,6 @@
     }
     select{
         @include input();
-        padding-right: 16px;
         margin: 0;
     }
 }
@@ -113,12 +112,60 @@
     margin: size(64) 0;
     button{
         border: 0;
-        background-color: $btnhover_gray;
+        background-color:  $btnhover_gray;
         width: size(120);
         height: size(52);
         margin-right: size(16);
         @include h5();
+
+        &:hover{
+            
+        }
     }
+}
+
+.back_edit_file{
+    @include bk_edit();
+        label{
+            @include label();
+        }
+        div{
+            border: 1px solid $line_mid;
+            @include input();
+            background-color: $white;
+            margin: 0;
+        }
+        button{
+            border: 0;
+            background-color: $btnhover_gray;
+            width: size(100);
+            height: size(40);
+            margin-left: size(16);
+        }
+        p{
+            @include p();
+            align-self: flex-end;
+            margin: 0 size(16) 0 ;
+        }
+}
+
+.edit_checkbox{
+    @include bk_edit();
+    h4{
+        @include h4();
+        width: size(140);
+        margin-right: size(100);
+    }
+    input{
+        width: size(24);
+    }
+    label{
+        width: size(60);
+        margin: 0 size(80) 0 size(8);
+        @include p();
+        
+    }
+
 }
 
 // 後台右上角搜尋框
