@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "預約成功"
+    })
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- header -->
+        @@include('./layout/header.html')
+        
+        <!-- banner -->
+        <div class="login_banner">
+            <img src="./images/login_01.png" alt="">
+        </div>
+
+        <!-- 上面 -->
+        <div class="login_top succ_top payment_succ">
+
+            <h2>預約成功!</h2>
+
+            <!-- 資料表格 -->
+            <!-- ul>li>span -->
+            <form method="post" action="">
+                <ul>
+                    <li>姓名：林布蘭</li>
+                    <li>電話：0912345678</li>
+                </ul>
+                <ul>
+                    <li>訂單編號：P0074683</li>
+                    <li>入館日期：2022/08/24</li>
+                </ul>
+                <!-- 會員條碼 -->
+                <img src="./images/member_01_qrcode.png" alt="">
+                <h4>如何使用：請於現場出示QRcode，限於當日兌換，並於票卷上有效日期內核銷使用，逾期失效</h4>
+            </form>
+
+            <!-- 按鈕 -->
+            <div class="login_btn_out succ">
+                <a href="#" class="btn_s_remind">訂單紀錄</a>
+            </div>
+
+        </div>
+
+        
+        
+        <!-- footer -->
+        @@include('./layout/footer.html')
+        
+    </div>
+</body>
+</html>

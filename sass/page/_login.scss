@@ -6,9 +6,14 @@
 // prime_pay.html
 // member_info.html
 // order.html
+// order_list.html
+// return_ticket.html
 // ticket_personal.html
 // ticket_group.html
-
+// level_normal.html
+// level_prime.html
+// payment_atm_succ.html
+// group_credit_succ.html
 
 // =======login.html========
 // banner
@@ -246,6 +251,7 @@
         // margin-bottom: size(32);
         padding-bottom: size(41);
         @include h3();
+        color: $black;
     }
 
     ul{
@@ -276,6 +282,7 @@
             @include h3();
             margin-bottom: size(72);
             text-align: center;
+            color: $black;
         }
         
         input{
@@ -358,12 +365,14 @@
                 display: flex;
                 margin-bottom: size(52);
                 @include h4();
+                color: $black;
                 // font-weight: normal;
 
                 p{
                     margin-left: size(32);
                     @include h4();
                     font-weight: normal;
+                    color: $black;
                 }
             }
 
@@ -373,6 +382,8 @@
                 text-align: center;
                 @include h3();
                 margin-top: size(80);
+                color: $black;
+
                 img{
                     margin: 0 auto;
                     width: size(295);
@@ -432,6 +443,28 @@
     justify-content: space-between;
 }
 
+// ===========order_list.html===========
+
+// 分隔線
+.order_line{
+    background-color: $black;
+    width: size(659);
+    height: size(1);
+    margin-bottom: size(52);
+}
+
+// =========return_ticket.html==========
+
+.payment{
+
+    // 退票說明
+    h4{
+        @include h4();
+        color: $black;
+        text-align: center;
+        margin-top: size(72);
+    }
+}
 // =========ticket_personal.html========
 
 // 上面
@@ -498,12 +531,13 @@
         text-align: center;
         @include h3();
         margin-bottom: size(32);
+        color: $black;
     }
     p{
         @include h4();
         font-weight: normal;
         line-height: size(41);
-
+        color: $black;
     }
 
     // 同意ck
@@ -524,3 +558,84 @@
     margin-top: size(32);
 }
 
+// =========level_normal.html===============
+
+// level圈圈
+.level{
+    position: relative;
+    margin-left: size(60);
+    margin-top: size(130);
+    img{
+        position: absolute;
+        width: size(154);
+        top: size(-130);
+        left: size(160);
+    }
+    // 圈
+    .circle{
+        width: size(449);
+        height: size(449);
+        border-radius: 50%;
+        border: size(24) solid $black;
+        box-sizing: border-box;
+
+        p{
+            font-size: size(80);
+            font-weight: bold;
+            text-align: center;
+            line-height: size(401);
+            color: $black;
+        }
+    }
+}
+
+// prime 說明
+.prime_level{
+    margin-top: size(112);
+    ul{
+        margin-bottom: size(71);
+        li{
+            margin-bottom: size(38)!important;
+        }
+    }
+}
+
+// =========level_prime.html===============
+
+.level{
+    // prime皇冠
+    .queen{
+        top: size(-90);
+        left: size(-30);
+    }
+
+}
+
+// ==========payment_atm_succ.html=======
+
+.payment_succ{
+    form{
+        margin-bottom: size(146);
+        ul{
+            display: flex;
+            justify-content: center;
+            li{
+                text-align: center;
+                margin-right: size(20);
+            }
+        }
+    }
+    h4{
+        margin-top: size(68);
+    }
+
+}
+
+// =======group_credit_succ.html===========
+
+.payment_succ{
+    img{
+        width: size(295);
+        margin-left: size(452.5);
+    }
+}
