@@ -224,26 +224,7 @@
     padding-left: size(402);
     display: flex;
 
-    // prime 說明
-    .prime_top{
-        margin-right: size(130);
-        h3{
-            margin-bottom: size(32);
-        }
     
-        ul{
-            li{
-                margin-bottom: size(32);
-                @include h4();
-
-                i{
-                    font-size: size(28);
-                    margin-right: size(25);
-                }
-            }
-        }
-    }
-
     // 價錢按鈕
     .price{
         display: flex;
@@ -255,7 +236,29 @@
         }
         a{}
     }
+    
+}
 
+// prime 說明
+.prime_top{
+    margin-right: size(130);
+    h3{
+        // margin-bottom: size(32);
+        padding-bottom: size(41);
+        @include h3();
+    }
+
+    ul{
+        li{
+            margin-bottom: size(32);
+            @include h4();
+
+            i{
+                font-size: size(28);
+                margin-right: size(25);
+            }
+        }
+    }
 }
 
 // =========prime_pay.html===========
@@ -265,24 +268,7 @@
     flex-direction: column;
     align-items: center;
     padding-left: 0;
-    // prime 說明
-    .prime_pay{
-        margin-right: 0;
-        padding-bottom: size(53);
-        h3{
-            text-align: center;
-            padding-bottom: size(41);
-            @include h3();
-        }
-
-        ul{
-            padding-left: size(130);
-            li{
-                
-            }
-        }
-    }
-
+    
     // 價錢按鈕
     .price_btn{
         padding-top: size(72);
@@ -291,9 +277,27 @@
             margin-bottom: size(72);
             text-align: center;
         }
-
+        
         input{
             margin: 0 auto;
+        }
+    }
+}
+
+// prime 說明
+.prime_pay{
+    margin-right: 0;
+    padding-bottom: size(53);
+    h3{
+        text-align: center;
+        padding-bottom: size(41);
+        @include h3();
+    }
+
+    ul{
+        padding-left: size(130);
+        li{
+            
         }
     }
 }
@@ -519,3 +523,4 @@
 .login_ckbox2{
     margin-top: size(32);
 }
+
