@@ -3,8 +3,9 @@
     // margin-left: size(370);
     flex-grow: 1;
 
-    ul{
-        // margin-top: size(240);
+    // 電腦
+    .pc_nav{
+        margin-top: size(240);
         
         li{
             margin-bottom: size(38);
@@ -18,6 +19,35 @@
                 color: $black;
                 @include h6();
                 font-weight: normal;
+            }
+        }
+
+        @include mobile(){
+            display: none;
+        }
+    }
+
+    // 手機
+    .phone_nav{
+        // 電腦 none
+        display: none;
+
+        @include mobile(){
+
+            display: block;
+            li{
+                margin-bottom: size(38);
+    
+                .bold{
+                    font-weight: bold;
+                }
+    
+                a{
+                    text-decoration: none;
+                    color: $black;
+                    @include h6();
+                    font-weight: normal;
+                }
             }
         }
     }
