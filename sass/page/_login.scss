@@ -1,13 +1,19 @@
-// login.html
-// signin.html
-// member.html
-// ticket.html
-// signin_succ.html
-// prime_pay.html
-// member_info.html
-// order.html
-// ticket_personal.html
-// ticket_group.html
+// login.html               不知道span標籤如何水平checkbox
+// signin.html              不知道span標籤如何水平checkbox
+// member.html              沒切
+// ticket.html              已切
+// signin_succ.html         已切
+// prime_pay.html           已切 但沒figma 手機板 所以照感覺
+// member_info.html         選單跟h2位置要對調  下面不知道怎寫
+// order.html               不會寫
+// ticket_personal.html     total(table) 不會寫
+//                          選擇日期 不會寫
+// ticket_group.html        同上
+
+
+
+
+// here 字體按照figma的     (搜尋這個可以看到哪邊是按照figma)
 
 
 // =======login.html========
@@ -24,11 +30,19 @@
     @include input_out();
     margin-bottom: size(41);
 
+    @include mobile(){
+        width: auto;
+    }
+
     h2{
         color: $black;
         @include h2();
         text-align: center;
         margin: size(72) 0;
+
+        @include mobile(){
+            margin-bottom: rwd(32);
+        }
     }
 
     ul{
@@ -36,10 +50,19 @@
         width: 100%;
         margin-bottom: size(39);
         // 電子信箱(帳號)/密碼
+
         li{
             input{
                 width: 100%;
                 @include input();
+
+                @include mobile(){
+                    display: block;
+                    width: rwd(320);
+                    height: rwd(40);
+                    margin: 0 auto;
+                    margin-bottom: rwd(20);
+                }
             }
         }
 
@@ -62,6 +85,11 @@
         display: flex;
         justify-content: center;
 
+        @include mobile(){
+            margin-bottom: rwd(33);
+        }
+        
+
         // 記住我
         input{
             margin-right: size(96);
@@ -73,11 +101,24 @@
     
 }
 
+.login_line{
+    @include mobile(){
+        width: rwd(350);
+        height: rwd(1);
+        margin-top: rwd(34);
+        margin-bottom: rwd(34);
+    }
+}
 
 // 其他登入
 .login_bottom{
     @include input_out();
     margin-top: size(72);
+
+    @include mobile(){
+        width: auto;    
+    }
+
     h4{
         @include h4();
         color: $black;
@@ -90,10 +131,20 @@
         justify-content: space-between;
         width: size(239);
         margin: 0 auto;
+
+        @include mobile(){
+            width: rwd(120);
+            margin-top: rwd(32);
+        }
+
         a{
             
             img{
                 width: size(45);
+
+                @include mobile(){
+                    width: rwd(35);    
+                }
                 
             }
         }
@@ -131,10 +182,22 @@
         justify-content: space-between;
         margin-bottom: 0;
 
+        @include mobile(){
+            display: block;
+        }
+
         li{
             width: size(303);
             height: size(303);
             border: size(2) solid $black;
+
+            @include mobile(){
+                width: auto;
+                padding: 0;
+                margin-bottom: rwd(20);
+                border: rwd(2) solid $black;
+
+            }
             
             a{
                 text-decoration: none;
@@ -143,9 +206,13 @@
                 text-align: center;
                 line-height: size(303);
                 display: block;
+
+                // here 字體按照figma的 
+                @include mobile(){
+                    font-size: rwd(20);
+                }
             }
         }
-
     }
 }
 
@@ -154,11 +221,25 @@
 .ticket{
     width: size(741);
 
+    @include mobile(){
+        width: rwd(250);
+    }
+
     li{
         padding-top: size(110);
 
+        br{
+            @include mobile(){
+                display: none;
+            }
+        }
+
         a{
             line-height: size(44)!important;
+
+            @include mobile(){
+                line-height: rwd(60)!important;
+            }
         }
     }
 }
@@ -170,10 +251,27 @@
 .succ_top{
     width: size(1200);
 
+    @include mobile(){
+        width: auto;
+    }
+
     h4{
         @include h4();
         text-align: center;
         margin-bottom: size(72);
+
+        @include mobile(){
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+
+        // here 字體按照figma的 
+        @include mobile(){
+            width: rwd(374);
+            font-size: rwd(16);
+            margin-bottom: rwd(32);
+        }
     }
 
     // 按鈕
@@ -182,6 +280,11 @@
         // 立即訂票 右
         // a{}
 
+        @include mobile(){
+            margin-bottom: rwd(60);
+        }
+
+        // here 按鈕跟figma不同
         // 會員中心 左
         .btn_succ{
             margin-right: size(135);
@@ -196,16 +299,39 @@
     justify-content: center;
     padding: size(72) 0;
     align-items: center;
+    
+    @include mobile(){
+        display: block;
+        padding-top: rwd(40);
+    }
 
     img{
         width: size(488);
         margin-right: size(100);
+        
+        @include mobile(){
+            width: rwd(374);
+            display: block;
+            margin: 0 auto;
+        }
     }
 
     section{
+        @include mobile(){
+            width: rwd(374);
+            margin: 0 auto;
+            margin-bottom: rwd(20);
+        }
+
         h3{
             @include h3();
             margin-bottom: size(46);
+
+            // here 字體跟figma不同
+            @include mobile(){
+                font-size: rwd(20);
+                margin-top: rwd(32)
+            }
         }
     
         h4{
@@ -213,8 +339,13 @@
             font-weight: normal;
             letter-spacing: 11.5%;
             line-height: 176%;
-        }
 
+            // here 字體跟figma不同
+            @include mobile(){
+                font-size: rwd(16);
+                margin-top: rwd(11);
+            }
+        }
     }
 }
 
@@ -224,20 +355,46 @@
     padding-left: size(402);
     display: flex;
 
+    @include mobile(){
+        padding: 0;
+        display: block;
+        margin-top: rwd(40);
+        margin-bottom: rwd(40);
+    }
+}
+
     
     // 價錢按鈕
     .price{
         display: flex;
         align-items: flex-end;
 
+        @include mobile(){
+            display: block;
+        }
+
         h3{
             @include h3();
             margin-right: size(44);
+
+            @include mobile(){
+                font-size: rwd(24);
+                text-align: right;
+                margin-bottom: rwd(32);
+                margin-right: rwd(24);
+                margin-top: rwd(32);
+            }
         }
-        a{}
+
+        a{
+            @include mobile(){
+                margin-left: auto;
+                margin-right: rwd(24);
+            }
+        }
     }
     
-}
+
 
 // prime 說明
 .prime_top{
@@ -246,16 +403,35 @@
         // margin-bottom: size(32);
         padding-bottom: size(41);
         @include h3();
+
+        // here 字體跟figma不同
+        @include mobile(){
+            font-size: rwd(20);
+            margin-left: rwd(20);
+            margin-bottom: rwd(32);
+        }
     }
 
     ul{
         li{
             margin-bottom: size(32);
             @include h4();
+            
+            // here 字體跟figma不同
+            @include mobile(){
+                font-size: rwd(16);
+                margin-bottom: rwd(20);
+                margin-left: rwd(26);
+            }
 
             i{
                 font-size: size(28);
                 margin-right: size(25);
+
+            // here 字體跟figma不同            
+                @include mobile(){
+                    font-size: rwd(20);
+                }
             }
         }
     }
@@ -268,6 +444,8 @@
     flex-direction: column;
     align-items: center;
     padding-left: 0;
+
+    
     
     // 價錢按鈕
     .price_btn{
@@ -276,6 +454,10 @@
             @include h3();
             margin-bottom: size(72);
             text-align: center;
+
+            @include mobile(){
+                margin-bottom: rwd(30);
+            }
         }
         
         input{
@@ -288,16 +470,43 @@
 .prime_pay{
     margin-right: 0;
     padding-bottom: size(53);
+
+    @include mobile(){
+        width: auto;
+        padding: rwd(10);
+    }
+
     h3{
         text-align: center;
         padding-bottom: size(41);
         @include h3();
+
+
+        // here 字體跟figma不同            
+        @include mobile(){
+            width: auto;
+            margin: 0 auto;
+            margin-left: 0;
+            font-size: rwd(24);
+        }
     }
 
     ul{
         padding-left: size(130);
+
+        @include mobile(){
+            width: auto;
+            padding: 0;
+            margin: 0 auto;
+            margin-top: rwd(20);
+            text-align: left;
+            width: rwd(220);
+
+        }
         li{
-            
+            @include mobile(){
+                margin-left: 0;
+            }
         }
     }
 }
@@ -309,6 +518,10 @@
         @include h3();
         margin-bottom: size(32);
         text-align: center;
+
+        @include mobile(){
+            margin-bottom: rwd(32);
+        }
     }
 
     // 信用卡 / atm
@@ -322,7 +535,7 @@
 
         li{
 
-            input{}
+            // input{}
 
             span{
                 @include p();
@@ -338,6 +551,7 @@
     color: $black;
     text-align: center;
     padding: size(73) 0;
+
 }
 
 .member_out{
@@ -345,6 +559,42 @@
     justify-content: center;
     width: size(1420);
     margin: 0 auto;
+
+    @include mobile(){
+        display: block;
+        width: rwd(380);
+    }
+    
+    //左邊
+    .member_nav{
+
+        //建議html 寫一個 不然沒辦法換位置
+        //如果 html寫好 這邊的margin 換到 .member_h2底下
+        @include mobile(){
+            margin-bottom: rwd(20);
+        }
+
+        ul{
+            @include mobile(){
+                display: flex;
+                justify-content: center;
+                text-align: center;
+            }
+
+            li{
+                @include mobile(){
+                    flex-grow: 1;
+                }
+            }
+        }
+        
+        a{
+            @include mobile(){
+                font-size: rwd(16);
+                width: auto;
+            }
+        }
+    }
 
     // 右邊
     .member_right{
@@ -354,16 +604,28 @@
         // 資料表格
         // ul>li>span
         ul{
+            // @include mobile(){
+            //     width: rwd(380);
+            // }
+
             li{
                 display: flex;
                 margin-bottom: size(52);
                 @include h4();
                 // font-weight: normal;
 
+                // @include mobile(){
+                //     margin-top:rwd(30);
+                // }
+
                 p{
                     margin-left: size(32);
                     @include h4();
                     font-weight: normal;
+
+                    // @include mobile(){
+                    //     margin-left: rwd(70);
+                    // }
                 }
             }
 
@@ -441,8 +703,24 @@
     // 上面選單
     ul{
         li{
+            @include mobile(){
+                text-align: center;
+                margin-bottom: rwd(15);
+
+                &:nth-last-child(2){
+                    margin-bottom: rwd(50);
+                }
+            }
+
             select{
                 @include input();
+                @include mobile(){
+                    
+                    width: rwd(320);
+                    height: rwd(40);
+                    border: rwd(2) solid $black;
+                    font-weight: lighter;
+                }
             }
         }
     }
@@ -494,16 +772,34 @@
     width: size(1216);
     margin: 0 auto;
 
+    @include mobile(){
+        width: auto;
+    }
+
     h3{
         text-align: center;
         @include h3();
         margin-bottom: size(32);
+
+        @include mobile(){
+            margin-bottom: rwd(21);
+        }
     }
+
     p{
         @include h4();
         font-weight: normal;
         line-height: size(41);
 
+
+        //字體跟figma不同
+        @include mobile(){
+            line-height: 2;
+            width: rwd(360);
+            font-size: rwd(16);
+            margin: 0 auto;
+            margin-bottom: rwd(20);
+        }
     }
 
     // 同意ck
@@ -512,8 +808,11 @@
         justify-content: center;
         margin-top: size(40);
         margin-bottom: size(40);
-    }
 
+        @include mobile(){
+            margin-bottom: rwd(20);
+        }
+    }
 }
 
 // ==========ticket_group.html==============
