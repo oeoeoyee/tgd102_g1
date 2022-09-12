@@ -84,6 +84,28 @@
         height: size(40);
         margin-left: size(16);
     }
+    input{
+        display: none;
+    }
+    .pic{
+        margin: 0 auto;
+        background-color: $btnhover_gray;
+        width: size(100);
+        height: size(40);
+        margin-left: size(16);
+        &:hover{
+            cursor: pointer;
+        }
+        p{
+            margin: 0 auto;
+            width: size(38);
+            font-size: size(16);
+            line-height: size(40);
+        }
+        &:hover{
+            border: 1px solid $black;
+        }
+    }
 }
 
 .back_edit_text{
@@ -117,10 +139,6 @@
         height: size(52);
         margin-right: size(16);
         @include h5();
-
-        &:hover{
-            
-        }
     }
 }
 
@@ -135,12 +153,35 @@
             background-color: $white;
             margin: 0;
         }
-        button{
-            border: 0;
+        
+        // button{
+        //     border: 0;
+        //     background-color: $btnhover_gray;
+        //     width: size(100);
+        //     height: size(40);
+        //     margin-left: size(16);
+        // }
+        input{
+            display: none;
+        }
+        .pic{
+            margin: 0 auto;
             background-color: $btnhover_gray;
             width: size(100);
             height: size(40);
             margin-left: size(16);
+            &:hover{
+                cursor: pointer;
+            }
+            p{
+                margin: 0 auto;
+                width: size(38);
+                font-size: size(16);
+                line-height: size(40);
+            }
+            &:hover{
+                border: 1px solid $black;
+            }
         }
         p{
             @include p();
@@ -166,4 +207,11 @@
         
     }
 
+}
+
+.back_edit_summernote{
+    @include bk_edit();
+        label{
+            @include label();
+        }
 }
