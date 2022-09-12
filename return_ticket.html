@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     @@include('./layout/head.html', {
-        "title" : "訂單明細"
+        "title" : "退票"
     })
 </head>
 <body>
@@ -29,6 +29,7 @@
             <div class="member_right">
 
                 <!-- 資料表格 -->
+
                 <!-- ul>li>span -->
                 <form method="post" action="">
                     <ul>
@@ -45,18 +46,39 @@
                         <li>費用總計<p>NT$1500</p></li>
                         <li>付款狀態<p>已付款</p></li>
                         <li>付款方式<p>信用卡</p></li>
-                        <!-- 會員條碼 -->
-                        <li class="member_code">會員票證<img src="./images/member_01_qrcode.png" alt=""></li>
                     </ul>
                 </form>
-
-                
             </div>
             
         </div>
+
+        <!-- 分隔線 -->
+        <div class="login_line"></div>
+
+        <!-- 付款方式 -->
+        <div class="payment">
+            <h3>請選擇付款方式</h3>
+            <ul>
+                <!-- 信用卡 -->
+                <li class="credit">
+                    <label for="credit">
+                        <input type="radio" name="pay" id="credit" value="信用卡"><span>信用卡</span>
+                    </label>
+                </li>
+
+                <!-- ATM -->
+                <li>
+                    <label for="atm">
+                        <input type="radio" name="pay" id="atm" value="ATM"><span>ATM轉帳</span>
+                    </label>
+                </li>
+            </ul>
+            <!-- 退票說明 -->
+            <h4>30個工作日內，依您申請的信用卡資料完成退款轉帳。(不需扣除手續費)</h4>
+        </div>
         
         <!-- 按鈕 -->
-        <div class="login_btn_out btn_center order_btn">
+        <div class="btn_center order_btn">
             <a href="#" class="btn_s_remind">返回</a>
             <a href="signin.html" class="btn_s_default">退票</a>
         </div>

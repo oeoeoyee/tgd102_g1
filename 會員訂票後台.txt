@@ -9,8 +9,15 @@
 // prime_pay.html                升級prime付款頁
 // member_info.html              會員資料
 // order.html                    訂單明細
+// order_list.html               訂單紀錄
+// return_ticket.html            退票
 // ticket_personal.html          一般訂票付款頁
 // ticket_group.html             團體訂票付款頁
+// level_normal.html             會員等級normal
+// level_prime.html              會員等級prime
+// payment_atm_succ.html         購票成功(atm)
+// group_credit_succ.html        預約成功(信用卡)
+
 
 ***************************************後台***********************************
 // back_member.html              會員管理                     back.scss
