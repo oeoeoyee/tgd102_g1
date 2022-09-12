@@ -32,7 +32,15 @@
 //     width: size(1920);
 // }
 
-
+@mixin pic(){
+    .pic{
+        margin: 0 auto;
+        background-color: $btnhover_gray;
+        width: size(100);
+        height: size(40);
+        margin-left: size(16);
+    }
+}
 
 
 
