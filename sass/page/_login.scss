@@ -928,11 +928,21 @@
     position: relative;
     margin-left: size(60);
     margin-top: size(130);
+    @include mobile{
+        margin: 0 auto;
+    };
     img{
         position: absolute;
         width: size(154);
         top: size(-130);
         left: size(160);
+        @include mobile{
+            width: rwd(51);
+            top: rwd(-40);
+            left: 0;
+            right: 0;
+            margin: auto;
+        };
     }
     // 圈
     .circle{
@@ -941,25 +951,54 @@
         border-radius: 50%;
         border: size(24) solid $black;
         box-sizing: border-box;
-
+        @include mobile{
+            width: rwd(146);
+            height: rwd(146);
+            border: rwd(8) solid $black;
+            margin: 0 auto;
+        };
         p{
             font-size: size(80);
             font-weight: bold;
             text-align: center;
             line-height: size(401);
             color: $black;
+            @include mobile{
+                font-size: rwd(24);
+                line-height: rwd(130);
+            };
         }
     }
+
 }
 
 // prime 說明
 .prime_level{
     margin-top: size(112);
+    @include mobile {
+        h3{
+            font-size: rwd(20);
+            margin-left: rwd(20);
+            margin-bottom: rwd(32);
+        }
+    }
     ul{
         margin-bottom: size(71);
+        
         li{
             margin-bottom: size(38)!important;
+            @include mobile {
+                font-size: rwd(16)!important;
+                margin-bottom: rwd(20)!important;
+                margin-left: rwd(26)!important;
+            }
         }
+    }
+}
+
+.login_btn_out {
+    @include mobile{
+        width: 100%;
     }
 }
 
