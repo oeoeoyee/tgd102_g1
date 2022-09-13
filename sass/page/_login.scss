@@ -8,10 +8,12 @@
 // member_info.html         明天弄
 // order.html               不會寫
 
+// level_normal.html        已切
+// level_prime.html         已切
+
 // ticket_personal.html     已切
 // ticket_group.html        已切，語音導覽 的 第一個li 選不到 
 //                          margin-bottom 太遠 
-
 
 
 
@@ -602,121 +604,45 @@
     margin: 0 auto;
 
     @include mobile(){
-        display: block;
+        // display: block;
         width: rwd(380);
     }
     
-    //左邊
-    .member_nav{
-
-        //建議html 寫一個 不然沒辦法換位置
-        //如果 html寫好 這邊的margin 換到 .member_h2底下
-        @include mobile(){
-            margin-bottom: rwd(20);
-        }
-
-        ul{
-            @include mobile(){
-                display: flex;
-                justify-content: center;
-                text-align: center;
-            }
-
-            li{
-                @include mobile(){
-                    flex-grow: 1;
-                }
-            }
-        }
-        
-        a{
-            @include mobile(){
-                font-size: rwd(16);
-                width: auto;
-            }
-        }
-    }
 
     // 右邊
     .member_right{
         flex-grow: 1;
-        // margin-left: size(244);
 
         // 資料表格
-        // ul>li>span
-        ul{
-            // @include mobile(){
-            //     width: rwd(380);
-            // }
+        table{
+            tbody{
+                tr{
+                    
+                    td{
+                        padding-bottom: size(57);
+                        @include h4();
+                        color: $black;
+                        font-weight: normal;
+                    }
 
-            li{
-                display: flex;
-                margin-bottom: size(52);
-                @include h4();
-                color: $black;
-                // font-weight: normal;
+                    td:first-child{
+                        width: size(190);
+                        font-weight: bold;
+                    }
 
-                // @include mobile(){
-                //     margin-top:rwd(30);
-                // }
+                     // 會員條碼
+                    .member_code{
+                        vertical-align: top;
+                    }
+                    .member_code_img{
+                        margin: 0 auto;
+                        width: size(230);
+                        // margin-top: size(32);
+                    }
 
-                p{
-                    margin-left: size(32);
-                    @include h4();
-                    font-weight: normal;
-
-                    // @include mobile(){
-                    //     margin-left: rwd(70);
-                    // }
-                    color: $black;
-                }
-            }
-
-            // 會員條碼
-            .member_code{
-                // flex-direction: column;
-                text-align: center;
-                @include h3();
-                margin-top: size(80);
-                color: $black;
-
-                img{
-                    margin: 0 auto;
-                    width: size(295);
-                    margin-top: size(32);
                 }
             }
         }
-
-
-        // table 找不到可以設定寬度的東東
-        // table{
-        //     // table-layout: fixed;
-        //     // tbody{
-        //         tr{
-                    
-        //             td{
-        //                 padding-bottom: size(57);
-        //                 // width: 50%;
-        //                 @include h4();
-        //                 font-weight: normal;
-        //             }
-
-        //             td:first-child{
-        //                 width: size(190);
-        //                 width: 30%;
-        //             }
-
-        //             .member_code{
-        //                 width: 100%;
-        //                 text-align: center;
-        //             }
-
-        //             .member_code_img{}
-
-        //         }
-        //     // }
-        // }
     }
 }
 
@@ -740,6 +666,28 @@
 }
 
 // ===========order_list.html===========
+
+// 資料表格
+.order_table{
+    table{
+        tbody{
+            margin-left:auto; 
+            margin-right:auto;
+            tr{
+                td{
+                    text-align: center;
+                    // vertical-align: middle;
+                }
+            }
+        }
+    }
+
+    .fa-angle-right{
+        font-size: size(40);
+        vertical-align: middle;
+
+    }
+}
 
 // 分隔線
 .order_line{
@@ -928,11 +876,22 @@
     position: relative;
     margin-left: size(60);
     margin-top: size(130);
+    @include mobile{
+
+        margin: rwd(64) auto;
+    };
     img{
         position: absolute;
         width: size(154);
         top: size(-130);
         left: size(160);
+        @include mobile{
+            width: rwd(51);
+            top: rwd(-40);
+            left: 0;
+            right: 0;
+            margin: auto;
+        };
     }
     // 圈
     .circle{
@@ -941,25 +900,56 @@
         border-radius: 50%;
         border: size(24) solid $black;
         box-sizing: border-box;
-
+        @include mobile{
+            width: rwd(146);
+            height: rwd(146);
+            border: rwd(8) solid $black;
+            margin: 0 auto;
+        };
         p{
             font-size: size(80);
             font-weight: bold;
             text-align: center;
             line-height: size(401);
             color: $black;
+            @include mobile{
+                font-size: rwd(24);
+                line-height: rwd(130);
+            };
         }
     }
+
 }
 
 // prime 說明
 .prime_level{
     margin-top: size(112);
+    @include mobile {
+        h3{
+            font-size: rwd(20);
+            margin-left: rwd(20);
+            margin-bottom: rwd(32);
+        }
+    }
     ul{
         margin-bottom: size(71);
+        @include mobile {
+            margin-bottom: rwd(60);
+        }
         li{
             margin-bottom: size(38)!important;
+            @include mobile {
+                font-size: rwd(16)!important;
+                margin-bottom: rwd(20)!important;
+                margin-left: rwd(26)!important;
+            }
         }
+    }
+}
+
+.login_btn_out {
+    @include mobile{
+        width: 100%;
     }
 }
 
@@ -970,8 +960,11 @@
     .queen{
         top: size(-90);
         left: size(-30);
+        @include mobile{
+            top: rwd(-35);
+            left: rwd(-100);
+        };
     }
-
 }
 
 // ==========payment_atm_succ.html=======

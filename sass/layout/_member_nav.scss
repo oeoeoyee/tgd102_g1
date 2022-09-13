@@ -1,11 +1,13 @@
+// 電腦
 .member_nav{
-
+    @include mobile(){
+        display: none;
+    }
     // margin-left: size(370);
     flex-grow: 1;
 
-    // 電腦
-    .pc_nav{
-        margin-top: size(240);
+    ul{
+        
         
         li{
             margin-bottom: size(38);
@@ -21,34 +23,55 @@
                 font-weight: normal;
             }
         }
+    }
+}
 
-        @include mobile(){
-            display: none;
-        }
+// 手機
+.member_phone_nav{
+    display: none;
+    
+    @include mobile(){
+        display: block;
+        width: rwd(380);
+        margin: 0 auto;
     }
 
-    // 手機
-    .phone_nav{
-        // 電腦 none
-        display: none;
+    //建議html 寫一個 不然沒辦法換位置
+    //如果 html寫好 這邊的margin 換到 .member_h2底下
+    @include mobile(){
+        margin-bottom: rwd(20);
+    }
 
+    ul{
         @include mobile(){
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
 
-            display: block;
-            li{
-                margin-bottom: size(38);
-    
+        li{
+            @include mobile(){
+                flex-grow: 1;
+                margin: rwd(32) 0;
+
                 .bold{
                     font-weight: bold;
                 }
-    
-                a{
-                    text-decoration: none;
-                    color: $black;
-                    @include h6();
-                    font-weight: normal;
+
+                // 隱藏登出欄位 ( 用不太到 )
+                &:last-child{
+                    display: none;
                 }
-            }
+            } 
+        }
+    }
+    
+    a{
+        @include mobile(){
+            font-size: rwd(16);
+            width: auto;
+            text-decoration: none;
+            color: $black;
         }
     }
 }
