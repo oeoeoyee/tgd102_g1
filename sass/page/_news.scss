@@ -244,15 +244,27 @@
             width: size(40);
             height: size(40);
             margin-top: size(40);
-            background-color: $black;
+        }
+        i{
+            display: block;
+            text-align: center;
+            font-size: size(40);
         }
         @include mobile(){
             display: block;
             width: 100%;
             border: none;
+            h4{
+                margin-top: rwd(10);
+                margin-bottom: rwd(20);
+            }
             a{
                 width: rwd(30);
                 height: rwd(30);
+                margin-right: rwd(40);
+            }
+            i{
+                font-size: rwd(30);
             }
         }
     }
@@ -268,7 +280,10 @@
     h2{
         width: 100%;
         margin-bottom: size(72);
-        @include h2();
+        @include h2(){
+            margin-top: rwd(40);
+            margin-bottom: rwd(40);
+        };
     }
     // 上一則消息
     .news01_others_last{

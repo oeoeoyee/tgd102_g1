@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "後台_營運管理"
+    })
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <!-- header -->
+        <!-- @@include('./layout/header.html') -->
+
+        <div class="back_out">
+            
+            <!-- 主選單 -->
+            <nav class="back">
+            @@include('./layout/back_nav.html')
+            </nav>
+            
+            <!-- 右邊 -->
+            <div class="back_main back_flexgrow">
+                <div class="back_table_title">
+                    <h2>營運管理</h2>
+                    <div>
+                        <input type="text" class="back_search" name="" id="">
+                    </div>
+                </div>
+                <div class="back_chart">
+                    <div>本月門票營收
+                        <div>chart1</div>
+                    </div>
+                    <div>每日各展參觀人數
+                        <div>chart2</div>
+                    </div>
+                    <div>今年門票營收
+                        <div>chart3</div>
+                    </div>
+                    <div>本月電子報訂閱人數
+                        <div>chart4</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <!-- @@include('./layout/footer.html') -->
+    </div>
+</body>
+</html>

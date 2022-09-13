@@ -13,7 +13,7 @@
         h2{
             font-size: size(40);
             // 字粗體
-            // font-weight: bold;
+            font-weight: bold;
         }
     }
 }
@@ -42,6 +42,25 @@
             width: size(40);
             height: size(40);
             background-color: $hf_black;
+        }
+    }
+}
+
+// 圖表
+.back_chart{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-top: size(40);
+    margin-bottom: size(120);
+    & > div{
+        display: inline-block;
+        width: auto;
+        height: size(384);
+        padding: size(10);
+        div{
+            border: 1px solid;
+            height: 90%;
         }
     }
 }
