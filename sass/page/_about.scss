@@ -57,18 +57,6 @@
         }
 }
 
-.title{
-    @include mobile (){
-        margin-left:rwd(27);
-        width: auto;
-    }
-
-    div{
-        @include mobile(){
-            margin-left: auto;
-        }
-    }
-}
 //===============================================
 
 //第一部分  緣起
@@ -80,6 +68,19 @@
     @include mobile(){
         margin-top: 0;
         width: rwd(414);
+    }
+
+    .title{
+        @include mobile (){
+            margin-left:rwd(27);
+            width: auto;
+        }
+    
+        div{
+            @include mobile(){
+                margin-left: auto;
+            }
+        }
     }
 
     .about1_img1 {
@@ -116,6 +117,19 @@
     @include mobile(){
         width: rwd(414);
         margin-top: rwd(32);
+    }
+
+    .title{
+        @include mobile (){
+            margin-left:rwd(27);
+            width: auto;
+        }
+    
+        div{
+            @include mobile(){
+                margin-left: auto;
+            }
+        }
     }
 
     .btn_m{
@@ -234,6 +248,19 @@
         margin-top: rwd(32);
     }
 
+    .title{
+        @include mobile (){
+            margin-left:rwd(27);
+            width: auto;
+        }
+    
+        div{
+            @include mobile(){
+                margin-left: auto;
+            }
+        }
+    }
+
     .about3_inner {
         display: flex;
         width: size(1194);
@@ -329,6 +356,19 @@
         margin-top: rwd(32);
     }
 
+    .title{
+        @include mobile (){
+            margin-left:rwd(27);
+            width: auto;
+        }
+    
+        div{
+            @include mobile(){
+                margin-left: auto;
+            }
+        }
+    }
+
     .about4_inner {
         display: flex;
         margin: 0 auto;
@@ -410,6 +450,19 @@
         margin-top: rwd(32);
     }
 
+    .title{
+        @include mobile (){
+            margin-left:rwd(27);
+            width: auto;
+        }
+    
+        div{
+            @include mobile(){
+                margin-left: auto;
+            }
+        }
+    }
+
     .about5_inner {
         margin: 0 auto;
         width: size(1380);
@@ -484,6 +537,19 @@
 .about6 {
     margin: 0 auto;
     width: size(1420);
+
+    .title{
+        @include mobile (){
+            margin-left:rwd(27);
+            width: auto;
+        }
+    
+        div{
+            @include mobile(){
+                margin-left: auto;
+            }
+        }
+    }
 
     @include mobile(){
         width: rwd(414);
