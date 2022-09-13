@@ -214,6 +214,7 @@
     @include input(400, 40, 0);
     display: inline-block;
 }
+
 .back_edit_summernote{
     @include bk_edit();
         label{
