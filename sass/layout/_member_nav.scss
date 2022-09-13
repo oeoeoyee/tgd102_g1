@@ -35,7 +35,8 @@
     
     @include mobile(){
         display: block;
-
+        width: rwd(380);
+        margin: 0 auto;
     }
 
     //建議html 寫一個 不然沒辦法換位置
@@ -54,7 +55,17 @@
         li{
             @include mobile(){
                 flex-grow: 1;
-            }
+                margin: rwd(32) 0;
+
+                .bold{
+                    font-weight: bold;
+                }
+
+                // 隱藏登出欄位 ( 用不太到 )
+                &:last-child{
+                    display: none;
+                }
+            } 
         }
     }
     

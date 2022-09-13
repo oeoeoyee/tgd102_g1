@@ -875,7 +875,8 @@
     margin-left: size(60);
     margin-top: size(130);
     @include mobile{
-        margin: 0 auto;
+
+        margin: rwd(64) auto;
     };
     img{
         position: absolute;
@@ -930,7 +931,9 @@
     }
     ul{
         margin-bottom: size(71);
-        
+        @include mobile {
+            margin-bottom: rwd(60);
+        }
         li{
             margin-bottom: size(38)!important;
             @include mobile {
