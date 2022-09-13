@@ -169,7 +169,7 @@ header{
                     // 會員icon
                     i{
                         display: block;
-                        font-size: size(50);
+                        font-size: size(30);
                         margin-top: 50%;
                         color: $line_mid;
                     }
@@ -242,7 +242,7 @@ header{
                         font-size: rwd(16);
                         line-height: rwd(56);
                         i{
-                            font-size: rwd(24);
+                            font-size: rwd(20);
                             display: inline-block;
                             margin-top: auto;
                         }
@@ -287,7 +287,7 @@ header{
                         width: rwd(36);
                     }
                     i{
-                        font-size: rwd(36);
+                        font-size: rwd(30);
                         width: rwd(36);
                     }
                     &:last-child a{
@@ -344,6 +344,7 @@ header{
 
 /* --------------- footer ---------------*/
 footer{
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -364,6 +365,9 @@ footer{
         margin-bottom: size(24);
         @include h4();
         font-weight: normal;
+    }
+    a{
+        color: $rice;
     }
     @include mobile(){
         display: block;
@@ -391,8 +395,10 @@ footer{
             display: inline-block;
             width: size(40);
             height: size(40);
-            background-color: $rice;
             margin-right: size(24);
+        }
+        i{
+            font-size: size(40);
         }
         // 電子報
         input{
@@ -418,6 +424,9 @@ footer{
                 height: rwd(40);
                 margin-right: rwd(24);
             }
+            i{
+                font-size: rwd(30);
+            }
             input{
                 height: rwd(40);
                 font-size: rwd(16);
@@ -431,7 +440,7 @@ footer{
         }
     }
     // 最下面的聲明文字
-    footer > p{
+    .footer_bottom{
         width: size(1420);
         margin-top: size(40);
         @include mobile(){
@@ -441,5 +450,23 @@ footer{
             text-decoration: underline;
             color: $rice;
         }
+    }
+}
+
+// 到頂的按鈕
+.totop{
+    position: fixed;
+    z-index: 10;
+    bottom: size(100);
+    right: size(160);
+    border: size(3) solid $white;
+    border-radius: size(3);
+    // border-radius: 50%;
+    background-color: $hf_black;
+    // opacity: .9;
+    padding: size(8);
+    i{
+        font-size: size(24);
+        color: $white;
     }
 }

@@ -47,6 +47,9 @@ body{
     max-width: 100%;
     margin: 0 auto;
     padding-top: size(96);
+    @include mobile(){
+        padding-top: rwd(68);
+    }
 }
 
 *{
