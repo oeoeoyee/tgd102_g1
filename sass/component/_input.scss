@@ -209,16 +209,15 @@
 
 }
 
-<<<<<<< HEAD
 // 後台右上角搜尋框
 .back_search{
     @include input(400, 40, 0);
     display: inline-block;
-=======
+}
+
 .back_edit_summernote{
     @include bk_edit();
         label{
             @include label();
         }
->>>>>>> yong
 }
