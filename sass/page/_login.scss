@@ -640,83 +640,37 @@
     // 右邊
     .member_right{
         flex-grow: 1;
-        // margin-left: size(244);
 
         // 資料表格
-        // ul>li>span
-        ul{
-            // @include mobile(){
-            //     width: rwd(380);
-            // }
+        table{
+            tbody{
+                tr{
+                    
+                    td{
+                        padding-bottom: size(57);
+                        @include h4();
+                        color: $black;
+                        font-weight: normal;
+                    }
 
-            li{
-                display: flex;
-                margin-bottom: size(52);
-                @include h4();
-                color: $black;
-                // font-weight: normal;
+                    td:first-child{
+                        width: size(190);
+                        font-weight: bold;
+                    }
 
-                // @include mobile(){
-                //     margin-top:rwd(30);
-                // }
+                     // 會員條碼
+                    .member_code{
+                        vertical-align: top;
+                    }
+                    .member_code_img{
+                        margin: 0 auto;
+                        width: size(230);
+                        // margin-top: size(32);
+                    }
 
-                p{
-                    margin-left: size(32);
-                    @include h4();
-                    font-weight: normal;
-
-                    // @include mobile(){
-                    //     margin-left: rwd(70);
-                    // }
-                    color: $black;
-                }
-            }
-
-            // 會員條碼
-            .member_code{
-                // flex-direction: column;
-                text-align: center;
-                @include h3();
-                margin-top: size(80);
-                color: $black;
-
-                img{
-                    margin: 0 auto;
-                    width: size(295);
-                    margin-top: size(32);
                 }
             }
         }
-
-
-        // table 找不到可以設定寬度的東東
-        // table{
-        //     // table-layout: fixed;
-        //     // tbody{
-        //         tr{
-                    
-        //             td{
-        //                 padding-bottom: size(57);
-        //                 // width: 50%;
-        //                 @include h4();
-        //                 font-weight: normal;
-        //             }
-
-        //             td:first-child{
-        //                 width: size(190);
-        //                 width: 30%;
-        //             }
-
-        //             .member_code{
-        //                 width: 100%;
-        //                 text-align: center;
-        //             }
-
-        //             .member_code_img{}
-
-        //         }
-        //     // }
-        // }
     }
 }
 

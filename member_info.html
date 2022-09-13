@@ -17,7 +17,7 @@
         </div>
 
         <!-- 手機上主選單 -->
-        <div class="member_nav">
+        <div class="member_phone_nav">
             @@include('./layout/member_nav.html')
         </div>
 
@@ -35,63 +35,42 @@
 
                 <!-- 資料表格 -->
 
-                <!-- ul>li>span -->
                 <form method="post" action="">
-                    <ul>
-                        <li>會員編號<p>M0074683</p></li>
-                        <li>入會日期<p>2022/08/24</p></li>
-                        <li>會員等級<p>PRIME (到期日：2023/09/23)</p></li>
-                        <li>會員姓名<p>林布蘭</p></li>
-                        <li>會員電話<p>0987535427</p></li>
-                        <li>電子信箱<p>hfhr343@gmail.com</p></li>
-                        <!-- 會員條碼 -->
-                        <li class="member_code">會員條碼<img src="./images/member_01_qrcode.png" alt=""></li>
-                    </ul>
 
-                    <!-- 會員條碼 -->
-                    <!-- <div class="member_code">
-                        <h4>會員條碼</h4>
-                        <img src="./images/member_01_qrcode.png" alt="">
-                    </div> -->
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td width="30%">會員編號</td>
+                                <td width="70%">M0074683</td>
+                            </tr>
+                            <tr>
+                                <td>入會日期</td>
+                                <td>2022/08/24</td>
+                            </tr>
+                            <tr>
+                                <td>會員等級</td>
+                                <td>PRIME (到期日：2023/09/23)</td>
+                            </tr>
+                            <tr>
+                                <td>姓名</td>
+                                <td>林布蘭</td>
+                            </tr>
+                            <tr>
+                                <td>電話</td>
+                                <td>0987535427</td>
+                            </tr>
+                            <tr>
+                                <td>電子信箱</td>
+                                <td>hfhr343@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td class="member_code">會員條碼</td>
+                                <td class="member_code_img"><img src="./images/member_01_qrcode.png" alt=""></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </form>
-                
-                <!-- table 找不到可以設定寬度的東東 -->
-                <!-- <table>
-                    <tbody>
-                        <tr>
-                            <td width="30%">會員編號</td>
-                            <td width="70%">M0074683</td>
-                        </tr>
-                        <tr>
-                            <td>入會日期</td>
-                            <td>2022/08/24</td>
-                        </tr>
-                        <tr>
-                            <td>會員等級</td>
-                            <td>PRIME (到期日：2023/09/23)</td>
-                        </tr>
-                        <tr>
-                            <td>姓名</td>
-                            <td>林布蘭</td>
-                        </tr>
-                        <tr>
-                            <td>電話</td>
-                            <td>0987535427</td>
-                        </tr>
-                        <tr>
-                            <td>電子信箱</td>
-                            <td>hfhr343@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td class="member_code">會員條碼</td>
-                        </tr>
-                        <tr>
-                            <td class="member_code_img"><img src="./images/member_01_qrcode.png" alt=""></td>
-                        </tr>
-                    </tbody>
-                </table> -->
 
-                
             </div>
             
             

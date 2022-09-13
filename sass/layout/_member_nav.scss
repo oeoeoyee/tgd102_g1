@@ -1,11 +1,11 @@
+// 電腦
 .member_nav{
 
     // margin-left: size(370);
     flex-grow: 1;
 
-    // 電腦
-    .pc_nav{
-        margin-top: size(240);
+    ul{
+        
         
         li{
             margin-bottom: size(38);
@@ -27,28 +27,12 @@
         }
     }
 
-    // 手機
-    .phone_nav{
-        // 電腦 none
-        display: none;
+}
 
-        @include mobile(){
+// 手機
+.member_phone_nav{
+    display: none;
+    ul{
 
-            display: block;
-            li{
-                margin-bottom: size(38);
-    
-                .bold{
-                    font-weight: bold;
-                }
-    
-                a{
-                    text-decoration: none;
-                    color: $black;
-                    @include h6();
-                    font-weight: normal;
-                }
-            }
-        }
     }
 }
