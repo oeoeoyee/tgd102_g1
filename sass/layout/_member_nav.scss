@@ -1,6 +1,8 @@
 // 電腦
 .member_nav{
-
+    @include mobile(){
+        display: none;
+    }
     // margin-left: size(370);
     flex-grow: 1;
 
@@ -21,12 +23,7 @@
                 font-weight: normal;
             }
         }
-
-        @include mobile(){
-            display: none;
-        }
     }
-
 }
 
 // 手機

@@ -8,10 +8,12 @@
 // member_info.html         明天弄
 // order.html               不會寫
 
+// level_normal.html        已切
+// level_prime.html         已切
+
 // ticket_personal.html     已切
 // ticket_group.html        已切，語音導覽 的 第一個li 選不到 
 //                          margin-bottom 太遠 
-
 
 
 
@@ -958,8 +960,11 @@
     .queen{
         top: size(-90);
         left: size(-30);
+        @include mobile{
+            top: rwd(-35);
+            left: rwd(-100);
+        };
     }
-
 }
 
 // ==========payment_atm_succ.html=======
