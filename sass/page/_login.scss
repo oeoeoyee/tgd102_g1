@@ -602,40 +602,10 @@
     margin: 0 auto;
 
     @include mobile(){
-        display: block;
+        // display: block;
         width: rwd(380);
     }
     
-    //左邊
-    .member_nav{
-
-        //建議html 寫一個 不然沒辦法換位置
-        //如果 html寫好 這邊的margin 換到 .member_h2底下
-        @include mobile(){
-            margin-bottom: rwd(20);
-        }
-
-        ul{
-            @include mobile(){
-                display: flex;
-                justify-content: center;
-                text-align: center;
-            }
-
-            li{
-                @include mobile(){
-                    flex-grow: 1;
-                }
-            }
-        }
-        
-        a{
-            @include mobile(){
-                font-size: rwd(16);
-                width: auto;
-            }
-        }
-    }
 
     // 右邊
     .member_right{
@@ -694,6 +664,28 @@
 }
 
 // ===========order_list.html===========
+
+// 資料表格
+.order_table{
+    table{
+        tbody{
+            margin-left:auto; 
+            margin-right:auto;
+            tr{
+                td{
+                    text-align: center;
+                    // vertical-align: middle;
+                }
+            }
+        }
+    }
+
+    .fa-angle-right{
+        font-size: size(40);
+        vertical-align: middle;
+
+    }
+}
 
 // 分隔線
 .order_line{
