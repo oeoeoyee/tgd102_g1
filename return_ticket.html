@@ -34,24 +34,67 @@
             <div class="member_right">
 
                 <!-- 資料表格 -->
-
-                <!-- ul>li>span -->
-                <form method="post" action="">
-                    <ul>
-                        <li>訂單編號<p>P0074683</p></li>
-                        <li>訂單日期<p>2022/08/24</p></li>
-                        <li>展覽名稱<p>普通常設展</p></li>
-                        <li>代表姓名<p>林布蘭</p></li>
-                        <li>代表電話<p>0987535427</p></li>
-                        <li>入館日期<p>2022/09/04</p></li>
-                        <li>成人票數<p>5位</p></li>
-                        <li>優待票數<p>2位</p></li>
-                        <li>兒童票數<p>0位</p></li>
-                        <li>語音導覽<p>有</p></li>
-                        <li>費用總計<p>NT$1500</p></li>
-                        <li>付款狀態<p>已付款</p></li>
-                        <li>付款方式<p>信用卡</p></li>
-                    </ul>
+                <form method="post" action="#">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td width="30%">訂單編號</td>
+                                <td width="70%">P0074683</td>
+                            </tr>
+                            <tr>
+                                <td>訂單日期</td>
+                                <td>2022/08/24</td>
+                            </tr>
+                            <tr>
+                                <td>展覽名稱</td>
+                                <td>普通常設展</td>
+                            </tr>
+                            <tr>
+                                <td>姓名</td>
+                                <td>林布蘭</td>
+                            </tr>
+                            <tr>
+                                <td>電話</td>
+                                <td>0987535427</td>
+                            </tr>
+                            <tr>
+                                <td>入館日期</td>
+                                <td>2022/09/04</td>
+                            </tr>
+                            <tr>
+                                <td>成人票數</td>
+                                <td>5位</td>
+                            </tr>
+                            <tr>
+                                <td>優待票數</td>
+                                <td>2位</td>
+                            </tr>
+                            <tr>
+                                <td>兒童票數</td>
+                                <td>0位</td>
+                            </tr>
+                            <tr>
+                                <td>語音導覽</td>
+                                <td>有</td>
+                            </tr>
+                            <tr>
+                                <td>費用總計</td>
+                                <td>NT$1500</td>
+                            </tr>
+                            <tr>
+                                <td>付款狀態</td>
+                                <td>已付款</td>
+                            </tr>
+                            <tr>
+                                <td>付款方式</td>
+                                <td>信用卡</td>
+                            </tr>
+                            <tr>
+                                <td class="member_code">會員條碼</td>
+                                <td class="member_code_img"><img src="./images/member_01_qrcode.png" alt=""></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </form>
             </div>
             
@@ -84,8 +127,8 @@
         
         <!-- 按鈕 -->
         <div class="btn_center order_btn">
-            <a href="#" class="btn_s_remind">返回</a>
-            <a href="signin.html" class="btn_s_default">退票</a>
+            <input type ="button" class="btn_s_remind" onclick="history.back()" value="返回"></input>
+            <a href="#" class="btn_s_default">退票</a>
         </div>
 
         <!-- footer -->
