@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "會員等級"
+    })
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- header -->
+        @@include('./layout/header.html')
+
+        <!-- banner -->
+        <div class="login_banner">
+            <img src="./images/login_01.png" alt="">
+        </div>
+
+        <h2 class="member_h2">會員等級</h2>
+
+        <div class="member_out">
+
+            <!-- 左主選單 -->
+            <div class="member_nav">
+            @@include('./layout/member_nav.html')
+            </div>
+
+            <!-- 右邊 -->
+            <div class="member_right">
+
+                <!-- level 圈圈 -->
+                <div class="level">
+                    <!-- prime皇冠 -->
+                    <img src="./images/level_02_prime.png" alt="" class="queen">
+                    <!-- 圈 -->
+                    <div class="circle">
+                        <p>PRIME</p>
+                    </div>
+                </div>
+                
+                
+                <!-- prime 說明 -->
+                <div class="prime_top prime_level">
+                    <h3>到期日：2023/09/30</h3>
+                    <h3>溯·REVERSE PRIME可立即享有</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-check"></i>整年於開放時間隨時入館</li>
+                        <li><i class="fa-solid fa-circle-check"></i>紀念品商店85折優惠</li>
+                        <li><i class="fa-solid fa-circle-check"></i>博物館精美周邊禮品乙份</li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <!-- 按鈕 -->
+        <div class="login_btn_out btn_center order_btn">
+            <a href="signin.html" class="btn_s_remind">返回</a>
+        </div>
+
+        <!-- footer -->
+        @@include('./layout/footer.html')
+        
+    </div>
+</body>
+</html>

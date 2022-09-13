@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "購票成功"
+    })
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- header -->
+        @@include('./layout/header.html')
+        
+        <!-- banner -->
+        <div class="login_banner">
+            <img src="./images/login_01.png" alt="">
+        </div>
+
+        <!-- 上面 -->
+        <div class="login_top succ_top payment_succ">
+
+            <h2>購票成功!</h2>
+
+            <!-- 資料表格 -->
+            <!-- ul>li>span -->
+            <form method="post" action="">
+                <ul>
+                    <li>姓名：林布蘭</li>
+                    <li>電話：0912345678</li>
+                </ul>
+                <ul>
+                    <li>訂單編號：P0074683</li>
+                    <li>入館日期：2022/08/24</li>
+                </ul>
+                <h4>請於3日內至ATM付款，逾期將自動取消訂單，<br>付款完成後，請至「查詢訂單」確認訂單狀態，並領取QRcode</h4>
+                <ul>
+                    <li>銀行代碼：822 中國信託</li>
+                    <li>匯款帳號：0000523014507797</li>
+                </ul>
+            </form>
+
+            <!-- 按鈕 -->
+            <div class="login_btn_out succ">
+                <a href="#" class="btn_s_remind">訂單紀錄</a>
+            </div>
+
+        </div>
+
+        
+        
+        <!-- footer -->
+        @@include('./layout/footer.html')
+        
+    </div>
+</body>
+</html>

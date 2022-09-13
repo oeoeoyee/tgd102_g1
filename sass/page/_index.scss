@@ -1,0 +1,229 @@
+.index_event{
+    width: size(1680);
+    margin-left: size(240);
+    overflow: hidden;
+    @include mobile(){
+        width: rwd(380);
+        margin-left: rwd(20);
+        overflow: hidden;
+    }
+    .title{
+        margin-top: size(95);
+    }
+}
+
+.index_event_content{
+    display: flex;
+    justify-content: space-between;
+    margin-top: size(55);
+}
+
+.index_event_item{
+    width: size(805);
+    height: size(520);
+    button {
+        margin-top: size(30);
+    }
+}
+
+.index_event_item:nth-child(1) div{
+    background-image: url(/images/index_01.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.index_event_item:nth-child(2) div{
+    background-image: url(/images/index_02.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.index_event_main{
+    width: size(805);
+    height: size(459);
+    color: $white;
+    line-height: 1.6;
+    h3{
+        @include h3();
+        padding-left: size(30);
+        padding-top: size(10);
+    }
+    h5{
+        @include h5();
+        padding-left: size(30);
+        padding-top: size(10);
+    }
+    p{
+        font-size: size(36);
+        font-weight: bold;
+        padding-left: size(380);
+        padding-top: size(280);
+    }
+}
+
+.index_exhibition{
+    width: size(1650);
+    overflow: hidden;
+    margin-left: size(240);
+}
+
+.index_exhibition_content{
+    display: flex;
+    margin-top: size(55);
+}
+
+.index_exhibition_item{
+    width: size(590);
+    height: size(530);
+    flex-shrink: 0;
+    margin-right: size(10);
+    position: relative;
+}
+
+.index_exhibition_num{
+    width: size(85);
+    height: size(85);
+    background-color: $black;
+    color: $white;
+    h4{
+        @include h4();
+        width: size(30);
+        line-height: size(85);
+        margin: 0 auto;
+    }
+}
+
+.index_exhibition_main{
+    width: size(569);
+    position: absolute;
+    z-index: -1;
+    left: size(20);
+    top: size(20);
+    img{
+        width: size(569);
+        display: block;
+    }
+    h4{
+        @include h4();
+        line-height: 1.6;
+        color: $black;
+        border: size(1) solid $black;
+        display: flex;
+        justify-content: space-between;
+        padding: size(10);
+    }
+}
+
+
+.index_hr {
+    height: size(3);
+    width: 100%;
+    margin-left: auto;
+    margin-top: size(95);
+    margin-bottom: size(95);
+    background-color: $line_dark;
+}
+.index_news{
+    width: size(1420);
+    margin: 0 auto;
+    @include mobile(){
+        width: rwd(380);
+        margin: 0 auto;
+    }
+}
+
+.index_news_content{
+    width: size(1420);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: size(100); //跟figma不同
+    @include mobile(){
+        width: rwd(380);
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    img{
+        display: block;
+        width: size(650);
+        @include mobile(){
+            display: block;
+            width: rwd(330);
+            margin: 0 auto;
+    }
+}
+
+.index_news_line{
+    width: size(2);
+    height: size(580);
+    background-color: $line_mid;
+    margin-left: size(40);
+    @include mobile(){
+        
+    }
+}
+
+.line_spacing {
+    width: size(1660);
+    height: size(3);
+    margin-left: auto;
+    margin-top: size(95);
+    margin-bottom: size(95);
+    background-color: $line_dark;
+}
+
+.index_about{
+    width: size(1420);
+    margin: 0 auto;
+    @include mobile(){
+        width: rwd(380);
+        margin: 0 auto;
+    }
+}
+
+.index_about_content{
+    width: size(1420);
+    margin: 0 auto;
+    @include mobile(){
+        width: rwd(380);
+        margin: 0 auto;
+    }
+
+    img{
+        display: block;
+        width: size(1200);
+        margin: 0 auto;
+        margin-top: size(100); //跟figma不同
+        @include mobile(){
+            width: rwd(375);
+            margin: 0 auto;
+            margin-top: rwd(30);
+        }
+    }
+    p{
+        @include p();
+        display: block;
+        width: size(520);
+        line-height: 1.6;
+        margin-top: size(35); //跟figma不同
+        margin-left: size(110);
+        @include mobile(){
+            width: rwd(360);
+            margin-top: rwd(30);
+            margin-left: rwd(10);
+        }
+    }
+    .btn_l{
+        margin-top: size(50); //跟figma不同
+        margin-left: size(110);
+        @include mobile(){
+            margin-top: rwd(30);
+            margin-left: rwd(10);
+        }
+    }
+}
+
