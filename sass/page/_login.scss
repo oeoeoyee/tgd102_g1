@@ -217,28 +217,12 @@
 
 // =========forget.html===========
 .forget{
-    @include mobile(){
-        li:nth-last-child(2){
-            margin-bottom: 0 !important; 
-        }
-    }
     // 電子信箱flex
     .forget_btn{
         display: flex;
         justify-content: space-between;
-
-        @include mobile(){
-            input{
-                margin: 0 rwd(8);
-            }
-            justify-content: center;
-        }
-        
         .forget_email{
             width: 78%;
-            @include mobile(){
-                width: 53%;
-            }
         }
         .btn_s_default{
             width: 20%;
