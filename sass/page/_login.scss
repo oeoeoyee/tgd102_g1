@@ -974,7 +974,6 @@
     margin-left: size(60);
     margin-top: size(130);
     @include mobile{
-
         margin: rwd(64) auto;
     };
     img{
@@ -1015,7 +1014,6 @@
             };
         }
     }
-
 }
 
 // prime 說明
@@ -1046,7 +1044,9 @@
 
 .login_btn_out {
     @include mobile{
-        width: 100%;
+        a,input{
+            margin: 0 auto;
+        }
     }
 }
 
