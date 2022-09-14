@@ -172,6 +172,8 @@
 
     gap: 0;
 
+    justify-content: center;
+
     @include mobile() {
       // 2 列
       outline: none;
