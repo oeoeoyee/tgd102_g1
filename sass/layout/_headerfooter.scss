@@ -238,13 +238,14 @@ header{
                     border-bottom: 1px solid $line_mid;
                     a{
                         height: rwd(56);
-                        width: 70%;
+                        width: 50%;
                         font-size: rwd(16);
                         line-height: rwd(56);
                         i{
                             font-size: rwd(20);
                             display: inline-block;
                             margin-top: auto;
+                            line-height: rwd(56);
                         }
                     }
                     &:after{
@@ -292,6 +293,7 @@ header{
                     }
                     &:last-child a{
                         font-size: rwd(36);
+                        transform: translateY(-15%);
                     }
                     &:hover{
                         &:after{
@@ -373,6 +375,7 @@ footer{
         display: block;
         width: 100%;
         padding: rwd(20);
+        margin-top: rwd(72);
         h4{
             margin-top: rwd(32);
             margin-bottom: rwd(16);

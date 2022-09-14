@@ -39,10 +39,21 @@
 
 // =======login.html========
 // banner
+
+
+
 .login_banner{
     width: 100%;
+
+    @include mobile(){
+        display: none;
+    }
+
     img{
         width: 100%;
+        @include mobile(){
+            display: none;
+        }
     }
 }
 
@@ -53,6 +64,7 @@
 
     @include mobile(){
         width: auto;
+        margin-top: rwd(35);
     }
 
     h2{
@@ -63,7 +75,7 @@
 
         @include mobile(){
             margin-bottom: rwd(32);
-            margin-top: rwd(32);
+            // margin-top: rwd(32);
         }
     }
 
@@ -824,6 +836,7 @@
             font-size: rwd(16);
             padding: 0 rwd(10);
             margin: rwd(20);
+            line-height: rwd(30);
         }
     }
     
@@ -1113,22 +1126,37 @@
 .payment_succ{
     form{
         margin-bottom: size(146);
+
         ul{
             display: flex;
             justify-content: center;
 
             @include mobile(){
-                justify-content: space-evenly;
-                margin: rwd(24) 0;
+                flex-direction: column;
+                margin: 0;
             }
             li{
                 text-align: center;
                 margin-right: size(20);
+                @include h4();
+                font-weight: normal;
+
+                @include mobile(){
+                    font-size: rwd(16);
+                    margin-bottom: rwd(21);
+                }
             }
         }
     }
+
     h4{
         margin-top: size(68);
+        line-height: size(48);
+
+        @include mobile(){
+            line-height: rwd(30);
+            margin: auto;
+        }
     }
 
 }

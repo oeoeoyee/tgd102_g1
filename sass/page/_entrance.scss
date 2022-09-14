@@ -30,32 +30,38 @@
 .en_txt {
     display: flex;
     justify-content: space-around;
-    
+    @include mobile(){
+        display: flex;
+        justify-content: space-around;
+        // padding-bottom: rwd(100);
+    }
     li{
         @include h2();
         color: $black;
         width: size(500);
-        text-shadow: 2px 2px 10px white;
+        text-shadow: size(2) size(2) size(10) white;
         line-height: 1.6;
         display: inline-block;
         text-align: center;
         white-space: nowrap;
         overflow: hidden;
-        animation: typing 4s steps(15) 1;
+        animation: typing 4s steps(15) 1 ;
         @keyframes typing {
             from { width: 0; }
         }
 
         @include mobile(){
+            writing-mode: vertical-rl;
             font-size: rwd(24);
             font-weight: bold;
-            // width: rwd(200);
-            // height: rwd(300);
-            // line-height: 1.6;
-            // display: inline-block;
-            // text-align: center;
-            // white-space:normal;
-            // overflow: hidden;
+            text-shadow: rwd(1) rwd(1) rwd(3) white;
+            width: rwd(40);
+            line-height: 1.6;
+            text-align: center;
+            animation: typing 4s steps(80) 1 ;
+            @keyframes typing {
+                from { width: 0; }
+            }
         }
     }
     li:nth-child(1){
