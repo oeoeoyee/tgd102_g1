@@ -107,6 +107,13 @@
         text-align: right;
       }
     }
+
+    @include mobile {
+      text-align: right !important;
+      h3{
+        text-align: left !important;
+      }
+    }
   }
 }
 
@@ -204,9 +211,6 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
     div {
       background-color: $red;
       border: 3px solid $line_dark;
-
-      h4 {
-      }
     }
   }
 
@@ -240,9 +244,7 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
       transform: translate(0, -50%);
       text-shadow: 0 0 size(3) $black, 0 0 size(3) $black;
       @include mobile() {
-        width: rwd(32);
-        top: rwd(16);
-        right: rwd(32);
+        display: none;
       }
     }
   }
@@ -280,9 +282,7 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
       transform: translate(0, -50%);
       color: $white;
       @include mobile() {
-        width: size(32);
-        top: rwd(24);
-        left: rwd(24);
+        display: none;
       }
     }
   }
