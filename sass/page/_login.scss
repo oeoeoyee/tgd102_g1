@@ -210,7 +210,7 @@
     .signin_btn_out{
     
         input{
-            margin-right: 0!important;
+            margin: 0 auto;
         }
     }
 }
@@ -653,9 +653,7 @@
     // 右邊
     .member_right{
         flex-grow: 1;
-        @include mobile(){
-            margin-top:rwd(20);
-        }
+        
 
         // 資料表格
         table{
@@ -672,7 +670,7 @@
                         font-weight: normal;
                         @include mobile(){
                             font-size: rwd(16);
-                            padding-bottom: rwd(32);
+                            padding: rwd(16) 0;
                         }
                     }
 
@@ -699,6 +697,7 @@
                             
                             @include mobile(){
                                 width: rwd(200);
+                                margin-bottom: rwd(20);
                             }
                         }
                     }
@@ -732,6 +731,9 @@
             width: rwd(300);
             justify-content: space-between;
 
+            input,a{
+                margin: 0 auto;
+            }
 
         }
     }
@@ -742,11 +744,16 @@
 
 // 資料表格
 .order_table{
+    @include mobile(){
+        margin:rwd(40) 0;
+    }
+
     table{
         @include mobile(){
             margin: 0 auto;
             width: rwd(320);
-            line-height: 1.5;
+            // line-height: 1.5;
+            
         }
         tbody{
             margin-left:auto; 
@@ -813,8 +820,17 @@
         color: $black;
         text-align: center;
         margin-top: size(72);
+        @include mobile(){
+            font-size: rwd(16);
+            padding: 0 rwd(10);
+            margin: rwd(20);
+        }
     }
+    
 }
+
+
+
 // =========ticket_personal.html========
 
 // 上面
@@ -1107,8 +1123,8 @@
 
         @include mobile(){
             display: block;
-            margin: 0 auto;
-            margin-top: rwd(20);
+            margin: rwd(50) auto;
+            // margin-top: rwd(20);
             width: rwd(200);
         }
     }
