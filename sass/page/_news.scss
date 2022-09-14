@@ -18,6 +18,7 @@
         width: 47%;
     }
     .news_top_word{
+        // transform: translate(100%);
         display: flex;
         flex-wrap: wrap;
         justify-content:start;
@@ -106,10 +107,19 @@
 
 // 消息列
 .news_list{
-    li{
+    a{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        text-decoration: none;
+        color: $black;
+        width: 100%;
+        height: auto;
+    }
+    li{
+        // display: flex;
+        // justify-content: space-between;
+        // align-items: center;
         border-bottom: size(1) solid $line_mid;
         img{
             width: size(428);
@@ -118,9 +128,13 @@
         }
     }
     @include mobile(){
-        li{
+        a{
             display: block;
             width: 100%;
+        }
+        li{
+            // display: block;
+            // width: 100%;
             margin-bottom: rwd(20);
             img{
                 width: rwd(384);
@@ -273,6 +287,14 @@
 
 // 下方的其他最新消息
 .news01_others{
+    a{
+        text-decoration: none;
+        color: $black;
+        // width: 100%;
+        // display: flex;
+        // flex-wrap: wrap;
+        // justify-content: space-between;
+    }
     width: 100%;
     display: flex;
     flex-wrap: wrap;
