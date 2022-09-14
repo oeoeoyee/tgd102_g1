@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="./dist/css/style.css">
+    <!-- <link rel="stylesheet" href="./dist/css/style.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
 <head>
     @@include('./layout/head.html', {
         "title" : "特別展覽"
@@ -23,13 +25,13 @@
             <div class="event_now_bottom">
                 <div class="event_ver_line"></div>
                 <div class="event_now_1">
-                    <div class="event_now_c">
+                    <div class="event_now_c gsap_animation_1">
                         <div class="event_title_c">
                             <h3 class="event_no">02</h3>
                             <h3 class="event_name">梵谷·文森特展</h3>
                         </div>
                         <div class="event_content_c">
-                            <a href="#"><img src="./images/events_02.png" alt=""></a>
+                            <a href="#"><div class="img_overflow"><img src="./images/events_02.png" alt=""></div></a>
                             <h4 class="event_room">B ROOM</h4>
                             <h4 class="event_name_rwd">梵谷·文森特展</h4>
                             <h4 class="event_date">2022.06.13 - 2022.12.31 </h4>
@@ -38,13 +40,13 @@
                     </div>    
                 </div>
                 <div class="event_now_2">
-                    <div class="event_now_c">
+                    <div class="event_now_c gsap_animation_1">
                         <div class="event_title_c">
                             <h3 class="event_no">01</h3>
                             <h3 class="event_name">林布蘭·哈爾曼松特展</h3>
                         </div>
                         <div class="event_content_c">
-                            <a href="./event_01.html"><img src="./images/events_01.png" alt=""></a>
+                            <a href="./event_01.html"><div class="img_overflow"><img src="./images/events_01.png" alt=""></div></a>
                             <h4 class="event_room">A ROOM</h4>
                             <h4 class="event_name_rwd">林布蘭·哈爾曼松特展</h4>
                             <h4 class="event_date">2022.08.13  - 2023.01.31 </h4>
@@ -62,13 +64,13 @@
             </div>
             <div class="event_future_mid">
                 <div class="event_future_1">
-                    <div class="event_now_c">
+                    <div class="event_now_c gsap_animation_2">
                         <div class="event_title_c">
                             <h3 class="event_no">01</h3>
                             <h3 class="event_name">弗雷德裏個展</h3>
                         </div>
                         <div class="event_content_c">
-                            <a href="#"><img src="./images/events_03.png" alt=""></a>
+                            <a href="#"><div class="img_overflow"><img src="./images/events_03.png" alt=""></div></a>
                             <h4 class="event_room">C ROOM</h4>
                             <h4 class="event_name_rwd">弗雷德裏個展</h4>
                             <h4 class="event_date">2022.10.13 - 2023.12.13</h4>
@@ -77,13 +79,13 @@
                     </div>
                 </div>
                 <div class="event_future_2">
-                    <div class="event_now_c">
+                    <div class="event_now_c gsap_animation_2">
                         <div class="event_title_c">
                             <h3 class="event_no">02</h3>
                             <h3 class="event_name">印象派特展</h3>
                         </div>
                         <div class="event_content_c">
-                            <a href="#"><img src="./images/events_04.png" alt=""></a>
+                            <a href="#"><div class="img_overflow"><img src="./images/events_04.png" alt=""></div></a>
                             <h4 class="event_room">E ROOM</h4>
                             <h4 class="event_name_rwd">印象派特展</h4>
                             <h4 class="event_date">2022.11.13 - 2023.01.13</h4>
@@ -106,7 +108,7 @@
             <div class="event_pass">
                 <div class="event_pass_img">
                     <div>
-                        <img src="./images/events_05.png" alt="">
+                        <a href="#"><img src="./images/events_05.png" alt=""></a>
                     </div>
                 </div>
                 <div class="infocard_m">
@@ -122,7 +124,7 @@
             <div class="event_pass">
                 <div class="event_pass_img">
                     <div>
-                        <img src="./images/events_06.png" alt="">
+                        <a href="#"><img src="./images/events_06.png" alt=""></a>
                     </div>
                 </div>
                 <div class="infocard_m">
@@ -138,7 +140,7 @@
             <div class="event_pass">
                 <div class="event_pass_img">
                     <div>
-                        <img src="./images/events_07.png" alt="">
+                        <a href="#"><img src="./images/events_07.png" alt=""></a>
                     </div>
                 </div>
                 <div class="infocard_m">
@@ -161,5 +163,180 @@
         @@include('./layout/footer.html')
         
     </div>
+
+    <script>
+        
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // $(this).resize(function(){
+
+        
+        if(this.outerWidth > 1200){
+            console.log(this);
+           
+        gsap_animation_path(".gsap_animation_1",".gsap_animation_1 img");
+        gsap_animation_x(".gsap_animation_1",['.gsap_animation_1 h4','.gsap_animation_1 h5']);
+        gsap_animation_y(".gsap_animation_1",'.gsap_animation_1 .event_title_c');
+        gsap_animation_path(".gsap_animation_2",".gsap_animation_2 img");
+        gsap_animation_x(".gsap_animation_2",['.gsap_animation_2 h4','.gsap_animation_2 h5']);
+        gsap_animation_y(".gsap_animation_2",'.gsap_animation_2 .event_title_c');
+        function gsap_animation_path(t,x){
+            gsap
+            .timeline({
+                scrollTrigger: {
+                trigger: t,
+                start: "-=600",
+                end:"-=600",
+                scrub:3.0,
+                },
+            })
+            
+            
+            .fromTo((x), {
+                clipPath: 'inset(2rem 111rem 3rem 0rem)'
+            },{
+                duration: 2,
+                ease: "sine.inOut",
+                clipPath: 'inset(0rem 0rem 0rem 0rem)'
+            })
+        };//function
+
+        function gsap_animation_x(t,x){
+            gsap
+            .timeline({
+                scrollTrigger: {
+                trigger: t,
+                start: "-=600",
+                end:"-=600",
+                scrub:3.0,
+                },
+            })
+
+            .fromTo(x,{
+                x:60,
+                opacity:0
+            },{
+                x:0,
+                opacity:1,
+                duration: 2,
+                ease: "sine.inOut",
+            })
+
+        };
+        function gsap_animation_y(t,x){
+            gsap
+            .timeline({
+                scrollTrigger: {
+                trigger: t,
+                start: "-=600",
+                end:"-=600",
+                scrub:3.0,
+                },
+            })
+
+            .fromTo(x,{
+                y:60,
+                opacity:0
+            },{
+                y:0,
+                opacity:1,
+                duration: 2,
+                ease: "sine.inOut",
+            })
+        };
+
+        // gsap
+        //     .timeline({
+        //         scrollTrigger: {
+        //         trigger: ".gsap_animation_1",
+        //         start: "-=600",
+        //         end:"-=600",
+        //         scrub:3.0,
+        //         },
+        //     })
+            
+            
+        //     .fromTo((".gsap_animation_1 img"), {
+        //         clipPath: 'inset(2rem 111rem 3rem 0rem)'
+        //     },{
+        //         duration: 2,
+        //         ease: "sine.inOut",
+        //         clipPath: 'inset(0rem 0rem 0rem 0rem)'
+        //     })
+
+        //     .fromTo(('.gsap_animation_1 .event_title_c'),{
+        //         y:60,
+        //         opacity:0
+        //     },{
+        //         y:0,
+        //         opacity:1,
+        //         duration: 2,
+        //         ease: "sine.inOut",
+        //     })
+
+        //     .fromTo(['.gsap_animation_1 h4','.gsap_animation_1 h5'],{
+        //         x:60,
+        //         opacity:0
+        //     },{
+        //         x:0,
+        //         opacity:1,
+        //         duration: 2,
+        //         ease: "sine.inOut",
+        //     })
+// --------------------------------------------------------------------
+            // gsap
+            // .timeline({
+            //     scrollTrigger: {
+            //     trigger: ".gsap_animation_2",
+            //     start: "-=600",
+            //     end:"-=600",
+            //     scrub:3.0,
+            //     // markers:true,
+            //     },
+            // })
+
+
+            // .fromTo((".gsap_animation_2 img"), {
+            //     clipPath: 'inset(2rem 111rem 3rem 0rem)'
+            // },{
+            //     clipPath: 'inset(0rem 0rem 0rem 0rem)',
+            //     duration: 2,
+            //     ease: "sine.inOut",
+            // })
+
+            // .fromTo(['.gsap_animation_2 .event_title_c'],{
+            //     y:60,
+            //     opacity:0
+            // },{
+            //     y:0,
+            //     opacity:1,
+            //     duration: 2,
+            //     ease: "sine.inOut",
+            // })
+            
+            // .fromTo(['.gsap_animation_2  h4','.gsap_animation_2  h5'],{
+            //     x:60,
+            //     opacity:0
+            // },{
+            //     x:0,
+            //     opacity:1,
+            //     duration: 2,
+            //     ease: "sine.inOut",
+            // })
+            
+            
+            // .fromTo(('.gsap_animation_2 h5'),{
+            //     x:60,
+            //     opacity:0
+            // },{
+            //     x:0,
+            //     opacity:1,
+            //     duration: 2,
+            //     ease: "sine.inOut",
+            // })
+
+            }
+        // })
+    </script>
 </body>
 </html>

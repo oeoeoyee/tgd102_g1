@@ -457,7 +457,7 @@
         position: relative;
         overflow: hidden;
         width: size(1400);
-        height: size(480);
+        // height: size(480);
         margin: 0 auto;
         @include mobile() {
             width: rwd(414);
@@ -484,21 +484,12 @@
                 width: rwd(280);
                 height: auto;
             }
-            h5{
-                @include h5();
-                color: $white;
-                position: absolute;
-                @include mobile() {
-                    display: none;
-                }
-            }
             div{
                 margin-left: size(8);
                 margin-top: size(8);
                 width: size(390);
                 height: size(182);
                 display: block;
-                background-color:rgba(0,0,0,.7);
                 box-sizing: border-box;
                 padding-top: size(16);
                 @include mobile() {
@@ -506,7 +497,6 @@
                     margin-top: 0;
                     width: auto;
                     height: auto;
-                    background-color:rgba(0,0,0,0);
                     padding-top: 0;
                 }
                 p{

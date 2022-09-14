@@ -36,6 +36,8 @@
     "sass": "^1.54.8"
   },
   "dependencies": {
+    "gsap": "^3.11.1",
+    "scrolltrigger": "^1.0.1",
     "summernote": "^0.8.20"
   }
 }
