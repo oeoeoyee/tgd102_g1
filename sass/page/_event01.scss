@@ -19,7 +19,7 @@
         &_title{
             h1{
                 @include h1();
-                width: size(832);
+                width: size(850);
                 line-height: 1.2;
                 @include mobile() {
                     width: rwd(313);
