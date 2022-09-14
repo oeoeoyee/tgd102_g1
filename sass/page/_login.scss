@@ -39,10 +39,16 @@
 
 // =======login.html========
 // banner
+
+
+
 .login_banner{
     width: 100%;
     img{
         width: 100%;
+        @include mobile(){
+            display: none;
+        }
     }
 }
 
@@ -53,6 +59,7 @@
 
     @include mobile(){
         width: auto;
+        margin-top: rwd(35);
     }
 
     h2{
@@ -63,7 +70,7 @@
 
         @include mobile(){
             margin-bottom: rwd(32);
-            margin-top: rwd(32);
+            // margin-top: rwd(32);
         }
     }
 
