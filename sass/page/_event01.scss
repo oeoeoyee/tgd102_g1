@@ -457,6 +457,7 @@
         position: relative;
         overflow: hidden;
         width: size(1400);
+        height: size(850);
         // height: size(480);
         margin: 0 auto;
         @include mobile() {
