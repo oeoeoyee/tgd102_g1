@@ -16,7 +16,8 @@
         display: inline-block;
         width: size(32);
         height: size(32);
-        background-color: $hf_black;
+        // background-color: $hf_black;
+        font-size: size(24);
     }
     thead{
         tr{
@@ -32,6 +33,10 @@
         tr:nth-child(even){
             background-color: $white;
         }
+    }
+    // 表格內容去除a樣式
+    a{
+        color: $black;
     }
 }
 
@@ -78,6 +83,16 @@
     // 返回按鈕
     .btn_s_default{
         margin: size(40) auto 0;
+    }
+    .draft_button{
+        margin: 0;
+    }
+    // 按鈕去除a樣式
+    button{
+        a{
+            color: $black;
+            text-decoration: none;
+        }
     }
 }
 

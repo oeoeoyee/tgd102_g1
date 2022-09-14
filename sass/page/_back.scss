@@ -41,8 +41,19 @@
             display: inline-block;
             width: size(40);
             height: size(40);
-            background-color: $hf_black;
+            // background-color: $hf_black;
+            font-size: size(32);
         }
+    }
+    .icon_edit{
+        flex-grow: 1;
+        margin-top: size(10);
+        margin-left: size(40);
+    }
+    // 按鈕去除a樣式
+    a{
+        color: $black;
+        text-decoration: none;
     }
 }
 

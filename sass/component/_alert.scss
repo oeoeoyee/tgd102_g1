@@ -1,0 +1,99 @@
+/* --點開後資訊框-- */
+/* 加了none會隱藏 以後可以用 */
+.-none{
+    display: none;
+}
+
+/* 燈箱背景 */
+#all_lightbox{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(0, 0%, 0%, .5);
+    top: 0;
+    left: 0;
+    z-index: 11;
+}
+
+// prime_pay用
+.all_alert{
+    width: auto;
+    // width: size(640);
+    height: auto;
+    // height: size(360);
+    background-color: #FCFAF2;
+    text-align: center;
+    padding: size(60) size(160);
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    & > *{
+        margin: size(50) auto;
+    }
+    h3{
+        @include h3();
+    }
+    h4{
+        @include h4();
+    }
+    div{
+        a{
+            margin-right: size(10);
+            margin-left: size(10);
+        }
+    }
+    @include mobile(){
+        top: 40%;
+        width: auto;
+        width: rwd(360);
+        height: auto;
+        // height: rwd(220);
+        padding: rwd(20);
+
+        & > *{
+            margin: rwd(20) auto;
+        }
+        h3{
+            @include h4();
+        }
+        h4{
+            @include h5();
+        }
+        a{
+            margin-right: rwd(10);
+            margin-left: rwd(10);
+        }
+    }
+}
+
+.alert1{
+    div{
+        a{
+            display: inline-block;
+        }
+    }
+}
+
+
+// 給alert參考
+// news_info open + lightbox
+// news_info open
+// document.addEventListener("click", function(e){
+//     if(e.target.closest("div.news_info_li").classList.contains("news_info_li")){
+//         let lightbox = document.getElementById("news_info_lightbox");
+//         lightbox.classList.remove("-none");
+//     }
+// });
+
+// // news_info close
+// document.addEventListener("click", function(e){
+//     let lightbox = document.getElementById("news_info_lightbox");
+//     if(e.target.classList.contains("js_lightbox")){
+//         lightbox.classList.add("-none");
+//     }
+//     if(e.target.classList.contains("js_lightbox_btn")){
+//         lightbox.classList.add("-none");
+//     }
+// });
