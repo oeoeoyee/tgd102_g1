@@ -649,6 +649,9 @@
     // 右邊
     .member_right{
         flex-grow: 1;
+        @include mobile(){
+            margin-top:rwd(20);
+        }
 
         // 資料表格
         table{
@@ -665,6 +668,9 @@
                     td:first-child{
                         width: size(190);
                         font-weight: bold;
+                        @include mobile(){
+                            width: auto;
+                        }
                     }
 
                      // 會員條碼
@@ -707,13 +713,23 @@
 // 資料表格
 .order_table{
     table{
+        @include mobile(){
+            margin: 0 auto;
+            width: rwd(320);
+            line-height: 1.5;
+        }
         tbody{
             margin-left:auto; 
             margin-right:auto;
             tr{
+                
                 td{
                     text-align: center;
                     width: 50%;
+                    @include mobile(){
+                        width: auto;
+                        text-align: left;
+                    }
                 }
 
                 // icon
@@ -721,6 +737,10 @@
                     // padding-top: size(50);
                     vertical-align:middle;
                     width: 20%;
+                    @include mobile {
+                        width: rwd(4);
+                        
+                    }
                     
                     a{
                         color: $black;
@@ -729,6 +749,9 @@
                     .fa-angle-right{
                         font-size: size(40);
                         vertical-align: middle;
+                        @include mobile {
+                            font-size: rwd(20);
+                        }
                     }
                 }
             }
@@ -743,6 +766,11 @@
     width: size(659);
     height: size(1);
     margin-bottom: size(52);
+    @include mobile(){
+        margin: rwd(10) auto;
+        width: rwd(360);
+        
+    }
 }
 
 // =========return_ticket.html==========
