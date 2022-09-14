@@ -612,6 +612,10 @@
     color: $black;
     text-align: center;
     padding: size(73) 0;
+    @include mobile(){
+        // font-size: rwd(24);
+        padding-bottom: rwd(33);
+    }
 
 }
 
@@ -633,6 +637,9 @@
 
         // 資料表格
         table{
+            @include mobile(){
+                margin: 0 auto;
+            }
             tbody{
                 tr{
                     
@@ -641,6 +648,10 @@
                         @include h4();
                         color: $black;
                         font-weight: normal;
+                        @include mobile(){
+                            font-size: rwd(16);
+                            padding-bottom: rwd(32);
+                        }
                     }
 
                     td:first-child{
@@ -652,10 +663,17 @@
                     .member_code{
                         vertical-align: top;
                     }
+
                     .member_code_img{
                         margin: 0 auto;
                         width: size(230);
                         // margin-top: size(32);
+
+                        img{
+                            @include mobile(){
+                                width: rwd(200);
+                            }
+                        }
                     }
 
                 }
@@ -678,9 +696,18 @@
 // ===========order.html=============
 
 // 按鈕
-.order_btn{
-    width: size(380);
-    justify-content: space-between;
+.wrapper{
+    .order_btn{
+        width: size(380);
+        justify-content: space-between;
+    
+        @include mobile(){
+            width: rwd(300);
+            justify-content: space-between;
+    
+        }
+    }
+
 }
 
 // ===========order_list.html===========
