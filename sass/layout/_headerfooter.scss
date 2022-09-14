@@ -465,8 +465,24 @@ footer{
     background-color: $hf_black;
     // opacity: .9;
     padding: size(8);
+
+    @include mobile(){
+        width: rwd(40);
+        height: rwd(40);
+        border-radius: 50%;
+        border: rwd(2) solid $white;
+
+    }
+
     i{
         font-size: size(24);
         color: $white;
+
+        @include mobile(){
+            font-size: rwd(25);
+            text-align: center;
+            line-height: rwd(37);
+            display: block;
+        }
     }
 }
