@@ -214,12 +214,14 @@
         select{
             width: size(148);
             height: size(32);
+            min-width: 72px; 
             @include h5();
             padding-left: size(8);
             line-height: size(32);
             @include mobile() {
                 width: rwd(148);
                 height: rwd(32);
+                min-width: auto; 
                 @include p();
                 padding-left: rwd(8);
                 line-height: rwd(32);
@@ -331,8 +333,19 @@
         width: rwd(375);
         margin: 0 auto;
     }
+    .img_overflow{
+        overflow: hidden;
+        width:size(348);
+        @include mobile() {
+            width:rwd(375) ;
+        }
+    }
         img{
             width:size(348) ;
+                &:hover{
+                    transform: scale(1.1);
+                    transition: all .3s ease-in-out;
+                }
             @include mobile() {
                 width:rwd(375) ;
             }
@@ -354,7 +367,7 @@
                 display: block;
                 @include h4();
                 margin-top: rwd(16);
-                width: rwd(240);
+                width: rwd(250);
                 line-height: rwd(30);
             }
         }
@@ -384,3 +397,5 @@
         }
     }
     }
+
+    

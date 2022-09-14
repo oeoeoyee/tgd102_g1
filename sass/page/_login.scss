@@ -210,7 +210,7 @@
     .signin_btn_out{
     
         input{
-            margin-right: 0!important;
+            margin: 0 auto;
         }
     }
 }
@@ -653,6 +653,7 @@
     // 右邊
     .member_right{
         flex-grow: 1;
+        
 
         // 資料表格
         table{
@@ -669,13 +670,16 @@
                         font-weight: normal;
                         @include mobile(){
                             font-size: rwd(16);
-                            padding-bottom: rwd(32);
+                            padding: rwd(16) 0;
                         }
                     }
 
                     td:first-child{
                         width: size(190);
                         font-weight: bold;
+                        @include mobile(){
+                            width: auto;
+                        }
                     }
 
                      // 會員條碼
@@ -693,6 +697,7 @@
                             
                             @include mobile(){
                                 width: rwd(200);
+                                margin-bottom: rwd(20);
                             }
                         }
                     }
@@ -726,6 +731,9 @@
             width: rwd(300);
             justify-content: space-between;
 
+            input,a{
+                margin: 0 auto;
+            }
 
         }
     }
@@ -736,14 +744,29 @@
 
 // 資料表格
 .order_table{
+    @include mobile(){
+        margin:rwd(40) 0;
+    }
+
     table{
+        @include mobile(){
+            margin: 0 auto;
+            width: rwd(320);
+            // line-height: 1.5;
+            
+        }
         tbody{
             margin-left:auto; 
             margin-right:auto;
             tr{
+                
                 td{
                     text-align: center;
                     width: 50%;
+                    @include mobile(){
+                        width: auto;
+                        text-align: left;
+                    }
                 }
 
                 // icon
@@ -751,6 +774,10 @@
                     // padding-top: size(50);
                     vertical-align:middle;
                     width: 20%;
+                    @include mobile {
+                        width: rwd(4);
+                        
+                    }
                     
                     a{
                         color: $black;
@@ -759,6 +786,9 @@
                     .fa-angle-right{
                         font-size: size(40);
                         vertical-align: middle;
+                        @include mobile {
+                            font-size: rwd(20);
+                        }
                     }
                 }
             }
@@ -773,6 +803,11 @@
     width: size(659);
     height: size(1);
     margin-bottom: size(52);
+    @include mobile(){
+        margin: rwd(10) auto;
+        width: rwd(360);
+        
+    }
 }
 
 // =========return_ticket.html==========
@@ -785,8 +820,17 @@
         color: $black;
         text-align: center;
         margin-top: size(72);
+        @include mobile(){
+            font-size: rwd(16);
+            padding: 0 rwd(10);
+            margin: rwd(20);
+        }
     }
+    
 }
+
+
+
 // =========ticket_personal.html========
 
 // 上面
@@ -941,7 +985,7 @@
             @include mobile(){
                 padding-left: rwd(15);
             }
-            li{}
+            
         }
     }
     
@@ -1098,8 +1142,8 @@
 
         @include mobile(){
             display: block;
-            margin: 0 auto;
-            margin-top: rwd(20);
+            margin: rwd(50) auto;
+            // margin-top: rwd(20);
             width: rwd(200);
         }
     }

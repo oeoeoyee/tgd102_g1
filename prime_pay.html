@@ -60,15 +60,48 @@
                 <!-- 價錢按鈕 -->
                 <div class="price_btn">
                     <h3>總計 NT$3000</h3>
-                    <input type="submit" class="btn_s_remind" value="付款">
+                    <!-- <input type="submit" class="btn_s_remind" value="付款"> -->
+                    <input class="btn_s_remind" value="付款">
                 </div>
             </form>
 
+        </div>
+
+        <!-- alert燈箱效果 -->
+        <div class="-none js_lightbox" id="all_lightbox">
+            <div class="all_alert">
+                <h3>升級成功</h3>
+                <h4>請至會員資料查看QRcode</h4>
+                <a href="./member_info.html" class="btn_s_remind js_lightbox_btn">會員中心</a>
+            </div>
         </div>
         
         <!-- footer -->
         @@include('./layout/footer.html')
         
     </div>
+
+    <!-- 燈箱JS 暫放 -->
+    <script>
+        // alert open + lightbox
+        // alert+lightbox open
+        document.addEventListener("click", function(e){
+            if(e.target.closest("div").classList.contains("price_btn")){
+                let lightbox = document.getElementById("all_lightbox");
+                lightbox.classList.remove("-none");
+            }
+        });
+    
+        // alert+lightbox close
+        document.addEventListener("click", function(e){
+            let lightbox = document.getElementById("all_lightbox");
+            if(e.target.classList.contains("js_lightbox")){
+                lightbox.classList.add("-none");
+            }
+            if(e.target.classList.contains("js_lightbox_btn")){
+                lightbox.classList.add("-none");
+            }
+        });
+    </script>
 </body>
 </html>

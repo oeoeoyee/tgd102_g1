@@ -32,13 +32,30 @@
     justify-content: space-around;
     
     li{
-        color: $black;
         @include h2();
+        color: $black;
+        width: size(500);
         text-shadow: 2px 2px 10px white;
         line-height: 1.6;
+        display: inline-block;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        animation: typing 4s steps(15) 1;
+        @keyframes typing {
+            from { width: 0; }
+        }
+
         @include mobile(){
             font-size: rwd(24);
             font-weight: bold;
+            // width: rwd(200);
+            // height: rwd(300);
+            // line-height: 1.6;
+            // display: inline-block;
+            // text-align: center;
+            // white-space:normal;
+            // overflow: hidden;
         }
     }
     li:nth-child(1){
@@ -71,16 +88,29 @@
     left: size(860);
     bottom: size(150);
     background-color: white;
-    opacity: 0.8;
+    opacity: 0.6;
     border-radius: 50%;
     border: 1px solid #292929;
     overflow: hidden;
+    &:hover{
+        opacity: 1;
+    }
+    animation: blink 0.75s 4s 3 linear ;
+    @keyframes blink {
+        0% {
+            opacity: 0;
+      }
+      100%{    opacity: 1;
+      }
+    }
+
     @include mobile(){
         width: rwd(76);
         height: rwd(76);
         left: rwd(169);
         bottom: rwd(150);
     }
+    
     img{
         width: 80%;
         padding-top: size(30);

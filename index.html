@@ -7,25 +7,31 @@
 </head>
 <body>
     <div class="wrapper">
-        <!-- header -->
-        @@include('./layout/header.html')
-        <!-- 特別展覽 -->
-        <div class="index_event">
-            <div class="title">
-                <h2>特別展覽</h2>
-                <p>追溯藝術家們於館內展出的歷史典藏</p>
-                <div></div>
+            <!-- header -->
+            @@include('./layout/header.html')
+        <div class="index_section">    
+            <!-- 特別展覽 -->
+            <div class="index_event_top">
+                <div class="title">
+                    <h2>特別展覽</h2>
+                    <p>追溯藝術家們於館內展出的歷史典藏</p>
+                    <div></div>
+                </div>
             </div>
             <ul class="index_event_content">
                 <li class="index_event_item">
-                    <div class="index_event_main">
-                        <h3>林布蘭·哈爾曼松特展</h3>
-                        <h5>光影魔術師</h5>
-                        <p>2022.08.13 - 2023.01.31</p>
-                    </div>
-                    <button class="btn_m">BUY TICKET
-                        <span>&rarr;</span>
-                    </button>
+                    <a href="event_01.html">
+                        <div class="index_event_main">
+                            <h3>林布蘭·哈爾曼松特展</h3>
+                            <h5>光影魔術師</h5>
+                            <p>2022.08.13 - 2023.01.31</p>
+                        </div>
+                    </a>
+                    <a href="ticket.html">
+                        <button class="btn_m">BUY TICKET
+                            <span>&rarr;</span>
+                        </button>
+                    </a>
                 </li>
                 <li class="index_event_item">
                     <div class="index_event_main">
@@ -38,29 +44,32 @@
                     </button>
                 </li>
             </ul>
-        </div>
 
-        <!-- 網頁小分隔線 -->
-        <div class="index_line_spacing"></div>
-        <!-- 常設展覽 -->
-        <div class="index_exhibition">
-            <div class="title">
-                <h2>常設展覽</h2>
-                <p>追溯藝術家們於館內展出的歷史典藏</p>
-                <div></div>
+            <!-- 網頁小分隔線 -->
+            <div class="index_line_spacing"></div>
+
+            <!-- 常設展覽 -->
+            <div class="index_exhibition_top">
+                <div class="title">
+                    <h2>常設展覽</h2>
+                    <p>追溯藝術家們於館內展出的歷史典藏</p>
+                    <div></div>
+                </div>
             </div>
             <ul class="index_exhibition_content">
-                <li class="index_exhibition_item">
-                    <div class="index_exhibition_num">
-                        <h4>01</h4>
-                    </div>
-                    <div class="index_exhibition_main">
-                        <img src="/images/index_03.jpg" alt="">
-                        <h4>新藝術運動
-                            <span>&rarr;</span>
-                        </h4>
-                    </div>
-                </li>
+                <a href="exhibition_information.html">
+                    <li class="index_exhibition_item">
+                        <div class="index_exhibition_num">
+                            <h4>01</h4>
+                        </div>
+                        <div class="index_exhibition_main">
+                            <img src="/images/index_03.jpg" alt="">
+                            <h4>新藝術運動
+                                <span>&rarr;</span>
+                            </h4>
+                        </div>
+                    </li>
+                </a>
                 <li class="index_exhibition_item">
                     <div class="index_exhibition_num">
                         <h4>02</h4>
@@ -84,81 +93,90 @@
                     </div>
                 </li>
             </ul>
-        </div>
-        <!-- 網頁大分隔線 -->
-        <div class="index_hr"></div>
-        <!-- 最新消息 -->
-        <div class="index_news">
-            <div class="title">
-                <h2>最新消息</h2>
-                <p>追溯藝術家們於館內展出的歷史典藏</p>
-                <div></div>
+
+            <!-- 網頁大分隔線 -->
+            <div class="index_hr"></div>
+
+            <!-- 最新消息 -->
+            <div class="index_news">
+                <div class="title">
+                    <h2>最新消息</h2>
+                    <p>追溯藝術家們於館內展出的歷史典藏</p>
+                    <div></div>
+                </div>
+                <div class="index_news_content">
+                    <img src="/images/index_06.jpg" alt="">
+                    <div class="index_news_line"></div>
+                    <ul class="index_news_list">
+                        <li>
+                            <div class="infocard_s">
+                                <h3>518博物館日 期間限定優惠
+                                    <span>&rarr;</span>
+                                </h3>
+                                <h5>新一季常設展覽多出十九世紀主題，......</h5>
+                                <div></div>
+                                <h5>活動訊息</h5>
+                                <p>2022.05.13 -  2022.08.31</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="news_01.html">
+                                <div class="infocard_s">
+                                    <h3>新一季參觀須知及票價調整通知
+                                        <span>&rarr;</span>
+                                    </h3>
+                                    <h5>新一季常設展覽多出十九世紀主題，......</h5>
+                                    <div></div>
+                                    <h5>館方訊息</h5>
+                                    <p>2022.05.13 -  2022.08.31</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="infocard_s">
+                                <h3>博物館振興券活動
+                                    <span>&rarr;</span>
+                                </h3>
+                                <h5>新一季常設展覽多出十九世紀主題，......</h5>
+                                <div></div>
+                                <h5>活動訊息</h5>
+                                <p>2022.05.13 -  2022.08.31</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="news.html">
+                                <button class="btn_xl">MORE NEWS
+                                    <span>&rarr;</span>
+                                </button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="index_news_content">
-                <img src="/images/index_06.jpg" alt="">
-                <div class="index_news_line"></div>
-                <ul class="index_news_list">
-                    <li>
-                        <div class="infocard_s">
-                            <h3>518博物館日 期間限定優惠
-                                <span>&rarr;</span>
-                            </h3>
-                            <h5>新一季常設展覽多出十九世紀主題，......</h5>
-                            <div></div>
-                            <h5>活動訊息</h5>
-                            <p>2022.05.13 -  2022.08.31</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="infocard_s">
-                            <h3>新一季參觀須知及票價調整通知
-                                <span>&rarr;</span>
-                            </h3>
-                            <h5>新一季常設展覽多出十九世紀主題，......</h5>
-                            <div></div>
-                            <h5>館方訊息</h5>
-                            <p>2022.05.13 -  2022.08.31</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="infocard_s">
-                            <h3>博物館振興券活動
-                                <span>&rarr;</span>
-                            </h3>
-                            <h5>新一季常設展覽多出十九世紀主題，......</h5>
-                            <div></div>
-                            <h5>活動訊息</h5>
-                            <p>2022.05.13 -  2022.08.31</p>
-                        </div>
-                    </li>
-                    <li>
-                        <button class="btn_xl">MORE NEWS
+
+            <!-- 網頁小分隔線 -->
+            <div class="index_line_spacing"></div>
+
+            <!-- 關於我們 -->
+            <div class="index_about">
+                <div class="title">
+                    <h2>關於我們</h2>
+                    <p>追溯藝術家們於館內展出的歷史典藏</p>
+                    <div></div>
+                </div>
+                <div class="index_about_content">
+                    <img src="/images/index_07.jpg" alt="">
+                    <p>來到溯．REVERSE，彷彿搭乘時光機回到過去，將自己置身於各個不同的時代，探索歷史的奧妙。</p>
+                    <a href="about.html">
+                        <button class="btn_l">SEE MORE
                             <span>&rarr;</span>
                         </button>
-                    </li>
-                </ul>
+                    </a>
+                </div>
             </div>
-        </div>
-        <!-- 網頁小分隔線 -->
-        <div class="index_line_spacing"></div>
-        <!-- 關於我們 -->
-        <div class="index_about">
-            <div class="title">
-                <h2>關於我們</h2>
-                <p>追溯藝術家們於館內展出的歷史典藏</p>
-                <div></div>
-            </div>
-            <div class="index_about_content">
-                <img src="/images/index_07.jpg" alt="">
-                <p>來到溯．REVERSE，彷彿搭乘時光機回到過去，將自己置身於各個不同的時代，探索歷史的奧妙。</p>
-                <button class="btn_l">SEE MORE
-                    <span>&rarr;</span>
-                </button>
-            </div>
-        </div>
-        <!-- footer -->
-        @@include('./layout/footer.html')
-        
+        </div>    
+            <!-- footer -->
+            @@include('./layout/footer.html')
     </div>
 </body>
 </html>
