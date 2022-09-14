@@ -21,6 +21,7 @@
 
 // login.html
 // signin.html
+// forget.html
 // member.html
 // ticket.html
 // signin_succ.html
@@ -212,6 +213,23 @@
         }
     }
 }
+
+// =========forget.html===========
+.forget{
+    // 電子信箱flex
+    .forget_btn{
+        display: flex;
+        justify-content: space-between;
+        .forget_email{
+            width: 78%;
+        }
+        .btn_s_default{
+            width: 20%;
+            padding: 0;
+        }
+    }
+}
+
 
 // =========member.html===========
 
@@ -676,17 +694,28 @@
             tr{
                 td{
                     text-align: center;
-                    // vertical-align: middle;
+                    width: 50%;
+                }
+
+                // icon
+                .order_icon{
+                    // padding-top: size(50);
+                    vertical-align:middle;
+                    width: 20%;
+                    
+                    a{
+                        color: $black;
+                    }
+
+                    .fa-angle-right{
+                        font-size: size(40);
+                        vertical-align: middle;
+                    }
                 }
             }
         }
     }
 
-    .fa-angle-right{
-        font-size: size(40);
-        vertical-align: middle;
-
-    }
 }
 
 // 分隔線

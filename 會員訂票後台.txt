@@ -3,6 +3,7 @@
 ***************************************前台****************************************************
 // login.html                    會員登入                     login.scss              WHO
 // signin.html                   會員註冊
+// forget.html                   忘記密碼
 // member.html                   會員中心(待砍掉)
 // ticket.html                   線上訂票系統
 // signin_succ.html              註冊成功
