@@ -40,13 +40,7 @@
     margin-top: rwd(30);
 }
 
-.line3_spacing{
-    display: none;
-    @include mobile(){
-        margin-top: rwd(45);
-        display: block;
-    }
-}
+
 
 .line4_spacing{
     display: none;
