@@ -689,6 +689,8 @@
                         // margin-top: size(32);
 
                         img{
+                            width: size(200);
+                            
                             @include mobile(){
                                 width: rwd(200);
                             }
@@ -723,7 +725,8 @@
         @include mobile(){
             width: rwd(300);
             justify-content: space-between;
-    
+
+
         }
     }
 
