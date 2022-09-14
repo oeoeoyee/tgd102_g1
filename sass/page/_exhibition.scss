@@ -282,7 +282,7 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
       transform: translate(0, -50%);
       color: $white;
       @include mobile() {
-        display: none;
+        display: none !important;
       }
     }
   }
@@ -292,7 +292,7 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
 // UL
 .sidebarNav {
   transition: 0.5s;
-  left: -200px;
+  left: -300px;
   overflow: hidden;
 }
 
@@ -301,20 +301,13 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
   left: -80px;
   margin-right: 0px;
   opacity: 1;
+  @include mobile {
+    left: 0;
+  }
 }
 
 // LI
 .sidebarNavItem {
   display: block;
   transition: 0.3s;
-}
-
-// Hover
-.sidebarNavItem:hover {
-  outline: 0px;
-  background-color: #ef6c00;
-  transform: scale(1, 1);
-}
-
-.sidebarNav a:hover {
 }
