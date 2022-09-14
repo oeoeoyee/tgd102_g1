@@ -219,5 +219,6 @@
     @include bk_edit();
         label{
             @include label();
+            align-self: flex-start;
         }
 }
