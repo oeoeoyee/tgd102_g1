@@ -44,6 +44,7 @@
             margin-left: size(10);
         }
     }
+    
     @include mobile(){
         top: 40%;
         width: auto;
@@ -62,8 +63,8 @@
             @include h5();
         }
         a{
-            margin-right: rwd(10);
-            margin-left: rwd(10);
+        //     margin-right: rwd(10);
+        //     margin-left: rwd(10);
         }
     }
 }
