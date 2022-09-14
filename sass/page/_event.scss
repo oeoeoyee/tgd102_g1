@@ -373,7 +373,7 @@
         }
         .event_date{
             @include h4();
-            width: size(296);
+            width: size(300);
             margin-top: size(40);
             @include mobile() {
                 @include h5();
