@@ -86,7 +86,7 @@
         // alert open + lightbox
         // alert+lightbox open
         document.addEventListener("click", function(e){
-            if(e.target.closest("div").classList.contains("price_btn")){
+            if(e.target.classList.contains("btn_s_remind")){
                 let lightbox = document.getElementById("all_lightbox");
                 lightbox.classList.remove("-none");
             }
