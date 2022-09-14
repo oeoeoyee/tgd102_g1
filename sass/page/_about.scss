@@ -32,11 +32,28 @@
 }
 
 .line2_spacing{
+    display: none;
+    @include mobile(){
+        margin-top: rwd(30);
+        display: block;
+    }
     margin-top: rwd(30);
 }
 
+.line3_spacing{
+    display: none;
+    @include mobile(){
+        margin-top: rwd(45);
+        display: block;
+    }
+}
+
 .line4_spacing{
-    margin-top: rwd(45);
+    display: none;
+    @include mobile(){
+        margin-top: rwd(45);
+        display: block;
+    }
 }
 
 .about6_line2{

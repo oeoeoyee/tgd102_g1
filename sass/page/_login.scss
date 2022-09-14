@@ -28,7 +28,7 @@
 // prime_pay.html
 // member_info.html
 // order.html
-// order_list.html
+// order_list.html                  scss671行
 // return_ticket.html
 // ticket_personal.html
 // ticket_group.html
@@ -1022,5 +1022,32 @@
     img{
         width: size(295);
         margin-left: size(452.5);
+
+        @include mobile(){
+            display: block;
+            margin: 0 auto;
+            margin-top: rwd(20);
+            width: rwd(200);
+        }
+    }
+
+    @include mobile(){
+        h2{
+            margin-top: rwd(30);
+        }
+
+        h4{
+            margin: rwd(20) auto;
+        }
+
+        ul:nth-of-type(3){
+            display: block;
+            width: rwd(250);
+
+            li{
+                text-align: left;
+                margin-bottom: rwd(10);
+            }
+        }
     }
 }
