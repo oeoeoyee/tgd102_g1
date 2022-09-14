@@ -30,7 +30,11 @@
 .en_txt {
     display: flex;
     justify-content: space-around;
-    
+    @include mobile(){
+        display: flex;
+        justify-content: space-around;
+        // padding-bottom: rwd(100);
+    }
     li{
         @include h2();
         color: $black;
@@ -47,17 +51,17 @@
         }
 
         @include mobile(){
-            font-size: rwd(20);
+            writing-mode: vertical-rl;
+            font-size: rwd(24);
             font-weight: bold;
             text-shadow: rwd(1) rwd(1) rwd(3) white;
-            width: rwd(200);
-            // height: rwd(24);
-            // line-height: 1.6;
-            // display: inline-block;
+            width: rwd(40);
+            line-height: 1.6;
             text-align: center;
-            white-space: normal;
-            overflow: hidden;
-            
+            animation: typing 4s steps(80) 1 ;
+            @keyframes typing {
+                from { width: 0; }
+            }
         }
     }
     li:nth-child(1){
@@ -97,7 +101,7 @@
     &:hover{
         opacity: 1;
     }
-    animation: blink 0.75s 2s 3 linear ;
+    animation: blink 0.75s 4s 3 linear ;
     @keyframes blink {
         0% {
             opacity: 0;
