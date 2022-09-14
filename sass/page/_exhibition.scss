@@ -110,7 +110,7 @@
 
     @include mobile {
       text-align: right !important;
-      h3{
+      h3 {
         text-align: left !important;
       }
     }
@@ -286,4 +286,35 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
       }
     }
   }
+}
+
+
+// UL
+.sidebarNav {
+  transition: 0.5s;
+  left: -200px;
+  overflow: hidden;
+}
+
+// 淡入
+.sidebarNavIn {
+  left: -80px;
+  margin-right: 0px;
+  opacity: 1;
+}
+
+// LI
+.sidebarNavItem {
+  display: block;
+  transition: 0.3s;
+}
+
+// Hover
+.sidebarNavItem:hover {
+  outline: 0px;
+  background-color: #ef6c00;
+  transform: scale(1, 1);
+}
+
+.sidebarNav a:hover {
 }
