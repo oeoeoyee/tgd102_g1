@@ -287,14 +287,6 @@
 
 // 下方的其他最新消息
 .news01_others{
-    a{
-        text-decoration: none;
-        color: $black;
-        // width: 100%;
-        // display: flex;
-        // flex-wrap: wrap;
-        // justify-content: space-between;
-    }
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -307,12 +299,22 @@
             margin-bottom: rwd(40);
         };
     }
+    a{
+        text-decoration: none;
+        color: $black;
+    }
     // 上一則消息
     .news01_others_last{
+        width: 35%;
+        @include mobile(){
+            width: 48%;
+        }
+    }
+    .news01_others_last > a{
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        width: 35%;
+        width: 100%;
         height: size(256);
         border: size(1) solid $line_light;
         padding: size(20) size(20) size(20);
@@ -338,7 +340,7 @@
         }
         @include mobile(){
             display: block;
-            width: 47%;
+            width: 100%;
             height: auto;
             padding: rwd(12) rwd(16);
             span{
@@ -363,43 +365,14 @@
     }
     // 下一則消息
     .news01_others_next{
-        // display: flex;
-        // flex-direction: column;
-        // flex-wrap: wrap;
-        // width: 60%;
-        // height: size(256);
-        // border: size(1) solid $line_light;
-        // padding: size(20) size(16) size(20);
+
         @include mobile(){
             span{
                 text-align: right;
             }
         }
-        // img{
-        //     width: size(361);
-        //     height: 100%;
-        //     object-fit: cover;
-        // }
         span{
-            // width: 5%;
-            // height: size(256);
             order: 1;
         }
-        // h3{
-        //     width: 45%;
-        //     flex-grow: 2;
-        //     @include h3();
-        // }
-        // h4{
-        //     width: 45%;
-        //     @include h4();
-        //     font-weight: normal;
-        // }
-        // h4:first-of-type{
-        //     flex-grow: 1;
-        // }
-        // h4:last-of-type{
-        //     flex-grow: 0;
-        // }
     }
 }
