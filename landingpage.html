@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "開始"
+    })
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- header -->
+        @@include('./layout/header.html')
+        
+        <!-- banner -->
+        <div class="login_banner">
+            <img src="./images/login_01.png" alt="">
+        </div>
+
+        <!-- 上面 -->
+        <div class="login_top member ticket landing">
+
+            <h2>溯·REVERSE</h2>
+
+            <ul class="center">
+                <li><a href="./entrance.html">前台</a></li>
+                <li><a href="./back_chart.html">後台</a></li>
+            </ul>
+
+        </div>
+        <!-- footer -->
+        @@include('./layout/footer.html')
+        
+    </div>
+</body>
+</html>
