@@ -515,12 +515,19 @@
         ul {
             margin-top: size(32);
             list-style: decimal;
-            margin-left: size(20);
+            margin-left: size(25);
 
 //下方文字區
             li {
                 margin-bottom: size(32);
-                
+
+                &::marker{
+                    font-size: size(24);
+                    
+                    @include mobile(){
+                        font-size: rwd(18);
+                    }
+                }
                 //li的編號超出li 怎麼併在內
                 p {
                     @include p();
