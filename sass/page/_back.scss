@@ -59,20 +59,42 @@
 
 // 圖表
 .back_chart{
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    // display: flex;
     margin-top: size(40);
     margin-bottom: size(120);
     & > div{
         display: inline-block;
         width: auto;
-        height: size(384);
-        padding: size(10);
+        height: size(400);
+        padding: size(20);
         div{
-            border: 1px solid;
-            height: 90%;
+            // border: 1px solid;
+            height: 100%;
+            img{
+                height: 100%;
+            }
         }
+        // div:nth-of-type(1){
+        //     grid-row: 1 / 2 ; // startline / endline
+        //     grid-column: 1 / 2 ; // startline / endline
+        // }
+        // div:nth-of-type(2){
+        //     grid-row: 2 / 3 ; // startline / endline
+        //     grid-column: 1 / 2 ; // startline / endline
+        // }
+        // div:nth-of-type(3){
+        //     grid-row: 1 / 2 ; // startline / endline
+        //     grid-column: 2 / 3 ; // startline / endline
+        // }
+        // div:nth-of-type(4){
+        //     grid-row: 2 / 3 ; // startline / endline
+        //     grid-column: 2 / 3 ; // startline / endline
+        // }
+    
     }
 }
 
