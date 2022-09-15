@@ -1,8 +1,313 @@
-.bigBanner img {
-  display: block;
-  width: 100%;
+// footer mt:0
+.ex_wrapper {
+  h1 {
+    @include h1();
+  }
+
+  h2 {
+    @include h2();
+  }
+  h3 {
+    @include h3();
+    color: $white;
+    @include mobile() {
+      font-size: rwd(24);
+    }
+  }
+  h4 {
+    @include h4();
+    color: $white;
+    @include mobile() {
+      font-size: rwd(20);
+    }
+  }
+  h5 {
+    @include h5();
+    color: $white;
+    @include mobile() {
+      font-size: rwd(16);
+    }
+  }
+  p {
+    @include p();
+  }
+  footer {
+    margin-top: 0;
+  }
 }
 
-h2 {
-  @include h2();
+// 常設展至頂大圖
+.ex_bigBanner {
+  picture {
+    width: 100%;
+    height: size(600);
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+}
+
+// 主題
+.ex_list {
+  .ex_title {
+    h1 {
+      line-height: size(140);
+      @include mobile() {
+        line-height: rwd(80);
+      }
+      text-align: center;
+    }
+  }
+
+  .ex_main_img {
+    background-image: url("../../images/ex_f_img1.jpg");
+  }
+
+  .ex_second_img {
+    background-image: url("../../images/ex_f_img2.jpg");
+  }
+
+  .ex_second_img,
+  .ex_main_img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    width: 100%;
+    height: size(600);
+    line-height: size(600);
+
+    @include mobile() {
+      background-position: center;
+      background-size: contain;
+      height: rwd(180);
+      line-height: rwd(180);
+    }
+  }
+}
+
+// 展覽通通分開站
+.ex_new,
+.ex_old {
+  li {
+    // 單數
+    &:nth-child(even) {
+      text-align: right;
+
+      h3 {
+        text-align: left;
+      }
+    }
+
+    // 雙數
+    &:nth-child(odd) {
+      text-align: left;
+
+      h3 {
+        text-align: right;
+      }
+    }
+
+    @include mobile {
+      text-align: right !important;
+      h3 {
+        text-align: left !important;
+      }
+    }
+  }
+}
+
+// 展覽資訊
+$list: img1 img2 img3 img4 img5 img6 img7 img8;
+@each $img in $list {
+  .ex_#{$img} {
+    background-image: url("../../images/ex_#{$img}.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: size(600);
+    padding: size(144) size(220) size(47) size(315);
+    position: relative;
+
+    @include mobile() {
+      height: rwd(385);
+      background-image: url("../../images/ex_rwd_#{$img}.jpg");
+      background-position: center;
+      padding: rwd(64) rwd(20) 0 rwd(100);
+    }
+
+    h3 {
+      margin-bottom: size(256);
+      @include mobile() {
+        margin-bottom: rwd(200);
+      }
+    }
+    h4 {
+      margin-top: size(16);
+      @include mobile() {
+        margin-top: rwd(16);
+      }
+    }
+
+    div {
+      display: none;
+      position: absolute;
+      right: size(48);
+      top: 50%;
+      transform: translate(0, -50%);
+      i {
+        @include h1();
+        color: $red;
+      }
+    }
+
+    &:hover {
+      div {
+        display: block;
+      }
+    }
+  }
+}
+
+// 側邊欄
+.ex_side {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: size(315);
+  z-index: 5;
+
+  @include mobile() {
+    width: rwd(96);
+  }
+
+  // 側邊欄中間的棒棒
+  .ex_side_bar {
+    border: size(2) solid $line_mid;
+    background-color: $line_mid;
+    transform: rotate(90deg) scaleX(2.5) translate(45%, 0);
+    @include mobile() {
+      transform: rotate(90deg) scaleX(6) translate(45%, 0);
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    li {
+      margin-bottom: size(32);
+      position: relative;
+      cursor: pointer;
+      @include mobile() {
+        margin-bottom: rwd(32);
+      }
+    }
+  }
+
+  // 當前展覽 主題
+  .ex_side_main {
+    div {
+      background-color: $red;
+      border: 3px solid $line_dark;
+    }
+  }
+
+  // 非當前展覽 主題
+  .ex_side_second {
+    div {
+      border: 3px solid $line_light;
+      h4 {
+        display: none;
+      }
+    }
+  }
+
+  .ex_side_second,
+  .ex_side_main {
+    div {
+      width: size(60);
+      height: size(60);
+      border-radius: 50%;
+      @include mobile() {
+        width: rwd(32);
+        height: rwd(32);
+      }
+    }
+    h4 {
+      width: size(160);
+      position: absolute;
+      text-align: right;
+      top: size(30);
+      right: size(45);
+      transform: translate(0, -50%);
+      text-shadow: 0 0 size(3) $black, 0 0 size(3) $black;
+      @include mobile() {
+        display: none;
+      }
+    }
+  }
+
+  .ex_side_now {
+    background-color: $black;
+    border: 3px solid $white;
+    position: relative;
+    p {
+      text-shadow: 0 0 size(3) $black, 0 0 size(3) $black;
+    }
+  }
+  .ex_side_other {
+    border: 3px solid $line_light;
+    color: $white;
+    p {
+      display: none;
+    }
+  }
+
+  .ex_side_other,
+  .ex_side_now {
+    width: size(30);
+    height: size(30);
+    border-radius: 50%;
+    @include mobile() {
+      width: rwd(16);
+      height: rwd(16);
+    }
+    p {
+      width: size(160);
+      position: absolute;
+      top: size(11);
+      left: size(35);
+      transform: translate(0, -50%);
+      color: $white;
+      @include mobile() {
+        display: none !important;
+      }
+    }
+  }
+}
+
+
+// UL
+.sidebarNav {
+  transition: 0.5s;
+  left: -300px;
+  overflow: hidden;
+}
+
+// 淡入
+.sidebarNavIn {
+  left: -80px;
+  margin-right: 0px;
+  opacity: 1;
+  @include mobile {
+    left: 0;
+  }
+}
+
+// LI
+.sidebarNavItem {
+  display: block;
+  transition: 0.3s;
 }

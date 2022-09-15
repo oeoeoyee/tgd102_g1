@@ -41,6 +41,17 @@
     }
 }
 
+// h6
+@mixin h6() {
+    font-size: size(32);
+    font-weight: bold;
+
+    @include mobile(){
+        font-size: rwd(28);
+        @content;
+    }
+}
+
 // h4
 @mixin h4() {
     font-size: size(24);

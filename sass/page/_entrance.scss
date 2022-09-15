@@ -1,0 +1,138 @@
+.en_banner {
+    width: 100%;
+    height: 100vh;
+    background: url('/images/entrance_01.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    z-index: -999;
+    @include mobile() {
+        background: url('/images/entrance_03.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+}
+
+.en_banner::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+//三個標語
+.en_txt {
+    display: flex;
+    justify-content: space-around;
+    @include mobile(){
+        display: flex;
+        justify-content: space-around;
+        // padding-bottom: rwd(100);
+    }
+    li{
+        @include h2();
+        color: $black;
+        width: size(500);
+        text-shadow: size(2) size(2) size(10) white;
+        line-height: 1.6;
+        display: inline-block;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        animation: typing 4s steps(15) 1 ;
+        @keyframes typing {
+            from { width: 0; }
+        }
+
+        @include mobile(){
+            writing-mode: vertical-rl;
+            font-size: rwd(24);
+            font-weight: bold;
+            text-shadow: rwd(1) rwd(1) rwd(3) white;
+            width: rwd(40);
+            line-height: 1.6;
+            text-align: center;
+            animation: typing 4s steps(80) 1 ;
+            @keyframes typing {
+                from { width: 0; }
+            }
+        }
+    }
+    li:nth-child(1){
+        margin-top: size(100);
+        @include mobile(){
+            margin-top: rwd(100);
+        }
+    }
+    
+    li:nth-child(2){
+        margin-top: size(200);
+        @include mobile(){
+            margin-top: rwd(200);
+        }
+    }
+    
+    li:nth-child(3){
+        margin-top: size(300);
+        @include mobile(){
+            margin-top: rwd(300);
+        }
+    }
+    
+}
+
+.en_logobutton{
+    width: size(200);
+    height: size(200);
+    position: absolute;
+    left: size(860);
+    bottom: size(150);
+    background-color: white;
+    opacity: 0.6;
+    border-radius: 50%;
+    border: 1px solid #292929;
+    overflow: hidden;
+    &:hover{
+        opacity: 1;
+    }
+    animation: blink 0.75s 4s 3 linear ;
+    @keyframes blink {
+        0% {
+            opacity: 0;
+      }
+      100%{    opacity: 1;
+      }
+    }
+
+    @include mobile(){
+        width: rwd(76);
+        height: rwd(76);
+        left: rwd(169);
+        bottom: rwd(150);
+    }
+    
+    img{
+        width: 80%;
+        padding-top: size(30);
+        display: block;
+        margin: 0 auto;
+        @include mobile(){
+            width: 80%;
+            padding-top: rwd(10);
+        }
+    }
+}
+
+.en_container{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "註冊成功"
+    })
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- header -->
+        @@include('./layout/header.html')
+        
+        <!-- banner -->
+        <div class="login_banner">
+            <img src="./images/login_01.png" alt="">
+        </div>
+
+        <!-- 上面 -->
+        <div class="login_top succ_top">
+
+            <h2>註冊成功!</h2>
+            <h4>歡迎您加入溯·REVERSE會員，榮幸能與您一起徜徉藝術的世界，帳戶資料請進入會員中心查看</h4>
+
+            <!-- 按鈕 -->
+            <div class="login_btn_out succ">
+                <a href="./member_info.html" class="btn_s_default btn_succ">會員中心</a>
+                <a href="./ticket.html" class="btn_s_remind">立即訂票</a>
+            </div>
+
+        </div>
+
+        <!-- prime -->
+        <div class="prime">
+            <img src="./images/prime_01.png" alt="">
+
+            <section>
+                <h3>溯·REVERSE PRIME</h3>
+                <h4>現在加入溯·REVERSE PRIME<br>可於本館享有一整年購物優惠及精美周邊禮品<br>詳細資訊可洽詢現場服務人員或線上客服</h4>
+            </section>
+        </div>
+
+        <!-- prime 介紹 -->
+        <div class="prime_bottom">
+            
+            <!-- prime 說明 -->
+            <div class="prime_top">
+                <h3>加入溯·REVERSE PRIME可立即享有</h3>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check"></i>整年於開放時間隨時入館</li>
+                    <li><i class="fa-solid fa-circle-check"></i>紀念品商店85折優惠</li>
+                    <li><i class="fa-solid fa-circle-check"></i>博物館精美周邊禮品乙份</li>
+                </ul>
+            </div>
+
+            <!-- 價錢按鈕 -->
+            <div class="price">
+                <h3>NT$3000/年</h3>
+                <a href="./prime_pay.html" class="btn_s_remind">加入PRIME</a>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        @@include('./layout/footer.html')
+        
+    </div>
+</body>
+</html>

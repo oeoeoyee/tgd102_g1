@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="https://unpkg.com/vuex@3"></script>
+<head>
+    @@include('./layout/head.html', {
+        "title" : "林布蘭·哈爾曼松特展"
+    })
+</head>
+<body>
+<div id="app">
+    <div class="wrapper">
+        <!-- header -->
+        @@include('./layout/header.html')
+        <section class="event01_1">
+            <div class="event01_1_left">
+                <div class="event01_1_left_title">
+                    <h1>REMBRANDT HARMENSZOON VAN RIJN</h1>
+                    <h1>林布蘭·哈爾曼松</h1>
+                </div>
+                <div class="event01_1_left_content">
+                    <h4>2022.08.13 -  2023.01.31</h4>
+                    <img src="./images/event01_01_01.png" alt="">
+                    <h4>台北市中山區南京東路三段219號5樓</h4>
+                    <h4>A ROOM</h4>
+                    <a href="./ticket.html" class="btn_l">BUY TICKET
+                        <span>&rarr;</span>
+                    </a>
+                </div>
+            </div>
+            <div class="event01_1_right">
+                <img src="./images/event01_01.png" alt="">
+            </div>
+        </section>
+        <section class="event01_2">
+            <div class="event01_2_title">
+                <h2>展覽介紹</h2>
+                <h4>展覽介紹</h4>
+                <h5>林布蘭一生用無數的繪畫、版畫和素描描繪了自己。他很可能用他的自畫像來練習對人臉及其情感的描繪，我們可以看到他有很多情緒和偽裝。本展網羅世界各地的林布蘭收藏，將原作一一呈現在館內，帶您一起欣賞光影魔術師的對於畫作中的細膩的變化。</h5>
+            </div>
+            <div class="event01_2_content">
+                <div><img src="./images/event01_02.png" alt=""></div>
+                <img src="./images/event01_03.png" alt="">
+                <div class="event01_2_annotation">
+                    <div>
+                        <h4>市政官 1662 </h4>
+                        <h5>林布蘭把一個原本枯燥的話題變成了一個事件：男人們從工作中抬起頭來，好像被不速之客打擾了。</h5>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <div class="event01_left_line"></div>
+        <section class="event01_3">
+            <div class="event01_3_title">
+                <h2>藝術家介紹</h2>
+                <h4>林布蘭·哈爾曼松</h4>
+                <h5>林布蘭·哈爾曼松·范萊因是歐洲巴洛克繪畫藝術的代表畫家之一，也是17世紀荷蘭黃金時代繪畫的主要人物，被稱為荷蘭歷史上最偉大的畫家；在2004年票選最偉大的荷蘭人當中，他排行位於第九，次於第八的安妮·法蘭克。他所處的年代被稱為荷蘭黃金時代，荷蘭的科學藝術與商貿成就達到頂峰。</h5>
+                <div></div>
+            </div>
+            <div class="event01_3_img">
+                <img src="./images/event01_04.png" alt="">
+            </div>
+        </section>
+        <div class="event_right_line2"></div>
+        <section class="event01_4">
+            <div class="event01_4_title">
+                <h2>精選作品</h2>
+                <p>追溯藝術家們於館內展出的歷史典藏</p>
+            </div>
+            <div class="event01_4_content">
+                <ul>
+                    <li>
+                        <h4>市政官 </h4>
+                        <img src="./images/event01_05.png" alt="">
+                        <h5>林布蘭把一個原本枯燥的話題變成了一個事件：男人們從工作中抬起頭來，好像被不速之客打擾了。</h5>
+                    </li>
+                    <li>
+                        <h4>浪子回頭 </h4>
+                        <img src="./images/event01_06.png" alt="">
+                        <h5>林布蘭的這個寓言說道：“我們應該高興：因為這個兒子死了，又活了；迷路了，又找到了。</h5>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <div class="event01_left_line"></div>
+        <section class="event01_5">
+            <div class="event01_5_textborder">
+                <h4>
+                    我只是在畫人，普通人，不是軍隊。
+                </h4>
+            </div>
+            <div>
+                <div class="event01_5_img">
+                    <img src="./images/event01_last.jpg" alt="">
+                    <div class="event01_5_text01">
+                        <div>
+                            <p>此畫為林布蘭受僱於阿姆斯特丹射手連隊為其所作的肖像畫，林布蘭一改以往肖像畫中人物按照尊卑順序排列的原則，另闢蹊徑做出舞台化的效果。此畫所描繪的其實是白天隊長與副隊長的景象。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- footer -->
+        @@include('./layout/footer.html')
+    </div>
+</div>
+
+    <script>
+         new Vue({
+            el: '#app',
+            data: {
+                
+            },
+            methods: {
+                
+            },
+            methods:{},
+            computed:{}
+
+        })
+
+        
+    </script>
+</body>
+</html>

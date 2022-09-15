@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "會員中心"
+    })
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- header -->
+        @@include('./layout/header.html')
+        
+        <!-- banner -->
+        <div class="login_banner">
+            <img src="./images/login_01.png" alt="">
+        </div>
+
+        <!-- 上面 -->
+        <div class="login_top member">
+
+            <h2>會員中心</h2>
+
+            <ul class="center">
+                <li><a href="#">會員資料</a></li>
+                <li><a href="#">訂單紀錄</a></li>
+                <li><a href="#">線上訂票</a></li>
+            </ul>
+
+        </div>
+        <!-- footer -->
+        @@include('./layout/footer.html')
+        
+    </div>
+</body>
+</html>

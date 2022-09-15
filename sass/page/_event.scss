@@ -1,0 +1,401 @@
+// *{
+//     outline: 1px solid red;
+// }
+
+.event_0{
+    margin-top:size(96) ;
+    margin-bottom: size(160);
+    @include mobile() {
+        margin-top:rwd(20) ;
+        margin-bottom: rwd(64);
+    }
+    h1{
+        @include h1();
+        color: $line_dark;
+        margin-bottom: size(32);
+        margin-left: size(258);   
+        @include mobile() {
+            margin-bottom: rwd(16);
+            margin-left: rwd(20); 
+        }     
+    }
+    .event_right_line{
+        width: size(1660);
+        height: size(3);
+        float: right;
+        background-color: $line_dark;
+        @include mobile() {
+            width: rwd(394);
+            height: 2px;
+        }
+    }
+}
+
+.event_now{
+    max-width: 100%;
+    width: 100%;
+    &_top{
+        h2{
+            @include h2();
+            margin-bottom: size(16);
+            margin-left: size(258);
+            @include mobile() {
+                @include h1();
+                margin-bottom: rwd(8);
+                margin-left: rwd(20);
+            }
+        }
+        .event_left_line{
+            width: size(477);
+            height: size(1.5); 
+            background-color: $hf_black;
+            @include mobile() {
+                width: rwd(172);
+                height: 2px;
+                background-color: $line_mid;
+            }
+        }
+    }
+    &_bottom{
+        display: flex;
+        // 直線
+        @include mobile() {
+            display: block;
+        }
+        .event_ver_line{
+            margin-left: size(374);
+            width: size(1);
+            height: size(939);
+            margin-top: size(272);
+            background-color: $btnhover_gray;
+            @include mobile() {
+                display: none;
+            }
+        }
+        // 當期展覽02
+        .event_now_1{
+           margin-top: size(272);
+           margin-left: size(190);
+           @include mobile() {
+               margin: rwd(32) auto rwd(64);
+           }
+        }
+        // 當期展覽01
+        .event_now_2{
+            // display: flex;
+            margin-top: size(64);
+            margin-left: size(190);
+            @include mobile() {
+                margin: rwd(64) auto rwd(64);
+            }
+         }
+    }
+}
+
+.event_full_line{
+    width: 100%;
+    max-width: 100%;
+    background-color: $line_dark;
+    height:size(3);
+    @include mobile() {
+        height:2px;
+    }
+}
+
+.event_future{
+    display: flex;
+    max-width: 100%;
+    width: 100%;
+    @include mobile() {
+        display: block;
+    }
+    .event_future_left{
+        margin-top: size(96);
+        @include mobile() {
+            margin-top: rwd(22); 
+        }
+        h2{
+            @include h2();
+            margin-bottom: size(16);
+            margin-left: size(258);
+            @include mobile() {
+                @include h1();
+                margin-bottom: rwd(8);
+                margin-left: rwd(20);
+                
+            }
+        }
+        .event_left_line{
+            width: size(477);
+            height: size(1.5);
+            background-color: $hf_black;
+            @include mobile() {
+                width: rwd(172);
+                height: 2px;
+                background-color: $line_mid;
+            }
+        }
+    }
+    .event_future_mid{
+        margin-top: size(96);
+        display: flex;
+        @include mobile() {
+            display: block;
+            margin-top: rwd(32);
+        }
+        // 展覽預告02
+        .event_future_1{
+            margin-top: size(140);
+            margin-left: size(88);
+            @include mobile() {
+                margin: rwd(32) auto;
+            }
+         }
+         // 展覽預告02
+         .event_future_2{
+             margin-top: size(348);
+             margin-left: size(190);
+             @include mobile() {
+                margin: rwd(64) auto;
+            }
+           }
+    }
+
+    .event_future_right{
+        width: size(1);
+        height: size(1000);
+        margin-left: size(132);
+        background-color: $btnhover_gray;
+        @include mobile() {
+            display: none;
+        }
+    }
+}
+
+.event_right_line2{
+    width: size(1660);
+    margin-top: size(120);
+    height: size(3);
+    float: right;
+    background-color: $line_dark;
+    @include mobile() {
+        width: rwd(394);
+    margin-top: rwd(0);
+    height: 2px;
+    }
+}
+
+.event_3{
+    clear: both;
+    padding-top: size(96);
+    box-sizing: border-box;
+    @include mobile() {
+        padding-top: rwd(32);  
+    }
+    .event_pass_title{
+        width: size(1400);
+        margin: 0 auto;
+        padding: 0 size(16) size(16);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        border-bottom: size(3) solid $line_mid;
+        @include mobile() {
+            width: rwd(375);
+            padding: 0 rwd(8) rwd(32);
+            border-bottom: 0;
+        }
+        h2{
+            @include h2();
+            @include mobile() {
+                @include h1();
+            }
+        }
+        select{
+            width: size(148);
+            height: size(32);
+            min-width: 72px; 
+            @include h5();
+            padding-left: size(8);
+            line-height: size(32);
+            @include mobile() {
+                width: rwd(148);
+                height: rwd(32);
+                min-width: auto; 
+                @include p();
+                padding-left: rwd(8);
+                line-height: rwd(32);
+            }
+        }
+    }
+    .event_pass{
+        &:hover{
+            cursor: pointer;
+        }
+        line-height: 1.4;
+        display: flex;
+        margin: 0 auto;
+        width: size(1311);
+        border-bottom: size(1) solid $line_mid;
+        @include mobile() {
+            width: rwd(375);
+            display: block;
+            border-bottom:1px solid $line_mid;
+            margin-top: rwd(16);
+        }
+        .event_pass_img{
+            margin-right: size(160);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+                @include mobile() {
+                    margin: 0 auto;
+                    display: block;
+                    width: rwd(375);
+                }
+            div{
+                overflow: hidden;
+                width: size(428);
+                @include mobile() {
+                    width: rwd(375); 
+                }
+                img{
+                    width: size(428);
+                    @include mobile() {
+                        width: rwd(371);
+                        border: rwd(2) solid $black;
+                    }
+                    &:hover{
+                        transform: scale(1.1);
+                        transition: all .3s ease-in-out;
+                    }
+                }
+                
+            }
+        }
+
+    }
+}
+
+.events_btn{
+    width: size(1311);
+    margin: size(64) auto size(96);
+    @include mobile() {
+        width: rwd(250);
+        margin: rwd(32) rwd(20) rwd(0);
+    }
+}
+
+
+
+
+//展覽卡片
+.event_now_c{
+    display: flex;
+    @include mobile() {
+        display: block;
+    }
+
+    
+    .event_title_c{
+        margin-right: size(12);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @include mobile() {
+            display: block;
+            width: rwd(375);
+            margin: 0 auto;
+        }
+        .event_no{
+            @include h3();
+            @include mobile() {
+                display: none;
+            }
+
+        }
+        .event_name{
+            @include h3();
+            // margin-top: size(96);
+            margin-bottom: size(176);
+            width: size(40);
+            line-height: size(50);
+            @include mobile() {
+               display: none;
+            }
+        }
+    }
+    .event_content_c{
+    position: relative;
+    // height: size(805);
+    @include mobile() {
+        width: rwd(375);
+        margin: 0 auto;
+    }
+    .img_overflow{
+        overflow: hidden;
+        width:size(348);
+        @include mobile() {
+            width:rwd(375) ;
+        }
+    }
+        img{
+            width:size(348) ;
+                &:hover{
+                    transform: scale(1.1);
+                    transition: all .3s ease-in-out;
+                }
+            @include mobile() {
+                width:rwd(375) ;
+            }
+        }
+        .event_room{
+            @include h4();
+            position: absolute;
+            right:size(8);
+            top:size(593);
+            color:$white;
+            @include mobile() {
+                right:rwd(8);
+                top:rwd(646);
+            }
+        }
+        .event_name_rwd{
+            display: none;
+            @include mobile() {
+                display: block;
+                @include h4();
+                margin-top: rwd(16);
+                width: rwd(250);
+                line-height: rwd(30);
+            }
+        }
+        .event_date{
+            @include h4();
+            width: size(300);
+            margin-top: size(40);
+            @include mobile() {
+                @include h5();
+            width: rwd(296);
+            margin-top: rwd(16);
+            }
+
+        }
+        h5{
+            font-size: size(20);
+            width: size(276);
+            margin-top: size(16);
+            color: #747474;
+            font-weight:200;
+            line-height: 1.4;
+            @include mobile() {
+                @include p();
+                width: rwd(358);
+                margin-top: rwd(8);
+            }
+        }
+    }
+    }
+
+    

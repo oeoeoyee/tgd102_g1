@@ -1,0 +1,225 @@
+// input 外殼
+@mixin input_out($w:530){
+    width: size($w);
+    margin: 0 auto;
+}
+
+// input
+@mixin input($w:530, $h:40, $mb:32){
+    width: size($w);
+    height: size($h);
+    margin-bottom: size($mb);
+    padding-left: size(12);
+    color: $black;
+    border: none;
+    border: size(1) solid $line_mid;
+    @include p();
+}
+
+// 記住我ckbox
+.login_ckbox{
+    #login_ckbox,#login_ckbox2{
+        width: auto;
+        height: auto;
+        margin: auto;
+    }
+    span{
+        @include p();
+        color: $black;
+    }
+}
+
+// line 分隔線
+.login_line{
+    width: size(1216);
+    height: size(1);
+    background-color: $black;
+    margin: 0 auto;
+}
+
+.back_edit_title{
+@include bk_edit();
+    label{
+        @include label();
+    }
+    input{
+        @include input();
+        margin: 0;
+    }
+    p{
+        @include p();
+        margin-left: 16px;
+        align-self: flex-end;
+        margin-bottom: 0;
+        
+    }
+}
+
+.back_edit_room{
+@include bk_edit();
+    label{
+        @include label();
+    }
+    select{
+        @include input();
+        margin: 0;
+    }
+}
+
+.back_edit_pic{
+@include bk_edit();
+    label{
+        @include label();
+    }
+    div{
+        border: 1px solid $line_mid;
+        @include input();
+        background-color: $white;
+        margin: 0;
+    }
+    button{
+        border: 0;
+        background-color: $btnhover_gray;
+        width: size(100);
+        height: size(40);
+        margin-left: size(16);
+    }
+    input{
+        display: none;
+    }
+    .pic{
+        margin: 0 auto;
+        background-color: $btnhover_gray;
+        width: size(100);
+        height: size(40);
+        margin-left: size(16);
+        &:hover{
+            cursor: pointer;
+        }
+        p{
+            margin: 0 auto;
+            width: size(38);
+            font-size: size(16);
+            line-height: size(40);
+        }
+        &:hover{
+            border: 1px solid $black;
+        }
+    }
+}
+
+.back_edit_text{
+    display: flex;
+    @include bk_edit();
+    label{
+        @include label();
+        align-self: flex-start;
+    }
+    textarea{
+        width: size(530);
+        height: size(200);
+        resize: none;
+        @include p();
+    }
+    p{
+        @include p();
+        align-self: flex-end;
+        margin: 0 size(16) 0 ;
+    }
+}
+
+.edit_button{
+    display: flex;
+    justify-content: center;
+    margin: size(64) 0;
+    button{
+        border: 0;
+        background-color:  $btnhover_gray;
+        width: size(120);
+        height: size(52);
+        margin-right: size(16);
+        @include h5();
+        color: $black;
+    }
+}
+
+.back_edit_file{
+    @include bk_edit();
+        label{
+            @include label();
+        }
+        div{
+            border: 1px solid $line_mid;
+            @include input();
+            background-color: $white;
+            margin: 0;
+        }
+        
+        // button{
+        //     border: 0;
+        //     background-color: $btnhover_gray;
+        //     width: size(100);
+        //     height: size(40);
+        //     margin-left: size(16);
+        // }
+        input{
+            display: none;
+        }
+        .pic{
+            margin: 0 auto;
+            background-color: $btnhover_gray;
+            width: size(100);
+            height: size(40);
+            margin-left: size(16);
+            &:hover{
+                cursor: pointer;
+            }
+            p{
+                margin: 0 auto;
+                width: size(38);
+                font-size: size(16);
+                line-height: size(40);
+            }
+            &:hover{
+                border: 1px solid $black;
+            }
+        }
+        p{
+            @include p();
+            align-self: flex-end;
+            margin: 0 size(16) 0 ;
+        }
+}
+
+.edit_checkbox{
+    @include bk_edit();
+    h4{
+        @include h4();
+        width: size(140);
+        margin-right: size(100);
+    }
+    input{
+        width: size(24);
+    }
+    label{
+        width: size(60);
+        margin: 0 size(80) 0 size(8);
+        @include p();
+        
+    }
+
+}
+
+// 後台右上角搜尋框
+.back_search{
+    @include input(400, 40, 0);
+    display: inline-block;
+}
+
+.back_edit_summernote{
+    @include bk_edit();
+        label{
+            @include label();
+            align-self: flex-start;
+        }
+}

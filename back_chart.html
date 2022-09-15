@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "後台_營運管理"
+    })
+</head>
+<body>
+
+    <div class="back_wrapper">
+
+        <!-- header -->
+        <!-- @@include('./layout/header.html') -->
+
+        <div class="back_out">
+            
+            <!-- 主選單 -->
+            <nav class="back">
+            @@include('./layout/back_nav.html')
+            </nav>
+            
+            <!-- 右邊 -->
+            <div class="back_main back_flexgrow">
+                <div class="back_table_title">
+                    <h2>營運管理</h2>
+                    <div>
+                        <input type="text" class="back_search" name="" id="" placeholder="查詢關鍵字...">
+                    </div>
+                </div>
+                <div class="back_chart">
+                    <div>
+                        <div>
+                            <img src="/images/back_chart1.png" alt="">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="/images/back_chart2.png" alt="">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="/images/back_chart3.png" alt="">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="/images/back_chart4.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <!-- @@include('./layout/footer.html') -->
+    </div>
+</body>
+</html>

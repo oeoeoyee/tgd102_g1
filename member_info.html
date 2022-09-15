@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "會員資料"
+    })
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- header -->
+        @@include('./layout/header.html')
+
+        <!-- banner -->
+        <div class="login_banner">
+            <img src="./images/login_01.png" alt="">
+        </div>
+
+        <!-- 手機上主選單 -->
+        <div class="member_phone_nav">
+            @@include('./layout/member_nav.html')
+        </div>
+
+        <h2 class="member_h2">會員資料</h2>
+
+        <div class="member_out">
+
+            <!-- 左主選單 -->
+            <div class="member_nav">
+            @@include('./layout/member_nav.html')
+            </div>
+
+            <!-- 右邊 -->
+            <div class="member_right">
+
+                <!-- 資料表格 -->
+
+                <form method="post" action="#">
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td width="30%">會員編號</td>
+                                <td width="70%">M0074683</td>
+                            </tr>
+                            <tr>
+                                <td>入會日期</td>
+                                <td>2022/08/24</td>
+                            </tr>
+                            <tr>
+                                <td>會員等級</td>
+                                <td>PRIME (到期日：2023/09/23)</td>
+                            </tr>
+                            <tr>
+                                <td>姓名</td>
+                                <td>林布蘭</td>
+                            </tr>
+                            <tr>
+                                <td>電話</td>
+                                <td>0987535427</td>
+                            </tr>
+                            <tr>
+                                <td>電子信箱</td>
+                                <td>hfhr343@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td class="member_code">會員條碼</td>
+                                <td class="member_code_img"><img src="./images/member_01_qrcode.png" alt=""></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+
+            </div>
+            
+            
+        </div>
+        
+        <!-- 按鈕 -->
+        <div class="btn_center">
+            <input type ="button" class="btn_s_remind" onclick="history.back()" value="返回"></input>
+        </div>
+
+        
+        <!-- footer -->
+        @@include('./layout/footer.html')
+        
+    </div>
+</body>
+</html>

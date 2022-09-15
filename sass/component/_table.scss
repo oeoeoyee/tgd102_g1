@@ -1,0 +1,132 @@
+// 後台table
+.back_table{
+    width: 100%;
+    text-align: left;
+    margin-top: size(40);
+    th{
+        @include h4();
+        padding: size(16) size(12) size(16) size(40);
+    }
+    td{
+        @include h5();
+        font-weight: normal;
+        padding: size(12) size(12) size(12) size(40);
+    }
+    span{
+        display: inline-block;
+        width: size(32);
+        height: size(32);
+        // background-color: $hf_black;
+        font-size: size(24);
+    }
+    thead{
+        tr{
+            background-color: $hf_black;
+            color: $rice;
+        }
+    }
+
+    tbody{
+        tr:nth-child(odd){
+            background-color: $line_light;
+        }
+        tr:nth-child(even){
+            background-color: $white;
+        }
+    }
+    // 表格內容去除a樣式
+    a{
+        color: $black;
+    }
+}
+
+.back_table_p0{
+    tr{
+        td:last-of-type{
+            padding: size(0) size(12) size(0) size(40);
+        }
+    }
+}
+.back_table_p20{
+    tr{
+        td:last-of-type{
+            padding: size(20) size(12) size(20) size(40);
+        }
+    }
+}
+.back_table_vatop{
+    td{
+        vertical-align: top;
+    }
+}
+
+// table內 checkbox外觀
+.back_table_ckbox{
+    input[type=checkbox]{
+        // display: none;
+       width: size(20);
+       height: size(20);
+    }
+}
+
+// table內 可點按編輯的欄位 的下底線
+.back_table_udline{
+    text-decoration: underline;
+}
+
+// (table)頁面用到重複的素材
+.back_main{
+    // 下方頁數(目前是用news的 要改一下class名)
+    .news_page{
+        margin-bottom:size(60);
+    }
+    // 返回按鈕
+    .btn_s_default{
+        margin: size(40) auto 0;
+    }
+    .draft_button{
+        margin: 0;
+    }
+    // 按鈕去除a樣式
+    button{
+        a{
+            color: $black;
+            text-decoration: none;
+        }
+    }
+}
+
+// 無框線table (會員基本資料、訂單明細)
+.back_table_noline{
+    margin-bottom: size(64);
+    table{
+        display: flex;
+        justify-content: space-between;
+        margin-top: size(40);
+        tbody{
+            flex-grow: 1;
+        }
+        & > tbody > tr > td:first-of-type{
+            @include h4();
+            font-weight: normal;
+        }
+        & > tbody > tr > td:last-of-type{
+            @include h5();
+            font-weight: normal;
+        }
+        td{
+            vertical-align: middle;
+            padding: size(12) size(12) size(12) size(40);
+        }
+        // 為了蓋過前面的middle
+        .back_table_vatop{
+            td{
+                vertical-align: top;
+            }
+        }
+    }
+    img{
+        width: size(120);
+        height: size(120);
+    }
+}

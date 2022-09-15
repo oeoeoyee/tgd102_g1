@@ -1,19 +1,100 @@
-.infocard{
-    width: size(699);
-    height: size(211);
+// 資訊卡
+@mixin infocard($w, $h) {
+    width: size($w);
+    height: size($h);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    border-bottom: size(1) solid $darkline;
-    padding: 40px 30px 28px 40px;
+    // border-bottom: size(1) solid $line_mid;
+    box-sizing: border-box;
     h3{
+        @include h3();
         width: 100%;
         display: flex;
         justify-content: space-between;
     }
     div{
         width: 100%;
+        background-color: $line_light;
+    }
+    h5{
+        @include h5();
+        font-weight: normal;
+        color: $darkgray;
+    }
+    p{
+        @include p();
+        color: $darkgray;
+    }
+    p:last-of-type{
+        color: $black;
+        font-weight: bold;
+    }
+    @include mobile(){
+        width: rwd($w);
+        height: rwd($h);
+    }
+}
+
+// 資訊卡小(首頁的最新消息)
+.infocard_s{
+    @include infocard(699, 211);
+    padding: size(40) size(30) size(28) size(40);
+    div{
         height: size(3);
-        background-color: $lightline;
+    }
+    @include mobile(){
+        width: rwd(343);
+        height: rwd(211);
+        padding: rwd(32) rwd(16) rwd(20) rwd(20);
+        h3{
+            @include h5();
+            margin-bottom: rwd(16);
+        }
+        div{
+            height: rwd(1);
+            margin-top: rwd(12);
+            margin-bottom: rwd(20);
+        }
+    }
+}
+
+// 資訊卡中(特展、最新消息)
+.infocard_m{
+    @include infocard(761, 378);
+    padding: size(96) size(0) size(80) size(16);
+    h5:first-of-type{
+        width: size(600);
+    }
+    div{
+        height: size(1);
+        margin-top: size(48);
+        margin-bottom: size(12);
+    }
+    p:last-of-type{
+        @include h5();
+    }
+    @include mobile(){
+        width: rwd(375);
+        height: rwd(253);
+        padding: rwd(36) rwd(12) rwd(24) rwd(0);
+        h3{
+            @include h4();
+            margin-bottom: rwd(16);
+        }
+        h5{
+            @include p();
+        }
+        h5:first-of-type{
+            width: rwd(375);
+        }
+        div{
+            height: rwd(1);
+            margin-top: rwd(16);
+            margin-bottom: rwd(20);
+        }
+        p:last-of-type{
+            @include p();
+        }
     }
 }

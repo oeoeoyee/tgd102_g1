@@ -1,0 +1,353 @@
+.ex_info_wrapper {
+  h1 {
+    @include h1();
+  }
+  h2 {
+    @include h2();
+  }
+  h3 {
+    @include h3();
+    @include mobile() {
+      font-size: rwd(24);
+    }
+  }
+  h4 {
+    @include h4();
+    @include mobile() {
+      font-size: rwd(20);
+    }
+  }
+  h5 {
+    @include h5();
+    @include mobile() {
+      font-size: rwd(16);
+    }
+  }
+  p {
+    @include p();
+  }
+
+  .title {
+    margin-bottom: size(64);
+  }
+
+  // 置中 class
+  .ex_center {
+    width: size(1420);
+    margin: 0 auto;
+    @include mobile() {
+      width: rwd(374);
+      margin: 0 auto;
+    }
+  }
+
+  footer {
+    margin-top: 0;
+  }
+}
+
+// 大圖
+.ex_info_banner {
+  img {
+    width: 100%;
+    display: block;
+  }
+}
+
+// 麵包屑
+.ex_info_bread {
+  display: flex;
+  align-items: center;
+  height: size(120);
+  background-color: $lightgray;
+
+  @include mobile() {
+    height: rwd(64);
+  }
+
+  ul {
+    display: flex;
+    @include mobile() {
+      justify-content: space-evenly;
+    }
+    li {
+      margin-right: size(30);
+      color: $darkgray;
+      cursor: pointer;
+
+      &:last-child {
+        color: $black;
+      }
+    }
+  }
+}
+
+// 簡介
+.ex_info_main {
+  padding: size(160) 0;
+  @include mobile() {
+    padding: rwd(24) 0 rwd(88) 0;
+  }
+  .ex_info_main_info {
+    display: flex;
+    @include mobile() {
+      flex-direction: column;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    .ex_info_line {
+      border: size(1) solid $line_light;
+      background-color: $line_light;
+      margin: 0 size(97);
+    }
+    h4 {
+      color: $black;
+      margin-bottom: size(8);
+      @include mobile() {
+        margin: rwd(16) 0;
+      }
+    }
+    p {
+      line-height: size(30);
+      @include mobile() {
+        line-height: rwd(30);
+      }
+    }
+  }
+}
+
+// 加入提醒 & 購票提醒
+.ex_info_join,
+.ex_info_buy {
+  height: size(160);
+  background-color: $lightgray;
+  padding-top: size(32);
+  @include mobile() {
+    height: rwd(160);
+    padding-top: rwd(16);
+  }
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: size(96);
+    background-color: $white;
+    padding: 0 size(102);
+    @include mobile() {
+      height: rwd(120);
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    a {
+      @include mobile() {
+        width: rwd(320);
+      }
+    }
+  }
+}
+
+// 文物 ( grid )
+.ex_info_art {
+  padding: size(160) 0;
+  @include mobile() {
+    padding: rwd(40) 0;
+  }
+
+  // GRID
+  .ex_info_art_item {
+    display: grid;
+    overflow: hidden;
+    outline: size(2) solid $line_mid;
+
+    // 3 列
+    grid-template-rows: size(540) size(140) size(195);
+
+    // 3 欄
+    grid-template-columns: size(880) size(180) size(360);
+
+    gap: 0;
+
+    justify-content: center;
+
+    @include mobile() {
+      // 2 列
+      outline: none;
+      height: rwd(430);
+      grid-template-rows: rwd(320) rwd(120);
+
+      // 3 欄
+      grid-template-columns: rwd(120) rwd(120) rwd(120);
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      filter: brightness(50%);
+      transition: all 0.5s;
+      @include mobile() {
+        width: 100%;
+      }
+      &:hover {
+        filter: brightness(100%);
+      }
+    }
+
+    .ex_art_item-0 {
+      grid-row-start: 1;
+      grid-row-end: 4;
+
+      grid-column-start: 1;
+      grid-column-end: 2;
+      @include mobile() {
+        grid-row-start: 1;
+        grid-row-end: 3;
+
+        grid-column-start: 1;
+        grid-column-end: 4;
+      }
+    }
+    .ex_art_item-1 {
+      grid-row-start: 1;
+      grid-row-end: 2;
+
+      grid-column-start: 2;
+      grid-column-end: 4;
+      @include mobile() {
+        grid-row-start: 2;
+        grid-row-end: 3;
+
+        grid-column-start: 1;
+        grid-column-end: 2;
+      }
+    }
+    .ex_art_item-2 {
+      grid-row-start: 2;
+      grid-row-end: 4;
+
+      grid-column-start: 3;
+      grid-column-end: 4;
+      @include mobile() {
+        grid-row-start: 2;
+        grid-row-end: 3;
+
+        grid-column-start: 2;
+        grid-column-end: 3;
+      }
+    }
+    .ex_art_item-3 {
+      grid-row-start: 3;
+      grid-row-end: 4;
+
+      grid-column-start: 2;
+      grid-column-end: 3;
+      @include mobile() {
+        grid-row-start: 2;
+        grid-row-end: 3;
+
+        grid-column-start: 3;
+        grid-column-end: 4;
+      }
+    }
+    .ex_art_item-4 {
+      grid-row-start: 2;
+      grid-row-end: 3;
+
+      grid-column-start: 2;
+      grid-column-end: 3;
+      @include mobile() {
+        display: none;
+      }
+    }
+  }
+}
+
+// 相關展覽
+.ex_info_other {
+  padding: size(160) 0;
+  @include mobile() {
+    padding: rwd(40) 0;
+  }
+
+  .ex_info_like {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      font-size: size(50);
+      color: $black;
+      margin: size(30);
+      @include mobile() {
+        display: none;
+      }
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      flex-shrink: 0;
+
+      li {
+        height: size(600);
+        width: size(460);
+        writing-mode: vertical-lr;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        line-height: size(460);
+        @include mobile() {
+          height: rwd(240);
+          width: rwd(100);
+          line-height: rwd(128);
+          transform: scaleX(1.3);
+        }
+        h3 {
+          display: none;
+          @include mobile() {
+            display: none;
+          }
+        }
+      }
+    }
+    .ex_info_like1 {
+      background-image: url("../../images/ex_a7.jpg");
+    }
+
+    .ex_info_like2 {
+      background-image: url("../../images/ex_a8.jpg");
+    }
+
+    .ex_info_like3 {
+      background-image: url("../../images/ex_a9.jpg");
+      margin-right: 0;
+    }
+  }
+}
+.ex_info_btn {
+  ul {
+    display: flex;
+    justify-content: center;
+    li {
+      cursor: pointer;
+      width: size(70);
+      height: size(10);
+      margin: size(24);
+      background-color: $lightgray;
+
+      @include mobile() {
+        width: rwd(32);
+        height: rwd(8);
+        margin: rwd(42) rwd(16);
+      }
+
+      &:first-child {
+        background-color: $red;
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+.back{
+    // position: fixed;
+    width: size(329);
+    // height: 100vh;
+    height: auto;
+    background-color: $hf_black;
+    // 用戶
+    .user{
+        display: flex;
+        align-items: center;
+        margin-bottom: size(51);
+        padding-top: size(48);
+        padding-left: size(31);
+
+        // 頭像
+        .user_head{
+            width: size(88);
+            height: size(88);
+            background-color: pink;
+            border-radius: 50%;
+        }
+
+        p{
+            font-size: size(36);
+            font-weight: bold;
+            color: $rice;
+            margin-left: size(18);
+        }
+    }
+
+
+    ul{
+        padding-left: size(42);
+        li{
+            padding-bottom: size(32);
+
+            // 子選單
+            .kids{
+                font-weight: normal;
+                margin-left: size(55);
+            }
+            
+            // 主選單標題
+            a{
+                text-decoration: none;
+                color: $black;
+                font-size: size(24);
+                font-weight: bold;
+                color: $rice;
+                display: block;
+
+                // setting icon
+                .fa-gear{
+                    font-size: size(24);
+                    color: $rice;
+                    margin-right: size(29);
+                }
+
+                // next icon
+                .fa-angle-right{
+                    margin-left: size(17);
+                }
+            }
+
+            .logout{
+                margin-left: size(55);
+            }
+
+        }
+    }
+}

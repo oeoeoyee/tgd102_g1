@@ -1,59 +1,491 @@
-
-
 /* --------------- header ---------------*/
+// 第一次寫
+// header{
+//     display: flex;
+//     width: 100%;
+//     background-color: $hf_black;
+//     justify-content: center;
+//     align-items: center;
 
-// $h1: size(64);
+//     @include mobile(){
+//         justify-content: left;
+//     }
+
+//     // logo
+//     .logo{
+//         margin-right: size(627);
+//         margin-top: size(16);
+//         margin-bottom: size(16);
+//         img{
+//             height: size(64);
+
+//             @include mobile(){
+//                 height: rwd(35);
+//                 margin-top: rwd(16);
+//                 margin-bottom: rwd(16);
+//                 margin-left: rwd(16);
+//             }
+//         }
+//     }
+
+
+//     // 導覽列
+//     nav{
+//         ul{
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             li{
+//                 margin-right: size(24);
+//                 a{
+//                     text-decoration: none;
+//                     color: $white;
+//                     @include h4();
+//                     font-weight: normal;
+                    
+//                     // 會員icon
+//                     i{
+//                         font-size: size(50);
+//                         color: $line_mid;
+//                         &:hover{
+//                             color: $black;
+//                         }
+//                     }
+//                     &:hover{
+//                         color: $black;
+//                     }
+//                 }
+//                 &:last-of-type{
+//                     display: none;
+//                 }
+//             }
+//         }
+//     }
+//     @include mobile(){
+//         justify-content: space-between;
+//         nav{
+//             ul{
+//                 li{
+//                     width: rwd(35);
+//                     margin-right: rwd(16);
+//                     margin-left: rwd(16);
+//                     letter-spacing: rwd(1);
+//                     &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4){
+//                         display: none;
+//                     }
+//                     a{
+//                         width: 100%;
+//                         @include p(){
+//                             line-height: 1.3;
+//                         };
+//                         i{
+//                             font-size: rwd(35);
+//                         }
+//                     }
+//                     &:last-of-type{
+//                         display: inline-block;
+//                         font-size: rwd(35);
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+// // 展開的li
+// .header_rwd{
+//     @include mobile(){
+//         &:hover{
+//             height: 100px;
+//         }
+//     }
+// }
+
+// 第二次寫header
 header{
+    position: fixed;
+    top:size(0);
+    z-index: 10;
     display: flex;
-    width: size(1920);
-    background-color: $darkgray;
+    width: 100%;
+    background-color: $hf_black;
     justify-content: center;
     align-items: center;
-
     @include mobile(){
-        justify-content: left;
+        justify-content: space-between;
+        // JS用 rwd時 收放關於我們~會員中心的ul
+        .header_out{
+            transform: translatex(100%);
+            transition: all 2s;
+        }
+
+        .header_in{
+            transform: translatex(0);
+            transition: all 2s;
+        }
     }
-
-
-// logo
+    // logo
     .logo{
         margin-right: size(627);
+        margin-top: size(16);
+        margin-bottom: size(16);
         img{
-            width: size(66);
-
+            height: size(64);
             @include mobile(){
-                width: rwd(32);
+                height: rwd(36);
+                margin-top: rwd(16);
+                margin-bottom: rwd(16);
+                margin-left: rwd(16);
             }
         }
     }
-
-
-// 導覽列
+    // 兩個導覽列
     nav{
+        a{
+            display: inline-block;
+            text-decoration: none;
+            color: $white;
+        }
+    }
+    // 大導覽列(網頁版時的主導覽列)
+    nav:first-of-type{
+        // 大導覽列_第一層
         ul{
             display: flex;
             align-items: center;
-            @include mobile(){
-                display: none;
-            }
+            justify-content: center;
+            height: size(96);
             li{
-                margin-right: size(35);
+                position: relative;
+                height: 100%;
+                padding-left: size(12);
+                padding-right: size(12);
+                text-align: center;
+                line-height: size(96);
                 a{
-                    text-decoration: none;
-                    color: #F0EFEB;
                     @include h4();
                     font-weight: normal;
-                    // font-size: size(24);
-
+                    line-height: size(72);
+                    height: 100%;
                     // 會員icon
                     i{
-                        font-size: size(50);
+                        display: block;
+                        font-size: size(30);
+                        margin-top: 50%;
+                        color: $line_mid;
+                    }
+                }
+                // 大導覽列_裝飾用方框
+                &:after{
+                    content: "";
+                    background-color: $white;
+                    opacity: 0;
+                    height: size(4);
+                    width: 70%;
+                    position: absolute;
+                    bottom: 0;
+                    left: size(8);
+                }
+                // 大導覽列_第二層
+                ul{
+                    display: none;
+                }
+                // 大導覽列_第二層hover設定
+                &:hover{
+                    ul{
+                        display: block;
+                        position: absolute;
+                        top: size(96);
+                        transform: translate(size(-8));
+                        height: auto;
+                        background-color: $hf_black;
+                        li{
+                            height: size(72);
+                            width: size(240);
+                            line-height: size(72);
+                            text-align: left;
+                            padding-left: size(24);
+                        }
+                    }
+                    a{
+                        color: $white;
+                    }
+                    &:after{
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        // 大導覽列_rwd(剛開始會是收起來的)
+        @include mobile(){
+            width: 100%;
+            // 大導覽列_rwd_第一層
+            ul{
+                // 為了在rwd收合時不要擋到最上面(但好像沒什麼用)
+                z-index: 9;
+                // ul展開要註解display: none;
+                // display: none;
+                flex-direction: column;
+                position: absolute;
+                top: rwd(75);
+                left: 0;
+                height: auto;
+                width: 100%;
+                li{
+                    background-color: $hf_black;
+                    // height: rwd(56);
+                    width: 100%;
+                    border-top: 1px solid $line_mid;
+                    border-bottom: 1px solid $line_mid;
+                    a{
+                        height: rwd(56);
+                        width: 50%;
+                        font-size: rwd(16);
+                        line-height: rwd(56);
+                        i{
+                            font-size: rwd(20);
+                            display: inline-block;
+                            margin-top: auto;
+                            line-height: rwd(56);
+                        }
+                    }
+                    &:after{
+                        display: none;
+                    }
+                    &:nth-last-of-type(n):hover{
+                        // 大導覽列_rwd_第二層
+                        ul{
+                            display: block;
+                            position: static;
+                            li{
+                                height: rwd(56);
+                                width: 100%;
+                                font-size: rwd(16);
+                                line-height: rwd(56);
+                                text-align: center;
+                                border: none;
+                            }
+                        }
                     }
                 }
             }
         }
     }
+    // 小導覽列(rwd時的主導覽列)
+    nav:last-of-type{
+        display: none;
+        @include mobile(){
+            display: block;
+            // 小導覽列(rwd時的主導覽列)_第一層
+            ul{
+                display: flex;
+                height: 100%;
+                li{
+                    align-self: center;
+                    height: 100%;
+                    margin-right: rwd(16);
+                    a{
+                        font-size: rwd(16);
+                        width: rwd(36);
+                    }
+                    i{
+                        font-size: rwd(30);
+                        width: rwd(36);
+                    }
+                    &:last-child a{
+                        font-size: rwd(36);
+                        transform: translateY(-15%);
+                    }
+                    &:hover{
+                        &:after{
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+        }
+    
+    }
+}
 
+// 關於我們(目前沒用到)
+// .header_about{
+//     ul{
+//         display: none;
+//     }
+// }
 
+// 控制兩種狀的會員中心(要等能判斷localstorage再做)
+// .header_login{
+//     ul{
+//         display: none;
+//         left: size(-150);
+//         li{
+//             text-align: right;
+//             ul{
+//                 li{
+//                     &:hover{
+//                         &:after{
+//                             right: size(4);
+//                         }
+//                     }
+//                 }
+//             }    
+//         }
+//     }
+//     &:hover{
+//         &:after{
+//             opacity: 0;
+//         }
+//     }
+//     @include mobile(){
+//         .header_login_false{
+//             display: none;
+//         }
+//     }
+// }
 
+/* --------------- footer ---------------*/
+footer{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: $hf_black;
+    color: $rice;
+    padding-top: size(16);
+    padding-bottom: size(16);
+    margin-top: size(120);
+    // 設定所有的p
+    p{
+        line-height: size(32);
+        @include p(){
+            line-height: 1.5;
+        };
+    }
+    h4{
+        margin-top: size(56);
+        margin-bottom: size(24);
+        @include h4();
+        font-weight: normal;
+    }
+    a{
+        color: $rice;
+    }
+    @include mobile(){
+        display: block;
+        width: 100%;
+        padding: rwd(20);
+        margin-top: rwd(72);
+        h4{
+            margin-top: rwd(32);
+            margin-bottom: rwd(16);
+        }
+    }
+    // 左半邊
+    .footer_left{
+        width: size(800);
+        @include mobile(){
+            width: 100%;
+        }
+    }
+    // 右半邊
+    .footer_right{
+        width: size(620);
+        padding-left: size(52);
+        // border-left: size(1) solid $black;
+        // 三個社群軟體icon
+        a{
+            display: inline-block;
+            width: size(40);
+            height: size(40);
+            margin-right: size(24);
+        }
+        i{
+            font-size: size(40);
+        }
+        // 電子報
+        input{
+            display: inline-block;
+            border-radius: 0;
+            border: none;
+            font-size: size(16);
+            line-height: size(16);
+            margin-right: size(8);
+        }
+        input:first-of-type{
+            @include input(360, 40, 0);
+        }
+        // all right reserved
+        p{
+            margin-top: size(56);
+        }
+        @include mobile(){
+            width: 100%;
+            padding-left: 0;
+            a{
+                width: rwd(40);
+                height: rwd(40);
+                margin-right: rwd(24);
+            }
+            i{
+                font-size: rwd(30);
+            }
+            input{
+                height: rwd(40);
+                font-size: rwd(16);
+                margin-right: rwd(0);
+            }
+            input:first-of-type{
+                height: rwd(50);
+                width: rwd(352);
+                margin-bottom: rwd(16);
+            }
+        }
+    }
+    // 最下面的聲明文字
+    .footer_bottom{
+        width: size(1420);
+        margin-top: size(40);
+        @include mobile(){
+            width: 100%;
+        }
+        a{
+            text-decoration: underline;
+            color: $rice;
+        }
+    }
+}
+
+// 到頂的按鈕
+.totop{
+    position: fixed;
+    z-index: 10;
+    bottom: size(100);
+    right: size(160);
+    border: size(3) solid $white;
+    border-radius: size(3);
+    // border-radius: 50%;
+    background-color: $hf_black;
+    // opacity: .9;
+    padding: size(8);
+
+    @include mobile(){
+        width: rwd(40);
+        height: rwd(40);
+        border-radius: 50%;
+        border: rwd(2) solid $white;
+
+    }
+
+    i{
+        font-size: size(24);
+        color: $white;
+
+        @include mobile(){
+            font-size: rwd(25);
+            text-align: center;
+            line-height: rwd(37);
+            display: block;
+        }
+    }
 }

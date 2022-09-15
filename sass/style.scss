@@ -2,7 +2,7 @@
 @import 'base/reset';
 
 // 字型
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
 
 // mixin
 @import 'mixin/mixin';
@@ -16,26 +16,52 @@
 @import 'component/btn';
 @import 'component/title';
 @import 'component/infocard';
+@import 'component/input';
+@import 'component/table';
+@import 'component/alert';
 
 // layout
 @import 'layout/headerfooter';
+@import 'layout/back_nav';
+@import 'layout/member_nav';
 
 // page
+@import 'page/entrance';
 @import 'page/index';
 @import 'page/about';
 @import 'page/event';
 @import 'page/exhibition';
+@import 'page/exhibition_information';
 @import 'page/news';
 @import 'page/login';
+@import 'page/back';
+@import 'page/event01';
 
 
 body{
-    font-family: 'Noto Sans TC', sans-serif;
+    font-family: 'Tahoma', '微軟正黑體', sans-serif;
 }
 
 .wrapper{
     // @include size(1920);
-    width: size(1920);
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-top: size(96);
+    @include mobile(){
+        padding-top: rwd(68);
+    }
+}
+
+.back_wrapper{
+    // @include size(1920);
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+*{
+    box-sizing: border-box;
 }
 
 h1{

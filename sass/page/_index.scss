@@ -1,0 +1,409 @@
+.index_section{
+    a{
+        text-decoration: none;
+        color: $black;
+    }
+}
+// 特別展覽
+.index_event_top{
+    width: size(1420);
+    margin: 0 auto;
+    @include mobile(){
+        width: rwd(414);
+        margin: 0 auto;
+    }
+    .title{
+        margin-top: size(70);    
+        @include mobile (){
+            margin-top: rwd(50);    
+            margin-left: rwd(27);
+            width: auto;
+        }
+        div{
+            @include mobile(){
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+.index_event_content{
+    display: flex;
+    justify-content: space-between;
+    margin-top: size(55);
+    margin-left: size(250);
+    overflow: hidden;
+    @include mobile(){
+        display: flex;
+        justify-content:space-between;
+        margin-top: rwd(30);
+        margin-left: rwd(27);
+        overflow: hidden;
+    }
+}
+
+.index_event_item{
+    width: size(805);
+    height: size(540);
+    @include mobile(){
+        width: rwd(311);
+        height: rwd(270);
+        margin-right: rwd(10); //將兩個項目間隔開來
+    }
+    .btn_m {
+        margin-top: size(30);
+        @include mobile(){
+            margin-top: rwd(20);
+        }
+    }
+}
+
+.index_event_item:nth-child(1) div{
+    background-image: url(/images/index_01.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.index_event_item:nth-child(2) div{
+    background-image: url(/images/index_02.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.index_event_main{
+    width: size(805);
+    height: size(459);
+    color: $white;
+    line-height: 1.6;
+    @include mobile(){
+        width: rwd(311);
+        height: rwd(210);
+        color: $white;
+        line-height: 1.6;
+    }
+
+    h3{
+        @include h3();
+        padding-left: size(30);
+        padding-top: size(10);
+        @include mobile(){
+            font-size: rwd(28);
+            padding-left: rwd(10);
+            padding-top: rwd(10);
+        }
+    }
+    h5{
+        @include h5();
+        padding-left: size(30);
+        padding-top: size(10);
+        @include mobile(){
+            padding-left: rwd(10);
+            padding-top: rwd(10);
+        }
+    }
+    p{
+        font-size: size(36);
+        font-weight: bold;
+        padding-left: size(340);
+        padding-top: size(280);
+        @include mobile(){
+            font-size: rwd(18);
+            font-weight: bold;
+            padding-left: rwd(100);
+            padding-top: rwd(80);
+        }
+    }
+}
+
+// 網頁小分隔線
+.index_line_spacing {
+    width: size(1660);
+    height: size(3);
+    margin-left: auto;
+    margin-top: size(95);
+    margin-bottom: size(95);
+    background-color: $line_dark;
+    @include mobile(){
+        width: rwd(387);
+        height: rwd(3);
+        margin-top: rwd(50);
+        margin-bottom: rwd(50);
+        margin-left: rwd(27);
+    }
+}
+
+// 常設展覽
+.index_exhibition_top{
+    width: size(1420);
+    margin: 0 auto;
+    @include mobile(){
+        width: rwd(414);
+        margin: 0 auto;
+    }
+    .title{
+        margin-top: size(70);    
+        @include mobile (){
+            margin-top: rwd(30);    
+            margin-left: rwd(27);
+            width: auto;
+        }
+        div{
+            @include mobile(){
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+.index_exhibition_content{
+    display: flex;
+    margin-top: size(55);
+    margin-left: size(250);
+    overflow: hidden;
+    @include mobile(){
+        display: flex;
+        // justify-content:space-between;
+        margin-top: rwd(30);
+        margin-left: rwd(27);
+        overflow: hidden;
+    }
+}
+
+.index_exhibition_item{
+    width: size(590);
+    height: size(530);
+    flex-shrink: 0;
+    margin-right: size(10);
+    position: relative;
+    @include mobile(){
+        width: rwd(231);
+        height: rwd(235);
+        // flex-shrink: 0;
+        margin-right: rwd(10);
+        position: relative;
+    }
+}
+
+.index_exhibition_num{
+    width: size(85);
+    height: size(85);
+    background-color: $black;
+    color: $white;
+    @include mobile(){
+        width: rwd(45);
+        height: rwd(45);
+        background-color: $black;
+        color: $white;
+    }
+
+    h4{
+        @include h4();
+        line-height: size(85);
+        text-align: center;
+        @include mobile(){
+            line-height: rwd(45);
+            text-align: center;
+        }
+    }
+    
+}
+
+.index_exhibition_main{
+    width: size(569);
+    position: absolute;
+    z-index: -1;
+    left: size(20);
+    top: size(20);
+    @include mobile(){
+        width: rwd(223);
+        position: absolute;
+        z-index: -1;
+        left: rwd(10);
+        top: rwd(10);
+    }
+
+    img{
+        width: size(569);
+        display: block;
+        @include mobile(){
+            width: rwd(223);
+            display: block;
+        }
+    }
+    
+    h4{
+        @include h4();
+        line-height: 1.6;
+        color: $black;
+        border: size(1) solid $black;
+        display: flex;
+        justify-content: space-between;
+        padding: size(10);
+        @include mobile(){
+            line-height: 1.6;
+            color: $black;
+            border: rwd(1) solid $black;
+            display: flex;
+            justify-content: space-between;
+            padding: rwd(5);
+        }
+    }
+    
+}
+
+// 網頁大分隔線
+.index_hr {
+    width: 100%;
+    height: size(3);
+    margin-top: size(95);
+    margin-bottom: size(95);
+    background-color: $line_dark;
+    @include mobile(){
+        width: 100%;
+        height: rwd(3);
+        margin-top: rwd(50);
+        margin-bottom: rwd(50);
+        background-color: $line_dark;
+    }
+}
+
+// 最新消息
+.index_news{
+    width: size(1420);
+    margin: 0 auto;
+    @include mobile(){
+        width: rwd(414);
+        margin: 0 auto;
+    }
+    .title{
+        @include mobile (){
+            margin-left: rwd(27);
+            width: auto;
+        }
+        div{
+            @include mobile(){
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+.index_news_content{
+    width: size(1420);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: size(100); //跟figma不同
+    @include mobile(){
+        width: rwd(414);
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    img{
+        display: block;
+        width: size(650);
+        @include mobile(){
+            display: block;
+            width: rwd(360);
+            margin: 0 auto;
+            margin-top: rwd(30);
+        }
+    }
+    .btn_xl{
+        margin-top: size(30); //跟figma不同
+        @include mobile(){
+            margin-top: rwd(20);
+        }
+    }
+}
+
+.index_news_line{
+    width: size(2);
+    height: size(600);
+    background-color: $line_mid;
+    margin-left: size(40);
+    @include mobile(){
+        display: none;
+    }
+}
+
+.index_news_list{
+    @include mobile{
+        width: rwd(360);
+        margin: 0 auto;
+    }
+}
+
+.index_news_list{ 
+    li:nth-child(1), li:nth-child(2){
+        @include mobile(){
+        border-bottom: rwd(2) solid $line_mid;
+        }
+    }
+}
+
+//關於我們
+.index_about{
+    width: size(1420);
+    margin: 0 auto;
+    @include mobile(){
+        width: rwd(414);
+        margin: 0 auto;
+    }
+    .title{
+        @include mobile (){
+            margin-left: rwd(27);
+            width: auto;
+        }
+        div{
+            @include mobile(){
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+.index_about_content{
+    width: size(1420);
+    margin: 0 auto;
+    @include mobile(){
+        width: rwd(414);
+        margin: 0 auto;
+    }
+
+    img{
+        display: block;
+        width: size(1200);
+        margin: 0 auto;
+        margin-top: size(100); //跟figma不同
+        @include mobile(){
+            width: rwd(360);
+            margin: 0 auto;
+            margin-top: rwd(30);
+        }
+    }
+    p{
+        @include p();
+        display: block;
+        width: size(520);
+        line-height: 1.6;
+        margin-top: size(35); //跟figma不同
+        margin-left: size(110);
+        @include mobile(){
+            width: rwd(360);
+            margin: rwd(20) auto 0 ;
+        }
+    }
+    .btn_l{
+        margin-top: size(50); //跟figma不同
+        margin-left: size(110);
+        @include mobile(){
+            margin-top: rwd(20);
+            margin-left: rwd(27);
+        }
+    }
+}

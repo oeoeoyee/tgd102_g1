@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "後台_會員管理_會員資料"
+    })
+</head>
+<body>
+
+    <div class="back_wrapper">
+
+        <!-- header -->
+        <!-- @@include('./layout/header.html') -->
+
+        <div class="back_out">
+            
+            <!-- 主選單 -->
+            <nav class="back">
+            @@include('./layout/back_nav.html')
+            </nav>
+            
+            <!-- 右邊 -->
+            <div class="back_main back_flexgrow">
+                <!-- 右上 -->
+                <div class="back_table_title">
+                    <h2>基本資料</h2>
+                    <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
+                </div>
+                <div class="back_table_noline">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>會員編號</td>
+                                <td>M0074683</td>
+                            </tr>
+                            <tr>
+                                <td>入會日期</td>
+                                <td>2022/08/24</td>
+                            </tr>
+                            <tr>
+                                <td>會員姓名</td>
+                                <td>林布蘭</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>會員等級</td>
+                                <td>PRIME (到期日：2023/09/23)</td>
+                            </tr>
+                            <tr>
+                                <td>會員電話</td>
+                                <td>0987535427</td>
+                            </tr>
+                            <tr>
+                                <td>電子信箱</td>
+                                <td>hfhr343@gmail.com</td>
+                            </tr>
+                        </tbody>
+                        <tbody class="back_table_vatop">
+                            <tr>
+                                <td>會員條碼</td>
+                                <td><img src="/images/member_01_qrcode.png" alt=""></td>
+                            </tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 右下 -->
+                <div class="back_table_title">
+                    <h2>歷史購買紀錄</h2>
+                    <input type="text" class="back_search" name="" id="" placeholder="查詢關鍵字...">
+                </div>
+                <table class="back_table">
+                    <thead>
+                        <tr>
+                            <th>訂單編號</th>
+                            <th>訂單日期</th>
+                            <th>展覽名稱</th>
+                            <th>入館日期</th>
+                            <th>訂單狀態</th>
+                            <th>費用總計</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="./back_order_personal.html">P0074683</a></td>
+                            <td>2022/08/24</td>
+                            <td>林布蘭·哈爾曼松</td>
+                            <td>2022/08/24</td>
+                            <td>已付款</td>
+                            <td>費用總計</td>
+                        </tr>
+                        <tr>
+                            <td><a href="./back_order_personal.html">P0074683</a></td>
+                            <td>2022/08/24</td>
+                            <td>林布蘭·哈爾曼松</td>
+                            <td>2022/08/24</td>
+                            <td>已付款</td>
+                            <td>費用總計</td>
+                        </tr>
+                        <tr>
+                            <td><a href="./back_order_personal.html">P0074683</a></td>
+                            <td>2022/08/24</td>
+                            <td>林布蘭·哈爾曼松</td>
+                            <td>2022/08/24</td>
+                            <td>已付款</td>
+                            <td>費用總計</td>
+                        </tr>
+                        <tr>
+                            <td><a href="./back_order_personal.html">P0074683</a></td>
+                            <td>2022/08/24</td>
+                            <td>林布蘭·哈爾曼松</td>
+                            <td>2022/08/24</td>
+                            <td>已付款</td>
+                            <td>費用總計</td>
+                        </tr>
+                        <tr>
+                            <td><a href="./back_order_personal.html">P0074683</a></td>
+                            <td>2022/08/24</td>
+                            <td>林布蘭·哈爾曼松</td>
+                            <td>2022/08/24</td>
+                            <td>已付款</td>
+                            <td>費用總計</td>
+                        </tr>
+                        <tr>
+                            <td><a href="./back_order_personal.html">P0074683</a></td>
+                            <td>2022/08/24</td>
+                            <td>林布蘭·哈爾曼松</td>
+                            <td>2022/08/24</td>
+                            <td>已付款</td>
+                            <td>費用總計</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <ul class="news_page">
+                    <li>＜</li>
+                    <li>01</li>
+                    <li>02</li>
+                    <li>03</li>
+                    <li>04</li>
+                    <li>05</li>
+                    <li>＞</li>
+                </ul> -->
+                <button class="btn_s_default"><a href="/back_member.html">返回</a></button>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <!-- @@include('./layout/footer.html') -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "註冊成功"
+    })
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- header -->
+        @@include('./layout/header.html')
+        
+        <!-- banner -->
+        <div class="login_banner">
+            <img src="./images/login_01.png" alt="">
+        </div>
+
+
+        <!-- prime 介紹 -->
+        <div class="prime_bottom prime_main">
+            
+            <!-- prime 說明 -->
+            <div class="prime_top prime_pay">
+                <h3>加入溯·REVERSE PRIME可立即享有</h3>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check"></i>整年於開放時間隨時入館</li>
+                    <li><i class="fa-solid fa-circle-check"></i>紀念品商店85折優惠</li>
+                    <li><i class="fa-solid fa-circle-check"></i>博物館精美周邊禮品乙份</li>
+                </ul>
+            </div>
+
+            <!-- 分隔線 -->
+            <div class="login_line"></div>
+
+            <form method="post" action="">
+                <!-- 付款方式 -->
+                <div class="payment">
+                    <h3>請選擇付款方式</h3>
+                    <ul>
+                        <!-- 信用卡 -->
+                        <li class="credit">
+                            <label for="credit">
+                                <input type="radio" name="pay" id="credit" value="信用卡"><span>信用卡</span>
+                            </label>
+                        </li>
+
+                        <!-- ATM -->
+                        <li>
+                            <label for="atm">
+                                <input type="radio" name="pay" id="atm" value="ATM"><span>ATM轉帳</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 分隔線 -->
+                <div class="login_line"></div>
+
+                <!-- 價錢按鈕 -->
+                <div class="price_btn">
+                    <h3>總計 NT$3000</h3>
+                    <!-- <input type="submit" class="btn_s_remind" value="付款"> -->
+                    <input class="btn_s_remind" value="付款">
+                </div>
+            </form>
+
+        </div>
+
+        <!-- alert燈箱效果 -->
+        <div class="-none js_lightbox" id="all_lightbox">
+            <div class="all_alert">
+                <h3>升級成功</h3>
+                <h4>請至會員資料查看QRcode</h4>
+                <a href="./member_info.html" class="btn_s_remind js_lightbox_btn">會員中心</a>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        @@include('./layout/footer.html')
+        
+    </div>
+
+    <!-- 燈箱JS 暫放 -->
+    <script>
+        // alert open + lightbox
+        // alert+lightbox open
+        document.addEventListener("click", function(e){
+            if(e.target.classList.contains("btn_s_remind")){
+                let lightbox = document.getElementById("all_lightbox");
+                lightbox.classList.remove("-none");
+            }
+        });
+    
+        // alert+lightbox close
+        document.addEventListener("click", function(e){
+            let lightbox = document.getElementById("all_lightbox");
+            if(e.target.classList.contains("js_lightbox")){
+                lightbox.classList.add("-none");
+            }
+            if(e.target.classList.contains("js_lightbox_btn")){
+                lightbox.classList.add("-none");
+            }
+        });
+    </script>
+</body>
+</html>

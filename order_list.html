@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "訂單紀錄"
+    })
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- header -->
+        @@include('./layout/header.html')
+
+        <!-- banner -->
+        <div class="login_banner">
+            <img src="./images/login_01.png" alt="">
+        </div>
+
+        <!-- 手機上主選單 -->
+        <div class="member_phone_nav">
+            @@include('./layout/member_nav.html')
+        </div>
+
+        <h2 class="member_h2">訂單明細</h2>
+
+        <div class="member_out">
+
+            <!-- 左主選單 -->
+            <div class="member_nav">
+            @@include('./layout/member_nav.html')
+            </div>
+
+            <!-- 右邊 -->
+            <div class="member_right order_table">
+
+                
+            <!-- 資料表格 -->
+                <form method="post" action="">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>訂單編號</td>
+                                <td>P0074683</td>
+                                <td rowspan="3" class="order_icon"><a href="./order.html"><i class="fa-solid fa-angle-right"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>訂單日期</td>
+                                <td>2022/08/24</td>
+                            </tr>
+                            <tr>
+                                <td>費用總計</td>
+                                <td>NT$1500</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+                <!-- 分隔線 -->
+                <div class="order_line"></div>
+                
+                <!-- 資料表格 -->
+                <form method="post" action="">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>訂單編號</td>
+                                <td>P0074683</td>
+                                <td rowspan="3" class="order_icon"><i class="fa-solid fa-angle-right"></i></td>
+                            </tr>
+                            <tr>
+                                <td>訂單日期</td>
+                                <td>2022/08/24</td>
+                            </tr>
+                            <tr>
+                                <td>費用總計</td>
+                                <td>NT$1500</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+                <!-- 分隔線 -->
+                <div class="order_line"></div>
+
+                <!-- 資料表格 -->
+                <form method="post" action="">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>訂單編號</td>
+                                <td>P0074683</td>
+                                <td rowspan="3" class="order_icon"><i class="fa-solid fa-angle-right"></i></td>
+                            </tr>
+                            <tr>
+                                <td>訂單日期</td>
+                                <td>2022/08/24</td>
+                            </tr>
+                            <tr>
+                                <td>費用總計</td>
+                                <td>NT$1500</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+                <!-- 分隔線 -->
+                <div class="order_line"></div>
+
+                <!-- 資料表格 -->
+                <form method="post" action="">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>訂單編號</td>
+                                <td>P0074683</td>
+                                <td rowspan="3" class="order_icon"><i class="fa-solid fa-angle-right"></i></td>
+                            </tr>
+                            <tr>
+                                <td>訂單日期</td>
+                                <td>2022/08/24</td>
+                            </tr>
+                            <tr>
+                                <td>費用總計</td>
+                                <td>NT$1500</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+                <!-- 分隔線 -->
+                <div class="order_line"></div>
+
+                <!-- 資料表格 -->
+                <form method="post" action="">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>訂單編號</td>
+                                <td>P0074683</td>
+                                <td rowspan="3" class="order_icon"><i class="fa-solid fa-angle-right"></i></td>
+                            </tr>
+                            <tr>
+                                <td>訂單日期</td>
+                                <td>2022/08/24</td>
+                            </tr>
+                            <tr>
+                                <td>費用總計</td>
+                                <td>NT$1500</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+                
+
+            </div>
+            
+        </div>
+        
+        <!-- 按鈕 -->
+        <div class="login_btn_out btn_center">
+            <input type ="button" class="btn_s_default" onclick="history.back()" value="返回"></input>
+        </div>
+
+        <!-- footer -->
+        @@include('./layout/footer.html')
+        
+    </div>
+</body>
+</html>

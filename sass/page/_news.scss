@@ -1,0 +1,378 @@
+// news的頁面置中
+.news_becenter{
+    width: size(1420);
+    margin: 0 auto;
+    @include mobile(){
+        width: rwd(374);
+        margin: 0 auto;
+    }
+}
+
+/* --------------- 最新消息總覽頁 ---------------*/
+// 兩則置頂消息
+.news_top{
+    display: flex;
+    width: 100%;
+    img{
+        display: block;
+        width: 47%;
+    }
+    .news_top_word{
+        // transform: translate(100%);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:start;
+        width: 53%;
+        border: size(1) solid $line_light;
+        h3{
+            border-bottom: size(1) solid $line_light;
+            width: 100%;
+            height: size(214);
+            line-height: size(214);
+            padding-left: size(120);
+            @include h3();
+        }
+        div{
+            display: flex;
+            width: 100%;
+            height: size(760);
+            h4{
+                border-right: size(1) solid $line_light;
+                display: flex;
+                align-items: flex-end;
+                width: 55%;
+                padding: size(0) size(240) size(100) size(120);
+                @include h4();
+                line-height: size(30);
+            }
+            p{
+                display: flex;
+                align-items: flex-end;
+                width: 45%;
+                padding: size(0) size(100) size(100) size(60);
+                @include p();
+                line-height: 1.5;
+                color: $darkgray;
+            }
+        }
+    }
+    @include mobile(){
+        display: none;
+    }
+}
+
+// banner
+.news_banner{
+    height: size(974);
+    background-image: url('/images/news_01.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: size(480) size(0) size(0) size(280);
+    @include mobile(){
+        height: rwd(240);
+        padding: rwd(80) rwd(0) rwd(0) rwd(16);
+    }
+    h1{
+        @include h1();
+    }
+}
+
+// 選擇消息類別的nav
+.news_nav{
+    margin-top: size(96);
+    margin-bottom: size(32);
+    text-align: right;
+    h4{
+        display: inline-block;
+        margin-left: size(24);
+        @include h4();
+        font-weight: normal;
+    }
+    h4:first-child{
+        color: $lightgray;
+    }
+    @include mobile(){
+        text-align: left;
+        margin-left: rwd(20);
+        margin-bottom: rwd(32);
+        h4{
+            display: inline-block;
+            margin-left: 0;
+            margin-right: rwd(12);
+            @include h5(){
+            }
+        }
+    }
+}
+
+// 消息列
+.news_list{
+    a{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+        color: $black;
+        width: 100%;
+        height: auto;
+    }
+    li{
+        // display: flex;
+        // justify-content: space-between;
+        // align-items: center;
+        border-bottom: size(1) solid $line_mid;
+        img{
+            width: size(428);
+            height: size(252);
+            object-fit: cover;
+        }
+    }
+    @include mobile(){
+        a{
+            display: block;
+            width: 100%;
+        }
+        li{
+            // display: block;
+            // width: 100%;
+            margin-bottom: rwd(20);
+            img{
+                width: rwd(384);
+                height: rwd(224);
+            }
+            .infocard_m{
+                margin: 0 auto;
+                padding-left: 0;
+                padding-top: rwd(20);
+                h5{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+// 消息頁數選擇
+.news_page{
+    // display: flex;
+    margin-top: size(100);
+    text-align: center;
+    li{
+        display: inline-block;
+        width: 5%;
+        height: size(72);
+        // border-right: size(1) solid $line_light;
+        @include p();
+        text-align: center;
+        line-height: size(72);
+        @include mobile(){
+            width: 10%;
+        }
+    }
+    // li:first-child, li:last-child{
+    //     // width: 5%;
+    //     // border: none;
+    // }
+}
+
+/* --------------- 最新消息內頁 ---------------*/
+// 上方
+.news01_main{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: size(160);  
+    margin-bottom: size(120);  
+    h1{
+        @include h1();
+    }
+    h4{
+        @include h4();
+        font-weight: normal;
+    }
+    p{
+        @include p();
+    }
+    @include mobile(){
+        display: block;
+        h1{
+            @include h3();
+            font-weight: normal;
+        }
+        h4{
+            @include h5();
+            font-weight: normal;
+        }
+    }
+    // 最新消息標題
+    .news01_main_title{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        width: 100%; 
+        padding: size(24);
+        color: $white;
+        background-color: $hf_black;
+        @include mobile(){
+            display: block;
+            background-color: $white;
+            color: $black;
+            h4{
+                margin-top: rwd(16);
+            }
+        }
+    }
+    // 最新消息圖片+內容
+    .news01_main_content{
+        width: 90%;
+        padding-bottom: size(32);
+        border-bottom: size(1) solid $line_light;
+        border-left: size(1) solid $line_light;
+        img{
+            width: 100%;
+        }
+        h4{
+            margin-top: size(32);
+            margin-bottom: size(32);
+            padding-left: size(24);
+        }
+        p{
+            line-height: 1.5;
+            padding-left: size(24);
+            padding-right: size(24);
+        }
+        @include mobile(){
+            width: 100%;
+            border: none;
+        }
+    }
+    // 最新消息右側分享區
+    .news01_main_share{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 10%;
+        padding-top: size(40);
+        border: size(1) solid $line_light;
+        a{
+            display: inline-block;
+            width: size(40);
+            height: size(40);
+            margin-top: size(40);
+        }
+        i{
+            display: block;
+            text-align: center;
+            font-size: size(40);
+        }
+        @include mobile(){
+            display: block;
+            width: 100%;
+            border: none;
+            h4{
+                margin-top: rwd(10);
+                margin-bottom: rwd(20);
+            }
+            a{
+                width: rwd(30);
+                height: rwd(30);
+                margin-right: rwd(40);
+            }
+            i{
+                font-size: rwd(30);
+            }
+        }
+    }
+    
+}
+
+// 下方的其他最新消息
+.news01_others{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    h2{
+        width: 100%;
+        margin-bottom: size(72);
+        @include h2(){
+            margin-top: rwd(40);
+            margin-bottom: rwd(40);
+        };
+    }
+    a{
+        text-decoration: none;
+        color: $black;
+    }
+    // 上一則消息
+    .news01_others_last{
+        width: 35%;
+        @include mobile(){
+            width: 48%;
+        }
+    }
+    .news01_others_last > a{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+        height: size(256);
+        border: size(1) solid $line_light;
+        padding: size(20) size(20) size(20);
+        span{
+            width: 15%;
+            height: size(256);
+        }
+        h3{
+            width: 85%;
+            flex-grow: 2;
+            @include h3();
+        }
+        h4{
+            width: 85%;
+            @include h4();
+            font-weight: normal;
+        }
+        h4:first-of-type{
+            flex-grow: 1;
+        }
+        h4:last-of-type{
+            flex-grow: 0;
+        }
+        @include mobile(){
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: rwd(12) rwd(16);
+            span{
+                margin-bottom: rwd(8);
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+            h3{
+                @include h5();
+                width: 100%;
+                margin-bottom: rwd(8);
+                line-height: 1.3;
+            }
+            h4{
+                @include p();
+                width: 70%;
+                margin-bottom: rwd(8);
+                line-height: 1.3;
+            }
+        }
+    }
+    // 下一則消息
+    .news01_others_next{
+
+        @include mobile(){
+            span{
+                text-align: right;
+            }
+        }
+        span{
+            order: 1;
+        }
+    }
+}

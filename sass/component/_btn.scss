@@ -1,3 +1,4 @@
+// 按鈕
 @mixin btn($w, $h, $bgc, $color, $bgc_hover) {
     width: size($w);
     height: size($h);
@@ -8,6 +9,7 @@
     background-color: $bgc;
     color: $color;
     cursor: pointer;
+    box-sizing: border-box;
 
     // input用
     border: none;
@@ -19,9 +21,10 @@
     }
 }
 
+// 按鈕(寬100，灰色)
 .btn_s_default{
-    @include btn(100, 40, $white, $lightbasic, $graytip);
-    border: 1px solid $darkline;
+    @include btn(100, 40, $white, $black, $lightgray);
+    border: 1px solid $line_mid;
     text-align: center;
     @include mobile(){
         padding-left: rwd(8);
@@ -32,8 +35,9 @@
     }
 }
 
+// 按鈕(寬100，紅色)
 .btn_s_remind{
-    @include btn(100, 40, $darkbtn, $white, #ff3434);
+    @include btn(100, 40, $red, $white, $btnhover_red);
     text-align: center;
     @include mobile(){
         padding-left: rwd(8);
@@ -44,8 +48,9 @@
     }
 }
 
+// 按鈕(寬250，紅色)
 .btn_m{
-    @include btn(250, 40, $darkbtn, $white, #ff3434);
+    @include btn(250, 40, $red, $white, $btnhover_red);
     padding-left: size(16);
     padding-right: size(16);
     display: flex;
@@ -59,8 +64,9 @@
     }
 }
 
+// 按鈕(寬530，紅色)
 .btn_l{
-    @include btn(530, 40, $darkbtn, $white, #ff3434);
+    @include btn(530, 40, $red, $white, $btnhover_red);
     padding-left: size(16);
     padding-right: size(16);
     display: flex;
@@ -74,8 +80,9 @@
     }
 }
 
+// 按鈕(寬685，紅色)
 .btn_xl{
-    @include btn(685, 40, $darkbtn, $white, #ff3434);
+    @include btn(685, 40, $red, $white, $btnhover_red);
     padding-left: size(16);
     padding-right: size(16);
     display: flex;

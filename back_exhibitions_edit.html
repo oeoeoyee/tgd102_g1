@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "後台_常設展編輯"
+    })
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.min.css" rel="stylesheet"></link>
+</head>
+<body>
+
+    <div class="back_wrapper">
+
+        <!-- header -->
+        <!-- @@include('./layout/header.html') -->
+
+        <div class="back_out">
+            
+            <!-- 主選單 -->
+            <nav class="back">
+            @@include('./layout/back_nav.html')
+            </nav>
+            
+            <!-- 右邊 -->
+            <div class="back_main">
+                <div class="edit_edit_title">
+                    <h2>常設展編輯</h2>
+                    <span></span>
+                </div>
+
+                <div class="back_edit_title">
+                    <label>常設名稱</label>
+                    <input type="text">
+                    <p>20字</p>
+                </div>
+
+                <div class="back_edit_room">
+                    <label>主題分類</label>
+                    <select name="" id="" value="">
+                        <option value="">請選擇主題</option>
+                    </select>
+                </div>
+
+                <div class="back_edit_title">
+                    <label>常設開始日</label>
+                    <input type="date">
+                </div>
+
+
+                <div class="back_edit_room">
+                    <label>展廳</label>
+                    <select name="" id="" value="">
+                        <option value="">選擇展廳</option>
+                    </select>
+                </div>
+
+                <div class="back_edit_pic">
+                    <label for="">主旨圖片</label>
+                    <div class="dragimg"></div>
+                    <label class="pic">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <p>瀏覽</p>
+                    </label>
+                </div>
+
+                <div class="back_edit_title">
+                    <label>介紹標題</label>
+                    <input type="text">
+                    <p>20字</p>
+                </div>
+
+
+                <div class="back_edit_text">
+                    <label for="">展覽介紹</label>
+                    <textarea></textarea>
+                    <p>205字</p>
+                </div>
+
+                <div class="back_edit_pic">
+                    <label for="">介紹圖片</label>
+                    <div class="dragimg"></div>
+                    <label class="pic">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <p>瀏覽</p>
+                    </label>
+                </div>
+
+                <div class="back_edit_pic">
+                    <label for="">代表圖片1</label>
+                    <div class="dragimg"></div>
+                    <label class="pic">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <p>瀏覽</p>
+                    </label>
+                </div>
+
+                <div class="back_edit_pic">
+                    <label for="">代表圖片2</label>
+                    <div class="dragimg"></div>
+                    <label class="pic">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <p>瀏覽</p>
+                    </label>
+                </div>
+
+                <div class="back_edit_pic">
+                    <label for="">代表圖片3</label>
+                    <div class="dragimg"></div>
+                    <label class="pic">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <p>瀏覽</p>
+                    </label>
+                </div>
+
+                <div class="back_edit_pic">
+                    <label for="">代表圖片4</label>
+                    <div class="dragimg"></div>
+                    <label class="pic">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <p>瀏覽</p>
+                    </label>
+                </div>
+
+                <div class="back_edit_pic">
+                    <label for="">代表圖片5</label>
+                    <div class="dragimg"></div>
+                    <label class="pic">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <p>瀏覽</p>
+                    </label>
+                </div>
+
+
+                
+                <div class="edit_button">
+                    <a href="./back_exhibition_draft.html"><button>儲存草稿</button></a>
+                    <a href="./back_exhibition.html"><button>送出資料</button></a>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+        <!-- footer -->
+        <!-- @@include('./layout/footer.html') -->
+    </div>
+
+
+</body>
+</html>
