@@ -165,17 +165,52 @@
 
     <script>
         
+        console.log(document.body.scrollWidth);
+        gsap.to(['.event_0 h1','.event_0 div'], {
+            keyframes: [
+                { duration: 0, clipPath: 'inset(0rem 120rem 0rem 0rem)', ease: "sine.inOut", },
+                { duration: 2, clipPath: 'inset(0rem 0rem 0rem 0rem)', ease: "sine.inOut", },
+            ]
+        });
+
+        gsap.to(['.event_now_top h2','.event_now_top .event_left_line'], {
+            keyframes: [
+                { duration: 0, clipPath: 'inset(0rem 0rem 0rem 30rem)', ease: "sine.inOut", },
+                { duration: 2, clipPath: 'inset(0rem 0rem 0rem 0rem)', ease: "sine.inOut", },
+            ]
+        });
+            // gsap.to('.gsap_animation_1 img', {
+            //     keyframes: [
+            //         { duration: 0, clipPath: 'inset(2rem 111rem 3rem 0rem)',ease: "sine.inOut" },
+            //         { duration: 2, clipPath: 'inset(0rem 0rem 0rem 0rem)',ease: "sine.inOut" },
+            //     ]
+            // });
+            // gsap.to(['.gsap_animation_1 h4','.gsap_animation_1 h5'], {
+            //     keyframes: [
+            //         { x:60,opacity:0 },
+            //         { x:0, opacity:1, duration: 2, ease: "sine.inOut", },
+            //     ]
+            // });
+            // gsap.to('.gsap_animation_1 .event_title_c', {
+            //     keyframes: [
+            //         {  y:60, opacity:0 },
+            //         { y:0, opacity:1, duration: 2, ease: "sine.inOut", },
+            //     ]
+            // });
+        
+
         gsap.registerPlugin(ScrollTrigger);
         
         // $(this).resize(function(){
 
         
-        if(this.outerWidth > 1200){
-            console.log(this);
-           
+        if(document.body.scrollWidth > 900){
         gsap_animation_path(".gsap_animation_1",".gsap_animation_1 img");
         gsap_animation_x(".gsap_animation_1",['.gsap_animation_1 h4','.gsap_animation_1 h5']);
         gsap_animation_y(".gsap_animation_1",'.gsap_animation_1 .event_title_c');
+        
+        
+
         gsap_animation_path(".gsap_animation_2",".gsap_animation_2 img");
         gsap_animation_x(".gsap_animation_2",['.gsap_animation_2 h4','.gsap_animation_2 h5']);
         gsap_animation_y(".gsap_animation_2",'.gsap_animation_2 .event_title_c');
@@ -184,8 +219,8 @@
             .timeline({
                 scrollTrigger: {
                 trigger: t,
-                start: "-=600",
-                end:"-=600",
+                start: "-=500",
+                end:"-=500",
                 scrub:3.0,
                 },
             })
@@ -205,8 +240,8 @@
             .timeline({
                 scrollTrigger: {
                 trigger: t,
-                start: "-=600",
-                end:"-=600",
+                start: "-=500",
+                end:"-=500",
                 scrub:3.0,
                 },
             })
@@ -227,8 +262,8 @@
             .timeline({
                 scrollTrigger: {
                 trigger: t,
-                start: "-=600",
-                end:"-=600",
+                start: "-=500",
+                end:"-=500",
                 scrub:3.0,
                 },
             })
@@ -243,99 +278,9 @@
                 ease: "sine.inOut",
             })
         };
-
-        // gsap
-        //     .timeline({
-        //         scrollTrigger: {
-        //         trigger: ".gsap_animation_1",
-        //         start: "-=600",
-        //         end:"-=600",
-        //         scrub:3.0,
-        //         },
-        //     })
-            
-            
-        //     .fromTo((".gsap_animation_1 img"), {
-        //         clipPath: 'inset(2rem 111rem 3rem 0rem)'
-        //     },{
-        //         duration: 2,
-        //         ease: "sine.inOut",
-        //         clipPath: 'inset(0rem 0rem 0rem 0rem)'
-        //     })
-
-        //     .fromTo(('.gsap_animation_1 .event_title_c'),{
-        //         y:60,
-        //         opacity:0
-        //     },{
-        //         y:0,
-        //         opacity:1,
-        //         duration: 2,
-        //         ease: "sine.inOut",
-        //     })
-
-        //     .fromTo(['.gsap_animation_1 h4','.gsap_animation_1 h5'],{
-        //         x:60,
-        //         opacity:0
-        //     },{
-        //         x:0,
-        //         opacity:1,
-        //         duration: 2,
-        //         ease: "sine.inOut",
-        //     })
-// --------------------------------------------------------------------
-            // gsap
-            // .timeline({
-            //     scrollTrigger: {
-            //     trigger: ".gsap_animation_2",
-            //     start: "-=600",
-            //     end:"-=600",
-            //     scrub:3.0,
-            //     // markers:true,
-            //     },
-            // })
-
-
-            // .fromTo((".gsap_animation_2 img"), {
-            //     clipPath: 'inset(2rem 111rem 3rem 0rem)'
-            // },{
-            //     clipPath: 'inset(0rem 0rem 0rem 0rem)',
-            //     duration: 2,
-            //     ease: "sine.inOut",
-            // })
-
-            // .fromTo(['.gsap_animation_2 .event_title_c'],{
-            //     y:60,
-            //     opacity:0
-            // },{
-            //     y:0,
-            //     opacity:1,
-            //     duration: 2,
-            //     ease: "sine.inOut",
-            // })
-            
-            // .fromTo(['.gsap_animation_2  h4','.gsap_animation_2  h5'],{
-            //     x:60,
-            //     opacity:0
-            // },{
-            //     x:0,
-            //     opacity:1,
-            //     duration: 2,
-            //     ease: "sine.inOut",
-            // })
-            
-            
-            // .fromTo(('.gsap_animation_2 h5'),{
-            //     x:60,
-            //     opacity:0
-            // },{
-            //     x:0,
-            //     opacity:1,
-            //     duration: 2,
-            //     ease: "sine.inOut",
-            // })
-
             }
-        // })
+            
+        
     </script>
 </body>
 </html>
