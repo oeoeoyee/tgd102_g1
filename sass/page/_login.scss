@@ -314,21 +314,38 @@
         width: rwd(250);
         margin-bottom: rwd(60);
     }
-
-    li{
-        padding-top: size(110);
-
-        br{
-            @include mobile(){
-                display: none;
+    .center{
+        li{
+            padding-top: size(110);
+    
+            br{
+                @include mobile(){
+                    display: none;
+                }
+            }
+    
+            a{
+                line-height: size(44);
+    
+                @include mobile(){
+                    line-height: rwd(20);
+                }
             }
         }
 
-        a{
-            line-height: size(44)!important;
+    }
+}
 
-            @include mobile(){
-                line-height: rwd(60)!important;
+// =======landingpage.html=========
+
+.landing{
+
+    .center{
+
+        li{
+            padding-top: 0;
+            a{
+                line-height: size(303);
             }
         }
     }
