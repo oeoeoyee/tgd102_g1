@@ -2,6 +2,7 @@
 <html lang="en">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/vue@2"></script>
 <head>
     @@include('./layout/head.html', {
         "title" : "特別展覽"
@@ -9,7 +10,7 @@
 </head>
 <body>
 
-    <div class="wrapper">
+    <div class="wrapper" id="app">
         <!-- header -->
         @@include('./layout/header.html')
         <div class="event_0">
@@ -24,8 +25,19 @@
             <div class="event_now_bottom">
                 <div class="event_ver_line"></div>
                 <div class="event_now_1">
-                    <div class="event_now_c gsap_animation_1">
+                    <div class="event_now_c gsap_animation_1" v-for="(item) in lists1.slice(1,2)">
                         <div class="event_title_c">
+                            <h3 class="event_no">02</h3>
+                            <h3 class="event_name">{{item.name}}</h3>
+                        </div>
+                        <div class="event_content_c">
+                            <a href="#"><div class="img_overflow"><img :src="item.img" alt=""></div></a>
+                            <h4 class="event_room">{{item.room}} ROOM</h4>
+                            <h4 class="event_name_rwd">{{item.name}}</h4>
+                            <h4 class="event_date">{{item.time}}</h4>
+                            <h5>{{item.text}}</h5>
+                        </div>
+                        <!-- <div class="event_title_c">
                             <h3 class="event_no">02</h3>
                             <h3 class="event_name">梵谷·文森特展</h3>
                         </div>
@@ -35,12 +47,23 @@
                             <h4 class="event_name_rwd">梵谷·文森特展</h4>
                             <h4 class="event_date">2022.06.13 - 2022.12.31 </h4>
                             <h5>文森·威廉·梵谷，荷蘭後印象派畫家。作為表現主義的先驅，並深深影響了二十世紀藝術...</h5>
-                        </div>
+                        </div> -->
                     </div>    
                 </div>
                 <div class="event_now_2">
-                    <div class="event_now_c gsap_animation_1">
+                    <div class="event_now_c gsap_animation_1" v-for="(item) in lists1.slice(0,1)">
                         <div class="event_title_c">
+                            <h3 class="event_no">01</h3>
+                            <h3 class="event_name">{{item.name}}</h3>
+                        </div>
+                        <div class="event_content_c">
+                            <a href="#"><div class="img_overflow"><img :src="item.img" alt=""></div></a>
+                            <h4 class="event_room">{{item.room}} ROOM</h4>
+                            <h4 class="event_name_rwd">{{item.name}}</h4>
+                            <h4 class="event_date">{{item.time}}</h4>
+                            <h5>{{item.text}}</h5>
+                        </div>
+                        <!-- <div class="event_title_c">
                             <h3 class="event_no">01</h3>
                             <h3 class="event_name">林布蘭·哈爾曼松特展</h3>
                         </div>
@@ -50,7 +73,7 @@
                             <h4 class="event_name_rwd">林布蘭·哈爾曼松特展</h4>
                             <h4 class="event_date">2022.08.13  - 2023.01.31 </h4>
                             <h5>林布蘭·哈爾曼松·范萊因是歐洲巴洛克繪畫藝術的代表畫家之一，被稱為荷蘭歷史上最偉大的畫家。</h5>
-                        </div>    
+                        </div>     -->
                     </div>
                 </div>
             </div>
@@ -63,8 +86,19 @@
             </div>
             <div class="event_future_mid">
                 <div class="event_future_1">
-                    <div class="event_now_c gsap_animation_2">
+                    <div class="event_now_c gsap_animation_2" v-for="(item) in lists2.slice(0,1)">
                         <div class="event_title_c">
+                            <h3 class="event_no">01</h3>
+                            <h3 class="event_name">{{item.name}}</h3>
+                        </div>
+                        <div class="event_content_c">
+                            <a href="#"><div class="img_overflow"><img :src="item.img" alt=""></div></a>
+                            <h4 class="event_room">{{item.room}} ROOM</h4>
+                            <h4 class="event_name_rwd">{{item.name}}</h4>
+                            <h4 class="event_date">{{item.time}}</h4>
+                            <h5>{{item.text}}</h5>
+                        </div>
+                        <!-- <div class="event_title_c">
                             <h3 class="event_no">01</h3>
                             <h3 class="event_name">弗雷德裏個展</h3>
                         </div>
@@ -74,12 +108,23 @@
                             <h4 class="event_name_rwd">弗雷德裏個展</h4>
                             <h4 class="event_date">2022.10.13 - 2023.12.13</h4>
                             <h5>弗裏塞克擅長於描繪豐滿而優美的女性肖像，畫中人物往往出現於綠叢茂盛和鮮花繽紛的花園...</h5>
-                        </div>    
+                        </div>     -->
                     </div>
                 </div>
                 <div class="event_future_2">
-                    <div class="event_now_c gsap_animation_2">
+                    <div class="event_now_c gsap_animation_2" v-for="(item) in lists2.slice(1,2)">
                         <div class="event_title_c">
+                            <h3 class="event_no">02</h3>
+                            <h3 class="event_name">{{item.name}}</h3>
+                        </div>
+                        <div class="event_content_c">
+                            <a href="#"><div class="img_overflow"><img :src="item.img" alt=""></div></a>
+                            <h4 class="event_room">{{item.room}} ROOM</h4>
+                            <h4 class="event_name_rwd">{{item.name}}</h4>
+                            <h4 class="event_date">{{item.time}}</h4>
+                            <h5>{{item.text}}</h5>
+                        </div>
+                        <!-- <div class="event_title_c">
                             <h3 class="event_no">02</h3>
                             <h3 class="event_name">印象派特展</h3>
                         </div>
@@ -89,7 +134,7 @@
                             <h4 class="event_name_rwd">印象派特展</h4>
                             <h4 class="event_date">2022.11.13 - 2023.01.13</h4>
                             <h5>本展收攏世界各地知名印象派畫家作品，深入印象派的世界中...</h5>
-                        </div>
+                        </div> -->
                     </div>
                 </div>   
                     <div class="event_ver_line2"></div>    
@@ -104,14 +149,14 @@
                     <option value="">全部年分</option>
                 </select>
             </div>
-            <div class="event_pass">
+            <!-- <div class="event_pass">
                 <div class="event_pass_img">
                     <div>
                         <a href="#"><img src="./images/events_05.png" alt=""></a>
                     </div>
                 </div>
                 <div class="infocard_m">
-                    <h3>CUGGI百年特展
+                    <h3>GUCCI百年特展
                         <span>&rarr;</span>
                     </h3>
                     <h5>走入Gucci《Archetypes 原典》展場間，宛若遊走在多元異想所串連起的Alessandro Michele私人宇宙！</h5>
@@ -151,136 +196,36 @@
                     <h5>過往展覽</h5>
                     <p>2022.04.18 -  2022.07.22</p>
                 </div>
+            </div> -->
+            <!-- ---------------------------------------------------------- -->
+            <div class="event_pass" v-for="(item) in lists3.slice(0,3)">
+                <div class="event_pass_img">
+                    <div>
+                        <a href="#"><img :src='item.img' :alt="item.name"></a>
+                    </div>
+                </div>
+                <div class="infocard_m">
+                    <h3>{{item.name}}
+                        <span>&rarr;</span>
+                    </h3>
+                    <h5>{{item.text}}</h5>
+                    <div></div>
+                    <h5>過往展覽</h5>
+                    <p>{{item.time}}</p>
+                </div>
             </div>
+
+            <!-- ---------------------------------------------------------- -->
             <div class="events_btn">
                 <button class="btn_l">SEE MORE
                     <span>&rarr;</span>
                 </button>
             </div>
         </section>
+        
         <!-- footer -->
         @@include('./layout/footer.html')
-        
     </div>
-
-    <script>
-        
-        console.log(document.body.scrollWidth);
-        gsap.to(['.event_0 h1','.event_0 div'], {
-            keyframes: [
-                { duration: 0, clipPath: 'inset(0rem 120rem 0rem 0rem)', ease: "sine.inOut", },
-                { duration: 2, clipPath: 'inset(0rem 0rem 0rem 0rem)', ease: "sine.inOut", },
-            ]
-        });
-
-        gsap.to(['.event_now_top h2','.event_now_top .event_left_line'], {
-            keyframes: [
-                { duration: 0, clipPath: 'inset(0rem 0rem 0rem 30rem)', ease: "sine.inOut", },
-                { duration: 2, clipPath: 'inset(0rem 0rem 0rem 0rem)', ease: "sine.inOut", },
-            ]
-        });
-            // gsap.to('.gsap_animation_1 img', {
-            //     keyframes: [
-            //         { duration: 0, clipPath: 'inset(2rem 111rem 3rem 0rem)',ease: "sine.inOut" },
-            //         { duration: 2, clipPath: 'inset(0rem 0rem 0rem 0rem)',ease: "sine.inOut" },
-            //     ]
-            // });
-            // gsap.to(['.gsap_animation_1 h4','.gsap_animation_1 h5'], {
-            //     keyframes: [
-            //         { x:60,opacity:0 },
-            //         { x:0, opacity:1, duration: 2, ease: "sine.inOut", },
-            //     ]
-            // });
-            // gsap.to('.gsap_animation_1 .event_title_c', {
-            //     keyframes: [
-            //         {  y:60, opacity:0 },
-            //         { y:0, opacity:1, duration: 2, ease: "sine.inOut", },
-            //     ]
-            // });
-        
-
-        gsap.registerPlugin(ScrollTrigger);
-        
-        // $(this).resize(function(){
-
-        
-        if(document.body.scrollWidth > 900){
-        gsap_animation_path(".gsap_animation_1",".gsap_animation_1 img");
-        gsap_animation_x(".gsap_animation_1",['.gsap_animation_1 h4','.gsap_animation_1 h5']);
-        gsap_animation_y(".gsap_animation_1",'.gsap_animation_1 .event_title_c');
-        
-        
-
-        gsap_animation_path(".gsap_animation_2",".gsap_animation_2 img");
-        gsap_animation_x(".gsap_animation_2",['.gsap_animation_2 h4','.gsap_animation_2 h5']);
-        gsap_animation_y(".gsap_animation_2",'.gsap_animation_2 .event_title_c');
-        function gsap_animation_path(t,x){
-            gsap
-            .timeline({
-                scrollTrigger: {
-                trigger: t,
-                start: "-=500",
-                end:"-=500",
-                scrub:3.0,
-                },
-            })
-            
-            
-            .fromTo((x), {
-                clipPath: 'inset(2rem 111rem 3rem 0rem)'
-            },{
-                duration: 2,
-                ease: "sine.inOut",
-                clipPath: 'inset(0rem 0rem 0rem 0rem)'
-            })
-        };//function
-
-        function gsap_animation_x(t,x){
-            gsap
-            .timeline({
-                scrollTrigger: {
-                trigger: t,
-                start: "-=500",
-                end:"-=500",
-                scrub:3.0,
-                },
-            })
-
-            .fromTo(x,{
-                x:60,
-                opacity:0
-            },{
-                x:0,
-                opacity:1,
-                duration: 2,
-                ease: "sine.inOut",
-            })
-
-        };
-        function gsap_animation_y(t,x){
-            gsap
-            .timeline({
-                scrollTrigger: {
-                trigger: t,
-                start: "-=500",
-                end:"-=500",
-                scrub:3.0,
-                },
-            })
-
-            .fromTo(x,{
-                y:60,
-                opacity:0
-            },{
-                y:0,
-                opacity:1,
-                duration: 2,
-                ease: "sine.inOut",
-            })
-        };
-            }
-            
-        
-    </script>
+    <script src="./js/events.js"></script>
 </body>
 </html>
