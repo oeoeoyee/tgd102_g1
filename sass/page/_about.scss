@@ -583,9 +583,21 @@
         }
 
 //Google地圖((尚未嵌入)
-        .about6_img1 {
+        // .about6_img1 {
+        //     margin-top: size(74);
+        //     height: size(480);
+        //     width: size(1400);
+
+        //     @include mobile(){
+        //         width: 100%;
+        //         margin-bottom: rwd(17)
+        //     }
+        // }
+
+        #map{
             margin-top: size(74);
-            height: size(480);
+            height: size(600);
+            width: size(1400);
 
             @include mobile(){
                 width: 100%;
