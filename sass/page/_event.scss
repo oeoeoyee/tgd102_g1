@@ -341,7 +341,9 @@
         }
     }
         img{
-            width:size(348) ;
+            // width:size(348) ;
+            
+            height: size(631);
                 &:hover{
                     transform: scale(1.1);
                     transition: all .3s ease-in-out;
