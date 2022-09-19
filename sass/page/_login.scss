@@ -46,7 +46,7 @@
     width: 100%;
 
     @include mobile(){
-        display: none;
+        height: rwd(60);
     }
 
     img{
