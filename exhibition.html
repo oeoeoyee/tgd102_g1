@@ -284,10 +284,11 @@
 
             $("html, body").animate(
               {
-                scrollTop: $(hash).offset().top,
+                scrollTop: $(hash).offset().top - 200,
               },
               800,
               function () {
+                hash = hash - 200;
                 window.location.hash = hash;
               }
             );
