@@ -14,6 +14,14 @@
     border: none;
     border: size(1) solid $line_mid;
     @include p();
+
+    // iphone 預設拿掉
+    -webkit-appearance: none;
+    background-color: $white;
+
+    @include mobile(){
+        // border: solid 1px $line_dark;
+    }
 }
 
 // 記住我ckbox
@@ -22,6 +30,7 @@
         width: auto;
         height: auto;
         margin: auto;
+        -webkit-appearance: auto;
     }
     span{
         @include p();
