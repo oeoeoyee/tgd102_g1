@@ -7,7 +7,7 @@
     </head>
     <body>
     
-        <div class="wrapper">
+        <div class="wrapper" id="login">
             <!-- header -->
             @@include('./layout/header.html')
             
@@ -28,27 +28,31 @@
                     <ul>
                         <!-- 請選擇展覽 -->
                         <li>
-                            <select name="exhibition" id="exhibition">
-                                <option value="請選擇展覽" disabled selected>請選擇展覽</option>
-                                <option value="普通常設展">普通常設展</option>
+                            <select name="exhibition" id="exhibition" v-model="exhibitionChoose">
+                                <!-- <option v-for="exhibition in exhibitions" :value="exhibition">{{exhibition}}</option> -->
+                                <!-- <option value="請選擇展覽" disabled>請選擇展覽</option> -->
+                                <option v-for="(exhibition,index) in exhibitions" :value="exhiplace(exhibition,index)" :disabled="yesno(index)">{{exhibition}}</option>
+                                <!-- <option value="普通常設展">普通常設展</option>
                                 <option value="林布蘭·哈爾曼松">林布蘭·哈爾曼松</option>
                                 <option value="奇怪殭屍展">奇怪殭屍展</option>
                                 <option value="歷代皇帝展">歷代皇帝展</option>
-                                <option value="琺瑯瓷器展">琺瑯瓷器展</option>
+                                <option value="琺瑯瓷器展">琺瑯瓷器展</option> -->
                             </select>
                         </li>
 
                         <!-- 請選擇日期 -->
                         <li>
                             <label for="date">
-                                <input placeholder="請選擇日期" type="text" onfocus="(this.type = 'date')"  id="date">
+                                <!-- <input placeholder="請選擇日期" type="text" onfocus="(this.type = 'date')"  id="date"> -->
+                                <input type="date" v-model="date">
                             </label>
                         </li>
 
                         <!-- 請選擇成人票人數 $250/張 -->
                         <li>
-                            <select name="adult" id="adult">
-                                <option value="請選擇成人票" disabled selected>請選擇成人票人數 $250/張</option>
+                            <select name="adult" id="adult" v-model="adultCount">
+                                <option v-for="(adult,index) in adults" :value="adultplace(adult, index)" :disabled="yesno(index)">成人票 {{adult}} 張</option>
+                                <!-- <option value="請選擇成人票" disabled selected>請選擇成人票人數 $250/張</option>
                                 <option value="1">成人票 1 張</option>
                                 <option value="2">成人票 2 張</option>
                                 <option value="3">成人票 3 張</option>
@@ -57,14 +61,15 @@
                                 <option value="6">成人票 6 張</option>
                                 <option value="7">成人票 7 張</option>
                                 <option value="8">成人票 8 張</option>
-                                <option value="9">成人票 9 張</option>
+                                <option value="9">成人票 9 張</option> -->
                             </select>
                         </li>
 
                         <!-- 請選擇優待票人數 $150/張 -->
                         <li>
-                            <select name="service" id="service">
-                                <option value="請選擇優待票" disabled selected>請選擇優待票人數 $150/張</option>
+                            <select name="service" id="service" v-model="serviceCount">
+                                <option v-for="(service,index) in services" :value="serviceplace(service, index)" :disabled="yesno(index)">優待票 {{service}} 張</option>
+                                <!-- <option value="請選擇優待票" disabled selected>請選擇優待票人數 $150/張</option>
                                 <option value="1">優待票 1 張</option>
                                 <option value="2">優待票 2 張</option>
                                 <option value="3">優待票 3 張</option>
@@ -73,14 +78,15 @@
                                 <option value="6">優待票 6 張</option>
                                 <option value="7">優待票 7 張</option>
                                 <option value="8">優待票 8 張</option>
-                                <option value="9">優待票 9 張</option>
+                                <option value="9">優待票 9 張</option> -->
                             </select>
                         </li>
 
                         <!-- 請選擇兒童票人數 $100/張 -->
                         <li>
-                            <select name="child" id="child">
-                                <option value="請選擇兒童票" disabled selected>請選擇兒童票人數 $100/張</option>
+                            <select name="child" id="child" v-model="childCount">
+                                <option v-for="(child,index) in childs" :value="childplace(child, index)" :disabled="yesno(index)">兒童票 {{child}} 張</option>
+                                <!-- <option value="請選擇兒童票" disabled selected>請選擇兒童票人數 $100/張</option>
                                 <option value="1">兒童票 1 張</option>
                                 <option value="2">兒童票 2 張</option>
                                 <option value="3">兒童票 3 張</option>
@@ -89,7 +95,7 @@
                                 <option value="6">兒童票 6 張</option>
                                 <option value="7">兒童票 7 張</option>
                                 <option value="8">兒童票 8 張</option>
-                                <option value="9">兒童票 9 張</option>
+                                <option value="9">兒童票 9 張</option> -->
                             </select>
                         </li>
 
@@ -97,7 +103,7 @@
                         <li class="login_ckbox_out ckbox_center">
                             <div class="login_ckbox">
                                 <label for="login_ckbox">
-                                    <input type="checkbox" id="login_ckbox" name="signin_sub" value="語音導覽">
+                                    <input type="checkbox" id="login_ckbox" name="signin_sub" v-model="pod" :value="pods">
                                     <span>免費索取語音導覽服務</span>
                                 </label>
                             </div>
@@ -113,25 +119,34 @@
                     <h3>小計</h3>
                     <table>
                         <tr>
+                            <td colspan="2">展覽名稱</td>
+                            <td colspan="2">{{exhibitionChoose}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">展覽日期</td>
+                            <td colspan="2">{{date}}</td>
+                        </tr>
+                        <tr>
                             <td>成人票</td>
-                            <td>X5</td>
-                            <td>=</td>
-                            <td>1250</td>
+                            <td>X {{adultCount}}</td>
+                            <td colspan="2">NT${{adultticket}}</td>
                         </tr>
                         <tr>
                             <td>優待票</td>
-                            <td>X1</td>
-                            <td>=</td>
-                            <td>150</td>
+                            <td>X {{serviceCount}}</td>
+                            <td colspan="2">NT${{serviceticket}}</td>
                         </tr>
                         <tr>
                             <td>兒童票</td>
-                            <td>X2</td>
-                            <td>=</td>
-                            <td>200</td>
+                            <td>X {{childCount}}</td>
+                            <td colspan="2">NT${{childticket}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">語音導覽</td>
+                            <td colspan="2">共 {{personpods}} 位</td>
                         </tr>
                         <tr class="cost">
-                            <td colspan="4">總計 NT$1600</td>
+                            <td colspan="4">總計 NT${{total}}</td>
                         </tr>
                     </table>
                 </div>
