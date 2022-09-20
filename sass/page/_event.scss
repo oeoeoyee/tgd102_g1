@@ -349,7 +349,8 @@
                     transition: all .3s ease-in-out;
                 }
             @include mobile() {
-                width:rwd(375) ;
+                // width:rwd(375) ;
+                height: rwd(680);
             }
         }
         .event_room{
