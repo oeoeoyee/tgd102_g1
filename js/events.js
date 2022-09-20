@@ -1,3 +1,4 @@
+
 let lists_n = [
     {
         name:"林布蘭·哈爾曼松特展",
@@ -5,6 +6,7 @@ let lists_n = [
         time:"2022.08.13  - 2023.01.31",
         img:"./images/events_01.png",
         room:"A",
+        link:"./event_01.html",
     },
     {
         name:"梵谷·文森特展",
@@ -63,17 +65,105 @@ let lists_p = [
     },
 ];
 
+
+
 new Vue({
     el:"#app",
-    data:{
+    data(){
+        return{
+        years:['全部年分',2022,2021,2020,2019,2018],
+        lists1:lists_n,
+        lists2:lists_f,
+        lists3:lists_p,
+        }
+    },
+    
+      mounted() {
+        fetch("../../XML_JSON_CSV/bookData.json").then(res => res.json()).then(res =>this.books= res)
+        
+      },
+      
+     methods:{
+         waterfall(){
+            let sum = 0;
+            let events_btn = document.querySelector('.events_btn');
+            events_btn.style.display = "none";
+            let container = document.querySelector('.event_3');
+            let str = `
+            <div class="event_pass"  v-for="(item) in lists2.slice(0,1)">
+            <div class="event_pass_img">
+                <div>
+                    <a href="#"><img :src='item.img' :alt="item.name"></a>
+                </div>
+            </div>
+            <div class="infocard_m">
+                <h3>{{item.name}}
+                    <span>&rarr;</span>
+                </h3>
+                <h5>{{item.text}}</h5>
+                <div></div>
+                <h5>過往展覽</h5>
+                <p>{{item.time}}</p>
+            </div>
+          </div></div>`;
+            for (let i = 0; i < 3; i++) {
+                sum+=1
+                container.insertAdjacentHTML('beforeend', str)
+            }
+            
+            window.addEventListener('scroll', addDemo);
+            
+            function addDemo() {
+                if(sum < 10){
+                if (window.pageYOffset + window.innerHeight + 200 < document.documentElement.offsetHeight) return; 
+                    
+                for (let i = 0; i < 3; i++) {
+                    sum+=1
+                    container.insertAdjacentHTML('beforeend', str)
+                }
+                }
+            }
+            
+        }
 
-    lists1:lists_n,
-    lists2:lists_f,
-    lists3:lists_p,
-    }
+     },
+      
+
+
   });
 
+  
 
+
+  
+//   let container = document.querySelector('footer');
+//   let str = `<div class="event_pass"  >
+//   <div class="event_pass_img">
+//       <div>
+//           <a href="#"><img :src='item.img' :alt="item.name"></a>
+//       </div>
+//   </div>
+//   <div class="infocard_m">
+//       <h3>{{item.name}}
+//           <span>&rarr;</span>
+//       </h3>
+//       <h5>{{item.text}}</h5>
+//       <div></div>
+//       <h5>過往展覽</h5>
+//       <p>{{item.time}}</p>
+//   </div>
+// </div></div>`;
+  
+//   window.addEventListener('scroll', addDemo);
+  
+//   function addDemo() {
+//       /* 不是底部則跳出函式 */
+//       if (window.pageYOffset + window.innerHeight < document.documentElement.offsetHeight) return; 
+  
+//       for (let i = 0; i < 5; i++) {
+//           container.insertAdjacentHTML('beforebegin', str)
+//       }
+//   }
 
 
 //  gsap -------------------------------------------------

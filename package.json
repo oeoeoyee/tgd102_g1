@@ -33,11 +33,14 @@
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
-    "sass": "^1.54.8"
+    "sass": "^1.54.8",
+    "vue-waterfall-easy": "^2.4.4"
   },
   "dependencies": {
     "gsap": "^3.11.1",
     "scrolltrigger": "^1.0.1",
-    "summernote": "^0.8.20"
+    "summernote": "^0.8.20",
+    "vue": "^3.2.39",
+    "vue-masonry": "^0.16.0"
   }
 }
