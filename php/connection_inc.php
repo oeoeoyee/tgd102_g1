@@ -1,10 +1,9 @@
-<!-- 連線設定 -->
 <?php
-$URL = "mysql:host=localhost:3306;dbname=myDB";
-$USERNAME = "root";
-$PASSWORD = "password";
+// mysql:host=SQL的IP位置;dbname=DB名稱
+$URL = "mysql:host=172.20.10.6;dbname=REVERSE";
+// username
+$USERNAME = "reverse";
+// password
+$PASSWORD = "P@ssw0rd";
 $pdo = new PDO($URL, $USERNAME, $PASSWORD);
 ?>
-
-<!-- 上線路徑 (?) -->
-<!-- https://tibamef2e.com/tgd102/g1/php -->
