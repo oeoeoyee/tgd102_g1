@@ -76,9 +76,9 @@ function babel5() {
 
 exports.js_update = babel5;
 
-// *打包PHP.搬家
+// *打包PHP.搬家 無壓縮!!!
 function php_move(){
-    return src('php/*.*' , 'php/**.*').pipe(dest('dist/php'))
+    return src(['php/*.*' , 'php/**/*.*']).pipe(dest('dist/php'))
 }
 
 
@@ -118,7 +118,7 @@ exports.cls = clear;
     watch(['*.html' , 'layout/*.html'] , includeHTML).on('change' ,reload)  
     watch(['sass/*.scss' , 'sass/**/*.scss'] , sassstyle).on('change' ,reload)
     watch(['images/*.*' , 'images/**/*.*'] , img_move).on('change' , reload)
-    watch(['php/*.*' , 'php/**.*'] , php_move).on('change' , reload)
+    watch(['php/*.*' , 'php/**/*.*'] , php_move).on('change' , reload)
     watch('js/*.js' ,Jsminify).on('change' ,reload)
     done();
 }

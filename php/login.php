@@ -1,6 +1,6 @@
 <!-- 登入用 HTML未新增JS -->
 <?php
-include("./connection_inc.php");
+include("./PDO/connection_inc.php");
 $member = json_decode(file_get_contents("php://input"), true);
 
 // -----------------------------------------------------

@@ -1,16 +1,12 @@
 <!-- #連線測試# 會員資料編輯 待改 -->
 <script>
   // 會員資料編輯
-
   // 電話
-  const phone = document.querySelector("#phone");
-  // 信箱
-  const email = document.querySelector("#email");
-  // 密碼
-  const password = document.querySelector("#password");
+  // const xxx = document.querySelector("#xxx");
 
-  // 1 進入時顯示當前會員的資料 ( ?memberId=1 | ?memberId=999)
-  fetch("http://localhost:8081/TGD102_G1/php/get_member_info.php?memberId=1")
+  // 會員 1 的資料 ( memberId=1 )
+  // 路徑需調整
+  fetch("./get_member_info.php?memberId=1")
     .then((resp) => resp.json())
     .then((member) => {
       (name.value = member.name),

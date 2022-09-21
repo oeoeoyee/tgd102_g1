@@ -1,14 +1,10 @@
 <!-- 登入用 未新增 -->
 <script>
-  const email = document.querySelector("#email");
-  const password = document.querySelector("#password");
-  const name = document.querySelector("#name");
-
-  const register = document.querySelector("button");
   register.addEventListener("click", () => {
     const fr = new FileReader();
     fr.addEventListener("load", (e) => {
-      fetch("http://localhost:8081/TGD102_G1/php/register.php", {
+      // 路徑需調整
+      fetch("./register.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

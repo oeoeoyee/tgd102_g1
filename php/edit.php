@@ -1,6 +1,6 @@
 <!-- 會員資料編輯 待改 -->
 <?php
-include("./connection_inc.php");
+include("./PDO/connection_inc.php");
 $member = json_decode(file_get_contents("php://input"), true);
 
 // -----------------------------------------------------

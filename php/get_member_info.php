@@ -1,6 +1,6 @@
 <!-- 取得會員資料 -->
 <?php
-include("./connection_inc.php");
+include("./PDO/connection_inc.php");
 $memberId = $_GET["memberId"];
 
 // -----------------------------------------------------

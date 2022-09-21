@@ -1,6 +1,6 @@
 <?php
 // 取得展覽資料
-include("./connection_inc.php");
+include("./PDO/connection_inc.php");
 $ex_id = $_GET["ex_id"];
 
 $sql = "select NAME, INTRODUCTION from EXHIBITION where ID = :id";

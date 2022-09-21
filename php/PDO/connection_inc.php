@@ -1,6 +1,6 @@
 <?php
 // mysql:host=SQL的IP位置;dbname=DB名稱
-$URL = "mysql:host=172.20.10.6;dbname=REVERSE";
+$URL = "mysql:host=192.168.0.190;dbname=REVERSE";
 // username
 $USERNAME = "reverse";
 // password

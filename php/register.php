@@ -1,6 +1,6 @@
 <!-- 註冊用PHP HTML未新增JS -->
 <?php
-include("./connection_inc.php");
+include("./PDO/connection_inc.php");
 // 1 接收前端傳來的JSON格式字串，並轉成PHP中的物件
 $member = json_decode(file_get_contents("php://input"), true);
 
