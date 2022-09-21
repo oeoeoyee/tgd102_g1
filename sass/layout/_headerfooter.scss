@@ -466,8 +466,9 @@ footer{
     border-radius: size(3);
     // border-radius: 50%;
     background-color: $hf_black;
-    // opacity: .9;
+    opacity: 0;
     padding: size(8);
+    transition: opacity .3s;
 
     @include mobile(){
         width: rwd(40);
@@ -488,4 +489,9 @@ footer{
             display: block;
         }
     }
+
+    &.totop_active{
+        opacity: 1;
+    }
 }
+

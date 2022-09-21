@@ -58,7 +58,8 @@
     @include mobile(){
         padding-left: rwd(8);
         padding-right: rwd(8);
-        width: rwd(250);
+        // width: rwd(250);
+        width: rwd(311);
         height: rwd(40);
         line-height: rwd(40);
     }

@@ -1,12 +1,16 @@
 <!-- 到最上面的按鈕 -->
-<div class="totop">
+<!-- <div class="totop">
     <i class="fa-solid fa-chevron-up"></i>
+</div> -->
+<!-- vuevue -->
+<div id="app_totop" v-scroll="showTop">
+    <div class="totop" @click="gotop" :class="goTop?'totop_active':''">
+        <i class="fa-solid fa-chevron-up"></i>
+    </div>
 </div>
+
 <!-- footer -->
 <footer>
-    <!-- <div class="footer_totop">
-        <span>▲</span>
-    </div> -->
     <div class="footer_left">
         <h4>開放時間</h4>
         <p>週六 10:00 至 21:00<br>週二至週日 10:00 至 18:00</p>
