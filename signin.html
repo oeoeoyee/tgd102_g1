@@ -24,24 +24,33 @@
                 <form method="post" action="./signin_succ.html">
                     <ul>
                         <!-- 姓名 -->
-                        <li>
-                            <input type="text" placeholder="請輸入姓名" name="name">
+                        <li class="name">
+                            <input type="text" placeholder="請輸入姓名" name="name" id="name">
+                            <div class="error"></div>
                         </li>
+
                         <!-- 電子信箱(帳號) -->
-                        <li>
-                            <input type="email" placeholder="請輸入電子信箱" name="email">
+                        <li class="email">
+                            <input type="email" placeholder="請輸入電子信箱" name="email" id="email">
+                            <div class="error"></div>
                         </li>
+
                         <!-- 手機 -->
-                        <li>
-                            <input type="tel" placeholder="請輸入手機號碼(範例：0912-345-678)" name="phone">
+                        <li class="phone">
+                            <input type="tel" placeholder="請輸入手機號碼(範例：0912345678)" name="phone" id="phone">
+                            <div class="error"></div>
                         </li>
+
                         <!-- 密碼 -->
-                        <li>
-                            <input type="password" placeholder="密碼：英數混合，六至十二字" name="pwd">
+                        <li class="pwd">
+                            <input type="password" placeholder="密碼：英數混合，六至十二字" name="pwd" id="pwd">
+                            <div class="error"></div>
                         </li>
+
                         <!-- 確認密碼 -->
-                        <li>
-                            <input type="password" placeholder="請再次輸入密碼" name="pwd">
+                        <li class="pwdcomfirm">
+                            <input type="password" placeholder="請再次輸入密碼" name="pwd" id="pwdcomfirm" onkeyup="check_password()">
+                            <div class="error"></div>
                         </li>
                         <!-- 訂閱 -->
                         <li class="login_ckbox_out ckbox_center">
@@ -59,6 +68,7 @@
                     <div class="login_btn_out signin_btn_out">
                         <input type="submit" value="註冊" class="btn_s_remind">
                     </div>
+                    <div id="error"></div>
                 </form>
 
             </div>
@@ -68,6 +78,7 @@
             @@include('./layout/footer.html')
             
         </div>
+
     </body>
 </body>
 </html>

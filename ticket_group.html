@@ -6,7 +6,7 @@
         })
     </head>
     <body>
-    
+        <!-- <input type="checkbox" id="login_ckbox3" name="signin_sub" @change="alert('xxx')"> -->
         <div class="wrapper" id="login">
             <!-- header -->
             @@include('./layout/header.html')
@@ -17,7 +17,7 @@
             </div>
 
 
-            <form method="post" action="./group_credit_succ.html">
+            <form  >
 
                 <!-- 上面 -->
                 <div class="login_top signin_out">
@@ -201,11 +201,10 @@
                             <li>逾期未取票視同入場，恕不接受退換票，或其他補救措施要求。</li>
                         </ol>
                     </ul>
-                    
                     <!-- 同意ck -->
                     <div class="login_ckbox ckbox_center">
                         <label for="login_ckbox3">
-                            <input type="checkbox" id="login_ckbox3" name="signin_sub">
+                            <input type="checkbox" v-model="check_note" @change="change_function" id="login_ckbox3" name="signin_sub">
                             <span>我已閱讀購票須知</span>
                         </label>
                     </div>
@@ -213,44 +212,15 @@
 
                 <!-- 按鈕 -->
                 <div class="btn_center">
-                    <input type="submit" value="付款" class="btn_s_remind" id="payment">
+                    <button type="button" class="btn_s_remind" id="payment" @click="submit">付款</button>
                 </div>
                     
             </form>
 
-            </div>
-            
-            
             <!-- footer -->
             @@include('./layout/footer.html')
             
         </div>
-
-        <script>
-
-            // $('#payment').attr('disabled', true)
-            
-            // $("#payment").click(function(){
-                
-            //     // console.log('aaa');
-            //     // let check = $("#login_ckbox3");//判斷有多少個方框被勾選
-
-            //     // if(check == 0){
-            //     //     return true;
-            //     // }else{
-            //     //     return false;
-            //     // }
-
-            //     console.log($('#login_ckbox3').val());
-
-            //     if($('#login_ckbox3').val() == 'on'){
-            //         $('#payment').attr('disabled', false)
-            //     }
-            // })
-
-
-
-        </script>
 
 
     </body>

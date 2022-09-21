@@ -86,6 +86,8 @@
         // 電子信箱(帳號)/密碼
 
         li{
+            margin-bottom: size(32);
+            
             input{
                 width: 100%;
                 @include input();

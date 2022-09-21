@@ -413,7 +413,7 @@ footer{
             margin-right: size(8);
         }
         input:first-of-type{
-            @include input(360, 40, 0);
+            @include input(360, 40);
         }
         // all right reserved
         p{

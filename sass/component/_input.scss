@@ -1,3 +1,12 @@
+// input error
+.error, #error{
+    width: 100%;
+    @include p();
+    color: $red;
+    margin-top: size(10);
+    // padding-left: size(12);
+}
+
 // input 外殼
 @mixin input_out($w:530){
     width: size($w);
@@ -5,10 +14,10 @@
 }
 
 // input
-@mixin input($w:530, $h:40, $mb:32){
+@mixin input($w:530, $h:40){
     width: size($w);
     height: size($h);
-    margin-bottom: size($mb);
+    // margin-bottom: size($mb);
     padding-left: size(12);
     color: $black;
     border: none;
@@ -221,7 +230,7 @@
 
 // 後台右上角搜尋框
 .back_search{
-    @include input(400, 40, 0);
+    @include input(400, 40);
     display: inline-block;
 }
 

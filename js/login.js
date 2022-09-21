@@ -1,11 +1,13 @@
 // =============買票小計============
-
 new Vue({
     el: '#login',
     data: {         //變數放這裡
 
+        // 閱讀購買須知
+        check_note: false,
+
         // 展覽名稱select
-        exhibitions: ['請選擇展覽','普通常設展', '林布蘭·哈爾曼松', '奇怪殭屍展', '歷代皇帝展', '琺瑯瓷器展'],
+        exhibitions: ['請選擇展覽', '普通常設展', '林布蘭·哈爾曼松', '奇怪殭屍展', '歷代皇帝展', '琺瑯瓷器展'],
         exhibitionChoose: '',
 
         // 展覽日期input
@@ -17,15 +19,15 @@ new Vue({
 
         // 成人票人數
         adults: ['請選擇', 1, 2, 3, 4, 5, 6, 7, 8, 9],
-        adultCount: '',
+        adultCount: 0,
 
         // 優待票人數
         services: ['請選擇', 1, 2, 3, 4, 5, 6, 7, 8, 9],
-        serviceCount: '',
+        serviceCount: 0,
 
         // 兒童票人數
         childs: ['請選擇', 1, 2, 3, 4, 5, 6, 7, 8, 9],
-        childCount: '',
+        childCount: 0,
 
         // 專人導覽
         tour: false,
@@ -34,6 +36,79 @@ new Vue({
         pod: false,
     },
     methods:{  //函數 "大部分" 放這裡
+        
+        // 同意購買須知 
+        change_function(){
+            if(this.check_note === false){
+                return false
+            }else{
+                return true
+            }
+        },
+
+        // 團體付款按鈕
+        submit(){
+
+            // 展覽沒選
+            if(this.exhibitionChoose === ''){
+                alert('展覽沒選')
+                return false
+            }
+
+            // 日期沒選
+            if(this.date === ''){
+                alert('日期沒選')
+                return false
+            }
+
+            // 團體票人數沒選
+            if(this.groupCount === ''){
+                alert('團體人數沒選')
+                return false
+            }
+
+            // 購買須知沒勾
+            if(this.check_note === false){
+                alert('購票須知沒勾')
+                return false
+            }
+
+            alert('成功')
+
+
+            // ajax
+
+        },
+
+        // 一般付款按鈕
+        submitperson(){
+
+            // 展覽沒選
+            if(this.exhibitionChoose === ''){
+                alert('展覽沒選')
+                return false
+            }
+
+            // 日期沒選
+            if(this.date === ''){
+                alert('日期沒選')
+                return false
+            }
+
+            // 一般票人數沒選
+            if(this.adultCount + this.serviceCount + this.childCount === ''){
+                alert('人數沒選')
+                return false
+            }
+
+            // 購買須知沒勾
+            if(this.check_note === false){
+                alert('購票須知沒勾')
+                return false
+            }
+
+            alert('成功')
+        },
 
         // placeholder效果
         yesno(index){
@@ -65,7 +140,7 @@ new Vue({
         // 成人人數陣列 disabled[0] 
         adultplace(adult, index){
             if(index == 0){
-                return ''
+                return 0
             }else{
                 return adult
             }
@@ -74,7 +149,7 @@ new Vue({
         // 優待人數陣列 disabled[0] 
         serviceplace(service, index){
             if(index == 0){
-                return ''
+                return 0
             }else{
                 return service
             }
@@ -83,11 +158,14 @@ new Vue({
         // 兒童人數陣列 disabled[0] 
         childplace(child, index){
             if(index == 0){
-                return ''
+                return 0
             }else{
                 return child
             }
         },
+    },
+    mounted() {
+        
     },
     computed: {  // 函數也可以放這裡但是放在這裡的函數 "不能傳參數，一定要有傳回值(return)"
         
@@ -146,3 +224,95 @@ new Vue({
     },
     
 })
+
+
+// =========註冊驗證===========
+    // 姓名不為空
+    $("#name").keyup(function () {
+        if ($(this).val() == "") {
+            $(".name .error").html("姓名不能空白");
+        } else $(".name .error").html("");
+    });
+
+    // email不為空 + 驗證
+    $(function(){
+        $('#email').blur(function(){
+            let email = $(this).val();
+            let reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+            if(reg.test(email)){
+                $('.email .error').html('');
+            }else{
+                $('.email .error').html('請輸入正確的email地址');
+            }
+        });
+    });
+
+    // 手機驗證
+    $(function(){
+        $('#phone').blur(function(){
+            let phone = $(this).val();
+            let reg = /^09[0-9]{8}$/;
+            if(reg.test(phone)){
+                $('.phone .error').html('');
+            }else{
+                $('.phone .error').html('請輸入正確的手機號碼');
+            }
+        });
+    });
+
+    // 密碼驗證(6-12字 英數混和)
+    $(function(){
+        $('#pwd').blur(function(){
+            let pwd = $(this).val();
+            let reg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,12}$/;
+            if(reg.test(pwd)){
+                $('.pwd .error').html('');
+            }else{
+                $('.pwd .error').html('請輸入正確的密碼格式');
+            }
+        });
+    });
+
+    // 確認密碼
+    function check_password() {
+        if ($("#pwd").val() != $("#pwdcomfirm").val()){
+            $('.pwdcomfirm .error').html('密碼不相同');
+        }else{
+            $('.pwdcomfirm .error').html('');
+        }
+    }
+
+    // 送出驗證
+    $(".signin_out form").submit(function (e) {
+        let error_msg = "";
+
+        // 停止預設行為
+        e.preventDefault();
+
+        // 姓名不為空
+        if ($("#name").val() == "") {
+            error_msg = error_msg + "姓名、";
+        }
+
+        // 信箱 反轉false送出錯誤警告
+        if (!($("#email").val())) {
+            error_msg = error_msg + "Email錯誤、";
+        }
+
+        // 手機 反轉false送出錯誤警告
+        if (!($("#phone").val())) {
+            error_msg = error_msg + "電話錯誤、";
+        }
+
+        // 密碼 反轉false送出錯誤警告
+        if (!($("#pwd").val())) {
+            error_msg = error_msg + "密碼錯誤";
+        }
+
+        // 無誤後送出
+        if (error_msg == "") {
+            alert("資料成功送出");
+        } else {
+            $("#error").html(error_msg + "，請再次確認");
+        }
+    });
