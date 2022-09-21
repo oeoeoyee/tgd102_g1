@@ -7,7 +7,7 @@
     </head>
     <body>
     
-        <div class="wrapper">
+        <div class="wrapper" id="login">
             <!-- header -->
             @@include('./layout/header.html')
             
@@ -28,20 +28,23 @@
                     <ul>
                         <!-- 請選擇展覽 -->
                         <li>
-                            <select name="exhibition" id="exhibition">
-                                <option value="請選擇展覽" disabled selected>請選擇展覽</option>
-                                <option value="普通常設展">普通常設展</option>
+                            <select name="exhibition" id="exhibition" v-model="exhibitionChoose">
+                                <!-- <option v-for="exhibition in exhibitions" :value="exhibition">{{exhibition}}</option> -->
+                                <!-- <option value="請選擇展覽" disabled>請選擇展覽</option> -->
+                                <option v-for="(exhibition,index) in exhibitions" :value="exhiplace(exhibition,index)" :disabled="yesno(index)">{{exhibition}}</option>
+                                <!-- <option value="普通常設展">普通常設展</option>
                                 <option value="林布蘭·哈爾曼松">林布蘭·哈爾曼松</option>
                                 <option value="奇怪殭屍展">奇怪殭屍展</option>
                                 <option value="歷代皇帝展">歷代皇帝展</option>
-                                <option value="琺瑯瓷器展">琺瑯瓷器展</option>
+                                <option value="琺瑯瓷器展">琺瑯瓷器展</option> -->
                             </select>
                         </li>
 
                         <!-- 請選擇日期 -->
                         <li>
                             <label for="date">
-                                <input placeholder="請選擇日期" type="text" onfocus="(this.type = 'date')"  id="date">
+                                <!-- <input placeholder="請選擇日期" type="text" onfocus="(this.type = 'date')"  id="date"> -->
+                                <input type="date" v-model="date">
                             </label>
                         </li>
 
@@ -57,9 +60,11 @@
 
                         <!-- 請選擇人數 -->
                         <li>
-                            <select name="child" id="child">
-                                <option value="請選擇人數" disabled selected>請選擇人數</option>
-                                <option value="10">10</option>
+                            <select name="group" id="group" v-model="groupCount">
+                                <!-- <option value="請選擇人數" disabled selected>請選擇人數</option> -->
+                                <option v-for="(group,index) in groups" :value="groupplace(group, index)" :disabled="yesno(index)">團體票 {{group}} 張</option>
+                                <!-- <option v-for="group in groups">{{group}}</option> -->
+                                <!-- <option value="10">10</option>
                                 <option value="11">11</option>
                                 <option value="12">12</option>
                                 <option value="13">13</option>
@@ -79,7 +84,7 @@
                                 <option value="27">27</option>
                                 <option value="28">28</option>
                                 <option value="29">29</option>
-                                <option value="30">30</option>
+                                <option value="30">30</option> -->
                             </select>
                         </li>
 
@@ -87,15 +92,16 @@
                         <li class="login_ckbox_out ckbox_center">
                             <div class="login_ckbox">
                                 <label for="login_ckbox">
-                                    <input type="checkbox" id="login_ckbox" name="signin_sub" value="語音導覽">
+                                    <input type="checkbox" id="login_ckbox" name="signin_sub" v-model="pod" :value="pods">
                                     <span>免費索取語音導覽服務</span>
                                 </label>
                             </div>
                         </li>
+
                         <li class="login_ckbox_out ckbox_center login_ckbox2">
                             <div class="login_ckbox">
                                 <label for="login_ckbox2">
-                                    <input type="checkbox" id="login_ckbox2" name="signin_sub" value="專人導覽">
+                                    <input type="checkbox" id="login_ckbox2" name="signin_sub" v-model="tour" :value="tours">
                                     <span>加購專人導覽服務NTD$500(團體需最少10人以上)</span>
                                 </label>
                             </div>
@@ -112,19 +118,33 @@
                     <h3>小計</h3>
                     <table>
                         <tr>
-                            <td>團體票</td>
-                            <td>X20</td>
-                            <td>=</td>
-                            <td>4000</td>
+                            <td colspan="2">展覽名稱</td>
+                            <td colspan="2">{{exhibitionChoose}}</td>
                         </tr>
                         <tr>
-                            <td>導覽</td>
-                            <td>X1</td>
-                            <td>=</td>
-                            <td>500</td>
+                            <td colspan="2">展覽日期</td>
+                            <td colspan="2">{{date}}</td>
+                        </tr>
+                        <tr>
+                            <td>團體票</td>
+                            <td>X {{groupCount}}</td>
+                            <td colspan="2">NT${{ticket}}</td>
+                            <!-- <td></td> -->
+                        </tr>
+
+                        <tr>
+                            <!-- <component :is="content"></component> -->
+                            <td colspan="2">語音導覽</td>
+                            <td colspan="2">共 {{pods}} 位</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">專人導覽</td>
+                            <!-- <td>X1</td>
+                            <td>=</td> -->
+                            <td colspan="2">NT${{tours}}</td>
                         </tr>
                         <tr class="cost">
-                            <td colspan="4">總計 NT$4500</td>
+                            <td colspan="4">總計 NT${{total}}</td>
                         </tr>
                     </table>
                 </div>
@@ -184,8 +204,8 @@
                     
                     <!-- 同意ck -->
                     <div class="login_ckbox ckbox_center">
-                        <label for="login_ckbox">
-                            <input type="checkbox" id="login_ckbox" name="signin_sub" value="訂閱電子報">
+                        <label for="login_ckbox3">
+                            <input type="checkbox" id="login_ckbox3" name="signin_sub">
                             <span>我已閱讀購票須知</span>
                         </label>
                     </div>
@@ -193,7 +213,7 @@
 
                 <!-- 按鈕 -->
                 <div class="btn_center">
-                    <input type="submit" value="付款" class="btn_s_remind">
+                    <input type="submit" value="付款" class="btn_s_remind" id="payment">
                 </div>
                     
             </form>
@@ -205,6 +225,34 @@
             @@include('./layout/footer.html')
             
         </div>
+
+        <script>
+
+            // $('#payment').attr('disabled', true)
+            
+            // $("#payment").click(function(){
+                
+            //     // console.log('aaa');
+            //     // let check = $("#login_ckbox3");//判斷有多少個方框被勾選
+
+            //     // if(check == 0){
+            //     //     return true;
+            //     // }else{
+            //     //     return false;
+            //     // }
+
+            //     console.log($('#login_ckbox3').val());
+
+            //     if($('#login_ckbox3').val() == 'on'){
+            //         $('#payment').attr('disabled', false)
+            //     }
+            // })
+
+
+
+        </script>
+
+
     </body>
 </body>
 </html>

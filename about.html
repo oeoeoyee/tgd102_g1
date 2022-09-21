@@ -5,9 +5,9 @@
     @@include('./layout/head.html', {
     "title" : "關於我們"
     })
-
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"  async defer></script>
 </head>
-<link rel="stylesheet" href="dist/css/style.css">
+<!-- <link rel="stylesheet" href="dist/css/style.css"> -->
 
 <body>
 
@@ -226,7 +226,8 @@
             <br>
 
             <div class="about6_inner">
-                <img class="about6_img1" src="images/about_09.png" alt="">
+                <!-- <img class="about6_img1" src="images/about_09.png" alt=""> -->
+                <div id="map"></div>
                 <h4 class="about6_address">地址：台北市中山區南京東路三段219號5樓
                 </h4>
 
@@ -315,6 +316,34 @@
         @@include('./layout/footer.html')
 
     </div>
+
+
+
+    <script>
+        function doFirst(){
+            let area = document.getElementById('map')
+            let position = new google.maps.LatLng(25.04276923170026,121.52491031999084)
+            let options = {
+                zoom: 14,       // 0 ~ 22
+                center: position,
+                mapTypeId: google.maps.MapTypeId.TERRAIN
+                // mapTypeId: google.maps.MapTypeId.HYBRID
+                // mapTypeId: google.maps.MapTypeId.SATELLITE
+                // mapTypeId: google.maps.MapTypeId.ROADMAP
+
+            }
+            let map = new google.maps.Map(area,options)
+
+            let marker = new google.maps.Marker({
+                position,
+                map,
+            })
+            marker.setTitle('TGD102')
+            // marker.setIcon('../../images/number/dgtp.gif')
+}
+window.addEventListener('load',doFirst) 
+
+    </script>
 </body>
 
 </html>

@@ -46,7 +46,7 @@
     width: 100%;
 
     @include mobile(){
-        display: none;
+        height: rwd(60);
     }
 
     img{
@@ -912,6 +912,7 @@
 
     table{
         width: 100%;
+        // outline: 1px solid $black;
         
         @include mobile(){
             line-height: 2;
@@ -923,8 +924,9 @@
             td{
                 height: size(50);
                 line-height: size(50);
-                text-align: center;
+                text-align: left;
                 @include h5();
+                padding-left: size(30);
 
                 @include mobile(){
                     line-height: 3;

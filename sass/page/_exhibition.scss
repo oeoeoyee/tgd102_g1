@@ -89,6 +89,10 @@
 // 展覽通通分開站
 .ex_new,
 .ex_old {
+  &:hover {
+    filter: brightness(100%);
+  }
+
   li {
     // 單數
     &:nth-child(even) {
@@ -128,6 +132,7 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
     height: size(600);
     padding: size(144) size(220) size(47) size(315);
     position: relative;
+    transition: all 0.5s;
 
     @include mobile() {
       height: rwd(385);
@@ -155,6 +160,7 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
       right: size(48);
       top: 50%;
       transform: translate(0, -50%);
+
       i {
         @include h1();
         color: $red;
@@ -287,7 +293,6 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
     }
   }
 }
-
 
 // UL
 .sidebarNav {
