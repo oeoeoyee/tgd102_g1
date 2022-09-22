@@ -6,6 +6,7 @@ $memberId = $_GET["memberId"];
 // -----------------------------------------------------
 $sql = "select NAME, PHONE, LEVEL from MEMBER where MEMBER_ID = :id";
 // -----------------------------------------------------
+// 路徑==> /tgd102_g1/dist/php/get_member_info.php?memberId=1
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(":id", $memberId);

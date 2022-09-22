@@ -1,22 +1,29 @@
-<!-- 註冊用PHP HTML未新增JS -->
+<!-- 註冊用PHP -->
 <?php
 include("./PDO/connection_inc.php");
 // 1 接收前端傳來的JSON格式字串，並轉成PHP中的物件
 $member = json_decode(file_get_contents("php://input"), true);
 
 // -----------------------------------------------------
+// $sql = "
+//       insert into MEMBER(NAME, EMAIL, PHONE, PASSWORD, LEVEL, REGISTER_DAY, SUBSCRIPTION) 
+//       values(:name, :email, :phone, :password, DEFAULT, now(), subscription)
+//     ";
+
+// -----------------------------------------------------
+// 測試
 $sql = "
       insert into MEMBER(NAME, EMAIL, PHONE, PASSWORD, LEVEL, REGISTER_DAY, SUBSCRIPTION) 
-      values(:name, :email, :phone, :password, DEFAULT, now(), subscription)
-    ";
+      values('test1', 'test@email', 88888888, 'test', DEFAULT, now(), 1);
+  ";
 // -----------------------------------------------------
 
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(":name", $member["name"]);
-$stmt->bindValue(":email", $member["email"]);
-$stmt->bindValue(":phone", $member["phone"]);
-$stmt->bindValue(":password", $member["password"]);
-$stmt->bindValue(":subscription", $member["subscription"]);
+// $stmt->bindValue(":name", $member["name"]);
+// $stmt->bindValue(":email", $member["email"]);
+// $stmt->bindValue(":phone", $member["phone"]);
+// $stmt->bindValue(":password", $member["password"]);
+// $stmt->bindValue(":subscription", $member["subscription"]);
 
 $stmt->execute();
 
