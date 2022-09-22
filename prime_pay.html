@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     @@include('./layout/head.html', {
-        "title" : "註冊成功"
+        "title" : "升級PRIME"
     })
 </head>
 <body>
@@ -61,7 +61,7 @@
                 <div class="price_btn">
                     <h3>總計 NT$3000</h3>
                     <!-- <input type="submit" class="btn_s_remind" value="付款"> -->
-                    <input class="btn_s_remind" value="付款">
+                    <input class="btn_s_remind lightbox_ck" value="付款">
                 </div>
             </form>
 
@@ -81,27 +81,6 @@
         
     </div>
 
-    <!-- 燈箱JS 暫放 -->
-    <script>
-        // alert open + lightbox
-        // alert+lightbox open
-        document.addEventListener("click", function(e){
-            if(e.target.classList.contains("btn_s_remind")){
-                let lightbox = document.getElementById("all_lightbox");
-                lightbox.classList.remove("-none");
-            }
-        });
     
-        // alert+lightbox close
-        document.addEventListener("click", function(e){
-            let lightbox = document.getElementById("all_lightbox");
-            if(e.target.classList.contains("js_lightbox")){
-                lightbox.classList.add("-none");
-            }
-            if(e.target.classList.contains("js_lightbox_btn")){
-                lightbox.classList.add("-none");
-            }
-        });
-    </script>
 </body>
 </html>

@@ -5,6 +5,11 @@
     color: $red;
     margin-top: size(10);
     // padding-left: size(12);
+
+    @include mobile(){
+        // text-align: left;
+        margin-top: rwd(10);
+    }
 }
 
 // input 外殼

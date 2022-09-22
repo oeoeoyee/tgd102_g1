@@ -82,12 +82,16 @@
     ul{
         margin: 0 auto;
         width: 100%;
-        margin-bottom: size(39);
+        // margin-bottom: size(39);
+        
         // 電子信箱(帳號)/密碼
-
         li{
             margin-bottom: size(32);
             
+            @include mobile(){
+                margin-bottom: rwd(20);
+            }
+
             input{
                 width: 100%;
                 @include input();
@@ -97,7 +101,7 @@
                     width: rwd(320);
                     height: rwd(40);
                     margin: 0 auto;
-                    margin-bottom: rwd(20);
+                    // margin-bottom: rwd(20);
                 }
             }
         }
@@ -874,7 +878,7 @@
         li{
             @include mobile(){
                 text-align: center;
-                margin-bottom: rwd(15);
+                // margin-bottom: rwd(15);
 
                 &:nth-last-child(2){
                     margin-bottom: rwd(50);
@@ -919,6 +923,7 @@
         @include mobile(){
             line-height: 2;
             width: rwd(380);
+            margin: 0 auto;
         }
 
         tr{

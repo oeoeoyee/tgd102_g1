@@ -1,3 +1,15 @@
+// ===========燈箱=============
+// 燈箱
+$('.lightbox_ck').click(function(){
+    $('.js_lightbox').toggle()
+})
+
+// 再想想
+$('.think_btn').click(function(){
+    $('.-none').toggle()
+})
+
+
 // =============買票小計============
 new Vue({
     el: '#login',
@@ -234,6 +246,18 @@ new Vue({
         } else $(".name .error").html("");
     });
 
+    // $(function(){
+    //     $('#name').blur(function(){
+    //         let name = $(this).val();
+    //         let reg = /^[^\s]*$/;
+    //         if(reg.test(name)){
+    //             $('.name .error').html('');
+    //         }else{
+    //             $('.name .error').html('姓名不能空白');
+    //         }
+    //     });
+    // });
+
     // email不為空 + 驗證
     $(function(){
         $('#email').blur(function(){
@@ -293,6 +317,9 @@ new Vue({
         if ($("#name").val() == "") {
             error_msg = error_msg + "姓名、";
         }
+        // if (!($("#name").val())) {
+        //     error_msg = error_msg + "姓名、";
+        // }
 
         // 信箱 反轉false送出錯誤警告
         if (!($("#email").val())) {
@@ -316,3 +343,33 @@ new Vue({
             $("#error").html(error_msg + "，請再次確認");
         }
     });
+
+// ========登入驗證=========
+
+// 登入驗證
+$(".login_out form").submit(function (e) {
+    let error_msg = "";
+
+    // 停止預設行為
+    e.preventDefault();
+
+    // 信箱 反轉false送出錯誤警告
+    if (!($("#email").val())) {
+        error_msg = error_msg + "Email錯誤、";
+    }
+
+    // 密碼 反轉false送出錯誤警告
+    if (!($("#pwd").val())) {
+        error_msg = error_msg + "密碼錯誤";
+    }
+
+    // 無誤後送出
+    if (error_msg == "") {
+        alert("資料成功送出");
+    } else {
+        $("#error").html(error_msg + "，請再次確認");
+    }
+});
+
+
+// ==============付款成功 localstorge================

@@ -17,19 +17,21 @@
             </div>
 
             <!-- 上面 -->
-            <div class="login_top">
+            <div class="login_top login_out">
 
                 <h2>會員登入</h2>
 
                 <form method="post" action="./index.html">
                     <ul>
                         <!-- 電子信箱(帳號) -->
-                        <li>
-                            <input type="email" placeholder="請輸入電子信箱" name="email">
+                        <li class="email">
+                            <input type="email" placeholder="請輸入電子信箱" name="email" id="email">
+                            <div class="error"></div>
                         </li>
                         <!-- 密碼 -->
-                        <li>
-                            <input type="password" placeholder="密碼：英數混合，六至十二字" name="pwd">
+                        <li class="pwd">
+                            <input type="password" placeholder="密碼：英數混合，六至十二字" name="pwd" id="pwd">
+                            <div class="error"></div>
                         </li>
 
                         <!-- 記住我/忘記密碼 -->
@@ -49,6 +51,7 @@
                         <input type="submit" value="登入" class="btn_s_remind">
                         <a href="./signin.html" class="btn_s_default">註冊</a>
                     </div>
+                    <div id="error"></div>
                 </form>
 
             </div>

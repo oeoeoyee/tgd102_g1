@@ -48,16 +48,6 @@
                             </label>
                         </li>
 
-                        <!-- 代表人姓名 -->
-                        <li>
-                            <input type="text" placeholder="請輸入姓名">
-                        </li>
-
-                        <!-- 代表人電話 -->
-                        <li>
-                            <input type="tel" placeholder="請輸入電話">
-                        </li>
-
                         <!-- 請選擇成人票人數 $250/張 -->
                         <li>
                             <select name="adult" id="adult" v-model="adultCount">
@@ -215,8 +205,8 @@
 
                     <!-- 同意ck -->
                     <div class="login_ckbox ckbox_center">
-                        <label for="login_ckbox3">
-                            <input type="checkbox" v-model="check_note" @change="change_function" id="login_ckbox3" name="signin_sub">
+                        <label for="login_ckbox">
+                            <input type="checkbox" id="login_ckbox" name="signin_sub" value="同意購票須知">
                             <span>我已閱讀購票須知</span>
                         </label>
                     </div>
@@ -224,7 +214,7 @@
 
                 <!-- 按鈕 -->
                 <div class="btn_center">
-                    <button type="button" class="btn_s_remind" id="payment" @click="submitperson">付款</button>
+                    <input type="submit" value="付款" class="btn_s_remind">
                 </div>
                     
             </form>
