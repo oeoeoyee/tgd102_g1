@@ -2,21 +2,22 @@
 <html lang="zh-hant">
   <head>
     @@include('./layout/head.html',{ "title":'新藝術運動' })
+    <script src="https://unpkg.com/vue@2"></script>
   </head>
 
   <body>
-    <div class="wrapper ex_info_wrapper">
+    <div class="wrapper ex_info_wrapper" id="app">
       @@include('./layout/header.html')
       <!-- ====================================================== -->
       <!-- 上方大圖 -->
       <div class="ex_info_banner">
         <picture>
           <source
-            srcset="./images/ex_a1_banner.jpg"
+            :srcset="'./images/'+ packages.MAIN_IMAGE[0]"
             media="(min-width:500px)"
           />
           <source
-            srcset="./images/ex_a1rwd_banner.jpg"
+            :srcset="'./images/'+ packages.MAIN_IMAGE[1]"
             media="(max-width:500px)"
           />
           <img src="./images/" />
@@ -26,27 +27,28 @@
       <div class="ex_info_bread">
         <ul class="ex_center">
           <li class="ex_info_bread1"><p>常設展覽</p></li>
-          <li class="ex_info_bread2"><p>十九世紀</p></li>
-          <li class="ex_info_bread3"><p>新藝術運動</p></li>
+          <li class="ex_info_bread2"><p>{{packages.EXHIBITION_TYPE}}</p></li>
+          <li class="ex_info_bread3"><p>{{packages.NAME}}</p></li>
         </ul>
       </div>
       <!-- 展覽簡介 -->
       <div class="ex_info_main ex_center">
         <!-- 標題區塊 -->
         <div class="title">
-          <h2 id="title"></h2>
+          <h2>{{packages.NAME}}</h2>
           <p>追朔藝術家們於館內展出的歷史典藏</p>
           <div></div>
         </div>
 
         <!-- 圖文區塊 -->
         <div class="ex_info_main_info">
-          <img src="./images/ex_a1.jpg" alt="" />
+          <!-- <img :src=`./images/${packages.SUB_IMAGE}` /> -->
+          <img :src="'./images/' + packages.SUB_IMAGE" />
           <div class="ex_info_line"></div>
 
           <div class="ex_info_main_text">
             <h4>新藝術風格的繪畫作品</h4>
-            <p id="ex_info"></p>
+            <p>{{packages.INTRODUCTION}}</p>
           </div>
         </div>
       </div>
@@ -64,13 +66,9 @@
           <p>追朔藝術家們於館內展出的歷史典藏</p>
           <div></div>
         </div>
-        <div class="ex_info_art_item">
-          <img src="./images/ex_a2.jpg" class="ex_art_item-0" />
-          <img src="./images/ex_a3.jpg" class="ex_art_item-1" />
-          <img src="./images/ex_a4.jpg" class="ex_art_item-2" />
-          <img src="./images/ex_a5.jpg" class="ex_art_item-3" />
-          <img src="./images/ex_a6.jpg" class="ex_art_item-4" />
-        </div>
+        <!-- Vue Component -->
+        <ex_info_img :msg="packages"></ex_info_img>
+        <!-- Vue Component -->
       </div>
       <!-- 購票提醒 -->
       <div class="ex_info_buy">
@@ -114,19 +112,60 @@
         </div>
       </div>
       <!-- ====================================================== -->
-      <!-- @@include('./layout/footer.html') -->
+      @@include('./layout/footer.html')
     </div>
 
     <script>
-      const title = document.querySelector("#title");
-      const ex_info = document.querySelector("#ex_info");
+      // Vue ----------------------------------------------
+      new Vue({
+        el: "#app",
 
-      fetch("./php/ex_info.php?ex_id=1")
-        .then((resp) => resp.json())
-        .then((info) => {
-          (title.innerHTML = info.NAME),
-            (ex_info.innerHTML = info.INTRODUCTION);
-        });
+        data: {
+          // 空陣列 等資料
+          packages: [],
+        },
+
+        mounted() {
+          // fetch --------------------------------------------
+          fetch("./php/ex_info.php?ex_id=1")
+            .then((resp) => resp.json())
+            .then((resp) => {
+              // 將取到的回應放進空陣列
+              this.packages = resp;
+              // console.log(this.packages);
+            });
+        },
+
+        computed: {
+          function() {
+            let splite = [this.packages];
+            splite  .map((el) => {
+              return (
+                (el.MAIN_IMAGE = el.MAIN_IMAGE.split("|")),
+                (el.OTHER_IMAGE = el.OTHER_IMAGE.split("|"))
+              );
+            });
+            return;
+          },
+        },
+
+        methods: {},
+      });
+
+      Vue.component("ex_info_img", {
+      
+        props: ["msg"],
+
+        template: `
+          <div class="ex_info_art_item">
+            <img :src="'./images/'+ msg.OTHER_IMAGE[0]" class="ex_art_item-0" />
+            <img :src="'./images/'+ msg.OTHER_IMAGE[1]" class="ex_art_item-1" />
+            <img :src="'./images/'+ msg.OTHER_IMAGE[2]" class="ex_art_item-2" />
+            <img :src="'./images/'+ msg.OTHER_IMAGE[3]" class="ex_art_item-3" />
+            <img :src="'./images/'+ msg.OTHER_IMAGE[4]" class="ex_art_item-4" />
+          </div>
+          `,
+      });
     </script>
   </body>
 </html>
