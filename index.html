@@ -4,6 +4,10 @@
     @@include('./layout/head.html', {
         "title" : "首頁"
     })
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -18,36 +22,66 @@
                     <div></div>
                 </div>
             </div>
-            <ul class="index_event_content">
-                <li class="index_event_item">
-                    <a href="./event_01.html">
-                        <div class="index_event_main">
-                            <h3>林布蘭·哈爾曼松特展</h3>
-                            <h5>光影魔術師</h5>
-                            <p>2022.08.13 - 2023.01.31</p>
-                        </div>
-                    </a>
-                    <a href="./ticket.html">
-                        <button class="btn_m">BUY TICKET
-                            <span>&rarr;</span>
-                        </button>
-                    </a>
-                </li>
-                <li class="index_event_item">
-                    <a href="./event_01.html">
-                        <div class="index_event_main">
-                            <h3>梵谷·文森特展</h3>
-                            <h5>表現主義的先驅</h5>
-                            <p>2022.06.13 - 2022.09.30</p>
-                        </div>
-                    </a>
-                    <a href="./ticket.html">
-                        <button class="btn_m">BUY TICKET
-                            <span>&rarr;</span>
-                        </button>
-                    </a>
-                </li>
-            </ul>
+            <div class="index_event_container">
+                <ul class="index_event_content">
+                    <li class="index_event_item">
+                        <a href="./event_01.html">
+                            <div class="index_event_main">
+                                <h3>林布蘭·哈爾曼松特展</h3>
+                                <h5>光影魔術師</h5>
+                                <p>2022.08.13 - 2023.01.31</p>
+                            </div>
+                        </a>
+                        <a href="./ticket.html">
+                            <button class="btn_m">BUY TICKET
+                                <span>&rarr;</span>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="index_event_item">
+                        <a href="./event_01.html">
+                            <div class="index_event_main">
+                                <h3>梵谷·文森特展</h3>
+                                <h5>表現主義的先驅</h5>
+                                <p>2022.06.13 - 2022.09.30</p>
+                            </div>
+                        </a>
+                        <a href="./ticket.html">
+                            <button class="btn_m">BUY TICKET
+                                <span>&rarr;</span>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="index_event_item">
+                        <a href="./event_01.html">
+                            <div class="index_event_main">
+                                <h3>梵谷·文森特展</h3>
+                                <h5>表現主義的先驅</h5>
+                                <p>2022.06.13 - 2022.09.30</p>
+                            </div>
+                        </a>
+                        <a href="./ticket.html">
+                            <button class="btn_m">BUY TICKET
+                                <span>&rarr;</span>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="index_event_item">
+                        <a href="./event_01.html">
+                            <div class="index_event_main">
+                                <h3>梵谷·文森特展</h3>
+                                <h5>表現主義的先驅</h5>
+                                <p>2022.06.13 - 2022.09.30</p>
+                            </div>
+                        </a>
+                        <a href="./ticket.html">
+                            <button class="btn_m">BUY TICKET
+                                <span>&rarr;</span>
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
             <!-- 網頁小分隔線 -->
             <div class="index_line_spacing"></div>
@@ -60,48 +94,77 @@
                     <div></div>
                 </div>
             </div>
-            <ul class="index_exhibition_content">
-                <a href="./exhibition_information.html">
-                    <li class="index_exhibition_item">
-                        <div class="index_exhibition_num">
-                            <h4>01</h4>
-                        </div>
-                        <div class="index_exhibition_main">
-                            <img src="./images/index_03.jpg" alt="">
-                            <h4>新藝術運動
-                                <span>&rarr;</span>
-                            </h4>
-                        </div>
+            <div class="swiper swiper-container">
+                <ul class="index_exhibition_content swiper-wrapper">
+                    <li class="index_exhibition_item swiper-slide">
+                        <a href="./exhibition_information.html">
+                            <div class="index_exhibition_num">
+                                <h4>01</h4>
+                            </div>
+                            <div class="index_exhibition_main">
+                                <img src="./images/index_03.jpg" alt="">
+                                <h4>新藝術運動
+                                    <span>&rarr;</span>
+                                </h4>
+                            </div>
+                        </a>
                     </li>
-                </a>
-                <a href="./exhibition_information.html">
-                    <li class="index_exhibition_item">
-                        <div class="index_exhibition_num">
-                            <h4>02</h4>
-                        </div>
-                        <div class="index_exhibition_main">
-                            <img src="./images/index_04.jpg" alt="">
-                            <h4>兵器演進
-                                <span>&rarr;</span>
-                            </h4>
-                        </div>
+                    <li class="index_exhibition_item swiper-slide">
+                        <a href="./exhibition_information.html">
+                            <div class="index_exhibition_num">
+                                <h4>02</h4>
+                            </div>
+                            <div class="index_exhibition_main">
+                                <img src="./images/index_04.jpg" alt="">
+                                <h4>兵器演進
+                                    <span>&rarr;</span>
+                                </h4>
+                            </div>
+                        </a>
                     </li>
-                </a>
-                <a href="./exhibition_information.html">
-                    <li class="index_exhibition_item">
-                        <div class="index_exhibition_num">
-                            <h4>03</h4>
-                        </div>
-                        <div class="index_exhibition_main">
-                            <img src="./images/index_05.jpg" alt="">
-                            <h4>十九世紀事件
-                                <span>&rarr;</span>
-                            </h4>
-                        </div>
+                    <li class="index_exhibition_item swiper-slide">
+                        <a href="./exhibition_information.html">
+                            <div class="index_exhibition_num">
+                                <h4>03</h4>
+                            </div>
+                            <div class="index_exhibition_main">
+                                <img src="./images/index_05.jpg" alt="">
+                                <h4>十九世紀事件
+                                    <span>&rarr;</span>
+                                </h4>
+                            </div>
+                        </a>
                     </li>
-                </a>
-            </ul>
-
+                    <li class="index_exhibition_item swiper-slide">
+                        <a href="./exhibition_information.html">
+                            <div class="index_exhibition_num">
+                                <h4>04</h4>
+                            </div>
+                            <div class="index_exhibition_main">
+                                <img src="./images/index_06.jpg" alt="">
+                                <h4>探索秘境
+                                    <span>&rarr;</span>
+                                </h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="index_exhibition_item swiper-slide">
+                        <a href="./exhibition_information.html">
+                            <div class="index_exhibition_num">
+                                <h4>05</h4>
+                            </div>
+                            <div class="index_exhibition_main">
+                                <img src="./images/index_07.jpg" alt="">
+                                <h4>亞細亞霍亂
+                                    <span>&rarr;</span>
+                                </h4>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="swiper-button-next index-arrow" ></div>
+                <div class="swiper-button-prev index-arrow" ></div>
+            </div>
             <!-- 網頁大分隔線 -->
             <div class="index_hr"></div>
 
@@ -113,7 +176,9 @@
                     <div></div>
                 </div>
                 <div class="index_news_content">
-                    <img src="./images/index_06.jpg" alt="">
+                    <div class="index_news_img">
+                        <img src="./images/index_08.jpg" alt="">
+                    </div>
                     <div class="index_news_line"></div>
                     <ul class="index_news_list">
                         <li>
@@ -177,7 +242,9 @@
                     <div></div>
                 </div>
                 <div class="index_about_content">
-                    <img src="./images/index_07.jpg" alt="">
+                    <div>
+                        <img src="./images/index_09.jpg" alt="">
+                    </div>
                     <p>來到溯．REVERSE，彷彿搭乘時光機回到過去，將自己置身於各個不同的時代，探索歷史的奧妙。</p>
                     <a href="./about.html">
                         <button class="btn_l">SEE MORE
@@ -190,5 +257,50 @@
             <!-- footer -->
             @@include('./layout/footer.html')
     </div>
+
+    <!-- GSAP JS -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+    
+    let container = document.querySelector(".index_event_content");
+    
+    gsap.to(".index_event_content", {
+      x: () =>
+        -(container.scrollWidth - document.documentElement.clientWidth) + "px",
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".index_event_container",
+        invalidateOnRefresh: true,
+        pin: true,
+        scrub: 1,
+        
+        end: () => "+=" + container.offsetWidth
+      }
+    });
+    </script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        let swiper = new Swiper(".swiper-container", {
+            slidesPerView: "auto",
+            centeredSlides: true,
+            spaceBetween: 30,
+            pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            },
+            autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+            },
+            navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
 </body>
 </html>

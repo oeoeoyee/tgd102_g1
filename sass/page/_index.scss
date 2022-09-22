@@ -30,9 +30,10 @@
 .index_event_content{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: size(55);
     margin-left: size(250);
-    overflow: hidden;
+    // overflow: hidden;
     @include mobile(){
         display: flex;
         justify-content:space-between;
@@ -160,28 +161,28 @@
 .index_exhibition_content{
     display: flex;
     margin-top: size(55);
-    margin-left: size(250);
-    overflow: hidden;
+    // margin-left: size(250);
+    // overflow: hidden;
     @include mobile(){
         display: flex;
         // justify-content:space-between;
         margin-top: rwd(30);
-        margin-left: rwd(27);
-        overflow: hidden;
+        // margin-left: rwd(27);
+        // overflow: hidden;
     }
 }
 
 .index_exhibition_item{
-    width: size(590);
-    height: size(530);
+    width: size(590) !important;
+    height: size(530) !important;
     flex-shrink: 0;
-    margin-right: size(10);
+    // margin-right: size(10);
     position: relative;
     @include mobile(){
-        width: rwd(231);
-        height: rwd(235);
+        width: rwd(260) !important;
+        height: rwd(280) !important;
         // flex-shrink: 0;
-        margin-right: rwd(10);
+        // margin-right: rwd(10);
         position: relative;
     }
 }
@@ -191,9 +192,11 @@
     height: size(85);
     background-color: $black;
     color: $white;
+    position: absolute;
+    z-index: 1;
     @include mobile(){
-        width: rwd(45);
-        height: rwd(45);
+        width: rwd(50);
+        height: rwd(50);
         background-color: $black;
         color: $white;
     }
@@ -203,7 +206,7 @@
         line-height: size(85);
         text-align: center;
         @include mobile(){
-            line-height: rwd(45);
+            line-height: rwd(50);
             text-align: center;
         }
     }
@@ -213,13 +216,11 @@
 .index_exhibition_main{
     width: size(569);
     position: absolute;
-    z-index: -1;
     left: size(20);
     top: size(20);
     @include mobile(){
-        width: rwd(223);
+        width: rwd(250);
         position: absolute;
-        z-index: -1;
         left: rwd(10);
         top: rwd(10);
     }
@@ -228,7 +229,7 @@
         width: size(569);
         display: block;
         @include mobile(){
-            width: rwd(223);
+            width: rwd(250);
             display: block;
         }
     }
@@ -253,8 +254,19 @@
     
 }
 
+.index-arrow:after{
+    font-size: size(50) !important;
+    color: $white;
+    background-color: rgba(0,0,0);
+    opacity: 0.6;
+    padding: size(15);
+    @include mobile(){
+        font-size: rwd(40) !important;
+    }
+}
+
 // 網頁大分隔線
-.index_hr {
+.index_hr{
     width: 100%;
     height: size(3);
     margin-top: size(95);
@@ -303,20 +315,32 @@
         flex-direction: column;
         justify-content: space-between;
     }
-    img{
-        display: block;
-        width: size(650);
-        @include mobile(){
-            display: block;
-            width: rwd(360);
-            margin: 0 auto;
-            margin-top: rwd(30);
-        }
-    }
     .btn_xl{
-        margin-top: size(30); //跟figma不同
+        margin-top: size(20); //跟figma不同
         @include mobile(){
             margin-top: rwd(20);
+        }
+    }
+}
+
+.index_news_img{
+    width: size(650);
+    overflow: hidden;
+    @include mobile(){
+        width: rwd(360);
+        margin: 0 auto;
+        margin-top: rwd(30);
+    }
+    img{
+        width: size(650);
+        margin: 0 auto;
+        &:hover{
+            transform: scale(1.1);
+            transition: all .3s ease-in-out;
+        }
+        @include mobile(){
+            width: rwd(360);
+            margin: 0 auto;   
         }
     }
 }
@@ -375,17 +399,29 @@
         margin: 0 auto;
     }
 
-    img{
-        display: block;
+    div{
         width: size(1200);
+        overflow: hidden;
         margin: 0 auto;
         margin-top: size(100); //跟figma不同
-        @include mobile(){
+        @include mobile{
             width: rwd(360);
-            margin: 0 auto;
             margin-top: rwd(30);
         }
+        img{
+            width: size(1200);
+            margin: 0 auto;
+            &:hover{
+                transform: scale(1.1);
+                transition: all .3s ease-in-out;
+            }
+            @include mobile(){
+                width: rwd(360);
+                margin: 0 auto;
+            }
+        }
     }
+    
     p{
         @include p();
         display: block;
