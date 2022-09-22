@@ -2,11 +2,11 @@
 <html lang="zh-hant">
   <head>
     @@include('./layout/head.html',{ "title":'新藝術運動' })
-    <script src="https://unpkg.com/vue@2"></script>
+    
   </head>
 
   <body>
-    <div class="wrapper ex_info_wrapper" id="app">
+    <div id="ex_app" class="wrapper ex_info_wrapper" >
       @@include('./layout/header.html')
       <!-- ====================================================== -->
       <!-- 上方大圖 -->
@@ -20,7 +20,7 @@
             :srcset="'./images/'+ packages.MAIN_IMAGE[1]"
             media="(max-width:500px)"
           />
-          <img src="./images/" />
+          <img :src="'./images/'" />
         </picture>
       </div>
       <!-- 麵包屑 -->
@@ -114,58 +114,6 @@
       <!-- ====================================================== -->
       @@include('./layout/footer.html')
     </div>
-
-    <script>
-      // Vue ----------------------------------------------
-      new Vue({
-        el: "#app",
-
-        data: {
-          // 空陣列 等資料
-          packages: [],
-        },
-
-        mounted() {
-          // fetch --------------------------------------------
-          fetch("./php/ex_info.php?ex_id=1")
-            .then((resp) => resp.json())
-            .then((resp) => {
-              // 將取到的回應放進空陣列
-              this.packages = resp;
-              // console.log(this.packages);
-            });
-        },
-
-        computed: {
-          function() {
-            let splite = [this.packages];
-            splite  .map((el) => {
-              return (
-                (el.MAIN_IMAGE = el.MAIN_IMAGE.split("|")),
-                (el.OTHER_IMAGE = el.OTHER_IMAGE.split("|"))
-              );
-            });
-            return;
-          },
-        },
-
-        methods: {},
-      });
-
-      Vue.component("ex_info_img", {
-      
-        props: ["msg"],
-
-        template: `
-          <div class="ex_info_art_item">
-            <img :src="'./images/'+ msg.OTHER_IMAGE[0]" class="ex_art_item-0" />
-            <img :src="'./images/'+ msg.OTHER_IMAGE[1]" class="ex_art_item-1" />
-            <img :src="'./images/'+ msg.OTHER_IMAGE[2]" class="ex_art_item-2" />
-            <img :src="'./images/'+ msg.OTHER_IMAGE[3]" class="ex_art_item-3" />
-            <img :src="'./images/'+ msg.OTHER_IMAGE[4]" class="ex_art_item-4" />
-          </div>
-          `,
-      });
-    </script>
+    <script type="module"src="./js/ex_info.js"></script>
   </body>
 </html>
