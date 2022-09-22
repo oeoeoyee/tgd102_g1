@@ -56,13 +56,6 @@ let lists_p = [
         img:"./images/events_07.png",
         room:"B",
     },
-    {
-        name:"YOHJI YAMAMOTO個展",
-        text:"進入YOHJI YAMAMOTO的黑色哲學中，體會布料於空間所描繪的黑色詩意。",
-        time:"2022.3.13 -  2022.06.29",
-        img:"./images/events_07.png",
-        room:"C",
-    },
 ];
 
 
@@ -75,25 +68,74 @@ new Vue({
         lists1:lists_n,
         lists2:lists_f,
         lists3:lists_p,
+        lists_test:[],
         }
     },
     
       mounted() {
-        fetch("../../XML_JSON_CSV/bookData.json").then(res => res.json()).then(res =>this.books= res)
+        fetch("../../XML_JSON_CSV/bookData.json").then(res => res.json()).then(res =>this.lists_test= res)
         
       },
       
      methods:{
          waterfall(){
+            // let sum = 0;
+            // let events_btn = document.querySelector('.events_btn');
+            // events_btn.style.display = "none";
+            // let container = document.querySelector('.event_3');
+            // console.log(this.$data.lists2);
+
+            // this.$data.lists3.forEach(element => {
+            //     console.log(element.img);
+            //     let itemImg = element.img
+            //     let str = `
+            //         <div class="event_pass"  v-for="(item) in lists2.slice(0,1)">
+            //         <div class="event_pass_img">
+            //             <div>
+            //                 <a href="#"><img src=${itemImg} :alt="item.name"></a>
+            //             </div>
+            //         </div>
+            //         <div class="infocard_m">
+            //             <h3>{{item.name}}
+            //                 <span>&rarr;</span>
+            //             </h3>
+            //             <h5>{{item.text}}</h5>
+            //             <div></div>
+            //             <h5>過往展覽</h5>
+            //             <p>{{item.time}}</p>
+            //         </div>
+            //     </div></div>`;
+            //     for (let i = 0; i < 3; i++) {
+            //         sum+=1
+            //         container.insertAdjacentHTML('beforeend', str)
+            //     }
+                
+            //     window.addEventListener('scroll', addDemo);
+                
+            //     function addDemo() {
+            //         if(sum < 10){
+            //         if (window.pageYOffset + window.innerHeight + 200 < document.documentElement.offsetHeight) return; 
+                        
+            //         for (let i = 0; i < 3; i++) {
+            //             sum+=1
+            //             console.log("hello");
+            //             container.insertAdjacentHTML('beforeend', str)
+            //         }
+            //         }
+            //     }
+
+
+            // });
+
             let sum = 0;
             let events_btn = document.querySelector('.events_btn');
             events_btn.style.display = "none";
             let container = document.querySelector('.event_3');
             let str = `
-            <div class="event_pass"  v-for="(item) in lists2.slice(0,1)">
+            <div class="event_pass"  v-for="(item) in lists3.slice(0,1)">
             <div class="event_pass_img">
                 <div>
-                    <a href="#"><img :src='item.img' :alt="item.name"></a>
+                    <a href="#"><img :src=ytem.img :alt="item.name"></a>
                 </div>
             </div>
             <div class="infocard_m">
@@ -119,6 +161,7 @@ new Vue({
                     
                 for (let i = 0; i < 3; i++) {
                     sum+=1
+                    console.log("hello");
                     container.insertAdjacentHTML('beforeend', str)
                 }
                 }
