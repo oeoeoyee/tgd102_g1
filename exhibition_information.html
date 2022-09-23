@@ -2,11 +2,10 @@
 <html lang="zh-hant">
   <head>
     @@include('./layout/head.html',{ "title":'新藝術運動' })
-    
   </head>
 
   <body>
-    <div id="ex_app" class="wrapper ex_info_wrapper" >
+    <div id="ex_app" class="wrapper ex_info_wrapper">
       @@include('./layout/header.html')
       <!-- ====================================================== -->
       <!-- 上方大圖 -->
@@ -24,11 +23,18 @@
         </picture>
       </div>
       <!-- 麵包屑 -->
+      <!-- 連結待新增 -->
       <div class="ex_info_bread">
         <ul class="ex_center">
-          <li class="ex_info_bread1"><p>常設展覽</p></li>
-          <li class="ex_info_bread2"><p>{{packages.EXHIBITION_TYPE}}</p></li>
-          <li class="ex_info_bread3"><p>{{packages.NAME}}</p></li>
+          <a href="./exhibition.html"
+            ><li class="ex_info_bread1"><p>常設展覽</p></li></a
+          >
+          <li class="ex_info_bread2">
+            <p>{{packages.EXHIBITION_TYPE}}</p>
+          </li>
+          <a :href="'./'+'#'"
+            ><li class="ex_info_bread3"><p>{{packages.NAME}}</p></li></a
+          >
         </ul>
       </div>
       <!-- 展覽簡介 -->
@@ -112,8 +118,9 @@
         </div>
       </div>
       <!-- ====================================================== -->
-      @@include('./layout/footer.html')
     </div>
-    <script type="module"src="./js/ex_info.js"></script>
+    @@include('./layout/footer.html')
+
+    <script type="module" src="./js/ex_info.js"></script>
   </body>
 </html>

@@ -70,14 +70,17 @@
     @include mobile() {
       justify-content: space-evenly;
     }
+
+    a {
+      text-decoration: none;
+      &:last-child{
+        color: $black;
+      }
+    }
+
     li {
       margin-right: size(30);
       color: $darkgray;
-      cursor: pointer;
-
-      &:last-child {
-        color: $black;
-      }
     }
   }
 }
