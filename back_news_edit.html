@@ -30,45 +30,47 @@
                 <div class="back_edit_title">
                     <label>公告主旨</label>
                     <input type="text" v-model="title">
-                    <p>20字{{title}}</p>
+                    <p>20字</p>
                 </div>
 
-                <div class="back_edit_title" :value="time">
-                    <label>上傳時間{{time}}</label>
-                    <input type="date">
+                <div class="back_edit_title">
+                    <label>上傳時間</label>
+                    <input type="date" v-model="theDate">
                 </div>
                 
                 <div class="back_edit_pic">
                     <label for="">圖片</label>
-                    <div class="dragimg"></div>
+                    <div class="dragimg">{{image}}</div>
                     <!-- <button>瀏覽</button> -->
                     <label class="pic">
-                    <input type="file" accept="image/png, image/gif, image/jpeg">
+                    <input type="file" accept="image/png, image/gif, image/jpeg" @change="getFiles($event)" >
                     <p>瀏覽</p>
                     </label>
                 </div>
 
                 <div class="back_edit_text">
                     <label for="">內文</label>
-                    <textarea></textarea>
+                    <textarea v-model="content" ></textarea>
                     <p>205字</p>
                 </div>
 
                 <div class="edit_checkbox">
                     <h4>公告單位</h4>
-                    <input type="checkbox" name="單位"  style='width:18px;height:18px;'><label for="單位">館方</label> 
-                    <input type="checkbox" name="單位"  style='width:18px;height:18px;'><label for="單位">其他</label> 
+                    <input type="radio" v-model="announcement" value="self"  style='width:18px;height:18px;'><label for="單位">館方</label> 
+                    <input type="radio" v-model="announcement" value="others"  style='width:18px;height:18px;'><label for="單位">其他</label> 
                 </div>
 
                 <div class="edit_checkbox">
                     <h4>置頂文章</h4>
-                    <input type="checkbox" name="other" style='width:18px;height:18px;'><label for="other">置頂1</label> 
-                    <input type="checkbox" name="other" style='width:18px;height:18px;'><label for="other">置頂2</label>  
+                    <input type="radio" v-model="top" value="top1" style='width:18px;height:18px;'><label for="other">置頂1</label> 
+                    <input type="radio" v-model="top" value="top2" style='width:18px;height:18px;'><label for="other">置頂2</label>  
                 </div>
                 
                 <div class="edit_button">
                     <a href="./back_news_draft.html"><button>儲存草稿</button></a>
-                    <a href="./back_news.html"><button>送出資料</button></a>
+                    <!-- <a href="./back_news.html"> -->
+                        <button @click="insert">送出資料</button>
+                    <!-- </a> -->
                 </div>
 
 
@@ -81,6 +83,7 @@
         <!-- @@include('./layout/footer.html') -->
     </div>
 <script  src="./js/vue.js"></script>
-<script src="./js/back_news_edit.js"></script>
+<!-- <script src="./js/moment.js"></script> -->
+<script type="module" src="./js/back_news_edit.js"></script>
 </body>
 </html>

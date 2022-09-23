@@ -4,15 +4,10 @@
     @@include('./layout/head.html', {
         "title" : "後台_常設展編輯"
     })
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.min.css" rel="stylesheet"></link>
 </head>
 <body>
 
-    <div class="back_wrapper">
+    <div class="back_wrapper" id="app">
 
         <!-- header -->
         <!-- @@include('./layout/header.html') -->
@@ -25,7 +20,7 @@
             </nav>
             
             <!-- 右邊 -->
-            <div class="back_main">
+            <div class="back_main ">
                 <div class="edit_edit_title">
                     <h2>常設展編輯</h2>
                     <span></span>
@@ -33,102 +28,107 @@
 
                 <div class="back_edit_title">
                     <label>常設名稱</label>
-                    <input type="text">
+                    <input type="text" v-model="name">
                     <p>20字</p>
                 </div>
 
                 <div class="back_edit_room">
                     <label>主題分類</label>
-                    <select name="" id="" value="">
-                        <option value="">請選擇主題</option>
+                    <select id="type" @change="select1">
+                        <option v-for="type in types">{{type}}</option>
                     </select>
                 </div>
 
                 <div class="back_edit_title">
                     <label>常設開始日</label>
-                    <input type="date">
+                    <input type="date" v-model="start_day">
+                </div>
+
+                <div class="back_edit_title">
+                    <label>常設結束日</label>
+                    <input type="date" v-model="end_day">
                 </div>
 
 
                 <div class="back_edit_room">
                     <label>展廳</label>
-                    <select name="" id="" value="">
-                        <option value="">選擇展廳</option>
+                    <select id="room" @change="select2">
+                        <option v-for="roomNo in room_select">{{roomNo}}</option>
                     </select>
                 </div>
 
                 <div class="back_edit_pic">
                     <label for="">主旨圖片</label>
-                    <div class="dragimg"></div>
+                    <div class="dragimg">{{img1}}</div>
                     <label class="pic">
-                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <input multiple="multiple" type="file" style="display:none;" accept="image/png, image/gif, image/jpeg"  @change="getFiles1($event)">
                         <p>瀏覽</p>
                     </label>
                 </div>
 
                 <div class="back_edit_title">
                     <label>介紹標題</label>
-                    <input type="text">
+                    <input type="text" v-model="main_title">
                     <p>20字</p>
                 </div>
 
 
                 <div class="back_edit_text">
                     <label for="">展覽介紹</label>
-                    <textarea></textarea>
+                    <textarea v-model="introduction">{{introduction}}</textarea>
                     <p>205字</p>
                 </div>
 
                 <div class="back_edit_pic">
                     <label for="">介紹圖片</label>
-                    <div class="dragimg"></div>
+                    <div class="dragimg">{{img2}}</div>
                     <label class="pic">
-                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg"  @change="getFiles2($event)">
                         <p>瀏覽</p>
                     </label>
                 </div>
 
                 <div class="back_edit_pic">
                     <label for="">代表圖片1</label>
-                    <div class="dragimg"></div>
+                    <div class="dragimg">{{img3}}</div>
                     <label class="pic">
-                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg" @change="getFiles3($event)">
                         <p>瀏覽</p>
                     </label>
                 </div>
 
                 <div class="back_edit_pic">
                     <label for="">代表圖片2</label>
-                    <div class="dragimg"></div>
+                    <div class="dragimg">{{img4}}</div>
                     <label class="pic">
-                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg" @change="getFiles4($event)">
                         <p>瀏覽</p>
                     </label>
                 </div>
 
                 <div class="back_edit_pic">
                     <label for="">代表圖片3</label>
-                    <div class="dragimg"></div>
+                    <div class="dragimg">{{img5}}</div>
                     <label class="pic">
-                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg" @change="getFiles5($event)">
                         <p>瀏覽</p>
                     </label>
                 </div>
 
                 <div class="back_edit_pic">
                     <label for="">代表圖片4</label>
-                    <div class="dragimg"></div>
+                    <div class="dragimg">{{img6}}</div>
                     <label class="pic">
-                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg"  @change="getFiles6($event)">
                         <p>瀏覽</p>
                     </label>
                 </div>
 
                 <div class="back_edit_pic">
                     <label for="">代表圖片5</label>
-                    <div class="dragimg"></div>
+                    <div class="dragimg">{{img7}}</div>
                     <label class="pic">
-                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg"  @change="getFiles7($event)">
                         <p>瀏覽</p>
                     </label>
                 </div>
@@ -158,26 +158,6 @@
      -->
 
     <!-- <script src="./js/ex_back_edit.js"></script> -->
-    <script>
-        register.addEventListener("click", () => {
-        const fr = new FileReader();
-        fr.addEventListener("load", (e) => {
-            fetch("./php/ex_back_edit.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                email: email.value,
-                password: password.value,
-                name: name.value,
-            }),
-            })
-            .then((resp) => resp.json())
-            .then((body) => {
-                console.log(body);
-            });
-        });
-        });
-
-    </script>
+    <script src="./js/back_exhibitions_edit.js"></script>
 </body>
 </html>
