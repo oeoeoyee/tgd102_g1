@@ -145,8 +145,8 @@
         <section class="event_3">
             <div class="event_pass_title">
                 <h2>過往展覽</h2>
-                <select name="" id="">
-                    <option v-for="year in years">{{year}}</option>
+                <select v-model="time" @change="onChange(time)">
+                    <option  v-for="year in years">{{year}}</option>
                 </select>
             </div>
             <!-- <div class="event_pass">
@@ -198,7 +198,7 @@
                 </div>
             </div> -->
             <!-- ---------------------------------------------------------- -->
-            <div class="event_pass" v-for="(item) in lists3.slice(0,3)">
+            <div class="event_pass" v-for="(item) in lists3.slice(0,limit)">
                 <div class="event_pass_img">
                     <div>
                         <a href="#"><img :src='item.img' :alt="item.name"></a>
@@ -214,6 +214,10 @@
                     <p>{{item.time}}</p>
                 </div>
             </div>
+
+            <!-- <list :list="lists3"></list> -->
+            <!-- <see-more :msg="limit"></see-more> -->
+            
             
             
         
@@ -224,14 +228,13 @@
                 </button>
             </div>
         </section>
-        
-        <!-- footer -->
-        @@include('./layout/footer.html')
-    </div>
-    <script  src="./js/vue.js"></script>
-    <!-- <script  src="./js/waterFall.js"></script> -->
-    <script  src="./js/events.js"></script>
-    
-       
+    <!-- footer -->
+    @@include('./layout/footer.html')
+</div>
+<script  src="./js/vue.js"></script>
+<!-- <script  src="./js/waterFall.js"></script> -->
+<script  src="./js/events_test.js"></script>
+
+   
 </body>
 </html>
