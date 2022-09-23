@@ -17,7 +17,7 @@
             <!-- 特別展覽 -->
             <div class="index_event_top">
                 <div class="title">
-                    <h2>特別展覽</h2>
+                    <h2>首頁｜特別展覽</h2>
                     <p>追溯藝術家們於館內展出的歷史典藏</p>
                     <div></div>
                 </div>
@@ -55,9 +55,9 @@
                     <li class="index_event_item">
                         <a href="./event_01.html">
                             <div class="index_event_main">
-                                <h3>梵谷·文森特展</h3>
-                                <h5>表現主義的先驅</h5>
-                                <p>2022.06.13 - 2022.09.30</p>
+                                <h3>弗雷德裏個展</h3>
+                                <h5>優美的女性肖像</h5>
+                                <p>2022.10.13 - 2023.12.13</p>
                             </div>
                         </a>
                         <a href="./ticket.html">
@@ -69,9 +69,9 @@
                     <li class="index_event_item">
                         <a href="./event_01.html">
                             <div class="index_event_main">
-                                <h3>梵谷·文森特展</h3>
-                                <h5>表現主義的先驅</h5>
-                                <p>2022.06.13 - 2022.09.30</p>
+                                <h3>印象派特展</h3>
+                                <h5>世界各地知名印象派畫家作品</h5>
+                                <p>2022.11.13 - 2022.01.13</p>
                             </div>
                         </a>
                         <a href="./ticket.html">
@@ -89,7 +89,7 @@
             <!-- 常設展覽 -->
             <div class="index_exhibition_top">
                 <div class="title">
-                    <h2>常設展覽</h2>
+                    <h2>首頁｜常設展覽</h2>
                     <p>追溯藝術家們於館內展出的歷史典藏</p>
                     <div></div>
                 </div>
@@ -171,7 +171,7 @@
             <!-- 最新消息 -->
             <div class="index_news">
                 <div class="title">
-                    <h2>最新消息</h2>
+                    <h2>首頁｜最新消息</h2>
                     <p>追溯藝術家們於館內展出的歷史典藏</p>
                     <div></div>
                 </div>
@@ -237,7 +237,7 @@
             <!-- 關於我們 -->
             <div class="index_about">
                 <div class="title">
-                    <h2>關於我們</h2>
+                    <h2>首頁｜關於我們</h2>
                     <p>追溯藝術家們於館內展出的歷史典藏</p>
                     <div></div>
                 </div>
@@ -263,22 +263,39 @@
 
     <!-- GSAP JS -->
     <script>
-        gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
     
     let container = document.querySelector(".index_event_content");
-    
-    gsap.to(".index_event_content", {
-      x: () =>
-        -(container.scrollWidth - document.documentElement.clientWidth) + "px",
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".index_event_container",
-        invalidateOnRefresh: true,
-        pin: true,
-        scrub: 1,
-        
-        end: () => "+=" + container.offsetWidth
-      }
+
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 500px)", () => {
+        gsap.to(".index_event_content", {
+            x: -2000,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".index_event_content",
+                start: "top 200",
+                pin: true,
+                scrub: 1,
+                end: "bottom 300 ",
+                // end: () => "+=" + container.offsetWidth,
+            }
+        });
+    });
+    mm.add("(max-width: 499px)", () => {
+        gsap.to(".index_event_content", {
+            x: -1100,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".index_event_content",
+                start: "top 150",
+                pin: true,
+                scrub: true,
+                // end: "+=3000",
+                end: () => "+=" + container.offsetWidth,
+            }
+        });
     });
     </script>
 
@@ -296,7 +313,7 @@
             clickable: true,
             },
             autoplay: {
-            delay: 2500,
+            delay: 2000,
             disableOnInteraction: false,
             },
             navigation: {

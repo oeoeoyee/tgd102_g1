@@ -27,35 +27,54 @@
     }
 }
 
-.index_event_content{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.index_event_container{
     margin-top: size(55);
     margin-left: size(250);
-    // overflow: hidden;
+    overflow: hidden;
     @include mobile(){
-        display: flex;
-        justify-content:space-between;
+        // width: rwd(414);
+        // margin: 0 auto;
         margin-top: rwd(30);
         margin-left: rwd(27);
         overflow: hidden;
     }
 }
 
+.index_event_content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include mobile(){
+        // margin: 0 auto;
+        display: flex;
+        // flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
 .index_event_item{
     width: size(805);
     height: size(540);
+    margin-right: size(30);
     @include mobile(){
-        width: rwd(311);
-        height: rwd(270);
-        margin-right: rwd(10); //將兩個項目間隔開來
+        width: rwd(360);
+        height: 100%;
+        // margin: auto;
+        // margin-bottom: rwd(50); //將兩個項目間隔開來
+        margin-right: rwd(30);
     }
     .btn_m {
         margin-top: size(30);
         @include mobile(){
             margin-top: rwd(20);
         }
+    }
+}
+.index_event_item:nth-child(4){
+    margin-bottom: 0;
+    @include mobile(){
+        margin-bottom: auto;
     }
 }
 
@@ -73,14 +92,28 @@
     background-size: cover;
 }
 
+.index_event_item:nth-child(3) div{
+    background-image: url(../images/index_10.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.index_event_item:nth-child(4) div{
+    background-image: url(../images/index_11.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 .index_event_main{
     width: size(805);
     height: size(459);
     color: $white;
     line-height: 1.6;
     @include mobile(){
-        width: rwd(311);
-        height: rwd(210);
+        width: rwd(360);
+        height: rwd(300);
         color: $white;
         line-height: 1.6;
     }
@@ -110,10 +143,10 @@
         padding-left: size(340);
         padding-top: size(280);
         @include mobile(){
-            font-size: rwd(18);
+            font-size: rwd(20);
             font-weight: bold;
-            padding-left: rwd(100);
-            padding-top: rwd(80);
+            padding-left: rwd(120);
+            padding-top: rwd(160);
         }
     }
 }
