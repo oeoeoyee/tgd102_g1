@@ -23,14 +23,14 @@
 
             <!-- 資料表格 -->
             <!-- ul>li>span -->
-            <form method="post" action="">
-                <ul>
-                    <li>姓名：林布蘭</li>
-                    <li>電話：0912345678</li>
+            <form action="">
+                <ul id="n1">
+                    <!-- <li>姓名：</li> -->
+                    <!-- <li>電話：</li> -->
                 </ul>
-                <ul>
-                    <li>訂單編號：P0074683</li>
-                    <li>入館日期：2022/08/24</li>
+                <ul id="n2">
+                    <!-- <li>訂單編號：</li>
+                    <li>入館日期：</li> -->
                 </ul>
                 <!-- 會員條碼 -->
                 <img src="./images/member_01_qrcode.png" alt="">
@@ -48,7 +48,28 @@
         
         <!-- footer -->
         @@include('./layout/footer.html')
-        
+
     </div>
+
+    <script>
+        // 購票成功 ajax
+        const n1 = document.querySelector('#n1');
+        const n2 = document.querySelector('#n2');
+        fetch("./php/order.php")
+        .then(rsp => rsp.json(
+            console.log(rsp)
+        ))
+        .then(user => {
+            n1.insertAdjacentHTML('beforeend',`
+                <li>姓名：<span>${user.DELEGATE_NAME}</span></li>
+                <li>電話：<span>${user.DELEGATE_PHONE}</span></li>
+            `);
+            n2.insertAdjacentHTML('beforeend',`
+                <li>訂單編號：<span>${user.ORDER_ID}</span></li>
+                <li>入館日期：<span>${user.VISIT_DAY}</span></li>
+            `);
+        })
+    </script>
+    
 </body>
 </html>
