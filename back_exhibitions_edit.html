@@ -142,7 +142,6 @@
 
 
 
-
             </div>
         </div>
 
@@ -150,6 +149,35 @@
         <!-- @@include('./layout/footer.html') -->
     </div>
 
+    <!--
+        (":name", $ex_back_info["name"]);
+        (":email", $ex_back_info["email"]);
+        (":phone", $ex_back_info["phone"]);
+        (":password", $ex_back_info["password"]);
+        (":subscription", $ex_back_info["subscription"]);
+     -->
 
+    <!-- <script src="./js/ex_back_edit.js"></script> -->
+    <script>
+        register.addEventListener("click", () => {
+        const fr = new FileReader();
+        fr.addEventListener("load", (e) => {
+            fetch("./php/ex_back_edit.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                email: email.value,
+                password: password.value,
+                name: name.value,
+            }),
+            })
+            .then((resp) => resp.json())
+            .then((body) => {
+                console.log(body);
+            });
+        });
+        });
+
+    </script>
 </body>
 </html>
