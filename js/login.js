@@ -279,7 +279,7 @@ new Vue({
             if(reg.test(phone)){
                 $('.phone .error').html('');
             }else{
-                $('.phone .error').html('請輸入正確的手機號碼');
+                $('.phone .error').html('請輸入正確的電話號碼');
             }
         });
     });
@@ -307,7 +307,7 @@ new Vue({
     }
 
     // 送出驗證
-    $(".signin_out form").submit(function (e) {
+    $(".signin_out").submit(function (e) {
         let error_msg = "";
 
         // 停止預設行為
@@ -347,7 +347,7 @@ new Vue({
 // ========登入驗證=========
 
 // 登入驗證
-$(".login_out form").submit(function (e) {
+$(".login_out").submit(function (e) {
     let error_msg = "";
 
     // 停止預設行為

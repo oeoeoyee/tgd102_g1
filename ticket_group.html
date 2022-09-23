@@ -4,6 +4,7 @@
         @@include('./layout/head.html', {
             "title" : "團體預約訂票"
         })
+        <script type="module" src="./js/login.js"></script>
     </head>
     <body>
         <!-- <input type="checkbox" id="login_ckbox3" name="signin_sub" @change="alert('xxx')"> -->
@@ -17,7 +18,7 @@
             </div>
 
 
-            <form  >
+            <!-- <form> -->
 
                 <!-- 上面 -->
                 <div class="login_top signin_out">
@@ -215,12 +216,12 @@
                     <button type="button" class="btn_s_remind" id="payment" @click="submit">付款</button>
                 </div>
                     
-            </form>
-
-            <!-- footer -->
-            @@include('./layout/footer.html')
+            <!-- </form> -->
             
         </div>
+
+        <!-- footer -->
+        @@include('./layout/footer.html')
 
 
     </body>
