@@ -12,7 +12,9 @@ Vue.component('all', {
         const api = "./php/news.php"; // 要從哪裡得到資料
 
         // 老師範例26
-        fetch(api).then(res => res.json()).then(res => this.newsArray = res);
+        fetch(api)
+            .then(res => res.json())
+            .then(res => this.newsArray = res);
     },
 
     template: `

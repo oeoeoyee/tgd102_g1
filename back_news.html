@@ -29,7 +29,7 @@
                         <span class="icon_create"><a href="./back_news_edit.html"><i class="fa-regular fa-square-plus"></i></a></span>
                     </div>
                 </div>
-                <table class="back_table back_table_p0">
+                <table id="app_backnews" class="back_table back_table_p0">
                     <thead>
                         <tr>
                             <th>公告日期</th>
@@ -40,7 +40,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr v-for="info in newsArray">
+                            <td>{{info.DATE}}</td>
+                            <td><a href="./back_news_edit.html">{{info.TITLE}}</a></td>
+                            <td>{{info.INFO_TYPE}}</td>
+                            <td>已置頂</td>
+                            <td>
+                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
+                                <span class="icon_del" @click="news_del(info.INFO_ID)"><i class="fa-regular fa-trash-can"></i></span>
+                            </td>
+                        </tr>
+
+                        <!-- v-for備用 -->
+                        <!-- <tr v-for="info in newsArray">
+                            <td>2022/08/24</td>
+                            <td><a href="./back_news_edit.html">518博物館日 期間限定優惠</a></td>
+                            <td>活動方</td>
+                            <td>已置頂</td>
+                            <td>
+                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
+                                <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
+                            </td>
+                        </tr> -->
+
+                        <!-- 原樣 -->
+                        <!-- <tr>
                             <td>2022/08/24</td>
                             <td><a href="./back_news_edit.html">518博物館日 期間限定優惠</a></td>
                             <td>活動方</td>
@@ -54,16 +78,6 @@
                             <td>2022/08/24</td>
                             <td><a href="./back_news_edit.html">518博物館日 期間限定優惠</a></td>
                             <td>活動方</td>
-                            <td>已置頂</td>
-                            <td>
-                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2022/08/24</td>
-                            <td><a href="./back_news_edit.html">518博物館日 期間限定優惠</a></td>
-                            <td>活動方</td>
                             <td>已發布</td>
                             <td>
                                 <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
@@ -129,7 +143,7 @@
                                 <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
                                 <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
                 <!-- <ul class="news_page">
@@ -147,5 +161,38 @@
         <!-- footer -->
         <!-- @@include('./layout/footer.html') -->
     </div>
+
+    <script>
+
+        let vm_backNews = new Vue({
+            el: '#app_backnews', 
+            data: {
+                newsArray: [],
+            }, 
+            methods:{
+                news_del(newsID){
+                    // 相當於傳送這段網址到php>>php執行刪除的sql公式
+                    fetch(`./php/back_news_del.php?id=${newsID}`);
+                    const delConfirm = confirm("確定永久刪除這筆資料?");
+                    if(delConfirm){
+                        window.location.reload();
+                    }else{};
+                }
+            },
+            mounted: function(){
+                const api = "./php/news.php"; // 要從哪裡得到資料
+
+                // 老師範例26
+                fetch(api)
+                    .then(res => res.json())
+                    .then(res => this.newsArray = res);
+            }
+            
+        })
+
+        // vm_backNews.$mount('#app_backnews');
+        
+
+    </script>
 </body>
 </html>
