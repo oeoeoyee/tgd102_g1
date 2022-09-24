@@ -14,6 +14,8 @@
 
     echo json_encode($news);
     
+
+// 測試用
     // echo json_encode($info);
     //將二維陣列取出顯示其值
     // foreach($data as $index => $row){
