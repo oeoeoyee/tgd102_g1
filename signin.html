@@ -57,7 +57,7 @@
                         <li class="login_ckbox_out ckbox_center">
                             <div class="login_ckbox">
                                 <label for="login_ckbox">
-                                    <input type="checkbox" id="login_ckbox" name="signin_sub" value="訂閱電子報">
+                                    <input type="checkbox" id="login_ckbox" name="signin_sub" value="訂閱電子報" class="signin_sub">
                                     <span>我想訂閱電子報</span>
                                 </label>
                             </div>
@@ -67,7 +67,7 @@
 
                     <!-- 按鈕 -->
                     <div class="login_btn_out signin_btn_out">
-                        <input type="submit" value="註冊" class="btn_s_remind">
+                        <input type="submit" value="註冊" class="btn_s_remind" id="signin_submit">
                     </div>
                     <div id="error"></div>
                 </form>
@@ -79,6 +79,35 @@
             @@include('./layout/footer.html')
             
         </div>
+
+        <script>
+            const name = document.querySelector('#name');
+            const email = document.querySelector('#email');
+            const phone = document.querySelector('#phone');
+            const pwd = document.querySelector('#pwd');
+            const sub = document.querySelector('.signin_sub');
+            const register = document.querySelector('#signin_submit');
+
+            register.addEventListener('click', () => {
+                fetch('./php/signin.php',{
+                    methods: 'POST',
+                    headers: { 'Content-Type' : 'application/json' },
+                    body: JSON.stringify({
+                        name: name.value,
+                        email: email.value,
+                        phone: phone.value,
+                        pwd: pwd.value,
+                        sub: sub.value
+                    })
+                })
+                .then(resp => resp.json(
+                    // console.log(resp)
+                ))
+                .then(body => {
+                    // console.log(body);
+                })
+            })
+        </script>
 
     </body>
 </body>
