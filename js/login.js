@@ -46,6 +46,15 @@ new Vue({
 
         // 團體語音導覽
         pod: false,
+
+        // 名字
+        name: '',
+
+        // 電話
+        phone: '',
+
+        // 付款方式
+        pay: '',
     },
     methods:{  //函數 "大部分" 放這裡
         
@@ -83,12 +92,31 @@ new Vue({
             if(this.check_note === false){
                 alert('購票須知沒勾')
                 return false
+                
             }
 
-            alert('成功')
+            alert('成功');
 
 
             // ajax
+            fetch('../php/order.php',{
+                methods: 'POST',
+                headers: { 'Content-Type' : 'application/json' },
+                body: JSON.stringify({
+                    // 變數: this.v-model名
+                    exhibition: this.exhibitionChoose,
+                    date: this.date,
+                    name: this.name,
+                    phone: this.phone,
+                    group: this.groupCount,
+                    ticket: this.ticket,
+                    pod: this.pod,
+                    tour: this.tour,
+                    pay: this.pay,
+                    total: this.total,
+                })
+            })
+            
 
         },
 
@@ -119,7 +147,7 @@ new Vue({
                 return false
             }
 
-            alert('成功')
+            alert('成功');
         },
 
         // placeholder效果
@@ -372,4 +400,3 @@ $(".login_out").submit(function (e) {
 });
 
 
-// ==============付款成功 localstorge================
