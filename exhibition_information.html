@@ -2,6 +2,10 @@
 <html lang="zh-hant">
   <head>
     @@include('./layout/head.html',{ "title":'新藝術運動' })
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
   </head>
 
   <body>
@@ -86,40 +90,41 @@
       </div>
       <!-- 相關展覽 -->
       <div class="ex_info_other ex_center">
-        <div>
+        
           <div class="title">
             <h3>相關展覽</h3>
             <p>追朔藝術家們於館內展出的歷史典藏</p>
             <div></div>
           </div>
 
-          <div class="ex_info_like">
-            <a href="#"><i class="fa-solid fa-chevron-left"></i></a>
-            <ul class="ex_center">
-              <li class="ex_info_like1">
-                <h3>兵器演進</h3>
-              </li>
-              <li class="ex_info_like2">
-                <h3>歷史事件</h3>
-              </li>
-              <li class="ex_info_like3">
-                <h3>探索秘境</h3>
-              </li>
-            </ul>
-            <a href="#"><i class="fa-solid fa-chevron-right"></i></a>
+          <!-- SWIPER -->
+          <div class="ex_info_wrp">
+            <div class="swiper mySwiper ex_info_like">
+              <ul class="swiper-wrapper ex_center">
+                <li class="swiper-slide ex_info_like1">
+                  <h3>兵器演進</h3>
+                </li>
+                <li class="swiper-slide ex_info_like2">
+                  <h3>歷史事件</h3>
+                </li>
+                <li class="swiper-slide ex_info_like3">
+                  <h3>探索秘境</h3>
+                </li>
+                <li class="swiper-slide ex_info_like3">
+                  <h3>探索秘境</h3>
+                </li>
+              </ul>
+            </div>
+            <!-- SWIPER -->
+            <!-- 箭頭 -->
+            <div class="ex_info_btn"></div>
+            <i class="fa-solid fa-chevron-left arrow-left"></i>
+            <i class="fa-solid fa-chevron-right arrow-right"></i>
           </div>
-          <div class="ex_info_btn">
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-        </div>
+       
       </div>
       <!-- footer -->
-      @@include('./layout/footer.html') 
+      @@include('./layout/footer.html')
       <!-- footer -->
     </div>
     <!-- goTop 組件 -->
@@ -127,6 +132,9 @@
     <!-- goTop 組件 -->
 
     <!------------------ script --------------------->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <!-- 獨立 JS -->
     <script type="module" src="./js/ex_info.js"></script>
   </body>
 </html>
