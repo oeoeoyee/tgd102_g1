@@ -1,3 +1,7 @@
+// * {
+//   outline: 2px solid red;
+// }
+
 .ex_info_wrapper {
   h1 {
     @include h1();
@@ -40,10 +44,6 @@
       margin: 0 auto;
     }
   }
-
-  footer {
-    margin-top: 0;
-  }
 }
 
 // 大圖
@@ -73,7 +73,7 @@
 
     a {
       text-decoration: none;
-      &:last-child{
+      &:last-child {
         color: $black;
       }
     }
@@ -281,15 +281,6 @@
     justify-content: center;
     align-items: center;
 
-    i {
-      font-size: size(50);
-      color: $black;
-      margin: size(30);
-      @include mobile() {
-        display: none;
-      }
-    }
-
     ul {
       display: flex;
       justify-content: space-between;
@@ -305,15 +296,10 @@
         line-height: size(460);
         @include mobile() {
           height: rwd(240);
-          width: rwd(100);
           line-height: rwd(128);
-          transform: scaleX(1.3);
         }
         h3 {
           display: none;
-          @include mobile() {
-            display: none;
-          }
         }
       }
     }
@@ -331,26 +317,42 @@
     }
   }
 }
-.ex_info_btn {
-  ul {
-    display: flex;
-    justify-content: center;
-    li {
-      cursor: pointer;
-      width: size(70);
-      height: size(10);
-      margin: size(24);
-      background-color: $lightgray;
 
-      @include mobile() {
-        width: rwd(32);
-        height: rwd(8);
-        margin: rwd(42) rwd(16);
-      }
+// SWIPER
+.ex_info_wrp {
+  position: relative;
 
-      &:first-child {
-        background-color: $red;
-      }
+  i {
+    position: absolute;
+    font-size: size(50);
+    color: $red;
+    width: size(50);
+    text-align: center;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include mobile() {
+      display: none;
     }
+  }
+  .arrow-left {
+    left: size(-100);
+  }
+  .arrow-right {
+    right: size(-100);
+  }
+
+  .ex_info_btn {
+    position: absolute;
+    width: auto !important;
+    --swiper-theme-color: #ae2000;
+    bottom: -10% !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+
+  .swiper-button-disabled {
+    color: $rice;
   }
 }

@@ -40,4 +40,34 @@ new Vue({
     });
     return;
   },
+
+  updated() {
+    new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      centeredSlides: false,
+      spaceBetween: 10,
+      pagination: {
+        el: ".ex_info_btn",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".arrow-right",
+        prevEl: ".arrow-left",
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      },
+    });
+  },
 });
