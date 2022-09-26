@@ -4,15 +4,11 @@
     @@include('./layout/head.html', {
         "title" : "後台_特展編輯"
     })
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.min.css" rel="stylesheet"></link>
+
 </head>
 <body>
 
-    <div class="back_wrapper">
+    <div class="back_wrapper" id="app">
 
         <!-- header -->
         <!-- @@include('./layout/header.html') -->
@@ -32,113 +28,132 @@
                 </div>
                 <div class="back_edit_title">
                     <label>特展英文</label>
-                    <input type="text">
+                    <input type="text" v-model="eng_title">
                     <p>20字</p>
                 </div>
 
                 <div class="back_edit_title">
                     <label>特展名稱</label>
-                    <input type="text">
+                    <input type="text" v-model="title">
                     <p>20字</p>
                 </div>
 
                 <div class="back_edit_title">
-                    <label>特展起迄</label>
-                    <input class="date_range" type="text"/>
+                    <label>常設開始日</label>
+                    <input type="date" v-model="start_day" @change="change_date()">
+                </div>
+
+                <div class="back_edit_title">
+                    <label>常設結束日</label>
+                    <input type="date" v-model="end_day" @change="change_date()">
                 </div>
 
 
 
                 <div class="back_edit_room">
                     <label>展廳</label>
-                    <select name="" id="" value="">
-                        <option value="">選擇展廳</option>
+                    <select @change="select1" id="type">
+                        <option v-for="select in room_select">{{select}}</option>
                     </select>
                 </div>
 
                 <div class="back_edit_pic">
                     <label for="">主旨圖片</label>
-                    <div class="dragimg"></div>
+                    <div class="dragimg">{{main_img}}</div>
                     <label class="pic">
-                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg" @change="getFiles1($event)">
                         <p>瀏覽</p>
                     </label>
                 </div>
 
                 <div class="back_edit_text">
                     <label for="">展覽介紹</label>
-                    <textarea></textarea>
+                    <textarea v-model="main_content"></textarea>
                     <p>205字</p>
                 </div>
 
                 <div class="back_edit_pic">
-                    <label for="">介紹圖片</label>
-                    <div class="dragimg"></div>
+                    <label for="">展廳圖片</label>
+                    <div class="dragimg">{{events_img}}</div>
                     <label class="pic">
-                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <input type="file" multiple="multiple" style="display:none;" accept="image/png, image/gif, image/jpeg" @change="getFiles2($event)">
                         <p>瀏覽</p>
                     </label>
                 </div>
 
                 <div class="back_edit_title">
+                    <label for="">作品小標</label>
+                    <input type="text" v-model="events_title">
+                    <p>20字</p>
+                </div>
+
+                <div class="back_edit_text">
+                    <label for="">作品簡介</label>
+                    <textarea v-model="events_content"></textarea>
+                    <p>205字</p>
+                </div>
+
+                
+
+                <div class="back_edit_title">
                     <label for="">藝術家標題</label>
-                    <input type="text">
+                    <input type="text" v-model="artist_title">
                     <p>20字</p>
                 </div>
 
                 <div class="back_edit_text">
                     <label for="">藝術家內文</label>
-                    <textarea></textarea>
+                    <textarea v-model="artist_content"></textarea>
                     <p>205字</p>
                 </div>
 
                 <div class="back_edit_pic">
                     <label for="">藝術家圖片</label>
-                    <div class="dragimg"></div>
+                    <div class="dragimg">{{artist_img}}</div>
                     <label class="pic">
-                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg" @change="getFiles3($event)">
                         <p>瀏覽</p>
                     </label>
                 </div>
 
                 <div class="back_edit_title">
                     <label for="">作品標題1</label>
-                    <input type="text">
+                    <input type="text" v-model="pj_title1">
                     <p>20字</p>
                 </div>
 
                 <div class="back_edit_text">
                     <label for="">作品內文1</label>
-                    <textarea></textarea>
+                    <textarea v-model="pj_content1"></textarea>
                     <p>205字</p>
                 </div>
 
                 <div class="back_edit_pic">
                     <label for="">作品圖片1</label>
-                    <div class="dragimg"></div>
+                    <div class="dragimg">{{pj_img1}}</div>
                     <label class="pic">
-                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg" @change="getFiles4($event)">
                         <p>瀏覽</p>
                     </label>
                 </div>
 
                 <div class="back_edit_title">
                     <label for="">作品標題2</label>
-                    <input type="text">
+                    <input type="text" v-model="pj_title2">
                     <p>20字</p>
                 </div>
 
                 <div class="back_edit_text">
                     <label for="">作品內文2</label>
-                    <textarea></textarea>
+                    <textarea v-model="pj_content2"></textarea>
                     <p>205字</p>
                 </div>
 
                 <div class="back_edit_pic">
                     <label for="">作品圖片2</label>
-                    <div class="dropimg"></div>
+                    <div class="dragimg">{{pj_img2}}</div>
                     <label class="pic">
-                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg" @change="getFiles5($event)">
                         <p>瀏覽</p>
                     </label>
                 </div>
@@ -149,21 +164,21 @@
 
                 <div class="back_edit_title">
                     <label for="">作品標題last</label>
-                    <input type="text">
+                    <input type="text" v-model="pj_title3">
                     <p>20字</p>
                 </div>
 
                 <div class="back_edit_text">
                     <label for="">作品內文last</label>
-                    <textarea></textarea>
+                    <textarea v-model="pj_content3"></textarea>
                     <p>205字</p>
                 </div>
 
                 <div class="back_edit_pic">
                     <label for="">作品圖片last</label>
-                    <div class="dragimg"></div>
+                    <div class="dragimg">{{pj_img3}}</div>
                     <label class="pic">
-                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg">
+                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg" @change="getFiles6($event)">
                         <p>瀏覽</p>
                     </label>
                 </div>
@@ -171,7 +186,9 @@
                 
                 <div class="edit_button">
                     <a href="./back_events_draft.html"><button>儲存草稿</button></a>
-                    <a href="./back_events.html"><button>送出資料</button></a>
+                    <!-- <a href="./back_events.html"> -->
+                        <button  @click="insert">送出資料</button>
+                    <!-- </a> -->
 
                 </div>
 
@@ -184,9 +201,7 @@
         <!-- footer -->
         <!-- @@include('./layout/footer.html') -->
     </div>
+<script src="./js/back_events_edit.js"></script>
 
-    <script>
-        $("input.date_range").daterangepicker();
-    </script>
 </body>
 </html>

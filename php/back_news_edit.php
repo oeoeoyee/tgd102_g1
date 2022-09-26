@@ -15,7 +15,8 @@ include("./PDO/connection_inc.php");
         $statement->bindValue(":INFO_TYPE", $INFORMATION["INFO_TYPE"]);
         $statement->bindValue(":TOP", $INFORMATION["TOP"]);
         $statement->execute();
-        
+        // $arr =new array();
+        echo json_encode("");
         // $result_count = $statement->rowCount();
       
 
@@ -27,7 +28,7 @@ include("./PDO/connection_inc.php");
 
     //    //執行
     //    $pdo->exec($sql);
-    // echo json_decode($INFORMATION)
+    
 
     //    echo "新增成功!"
 

@@ -59,7 +59,7 @@
 
                 <div class="back_edit_pic">
                     <label for="">主旨圖片</label>
-                    <div class="dragimg">{{img1}}</div>
+                    <div class="dragimg">{{main_img}}</div>
                     <label class="pic">
                         <input multiple="multiple" type="file" style="display:none;" accept="image/png, image/gif, image/jpeg"  @change="getFiles1($event)">
                         <p>瀏覽</p>
@@ -81,7 +81,7 @@
 
                 <div class="back_edit_pic">
                     <label for="">介紹圖片</label>
-                    <div class="dragimg">{{img2}}</div>
+                    <div class="dragimg">{{sub_img}}</div>
                     <label class="pic">
                         <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg"  @change="getFiles2($event)">
                         <p>瀏覽</p>
@@ -137,7 +137,9 @@
                 
                 <div class="edit_button">
                     <a href="./back_exhibition_draft.html"><button>儲存草稿</button></a>
-                    <a href="./back_exhibition.html"><button>送出資料</button></a>
+                    <!-- <a href="./back_exhibition.html"> -->
+                        <button @click="insert">送出資料</button>
+                    <!-- </a> -->
                 </div>
 
 
