@@ -347,6 +347,9 @@
     position: absolute;
     width: auto !important;
     --swiper-theme-color: #ae2000;
+
+    // background: var(--primary-green) !important;
+
     bottom: -10% !important;
     left: 50% !important;
     transform: translateX(-50%);
@@ -354,5 +357,13 @@
 
   .swiper-button-disabled {
     color: $rice;
+  }
+
+  .swiper-pagination-bullet-active {
+    padding: 0 size(20);
+    border-radius: 6px;
+    @include mobile {
+      padding: 0 rwd(20);
+    }
   }
 }
