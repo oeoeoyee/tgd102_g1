@@ -4,7 +4,9 @@
     // $information = json_decode(file_get_contents("php://input"), true);
 
     // -----------------------------------------------------
-    $sql = " SELECT INFO_ID, INFO_TYPE, TITLE, CONTENT, IMAGE, DATE FROM INFORMATION ";
+    $sql = " SELECT INFO_ID, INFO_TYPE, TITLE, CONTENT, IMAGE, DATE 
+             FROM INFORMATION 
+             ORDER BY INFO_ID desc";
     $statement = $pdo->prepare($sql);
     // $statement->bindValue(":id", $news_id);
     $statement->execute();
