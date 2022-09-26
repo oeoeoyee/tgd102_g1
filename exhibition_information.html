@@ -16,15 +16,17 @@
       <!-- 上方大圖 -->
       <div class="ex_info_banner">
         <picture>
-          <source
-            :srcset="'./images/'+ packages.MAIN_IMAGE[0]"
-            media="(min-width:500px)"
-          />
-          <source
-            :srcset="'./images/'+ packages.MAIN_IMAGE[1]"
-            media="(max-width:500px)"
-          />
-          <img :src="'./images/'" />
+          <template v-if="packages">
+            <source
+              :srcset="'./images/'+ packages.MAIN_IMAGE[0]"
+              media="(min-width:500px)"
+            />
+            <source
+              :srcset="'./images/'+ packages.MAIN_IMAGE[1]"
+              media="(max-width:500px)"
+            />
+            <img src="./images/" />
+          </template>
         </picture>
       </div>
       <!-- 麵包屑 -->
@@ -90,38 +92,36 @@
       </div>
       <!-- 相關展覽 -->
       <div class="ex_info_other ex_center">
-        
-          <div class="title">
-            <h3>相關展覽</h3>
-            <p>追朔藝術家們於館內展出的歷史典藏</p>
-            <div></div>
-          </div>
+        <div class="title">
+          <h3>相關展覽</h3>
+          <p>追朔藝術家們於館內展出的歷史典藏</p>
+          <div></div>
+        </div>
 
-          <!-- SWIPER -->
-          <div class="ex_info_wrp">
-            <div class="swiper mySwiper ex_info_like">
-              <ul class="swiper-wrapper ex_center">
-                <li class="swiper-slide ex_info_like1">
-                  <h3>兵器演進</h3>
-                </li>
-                <li class="swiper-slide ex_info_like2">
-                  <h3>歷史事件</h3>
-                </li>
-                <li class="swiper-slide ex_info_like3">
-                  <h3>探索秘境</h3>
-                </li>
-                <li class="swiper-slide ex_info_like3">
-                  <h3>探索秘境</h3>
-                </li>
-              </ul>
-            </div>
-            <!-- SWIPER -->
-            <!-- 箭頭 -->
-            <div class="ex_info_btn"></div>
-            <i class="fa-solid fa-chevron-left arrow-left"></i>
-            <i class="fa-solid fa-chevron-right arrow-right"></i>
+        <!-- SWIPER -->
+        <div class="ex_info_wrp">
+          <div class="swiper mySwiper ex_info_like">
+            <ul class="swiper-wrapper ex_center">
+              <li class="swiper-slide ex_info_like1">
+                <h3>兵器演進</h3>
+              </li>
+              <li class="swiper-slide ex_info_like2">
+                <h3>歷史事件</h3>
+              </li>
+              <li class="swiper-slide ex_info_like3">
+                <h3>探索秘境</h3>
+              </li>
+              <li class="swiper-slide ex_info_like3">
+                <h3>探索秘境</h3>
+              </li>
+            </ul>
           </div>
-       
+          <!-- SWIPER -->
+          <!-- 箭頭 -->
+          <div class="ex_info_btn"></div>
+          <i class="fa-solid fa-chevron-left arrow-left"></i>
+          <i class="fa-solid fa-chevron-right arrow-right"></i>
+        </div>
       </div>
       <!-- footer -->
       @@include('./layout/footer.html')
