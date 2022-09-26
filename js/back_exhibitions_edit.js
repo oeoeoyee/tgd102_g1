@@ -29,8 +29,6 @@ new Vue({
        sub_img:"",
        other_img:"",
        
-       img1:"",
-       img2:"",
        img3:"",
        img4:"",
        img5:"",
@@ -47,61 +45,80 @@ new Vue({
     },
     updated(){
     },
+    computed:{
+    },
     methods:{
+        mixImg(){
+            this.other_img = 
+            this.img3 + "|" +
+            this.img4 + "|" +
+            this.img5 + "|" +
+            this.img6 + "|" +
+            this.img7 
+        },
+        
         getFiles1(e){
-            return this.img1 =  e.target.files[0].name +'|'+ e.target.files[1].name;
+             this.main_img =  e.target.files[0].name +'|'+ e.target.files[1].name;
         },
         getFiles2(e){
-            return this.img2 =  e.target.files[0].name;
+             this.sub_img =  e.target.files[0].name;
         },
         getFiles3(e){
-            return this.img3 =  e.target.files[0].name;
+             this.img3 =  e.target.files[0].name;
+             this.mixImg();
         },
         getFiles4(e){
-            return this.img4 =  e.target.files[0].name;
+             this.img4 =  e.target.files[0].name;
+             this.mixImg();
         },
         getFiles5(e){
-            return this.img5 =  e.target.files[0].name;
+            this.img5 =  e.target.files[0].name;
+            this.mixImg();
         },
         getFiles6(e){
-            return this.img6 =  e.target.files[0].name;
+            this.img6 =  e.target.files[0].name;
+            this.mixImg();
         },
         getFiles7(e){
-            return this.img7 =  e.target.files[0].name;
+            this.img7 =  e.target.files[0].name;
+            this.mixImg();
         },
         select1(){
-            return this.exhibition_type = document.getElementById("type").value;
-            // return this.exhibition_type = selected;
-            
+            this.exhibition_type = document.getElementById("type").value;
         },
         select2(){
-            return this.room = document.getElementById("room").value;
-            // return this.room = selected;
+            return this.room = document.getElementById("room").value;    
+        },
+        
+        
+        insert(){
+            fetch('php/bac_exhibition_edit.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    NAME: this.name,
+                    EXHIBITION_TYPE: this.exhibition_type,
+                    START_DAY: this.start_day,
+                    END_DAY: this.end_day,
+                    MAIN_TITLE: this.main_title,
+                    ROOM: this.room,
+                    INTRODUCTION: this.introduction,
+                    MAIN_IMAGE: this.main_img,
+                    SUB_IMAGE: this.sub_img,
+                    OTHER_IMAGE: this.other_img,
+                }),
+            })
+            // .then(resp => resp.json())
+            .then(body => {
+                console.log(body);
+                if(body !=""){
+                location = "./back_exhibition.html"
+                alert("發送成功");
+                }
+            });
         }
-        // insert(){
-        //     fetch('php/back_news_edit.php', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify({
-        //             TITLE: this.title,
-        //             DATE: this.theDate,
-        //             IMAGE: this.image,
-        //             CONTENT: this.content,
-        //             INFO_TYPE: this.announcement,
-        //             TOP: this.top,
-        //         }),
-        //     })
-        //     .then(resp => resp.json())
-        //     .then(body => {
-        //         console.log(body);
-        //         if(body !=""){
-        //         location = "inex.html"
-        //         alert("發送成功");
-        //         }
-        //     });
-        // }
         
     },
 })

@@ -37,11 +37,11 @@ new Vue({
                     TOP: this.top,
                 }),
             })
-            .then(resp => resp.json())
+            // .then(resp => resp.json())
             .then(body => {
                 console.log(body);
                 if(body !=""){
-                location = "inex.html"
+                // location = "./back_news.html"
                 alert("發送成功");
                 }
             });
