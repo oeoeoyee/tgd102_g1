@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font: 16px/1 'Open Sans', sans-serif;
+  color: #555;
+  background: #ddd;
+}
+
+.title {
+  padding: 35px 0 40px;
+  text-align: center;
+}
+
+.title span {
+  display: block;
+  margin: 0 0 15px;
+  font-size: 30px;
+}
+
+.payment {
+  width: 500px;
+  margin: 0 auto;
+  padding: 35px 0;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+}
+
+[placeholder]::-webkit-input-placeholder { color: rgba(0,0,0,.3); }
+[placeholder]:hover::-webkit-input-placeholder { color: rgba(0,0,0,.15); }
+[placeholder]:focus::-webkit-input-placeholder { color: transparent; }
+
+[placeholder]::-moz-placeholder { color: rgba(0,0,0,.3); }
+[placeholder]:hover::-moz-placeholder { color: rgba(0,0,0,.15); }
+[placeholder]:focus::-moz-placeholder { color: transparent; }
+
+[placeholder]:-ms-input-placeholder { color: rgba(0,0,0,.3); }
+[placeholder]:hover:-ms-input-placeholder { color: rgba(0,0,0,.15); }
+[placeholder]:focus:-ms-input-placeholder { color: transparent; }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner{
+  border: 0;
+  padding: 0;
+}
+
+label, input, button {
+  display: block;
+  width: 200px;
+  margin: 0 auto 10px;
+}
+
+label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #777;
+}
+
+input {
+  padding: 10px 15px;
+  font-size: 14px;
+  color: inherit;
+  border: 1px solid #aaa;
+  outline: 0;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  border: 0;
+  border-bottom: 3px solid #37b;
+  background: #48c;
+}
+
+input.invalid {
+  border: 1px solid red;
+}
+
+.validation.failed:after {
+  color: red;
+  content: 'Validation failed';
+}
+
+.validation.passed:after {
+  color: green;
+  content: 'Validation passed';
+}
+    </style>
+</head>
+<body>
+    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js'></script>
+    <script src='https://stripe.github.io/jquery.payment/lib/jquery.payment.js'></script>
+
+    <div class="title">
+        <span>jQuery Payment</span>
+        auto formatting input fields for a better payment UX
+    </div>
+
+    <div class="payment">
+
+        <form novalidate autocomplete="on">
+            
+            <label>Card number:</label>
+            <input type="text" class="cc-number" pattern="\d*" x-autocompletetype="cc-number" placeholder="•••• •••• •••• ••••" required />
+
+            <label>Expires:</label>
+            <input type="text" class="cc-exp" pattern="\d*" x-autocompletetype="cc-exp" placeholder="MM / YYYY" required maxlength="9" />
+
+            <label>CVC:</label>
+            <input type="text" class="cc-cvc" pattern="\d*" x-autocompletetype="cc-csc" placeholder="123" required maxlength="4" autocomplete="off" />
+
+            <label class="validation"></label>
+
+            <button type="submit">Submit</button>
+        </form>
+
+    </div>
+
+    <script>
+        jQuery(function($){
+            $('.cc-number').payment('formatCardNumber');
+            $('.cc-exp').payment('formatCardExpiry');
+            $('.cc-cvc').payment('formatCardCVC');
+
+            $('form').submit(function(e){
+                e.preventDefault();
+                $('input').removeClass('invalid');
+                $('.validation').removeClass('passed failed');
+
+                var cardType = $.payment.cardType($('.cc-number').val());
+
+                $('.cc-number').toggleClass('invalid', !$.payment.validateCardNumber($('.cc-number').val()));
+                $('.cc-exp').toggleClass('invalid', !$.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal')));
+                $('.cc-cvc').toggleClass('invalid', !$.payment.validateCardCVC($('.cc-cvc').val(), cardType));
+
+                if ( $('input.invalid').length ) {
+                    $('.validation').addClass('failed');
+                } else {
+                    $('.validation').addClass('passed');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

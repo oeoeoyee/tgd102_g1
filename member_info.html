@@ -40,7 +40,7 @@
 
                     <table>
                         <tbody>
-                            <tr>
+                            <!-- <tr>
                                 <td width="30%">會員編號</td>
                                 <td width="70%">M0074683</td>
                             </tr>
@@ -63,11 +63,11 @@
                             <tr>
                                 <td>電子信箱</td>
                                 <td>hfhr343@gmail.com</td>
-                            </tr>
-                            <tr>
+                            </tr> -->
+                            <!-- <tr>
                                 <td class="member_code">會員條碼</td>
                                 <td class="member_code_img"><img src="./images/member_01_qrcode.png" alt=""></td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </form>
@@ -90,5 +90,45 @@
     <!-- goTop 組件 -->
     @@include('./layout/goTop_component.html')
     <!-- goTop 組件 -->
+
+    <script>
+        const member = document.querySelector('tbody');
+        fetch("./php/member.php")
+        .then(rsp => rsp.json(
+            // console.log(rsp)
+        ))
+        .then(user => {
+            member.insertAdjacentHTML('beforeend',`
+            <tr>
+                <td width="30%">會員編號</td>
+                <td width="70%">${user.member_id}</td>
+            </tr>
+            <tr>
+                <td>入會日期</td>
+                <td>${user.register_day}</td>
+            </tr>
+            <tr>
+                <td>會員等級</td>
+                <td>${user.level} (到期日：${user.EXPIRE_DAY})</td>
+            </tr>
+            <tr>
+                <td>姓名</td>
+                <td>${user.name}</td>
+            </tr>
+            <tr>
+                <td>電話</td>
+                <td>${user.phone}</td>
+            </tr>
+            <tr>
+                <td>電子信箱</td>
+                <td>${user.email}</td>
+            </tr>
+            <tr>
+                <td class="member_code">會員條碼</td>
+                <td class="member_code_img"><img src="./images/member_01_qrcode.png" alt=""></td>
+            </tr>
+            `);
+        })
+    </script>
 </body>
 </html>

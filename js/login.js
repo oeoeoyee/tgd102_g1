@@ -27,7 +27,7 @@ new Vue({
 
         // 團體票人數
         groups: ['請選擇', 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-        groupCount: '',
+        groupCount: 0,
 
         // 成人票人數
         adults: ['請選擇', 1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -99,8 +99,8 @@ new Vue({
 
 
             // ajax
-            fetch('../php/order.php',{
-                methods: 'POST',
+            fetch('./php/ticket.php',{
+                method: 'POST',
                 headers: { 'Content-Type' : 'application/json' },
                 body: JSON.stringify({
                     // 變數: this.v-model名
@@ -112,10 +112,14 @@ new Vue({
                     ticket: this.ticket,
                     pod: this.pod,
                     tour: this.tour,
+                    
                     pay: this.pay,
                     total: this.total,
+                    
                 })
             })
+
+
             
 
         },
@@ -171,7 +175,7 @@ new Vue({
         // 團體人數陣列 disabled[0] 
         groupplace(group, index){
             if(index == 0){
-                return ''
+                return 0
             }else{
                 return group
             }
