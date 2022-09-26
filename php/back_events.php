@@ -4,8 +4,8 @@ include("./PDO/connection_inc.php");
        //建立SQL語法
        $EVENT = json_decode(file_get_contents("php://input"), true);
         // $sql = "SELECT * FROM INFORMATION";
-        $sql = "INSERT INTO EVENT(eng_title,title,start_day,end_day,room,main_img,main_content,events_img,events_title,events_content,artist_title,artist_img,artist_content,pj_title1,pj_img1,pj_content1,pj_title2,pj_img2,pj_content2,pj_title3,pj_img3,pj_content3)
-          values (:eng_title,:title,:start_day,:end_day,:room,:main_img,:main_content,:events_img,:events_title,:events_content,:artist_title,:artist_img,:artist_content,:pj_title1,:pj_img1,:pj_content1,:pj_title2,:pj_img2,:pj_content2,:pj_title3,:pj_img3,:pj_content3)";
+        $sql = "INSERT INTO EVENT(eng_title,title,start_day,end_day,room,main_img,main_content,events_img,events_title,events_content,artist_title,artist_img,artist_content,pj_title1,pj_img1,pj_content1,pj_title2,pj_img2,pj_content2,pj_title3,pj_img3,pj_content3,situation)
+          values (:eng_title,:title,:start_day,:end_day,:room,:main_img,:main_content,:events_img,:events_title,:events_content,:artist_title,:artist_img,:artist_content,:pj_title1,:pj_img1,:pj_content1,:pj_title2,:pj_img2,:pj_content2,:pj_title3,:pj_img3,:pj_content3,:situation)";
         // $sql = "INSERT INTO EVENT(eng_title)
         //  values ('aa')";
 
@@ -34,6 +34,7 @@ include("./PDO/connection_inc.php");
         $statement->bindValue(":pj_title3", $EVENT["pj_title3"]);
         $statement->bindValue(":pj_img3", $EVENT["pj_img3"]);
         $statement->bindValue(":pj_content3", $EVENT["pj_content3"]);
+        $statement->bindValue(":situation", $EVENT["situation"]);
         $statement->execute();
         
 ?>

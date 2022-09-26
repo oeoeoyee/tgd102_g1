@@ -34,6 +34,8 @@ new Vue({
        img5:"",
        img6:"",
        img7:"",
+       situation:"",
+
 
        
 
@@ -89,36 +91,47 @@ new Vue({
         select2(){
             return this.room = document.getElementById("room").value;    
         },
-        
-        
-        insert(){
-            fetch('php/bac_exhibition_edit.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    NAME: this.name,
-                    EXHIBITION_TYPE: this.exhibition_type,
-                    START_DAY: this.start_day,
-                    END_DAY: this.end_day,
-                    MAIN_TITLE: this.main_title,
-                    ROOM: this.room,
-                    INTRODUCTION: this.introduction,
-                    MAIN_IMAGE: this.main_img,
-                    SUB_IMAGE: this.sub_img,
-                    OTHER_IMAGE: this.other_img,
-                }),
-            })
-            // .then(resp => resp.json())
-            .then(body => {
-                console.log(body);
-                if(body !=""){
-                location = "./back_exhibition.html"
-                alert("發送成功");
-                }
-            });
+        sent(e){
+                fetch('php/bac_exhibition_edit.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        NAME: this.name,
+                        EXHIBITION_TYPE: this.exhibition_type,
+                        START_DAY: this.start_day,
+                        END_DAY: this.end_day,
+                        MAIN_TITLE: this.main_title,
+                        ROOM: this.room,
+                        INTRODUCTION: this.introduction,
+                        MAIN_IMAGE: this.main_img,
+                        SUB_IMAGE: this.sub_img,
+                        OTHER_IMAGE: this.other_img,
+                        situation:this.situation,
+                    }),
+                })
+                // .then(resp => resp.json())
+                .then(body => {
+                    console.log(body);
+                    if(body !=""){
+                    location = e
+                    alert("發送成功");
+                    }
+                });
+        },
+        insert(e){
+            if(e.target.innerHTML =="送出資料")
+            {
+                this.situation = "上線";
+                this.sent("./back_exhibition_draft.html")
+            }else{
+                this.situation = "草稿";
+                this.sent("./back_exhibition.html")
+            }    
         }
+        
+        
         
     },
 })
