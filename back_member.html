@@ -25,7 +25,7 @@
                     <h2>會員管理</h2>
                     <input type="text" class="back_search" name="" id="" placeholder="查詢關鍵字...">
                 </div>
-                <table class="back_table">
+                <table class="back_table" id="app_backmember">
                     <thead>
                         <tr>
                             <th>會員編號</th>
@@ -37,7 +37,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr v-for ="members in membersArray">
+                            <td>{{members.MEMBER_ID}}</td>
+                            <td>{{members.REGISTER_DAY}}</td>
+                            <td>{{members.LEVEL}}</td>
+                            <td>{{members.NAME}}</td>
+                            <td>{{members.PHONE}}</td>
+                            <td>{{members.EMAIL}}</td>
+                        </tr>
+                        <!-- <tr>
                             <td><a href="./back_member_detail.html">M0074683</a></td>
                             <td>2022/08/24</td>
                             <td>PRIME</td>
@@ -132,7 +140,7 @@
                             <td>林小名</td>
                             <td>0987624358</td>
                             <td>abfgy6354@gmail.com</td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
                 <!-- <ul class="news_page">
@@ -150,5 +158,26 @@
         <!-- footer -->
         <!-- @@include('./layout/footer.html') -->
     </div>
+
+    <script>
+        let back_member = new Vue({
+            el: '#app_backmember', 
+            data: {
+                membersArray: [],
+            }, 
+            
+            mounted: function(){
+                const api = "./php/get_member_info.php"; // 要從哪裡得到資料
+
+                // 老師範例26
+                fetch(api)
+                    .then(res => res.json())
+                    .then(res => this.membersArray = res);
+            }
+            
+        })
+        // vm_backNews.$mount('#app_backnews');
+
+    </script>
 </body>
 </html>

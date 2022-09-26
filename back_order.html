@@ -25,7 +25,7 @@
                     <h2>訂單管理</h2>
                     <input type="text" class="back_search" name="" id="" placeholder="查詢關鍵字...">
                 </div>
-                <table class="back_table">
+                <table class="back_table" id="app_backorder">
                     <thead>
                         <tr>
                             <th>訂單編號</th>
@@ -39,7 +39,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr v-for="order in ordersArray">
+                            <td>{{order.DELEGATE_NAME}}</td>
+                            <td>{{order.ORDER_DAY}}</td>
+                            <td>{{order.EXHIBITION_NAME}}</td>
+                            <td>{{order.VISIT_DAY}}</td>
+                            <td>{{order.PRICE}}</td>
+                            <td>{{order.PAYMENT_TYPE}}</td>
+                            <td>{{order.DELEGATE_NAME}}</td>
+                            <td>{{order.PAYMENT_STATUS}}</td>
+                        </tr>
+                        <!--<tr>
                             <td><a href="./back_order_personal.html">P0074683</a></td>
                             <td>2022/08/24</td>
                             <td>亞洲的地獄與幽魂</td>
@@ -68,7 +78,7 @@
                             <td>超商</td>
                             <td>山富國際旅行社</td>
                             <td>付款中</td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
                 <!-- <ul class="news_page">
@@ -86,5 +96,26 @@
         <!-- footer -->
         <!-- @@include('./layout/footer.html') -->
     </div>
+
+    <script>
+        let back_order = new Vue({
+            el: '#app_backorder', 
+            data: {
+                ordersArray: [],
+            }, 
+            
+            mounted: function(){
+                const api = "./php/back_order.php"; // 要從哪裡得到資料
+
+                // 老師範例26
+                fetch(api)
+                    .then(res => res.json())
+                    .then(res => this.ordersArray = res);
+            }
+            
+        })
+        // vm_backNews.$mount('#app_backnews');
+
+    </script>
 </body>
 </html>

@@ -601,7 +601,8 @@
 
             @include mobile(){
                 width: 100%;
-                margin-bottom: rwd(17)
+                margin-bottom: rwd(17);
+                height: rwd(250);
             }
         }
 
