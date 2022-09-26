@@ -32,6 +32,7 @@ new Vue({
         pj_title3:"",
         pj_img3:"",
         pj_content3:"",
+        situation:"",
 
     },
     mounted(){
@@ -62,7 +63,7 @@ new Vue({
             var re = /-/gi
             this.date = this.start_day.replace(re,".")  +'\b - \b' + this.end_day.replace(re,".")
         },
-        insert(){
+        sent(e){
             fetch('php/back_events.php', {
                 method: 'POST',
                 headers: {
@@ -91,6 +92,7 @@ new Vue({
                     pj_title3: this.pj_title3,
                     pj_img3: this.pj_img3,
                     pj_content3: this.pj_content3,
+                    situation:this.situation,
     
     
                 }),
@@ -99,10 +101,21 @@ new Vue({
             .then(body => {
                 console.log(body);
                 if(body !=""){
-                // location = "./back_events.html"
+                location = e
                 alert("發送成功");
                 }
             });
+        },
+        insert(e){
+            if(e.target.innerHTML =="送出資料")
+            {
+                this.situation = "上線";
+                this.sent("./back_events.html")
+            }else{
+                this.situation = "草稿";
+                this.sent("./back_events_draft.html")
+            }
+            
         }
     },
 

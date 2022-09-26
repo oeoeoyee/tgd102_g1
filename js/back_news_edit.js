@@ -7,6 +7,8 @@ new Vue({
         content:"",
         announcement:'',
         top:"",
+        situation:"",
+
     },
     mounted(){
        
@@ -22,7 +24,7 @@ new Vue({
             console.log( e.target.files[0].name);
             return this.image =  e.target.files[0].name;
         },
-        insert(){
+        sent(e){
             fetch('php/back_news_edit.php', {
                 method: 'POST',
                 headers: {
@@ -35,17 +37,27 @@ new Vue({
                     CONTENT: this.content,
                     INFO_TYPE: this.announcement,
                     TOP: this.top,
+                    situation:this.situation,
                 }),
             })
             // .then(resp => resp.json())
             .then(body => {
                 console.log(body);
                 if(body !=""){
-                // location = "./back_news.html"
+                location = e
                 alert("發送成功");
                 }
             });
-        
+        },
+        insert(e){
+            if(e.target.innerHTML =="送出資料")
+            {
+                this.situation = "上線";
+                this.sent("./back_news_draft.html")
+            }else{
+                this.situation = "草稿";
+                this.sent("./back_news.html")
+            }    
         }
         
     },
