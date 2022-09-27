@@ -53,12 +53,13 @@ new Vue({
             if(e.target.innerHTML =="送出資料")
             {
                 this.situation = "上線";
-                this.sent("./back_news_draft.html")
+                this.sent("./back_news.html")
             }else{
                 this.situation = "草稿";
-                this.sent("./back_news.html")
+                this.sent("./back_news_draft.html")
             }    
         }
         
     },
 })
+

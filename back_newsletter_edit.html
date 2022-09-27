@@ -8,17 +8,17 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> -->
 
      <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> --> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
  
     <!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet"> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script> --> --> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script> --> 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 <body>
 
-    <div class="back_wrapper" id="app">
+    <div class="back_wrapper">
 
         <!-- header -->
         <!-- @@include('./layout/header.html') -->
@@ -31,30 +31,25 @@
             </nav>
             
             <!-- 右邊 -->
-            <div class="back_main">
+            
+            <div class="back_main back_flexgrow">
                 <div class="edit_edit_title">
                     <h2>電子報系統</h2>
                     <span></span>
                 </div>
                 
-                <div class="back_edit_title">
-                    <label>電子報主題</label>
-                    <input type="text" >
-                </div>
+                <div id="app">
+                    <div class="back_edit_title">
+                        <label>電子報主題</label>
+                        <input type="text" v-model="title">
+                    </div>
 
-                <div class="back_edit_title">
-                    <label>發送時間</label>
-                    <input type="date" >
+                    <div class="back_edit_title">
+                        <label>發送時間</label>
+                        <input type="date" v-model="start_day" >
+                    </div>
                 </div>
                 
-                <div class="back_edit_file">
-                    <label for="">附件</label>
-                    <div class="dragfile"></div>
-                    <label class="pic">
-                        <input type="file" >
-                        <p>瀏覽</p>
-                        </label>
-                </div>
 
                 <div class="back_edit_summernote">
                     <label for="">內文</label>
@@ -62,10 +57,12 @@
                     <!-- <summernote></summernote> -->
                 </div>
                 
-                <div class="edit_button">
-                    <a href="./back_news_draft.html"><button>儲存草稿</button></a>
+                <div class="edit_button" id="app2">
+                    <!-- <a href="./back_news_draft.html"> -->
+                        <button  @click="insert">儲存草稿</button>
+                    <!-- </a> -->
                     <!-- <a href="./back_news.html"> -->
-                        <button>送出資料</button>
+                        <button @click="insert">送出資料</button>
                     <!-- </a> -->
                 </div>
 
