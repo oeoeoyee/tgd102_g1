@@ -25,16 +25,16 @@
                     <h2>最新消息</h2>
                     <div>
                         <button class="btn_s_default draft_button"><a href="./back_news_draft.html">草稿</a></button>
-                        <input type="text" class="back_search" name="" id="" placeholder="查詢關鍵字...">
+                        <input type="text" class="back_search" id="keyWord" v-model="keyWord" @keyup.13="enter_push" placeholder="查詢關鍵字...">
                         <span class="icon_create"><a href="./back_news_edit.html"><i class="fa-regular fa-square-plus"></i></a></span>
                     </div>
                 </div>
-                <table id="app_backnews" class="back_table back_table_p0">
+                <table id="app_backnews" class="back_table back_table_p0" data-tbname="INFORMATION">
                     <thead>
                         <tr>
-                            <th>公告日期</th>
-                            <th>公告主旨</th>
-                            <th>公告單位</th>
+                            <th data-colname="DATE">公告日期</th>
+                            <th data-colname="TITLE">公告主旨</th>
+                            <th data-colname="INFO_TYPE">公告單位</th>
                             <th>狀態</th>
                             <th>操作</th>
                         </tr>
@@ -50,6 +50,8 @@
                                 <span class="icon_del" @click="news_del(info.INFO_ID)"><i class="fa-regular fa-trash-can"></i></span>
                             </td>
                         </tr>
+
+                        
 
                         <!-- v-for備用 -->
                         <!-- <tr v-for="info in newsArray">
@@ -163,7 +165,7 @@
     </div>
 
     <script>
-
+        
         let vm_backNews = new Vue({
             el: '#app_backnews', 
             data: {
@@ -188,10 +190,7 @@
                     .then(res => this.newsArray = res);
             }
             
-        })
-
-        // vm_backNews.$mount('#app_backnews');
-        
+        });
 
     </script>
     <script src="./js/back_Search.js"></script>
