@@ -3,11 +3,18 @@ include("./PDO/connection_inc.php");
 // $memberId = $_GET["memberId"];
 
 // -----------------------------------------------------
-$sql = "select MEMBER_ID, REGISTER_DAY, LEVEL,NAME, PHONE, EMAIL from MEMBER";
+
+// $sql = "select MEMBER_ID, REGISTER_DAY, LEVEL,NAME, PHONE, EMAIL from MEMBER";
+    $sql="
+    select * from 
+	reverse.member m
+    join reverse.ORDER o on m.MEMBER_ID = o.MEMBER_ID
+    where m.MEMBER_ID =3 ;";
 // -----------------------------------------------------
 // 路徑==> /tgd102_g1/dist/php/get_member_info.php?memberId=1
 
 $stmt = $pdo->prepare($sql);
+
 // $stmt->bindValue(":id", $memberId);
 $stmt->execute();
 

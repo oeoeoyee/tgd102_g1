@@ -8,7 +8,6 @@ $sql = " SELECT member_id,name,email,phone,register_day,level,EXPIRE_DAY
         from REVERSE.MEMBER
         ";
 
-
 $stmt = $pdo->prepare($sql);
 // $stmt->bindValue(1, $member["name"]);
 // $stmt->bindValue(":password", $member["password"]);

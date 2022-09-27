@@ -20,7 +20,7 @@
             </nav>
             
             <!-- 右邊 -->
-            <div class="back_main back_flexgrow">
+            <div class="back_main back_flexgrow" id="app_member_history">
                 <!-- 右上 -->
                 <div class="back_table_title">
                     <h2>基本資料</h2>
@@ -31,29 +31,29 @@
                         <tbody>
                             <tr>
                                 <td>會員編號</td>
-                                <td>M0074683</td>
+                                <td>{{detailsArray[0].MEMBER_ID}}</td>
                             </tr>
                             <tr>
                                 <td>入會日期</td>
-                                <td>2022/08/24</td>
+                                <td>{{detailsArray[0].REGISTER_DAY}}</td>
                             </tr>
                             <tr>
                                 <td>會員姓名</td>
-                                <td>林布蘭</td>
+                                <td>{{detailsArray[0].NAME}}</td>
                             </tr>
                         </tbody>
                         <tbody>
                             <tr>
                                 <td>會員等級</td>
-                                <td>PRIME (到期日：2023/09/23)</td>
+                                <td>{{detailsArray[0].LEVEL}}{{detailsArray[0].REGISTER_DAY}}</td>
                             </tr>
                             <tr>
                                 <td>會員電話</td>
-                                <td>0987535427</td>
+                                <td>{{detailsArray[0].PHONE}}</td>
                             </tr>
                             <tr>
                                 <td>電子信箱</td>
-                                <td>hfhr343@gmail.com</td>
+                                <td>{{detailsArray[0].EMAIL}}</td>
                             </tr>
                         </tbody>
                         <tbody class="back_table_vatop">
@@ -64,6 +64,7 @@
                             </tr>
                         </tbody>
                     </table>
+
                 </div>
                 <!-- 右下 -->
                 <div class="back_table_title">
@@ -81,8 +82,16 @@
                             <th>費用總計</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
+                    <tbody >
+                        <tr v-for="member_history in member_historyArray">
+                            <td>{{member_history.ORDER_ID}}</td>
+                            <td>{{member_history.ORDER_DAY}}</td>
+                            <td>{{member_history.EXHIBITION_NAME}}</td>
+                            <td>{{member_history.VISIT_DAY}}</td>
+                            <td>{{member_history.PAYMENT_TYPE}}</td>
+                            <td>{{member_history.PRICE}}</td>
+                        </tr>
+                        <!-- <tr>
                             <td><a href="./back_order_personal.html">P0074683</a></td>
                             <td>2022/08/24</td>
                             <td>林布蘭·哈爾曼松</td>
@@ -129,7 +138,7 @@
                             <td>2022/08/24</td>
                             <td>已付款</td>
                             <td>費用總計</td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
                 <!-- <ul class="news_page">
@@ -148,5 +157,44 @@
         <!-- footer -->
         <!-- @@include('./layout/footer.html') -->
     </div>
+
+    <script>
+        // //back_member_detail 上方的基本資料
+        //     let member_info = new Vue({
+        //         el: '#app_member_details',
+        //         data: {
+        //             detail: "aaa",
+        //     //         detailsArray: [MEMBER_ID,REGISTER_DAY,NAME,LEVEL,PHONE,EMAIL],
+        //         }, 
+                
+        //     //     mounted: function(){
+        //     //         const api = "./php/get_member_info.php"; // 要從哪裡得到資料
+        //     //         // 老師範例26
+        //     //         fetch(api)
+        //     //             .then(res => res.json())
+        //     //             .then(res => this.detailsArray = res);
+        //     //     }
+        //     })
+
+        //back_member_detail 下方的歷史紀錄
+            let member_history = new Vue({
+                el: '#app_member_history',
+                data: {
+                    member_historyArray: [],
+                    detailsArray:[],
+                },
+
+                mounted() {
+                    const api = "./php/get_member_info.php"; // 要從哪裡得到資料
+                    // 老師範例26
+                    fetch(api)
+                        .then(res => res.json())
+                        .then(res =>this.member_historyArray = res,)
+                        .then(res =>this.detailsArray = res);
+                }
+            })
+            // vm_backNews.$mount('#app_backnews');
+    
+    </script>
 </body>
 </html>
