@@ -261,6 +261,8 @@
         border-left: size(1) solid $line_light;
         img{
             width: 100%;
+            height: size(625);
+            object-fit: cover;
         }
         h4{
             margin-top: size(32);
@@ -419,3 +421,8 @@
         }
     }
 }
+
+// .line-it-button{
+//     width: size(40);
+//     height: size(40);
+// }

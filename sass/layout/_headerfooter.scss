@@ -110,6 +110,8 @@ header{
     background-color: $hf_black;
     justify-content: center;
     align-items: center;
+
+    transition: all 1s;
     @include mobile(){
         justify-content: space-between;
         // JS用 rwd時 收放關於我們~會員中心的ul
@@ -493,4 +495,13 @@ footer{
     &.totop_active{
         opacity: 1;
     }
+}
+
+/* js 導覽列上滑 */
+.-headup{
+    transform: translateY(-90px);
+}
+
+.-headdown{
+    transform: translateY(0);
 }

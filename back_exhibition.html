@@ -25,11 +25,11 @@
                     <h2>常設展覽</h2>
                     <div>
                         <button class="btn_s_default draft_button"><a href="./back_exhibition_draft.html">草稿</a></button>
-                        <input type="text" class="back_search" name="" id="" placeholder="查詢關鍵字...">
+                        <input type="text" class="back_search" id="keyWord" v-model="keyWord" @keyup.13="enter_push" placeholder="查詢關鍵字...">
                         <span class="icon_create"><a href="./back_exhibitions_edit.html"><i class="fa-regular fa-square-plus"></i></a></span>
                     </div>
                 </div>
-                <table class="back_table back_table_p0">
+                <table class="back_table back_table_p0" data-tbname="EXHIBITION">
                     <thead>
                         <tr>
                             <th>發布日期</th>
@@ -177,5 +177,6 @@
         <!-- footer -->
         <!-- @@include('./layout/footer.html') -->
     </div>
+    <script src="./js/back_Search.js"></script>
 </body>
 </html>

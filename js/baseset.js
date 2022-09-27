@@ -8,6 +8,29 @@ $(function () {
 });
 
 
+// header 滾動視窗 導覽列收合
+// console.log("aa");
+window.addEventListener("scroll", function(){
+  let scroll_first = window.scrollY;
+
+  window.addEventListener("scroll", function(){
+      let scroll_second = window.scrollY;
+      let header = document.getElementsByTagName("header")[0];
+
+      if((scroll_first - scroll_second) < 0){
+          header.classList.remove("-headdown");
+          header.classList.add("-headup");
+      }else{
+          header.classList.remove("-headup");
+          header.classList.add("-headdown");
+      }
+
+      scroll_first = scroll_second;
+  });
+
+});
+
+
 // $(function(){
 //     let pageHeight = $(document.body).top
 //     $('.totop').click(function(){
@@ -60,3 +83,5 @@ var totop_vm = new Vue({
 
     }
 });
+
+

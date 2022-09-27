@@ -25,15 +25,15 @@
                     <h2>特別展覽</h2>
                     <div>
                         <button class="btn_s_default draft_button"><a href="./back_events_draft.html">草稿</a></button>
-                        <input type="text" class="back_search" name="" id="" placeholder="查詢關鍵字...">
+                        <input type="text" class="back_search" id="keyWord" v-model="keyWord" @keyup.13="enter_push" placeholder="查詢關鍵字...">
                         <span class="icon_create"><a href="./back_events_edit.html"><i class="fa-regular fa-square-plus"></i></a></span>
 
                     </div>
                 </div>
-                <table class="back_table back_table_p0">
+                <table class="back_table back_table_p0" data-tbname="EVENTS">
                     <thead>
                         <tr>
-                            <th>預告日期</th>
+                            <th>展覽編號</th>
                             <th>開始日期</th>
                             <th>結束日期</th>
                             <th>展覽名稱</th>
@@ -144,5 +144,6 @@
         <!-- footer -->
         <!-- @@include('./layout/footer.html') -->
     </div>
+    <script src="./js/back_Search.js"></script>
 </body>
 </html>

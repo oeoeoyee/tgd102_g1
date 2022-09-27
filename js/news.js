@@ -1,4 +1,3 @@
-
 // news頁 - vue - 全部訊息
 Vue.component('all', {
     data (){
@@ -9,19 +8,74 @@ Vue.component('all', {
     },
 
     mounted(){
-        const api = "./php/news.php"; // 要從哪裡得到資料
+        const newsphp = "./php/news.php"; // 要從哪裡得到資料
 
         // 老師範例26
-        fetch(api)
-            .then(res => res.json())
-            .then(res => this.newsArray = res);
+        fetch(newsphp)
+        // .then(function(response) {
+        //     if (!response.ok) {
+        //         throw new Error(response.statusText);
+        //     }
+        //     return response.json();
+        // })
+        .then(res => res.json())
+        // 將字串20字以後加上....
+        .then(function(data){
+            for(i = 0; i < data.length; i++){
+                if(data[i]["CONTENT"].toString().length > 20){
+                    data[i]["CONTENT"] = data[i]["CONTENT"].toString().slice(0,20) + "......";
+                }
+            }
+            return data;
+        })
+        .then(data => this.newsArray = data)
+
+        // // 網址id
+        // var getUrlString = location.href;
+        // var url = new URL(getUrlString);
+        // var newsID = url.searchParams.get('id');
+        // fetch(`./php/news01.php?id=`+newsID, {
+        //     method: 'GET', 
+        //     headers: {'Content-Type':'application/json'}, 
+        //     body: JSON.stringify({
+        //         // 要是資料表的欄位名嗎?
+        //         ID: newsID,
+        //     })
+        // })
+            .then(resp => resp.json());
     },
 
+    // 備用 取得index
+    // template: `
+    // <!-- 消息列 -->
+    // <ul class="news_list news_becenter">
+    //     <li v-for="(info,index) in newsArray" @click="toNews01(index.toString())" id="to_next">
+    //         <a href="./news_01.html">
+    //             <!-- 圖片 -->
+    //             <div class="news_list_img">
+    //                 <img :src="imgPath + info.IMAGE" :alt="info.alt"/>
+    //             </div>
+    //             <!-- 資訊卡中(特展、最新消息) -->
+    //             <div class="infocard_m">
+    //                 <h3>{{info.TITLE}}
+    //                     <span>&rarr;</span>
+    //                 </h3>
+    //                 <h5>{{info.CONTENT}}</h5>
+    //                 <div></div>
+    //                 <h5>{{info.INFO_TYPE}}</h5>
+    //                 <p>{{info.DATE}}</p>
+    //             </div>
+    //         </a>
+    //     </li>
+    // </ul>
+    // `,
+    
+    // 取得陣列
     template: `
     <!-- 消息列 -->
     <ul class="news_list news_becenter">
-        <li v-for="info in newsArray" @click="toNews01(info.INFO_ID)" id="to_next">
-            <a href="./news_01.html">
+        <li v-for="info in newsArray" :key="id">
+            <a :href="'./news_01.html?id='+info.INFO_ID">
                 <!-- 圖片 -->
                 <div class="news_list_img">
                     <img :src="imgPath + info.IMAGE" :alt="info.alt"/>
@@ -40,26 +94,33 @@ Vue.component('all', {
         </li>
     </ul>
     `,
-    // 取得當下按的li的id
+    // 已不用 - 取得當下按的li的id
+    // methods:{
+    //     toNews01(i_news){
+    //         // console.log(i_news);
+    //         sessionStorage.setItem('toNews01', i_news);
+    //     },
+    //     // slice20(){
+    //     //     newsArray.CONTENT.slice(0,20) + ".......";
+    //     // },
+    // }
+
     methods:{
-        toNews01(i_news){
-            // console.log(i_news);
-            sessionStorage.setItem('toNews01', i_news);
-        },
-
-        // console.log(info[i_news]);
-        // const to_next = document.querySelector("#to_next");
-        // to_next.addEventListener('click', function(e){
-        //     fetch('./php/news.php', {
-        //         method: 'GET', 
-        //         headers: { 'Content-Type': 'application/json' },
-        //         body: JSON.stringify({
-        //             // "INFO_ID": info[i_news],
-        //         })
-        //     })
-        //         .then((resp) => resp.json())
-        // })
-
+    // 取得陣列，讓所有id成一陣列
+        // toNews01(newsID){
+            // var getUrlString = location.href;
+            // var url = new URL(getUrlString);
+            // var newsID = url.searchParams.get('id');
+            // fetch(`./php/news01.php?id=`+newsID, {
+            //     method: 'GET', 
+            //     headers: {'Content-Type':'application/json'}, 
+            //     body: JSON.stringify({
+            //         // 要是資料表的欄位名嗎?
+            //         ID: newsID,
+            //     })
+            // })
+            // .then(resp => resp.json());
+        // },
     }
 })
 
@@ -313,66 +374,14 @@ addEventListener('load', function(){
             (top_date_top.innerHTML = info[0].DATE);
         });
 })
+
     
-// news01頁 - 畫面跳轉停止預設事件
+// news頁 - 畫面跳轉停止預設事件
 // addEventListener('click', function(e){
 //     if(e.target.closest("div").classList.contains("news_list_img") || e.target.closest("div").classList.contains("infocard_m")){
 //         e.preventDefault();
 //     }
 // })
-
-// news01頁 - 內容
-const news01_title = document.querySelector("#news01_title");
-const news01_type = document.querySelector("#news01_type");
-const news01_img = document.querySelector("#news01_img");
-const news01_date = document.querySelector("#news01_date");
-const news01_content = document.querySelector("#news01_content");
-const news01_pre_title = document.querySelector("#news01_pre_title");
-const news01_pre_date = document.querySelector("#news01_pre_date");
-const news01_pre_type = document.querySelector("#news01_pre_type");
-const news01_next_title = document.querySelector("#news01_next_title");
-const news01_next_date = document.querySelector("#news01_next_date");
-const news01_next_type = document.querySelector("#news01_next_type");
-
-addEventListener('load', function(){
-    const idNext = sessionStorage.getItem('toNews01');
-    const idThis = parseInt(idNext) - 1;
-    const idPre = parseInt(idNext) - 2;
-    console.log(idNext);
-    console.log(idThis);
-    console.log(idPre);
-    fetch("./php/news.php")
-    .then((resp) => resp.json())
-    // .then(resp) // 好像也可以?
-    .then((info) => {
-        // news01頁 - 上方主要消息
-        (news01_title.innerHTML = info[idThis].TITLE);
-        (news01_type.innerHTML = info[idThis].INFO_TYPE);
-        (news01_img.src = "./images/" + info[idThis].IMAGE);
-        (news01_date.innerHTML = info[idThis].DATE);
-        (news01_content.innerHTML = info[idThis].CONTENT);
-
-        // news01頁 - 上一則消息
-        (news01_pre_title.innerHTML = info[idPre].TITLE);
-        (news01_pre_date.innerHTML = info[idPre].DATE);
-        (news01_pre_type.innerHTML = info[idPre].INFO_TYPE);
-
-        // news01頁 - 下一則消息
-        (news01_next_title.innerHTML = info[idNext].TITLE);
-        (news01_next_date.innerHTML = info[idNext].DATE);
-        (news01_next_type.innerHTML = info[idNext].INFO_TYPE);
-    });
-})
-
-// news01頁 - 上下則消息 set session storage item 
-const news01_pre = document.getElementsByClassName("news01_others_last")[0];
-const news01_next = document.getElementsByClassName("news01_others_next")[0];
-// news01_pre.addEventListener('click', function(i_news){
-//     sessionStorage.setItem('toNews01', i_news);
-// });
-
-
-
 
 // news頁 - gsap
 // 5
