@@ -21,6 +21,7 @@ new Vue({
   },
 
   beforeCreate() {
+    // 要資料
     fetch("./php/ex_info.php?ex_id=1", {
       mode: "no-cors",
     })
@@ -30,10 +31,15 @@ new Vue({
       });
   },
 
+  mounted() {
+    // 預備 :D
+  },
+
   beforeUpdate() {
     let splite = [this.packages];
     splite.map((el) => {
       return (
+        // 切割完回傳
         (el.MAIN_IMAGE = el.MAIN_IMAGE.split("|")),
         (el.OTHER_IMAGE = el.OTHER_IMAGE.split("|"))
       );
@@ -42,18 +48,22 @@ new Vue({
   },
 
   updated() {
+    // Swiper 套件
     new Swiper(".mySwiper", {
       slidesPerView: 1,
       centeredSlides: false,
       spaceBetween: 10,
+      // 分頁小按鈕
       pagination: {
         el: ".ex_info_btn",
         clickable: true,
       },
+      // 綁定箭頭的 Class
       navigation: {
         nextEl: ".arrow-right",
         prevEl: ".arrow-left",
       },
+      // 斷點
       breakpoints: {
         640: {
           slidesPerView: 2,

@@ -23,9 +23,9 @@
             <div class="back_main back_flexgrow">
                 <div class="back_table_title">
                     <h2>會員管理</h2>
-                    <input type="text" class="back_search" name="" id="" placeholder="查詢關鍵字...">
+                    <input type="text" class="back_search" id="keyWord" v-model="keyWord" @keyup.13="enter_push" placeholder="查詢關鍵字...">
                 </div>
-                <table class="back_table" id="app_backmember">
+                <table class="back_table" id="app_backmember" data-tbname="MEMBER">
                     <thead>
                         <tr>
                             <th>會員編號</th>
@@ -179,5 +179,6 @@
         // vm_backNews.$mount('#app_backnews');
 
     </script>
+    <script src="./js/back_Search.js"></script>
 </body>
 </html>
