@@ -1,78 +1,77 @@
+$('#summernote').summernote({
+  placeholder: "編輯資訊",
+  tabsize: 2,
+  height: 200,
+});
+
+var markupStr ="";			
+$(function () {
+  $('#summernote').change(function(){
+    //  markupStr = $('#summernote').summernote('code');
+     console.log(markupStr);
+  })
+});	
 
 
-//  Vue.component('summernote',{
-//   data() {
-//     return {
-//         content: null,
-//         // ↓ It is what the configuration object looks like. ↓
-//         config: {
-//             height: 100,
-//             toolbar: [
-//                 // [groupName, [list of button]]
-//                 ['style', ['bold', 'italic', 'underline', 'clear']],
-//                 ['font', ['strikethrough', 'superscript', 'subscript']],
-//                 ['fontsize', ['fontsize']],
-//                 ['color', ['color']],
-//                 ['para', ['ul', 'ol', 'paragraph']],
-//                 ['insert', ['gxcode']], // plugin config: summernote-ext-codewrapper
-//           ],
-//         }, 
-//     }
-//   },
-//   template:
-//     `
-//     <div>
-//     <textarea name="editor" v-model="content"
-//       v-on:change="value => { content = value }"
-//       v-config="config"
-//     ></textarea>
-//     </div>
-//     `,
-// })
 
-
-  new Vue({
+  let vm1 = new Vue({
     el:"#app",
     data:{
-      summer:"aaaa",
-      note: '123',
+      title:"",
+      start_day:"",
+      summer:"",
+      situation:"",
     },
     mounted(){
-      $('#summernote').summernote({
-        placeholder: "編輯資訊",
-        tabsize: 2,
-        height: 200,
-      });
+      
     },
     methods:{
-      // getFiles(e){
-      //   console.log(e);
-      //   this.summer = e.target.code();
-      //   console.log( this.summer);
-      // addMaterials: function(e){
-      //   console.log(this.note);
-      // },
-      //   ready: function() {
-      //     var config = {};
-      //     config.minHeight = null;
-      //     config.maxHeight = null;
-      //     config.toolbar =  [ 
-      //            ['style', ['bold', 'italic', 'underline', 'clear']],
-      //            ['color', ['color']],
-      //            ['para', ['ul', 'ol', 'paragraph']],
-      //            ['height', ['height']]
- 
-      //        ]; // watever toolbar you need..
- 
-      //     config.onBlur = function(e) {
-      //         $this.note = $(element).code(); // take here element code and assign 
-      //       };
-      //     $(element).summernote(config);
-         
-          
-     // here first do ajax call to fetch latest note from server
-     // in successful response - do    $(element).code(response); to set initial value
-        
- 
+
        },
+  })
+
+  let vm2 = new Vue({
+    el:"#app2",
+    data:{},
+    methods:{
+
+      sent(e){
+        fetch('php/back_newsletter_edit.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                title:vm1.title,
+                start_day:vm1.start_day,
+                summer:vm1.summer,
+                situation:vm1.situation,
+            }),
+        })
+        // .then(resp => resp.json())
+        .then(body => {
+            console.log(body);
+            if(body !=""){
+            location = e
+            alert("發送成功");
+            }
+        });
+      },
+
+      insert(e){
+        markupStr = $('#summernote').summernote('code');
+        vm1.summer = markupStr;
+        if(e.target.innerHTML =="送出資料")
+        {
+            vm1.situation = "上線";
+            this.sent("back_newsletter_list.html")
+
+        }else{
+            vm1.situation = "草稿";
+            this.sent("back_newsletter_list.html")
+            
+
+        }    
+    }
+    },
   })

@@ -14,7 +14,7 @@ include("./PDO/connection_inc.php");
         $statement->bindValue(":CONTENT", $INFORMATION["CONTENT"]);
         $statement->bindValue(":INFO_TYPE", $INFORMATION["INFO_TYPE"]);
         $statement->bindValue(":TOP", $INFORMATION["TOP"]);
-        $statement->bindValue(":situation", $EVENT["situation"]);
+        $statement->bindValue(":situation", $INFORMATION["situation"]);
         $statement->execute();
         // $arr =new array();
         echo json_encode("");

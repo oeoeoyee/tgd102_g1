@@ -97,30 +97,14 @@ new Vue({
             x:0,
             duration: 2,
             ease: "sine.inOut"
-        });
-        // let path = [
-        //     { x: 100, y: 0, scale:1},
-		// 	{ x: -300, y: 0, },
-		// 	{ x: 100, y: 0, scale:3},
-        // ];
-        // gsap
-        // .to('.event01_5 .event01_5_img img',{
-        //     scrollTrigger: {
-        //         trigger: ".event01_5 .event01_5_img img",
-        //         pin: '.event01_5_img',
-        //         scrub: 1.5,
-                
-        //     },
-        //     motionPath:{
-        //         path:path,
-        //         duration: 10,
-        //     },
-        //     duration: 5,
-        //     ease: "power1.inOut"
-	        
-        // })    
+        }); 
+        // ---------------------------------------------------------------------------------
+
+        
 
 
+
+        // ---------------------------------------------------------------------------------
         gsap
         .timeline({
             scrollTrigger: {
