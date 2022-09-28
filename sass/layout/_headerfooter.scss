@@ -100,6 +100,19 @@
 //     }
 // }
 
+// ###########################
+// 判斷登入狀態的 增減 Class
+// 登入狀態
+.hide{
+    display: none;
+}
+
+.loging{
+    color: $white !important;
+}
+
+// ###########################
+
 // 第二次寫header
 header{
     position: fixed;
@@ -217,15 +230,7 @@ header{
                     &:after{
                         opacity: 1;
                     }
-                    // PC - 主導覽列_第二層_hover_判斷登入
-                    // 已登入狀態
-                    // .header_login_false{
-                    //     display: none;
-                    // }
-                    // 未登入狀態
-                    .header_login_true{
-                        display: none;
-                    }
+                    
                 }
             }
         }
@@ -261,9 +266,9 @@ header{
                             margin-top: auto;
                             line-height: rwd(56);
                             // 已登入狀態
-                            color: $white;
+                            // color: $white;
                             // 未登入狀態
-                            // color: $line_mid;
+                            color: $line_mid;
                         }
                     }
                     &:after{
@@ -284,15 +289,6 @@ header{
                                 border: none;
                             }
                         }
-                        // PC - 主導覽列_rwd_第二層_判斷登入
-                        // 已登入狀態
-                        .header_login_false{
-                            display: none;
-                        }
-                        // 未登入狀態
-                        // .header_login_true{
-                        //     display: none;
-                        // }
                     }
                 }
             }
