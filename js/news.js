@@ -2,22 +2,25 @@
 Vue.component('all', {
     data (){
         return{
+            // 圖片路徑
             imgPath: './images/',
-            newsArray:[],
+            // 資料庫的所有消息
+            allNewsArray: [],
+            // 當下顯示的消息
+            newsArray: [],
+            // 頁數
+            pageArray: [],
+            // 每頁的資訊量
+            perPage: 5,
+            // 當前在的頁數
+            thisPage: 1,
         }
     },
 
     mounted(){
         const newsphp = "./php/news.php"; // 要從哪裡得到資料
-
         // 老師範例26
         fetch(newsphp)
-        // .then(function(response) {
-        //     if (!response.ok) {
-        //         throw new Error(response.statusText);
-        //     }
-        //     return response.json();
-        // })
         .then(res => res.json())
         // 將字串20字以後加上....
         .then(function(data){
@@ -28,24 +31,26 @@ Vue.component('all', {
             }
             return data;
         })
-        .then(data => this.newsArray = data)
-
-        // // 網址id
-        // var getUrlString = location.href;
-        // var url = new URL(getUrlString);
-        // var newsID = url.searchParams.get('id');
-        // fetch(`./php/news01.php?id=`+newsID, {
-        //     method: 'GET', 
-        //     headers: {'Content-Type':'application/json'}, 
-        //     body: JSON.stringify({
-        //         // 要是資料表的欄位名嗎?
-        //         ID: newsID,
-        //     })
-        // })
-            .then(resp => resp.json());
+        .then(data => {
+            // 定義allNewsArray(全部資料的陣列))(記得加this!)
+            this.allNewsArray = data;
+            // 定義pageArray(算頁數並做成陣列)
+            // this.pageArray = Math.ceil(this.allNewsArray.length / this.perPage);
+            let totalPage = Math.ceil(this.allNewsArray.length / this.perPage);
+            // 也可以把t 寫在上面設為變數 但要記得加this.
+            let t = 0;
+            for(i = 0; i < totalPage; i++){
+                t++;
+                this.pageArray.push(t);
+            }
+            // 計算每頁infocard數量(用slice把newsArray)
+            this.newsArray = this.allNewsArray.slice((this.thisPage-1) * this.perPage, this.thisPage * this.perPage);
+            return data;
+        })
+        .then(resp => resp.json());
     },
 
-    // 備用 取得index
+    // 已不用 - 取得index
     // template: `
     // <!-- 消息列 -->
     // <ul class="news_list news_becenter">
@@ -73,26 +78,33 @@ Vue.component('all', {
     // 取得陣列
     template: `
     <!-- 消息列 -->
-    <ul class="news_list news_becenter">
-        <li v-for="info in newsArray" :key="id">
-            <a :href="'./news_01.html?id='+info.INFO_ID">
-                <!-- 圖片 -->
-                <div class="news_list_img">
-                    <img :src="imgPath + info.IMAGE" :alt="info.alt"/>
-                </div>
-                <!-- 資訊卡中(特展、最新消息) -->
-                <div class="infocard_m">
-                    <h3>{{info.TITLE}}
-                        <span>&rarr;</span>
-                    </h3>
-                    <h5>{{info.CONTENT}}</h5>
-                    <div></div>
-                    <h5>{{info.INFO_TYPE}}</h5>
-                    <p>{{info.DATE}}</p>
-                </div>
-            </a>
-        </li>
-    </ul>
+    <div>
+        <ul class="news_list news_becenter">
+            <li v-for="info in newsArray" :key="id">
+                <a :href="'./news_01.html?id='+info.INFO_ID">
+                    <!-- 圖片 -->
+                    <div class="news_list_img">
+                        <img :src="imgPath + info.IMAGE" :alt="info.alt"/>
+                    </div>
+                    <!-- 資訊卡中(特展、最新消息) -->
+                    <div class="infocard_m">
+                        <h3>{{info.TITLE}}
+                            <span>&rarr;</span>
+                        </h3>
+                        <h5>{{info.CONTENT}}</h5>
+                        <div></div>
+                        <h5>{{info.INFO_TYPE}}</h5>
+                        <p>{{info.DATE}}</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <ul class="news_page news_becenter">
+            <li>＜</li>
+            <li v-for="(num, index) in pageArray" @click="changePage(pageArray[index])">{{num}}</li>
+            <li>＞</li>
+        </ul>
+    </div>
     `,
     // 已不用 - 取得當下按的li的id
     // methods:{
@@ -106,22 +118,15 @@ Vue.component('all', {
     // }
 
     methods:{
-    // 取得陣列，讓所有id成一陣列
-        // toNews01(newsID){
-            // var getUrlString = location.href;
-            // var url = new URL(getUrlString);
-            // var newsID = url.searchParams.get('id');
-            // fetch(`./php/news01.php?id=`+newsID, {
-            //     method: 'GET', 
-            //     headers: {'Content-Type':'application/json'}, 
-            //     body: JSON.stringify({
-            //         // 要是資料表的欄位名嗎?
-            //         ID: newsID,
-            //     })
-            // })
-            // .then(resp => resp.json());
-        // },
-    }
+        // 換頁數
+        changePage(num){
+            this.thisPage = num;
+            // return this.thisPage;
+            this.newsArray = this.allNewsArray.slice((this.thisPage-1) * this.perPage, this.thisPage * this.perPage);
+        }
+    },
+
+    computed:{}
 })
 
 // news頁 - vue - 活動訊息
@@ -351,13 +356,8 @@ let news_vm = new Vue({
                 this.activeNews = true;
             }
         },
-        // toNext(info){
-        //     console.log(info.INFO_ID);
-        // },
     },
-    computed: {
-        
-    }
+    computed: {}
 })
 
 
@@ -374,6 +374,9 @@ addEventListener('load', function(){
             (top_date_top.innerHTML = info[0].DATE);
         });
 })
+
+
+// news頁 - 頁數
 
     
 // news頁 - 畫面跳轉停止預設事件

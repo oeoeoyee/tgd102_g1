@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
+    <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v15.0&appId=795688854964926&autoLogAppEvents=1" nonce="J71IB0sB"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     @@include('./layout/head.html', {
         'title' : '最新消息'
     })
-    <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -28,10 +31,13 @@
                 </div>
                 <div class="news01_main_share">
                     <h4>Share</h4>
-                    <!-- <a><i class="fa-brands fa-line"></i><div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-env="REAL" data-url="http://localhost/tgd102_g1/dist/news.html" data-color="default" data-size="small" data-count="false" data-ver="3" ></div></a> -->
-                    <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-env="REAL" data-url="http://localhost/tgd102_g1/dist/news_01.html" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
-                    <a><i class="fa-brands fa-facebook-f"></i></a>
-                    <a><i class="fa-brands fa-twitter"></i></a>
+                    <a href="http://line.naver.jp/R/msg/text/?https://tibamef2e.com/tgd102/g1/dist/news_01.html" target="_blank"><i class="fa-brands fa-line"></i>
+                    <!-- <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-env="REAL" data-url="'https://tibamef2e.com/tgd102/g1/dist/news_01.html?id= + newsID + '" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div> -->
+                    <!-- <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-env="REAL" data-url="https://tibamef2e.com/tgd102/g1/dist/news_01.html" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div> -->
+                    <a href="https://www.facebook.com/sharer.php?u=https://tibamef2e.com/tgd102/g1/dist/news_01.html" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <!-- <div class="fb-share-button" data-href="https://tibamef2e.com/tgd102/g1/dist/news_01.html" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftibamef2e.com%2Ftgd102%2Fg1%2Fdist%2Fnews_01.html&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">分享</a></div> -->
+                    <!-- <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a> -->
+                    <a href="https://twitter.com/share?text=溯．REVERSE最新消息分享&url=https://tibamef2e.com/tgd102/g1/dist/news_01.html" target="_blank"><i class="fa-brands fa-twitter"></i></a>
                 </div>
             </div> 
             <div class="news01_others">

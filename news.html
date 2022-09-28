@@ -60,11 +60,11 @@
                     <!-- <h4 v-for="news in newsTempArray" @click="changeColor">{{news}}</h4> -->
                 </nav>
                 <!-- 消息列 -->
+                
                 <Component :is='content'></Component>
-            </div>    
-
+                
                 <!-- 消息頁數選擇 -->
-                <ul class="news_page news_becenter">
+                <!-- <ul class="news_page news_becenter">
                     <li>＜</li>
                     <li>01</li>
                     <li>02</li>
@@ -72,8 +72,14 @@
                     <li>04</li>
                     <li>05</li>
                     <li>＞</li>
-                </ul>
-            
+                </ul> -->
+                <!-- <ul class="news_page news_becenter">
+                    <li>＜</li>
+                    <li v-for="num in pageArray">{{num}}</li>
+                    <li>＞</li>
+                </ul> -->
+                
+            </div>    
         </main>
         <!-- footer -->
         @@include('./layout/footer.html')
