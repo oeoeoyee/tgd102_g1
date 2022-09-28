@@ -1,7 +1,5 @@
 // 登入功能
 // 先嘗試綁定 沒有綁定到就跳過 try catch
-
-
 (() => {
   // 取欄位值
   const useremail = document.querySelector("#email");
