@@ -42,7 +42,11 @@
                     <tbody>
                         <tr v-for="info in tbArray">
                             <td>{{info.DATE}}</td>
-                            <td><a href="./back_news_edit.html">{{info.TITLE}}</a></td>
+                            <td @click="go(info)">
+                                <a :href="'./back_news_edit.html?id='+info.INFO_ID">
+                                {{info.TITLE}}
+                            <!-- </a> -->
+                            </td>
                             <td>{{info.INFO_TYPE}}</td>
                             <td>{{info.situation}}</td>
                             <td>

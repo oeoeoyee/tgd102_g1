@@ -18,6 +18,8 @@ Vue.component('all', {
     },
 
     mounted(){
+        
+        
         const newsphp = "./php/news.php"; // 要從哪裡得到資料
         // 老師範例26
         fetch(newsphp)
