@@ -208,13 +208,11 @@
 .index_exhibition_item{
     width: size(590) !important;
     height: size(530) !important;
-    flex-shrink: 0;
     // margin-right: size(10);
     position: relative;
     @include mobile(){
         width: rwd(260) !important;
         height: rwd(280) !important;
-        // flex-shrink: 0;
         // margin-right: rwd(10);
         position: relative;
     }

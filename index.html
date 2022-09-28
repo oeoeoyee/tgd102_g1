@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
 </head>
 <body>
     <div class="wrapper">
@@ -17,7 +19,7 @@
             <!-- 特別展覽 -->
             <div class="index_event_top">
                 <div class="title">
-                    <h2>首頁｜特別展覽</h2>
+                    <h2><i class="fa-solid fa-house-chimney"></i>｜特別展覽</h2>
                     <p>追溯藝術家們於館內展出的歷史典藏</p>
                     <div></div>
                 </div>
@@ -89,7 +91,7 @@
             <!-- 常設展覽 -->
             <div class="index_exhibition_top">
                 <div class="title">
-                    <h2>首頁｜常設展覽</h2>
+                    <h2><i class="fa-solid fa-house-chimney"></i>｜常設展覽</h2>
                     <p>追溯藝術家們於館內展出的歷史典藏</p>
                     <div></div>
                 </div>
@@ -171,7 +173,7 @@
             <!-- 最新消息 -->
             <div class="index_news">
                 <div class="title">
-                    <h2>首頁｜最新消息</h2>
+                    <h2><i class="fa-solid fa-house-chimney"></i>｜最新消息</h2>
                     <p>追溯藝術家們於館內展出的歷史典藏</p>
                     <div></div>
                 </div>
@@ -180,54 +182,69 @@
                         <img src="./images/index_08.jpg" alt="">
                     </div>
                     <div class="index_news_line"></div>
-                    <ul class="index_news_list">
-                        <li>
-                            <a href="./news_01.html">
-                                <div class="infocard_s">
-                                    <h3>518博物館日 期間限定優惠
-                                        <span>&rarr;</span>
-                                    </h3>
-                                    <h5>新一季常設展覽多出十九世紀主題，......</h5>
-                                    <div></div>
-                                    <h5>活動訊息</h5>
-                                    <p>2022.05.13 -  2022.08.31</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./news_01.html">
-                                <div class="infocard_s">
-                                    <h3>新一季參觀須知及票價調整通知
-                                        <span>&rarr;</span>
-                                    </h3>
-                                    <h5>新一季常設展覽多出十九世紀主題，......</h5>
-                                    <div></div>
-                                    <h5>館方訊息</h5>
-                                    <p>2022.05.13 -  2022.08.31</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./news_01.html">
-                                <div class="infocard_s">
-                                    <h3>博物館振興券活動
-                                        <span>&rarr;</span>
-                                    </h3>
-                                    <h5>新一季常設展覽多出十九世紀主題，......</h5>
-                                    <div></div>
-                                    <h5>活動訊息</h5>
-                                    <p>2022.05.13 -  2022.08.31</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
+                    <div class="index_news_right">
+                        <ul class="index_news_list" id="index_news_list">
+                            <!-- <li>
+                                <a href="./news_01.html">
+                                    <div class="infocard_s">
+                                        <h3>518博物館日 期間限定優惠
+                                            <span>&rarr;</span>
+                                        </h3>
+                                        <h5>新一季常設展覽多出十九世紀主題，......</h5>
+                                        <div></div>
+                                        <h5>活動訊息</h5>
+                                        <p>2022.05.13 -  2022.08.31</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./news_01.html">
+                                    <div class="infocard_s">
+                                        <h3>新一季參觀須知及票價調整通知
+                                            <span>&rarr;</span>
+                                        </h3>
+                                        <h5>新一季常設展覽多出十九世紀主題，......</h5>
+                                        <div></div>
+                                        <h5>館方訊息</h5>
+                                        <p>2022.05.13 -  2022.08.31</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./news_01.html">
+                                    <div class="infocard_s">
+                                        <h3>博物館振興券活動
+                                            <span>&rarr;</span>
+                                        </h3>
+                                        <h5>新一季常設展覽多出十九世紀主題，......</h5>
+                                        <div></div>
+                                        <h5>活動訊息</h5>
+                                        <p>2022.05.13 -  2022.08.31</p>
+                                    </div>
+                                </a>
+                            </li> -->
+                            <li v-for="(item, index) in news">
+                                <a href="./news_01.html">
+                                    <div class="infocard_s">
+                                        <h3>{{item.TITLE}}
+                                            <span>&rarr;</span>
+                                        </h3>
+                                        <h5>{{checkText(item.CONTENT)}}...</h5>
+                                        <div></div>
+                                        <h5>{{item.INFO_TYPE}}</h5>
+                                        <p>{{item.DATE}}</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div>
                             <a href="./news.html">
                                 <button class="btn_xl">MORE NEWS
                                     <span>&rarr;</span>
                                 </button>
                             </a>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -237,7 +254,7 @@
             <!-- 關於我們 -->
             <div class="index_about">
                 <div class="title">
-                    <h2>首頁｜關於我們</h2>
+                    <h2><i class="fa-solid fa-house-chimney"></i>｜關於我們</h2>
                     <p>追溯藝術家們於館內展出的歷史典藏</p>
                     <div></div>
                 </div>
@@ -261,66 +278,6 @@
     @@include('./layout/goTop_component.html')
     <!-- goTop 組件 -->
 
-    <!-- GSAP JS -->
-    <script>
-    gsap.registerPlugin(ScrollTrigger);
-    
-    let container = document.querySelector(".index_event_content");
-
-    let mm = gsap.matchMedia();
-
-    mm.add("(min-width: 500px)", () => {
-        gsap.to(".index_event_content", {
-            x: -2000,
-            ease: "none",
-            scrollTrigger: {
-                trigger: ".index_event_content",
-                start: "top 200",
-                pin: true,
-                scrub: 1,
-                end: "bottom 300 ",
-                // end: () => "+=" + container.offsetWidth,
-            }
-        });
-    });
-    mm.add("(max-width: 499px)", () => {
-        gsap.to(".index_event_content", {
-            x: -1100,
-            ease: "none",
-            scrollTrigger: {
-                trigger: ".index_event_content",
-                start: "top 150",
-                pin: true,
-                scrub: true,
-                // end: "+=3000",
-                end: () => "+=" + container.offsetWidth,
-            }
-        });
-    });
-    </script>
-
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-        let swiper = new Swiper(".swiper-container", {
-            slidesPerView: "auto",
-            centeredSlides: true,
-            spaceBetween: 30,
-            pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-            },
-            autoplay: {
-            delay: 2000,
-            disableOnInteraction: false,
-            },
-            navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-            },
-        });
-    </script>
+    <script src="./js/index.js"></script>
 </body>
 </html>
