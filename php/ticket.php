@@ -12,14 +12,19 @@ $sql = "
     ";
 
 
+    // print_r($member);
+
+    // echo 'sxx'.is_bool($member["pod"]);
+    // echo 'sxx'.is_bool($member["tour"]);
+
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(1, $member["exhibition"]); 
 $stmt->bindValue(2, $member["name"]); 
 $stmt->bindValue(3, $member["phone"]); 
 $stmt->bindValue(4, $member["group"]); 
 $stmt->bindValue(5, $member["ticket"]); 
-$stmt->bindValue(6, $member["pod"]); 
-$stmt->bindValue(7, $member["tour"]); 
+$stmt->bindValue(6, $member["pod"] == 1 ? 1 : 0);
+$stmt->bindValue(7, $member["tour"] == 1 ? 1 : 0); 
 $stmt->bindValue(8, $member["date"]); 
 $stmt->bindValue(9, $member["pay"]); 
 $stmt->bindValue(10, $member["total"]); 

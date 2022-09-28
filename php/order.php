@@ -34,6 +34,6 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute();
 
 
-echo json_encode($stmt->fetchAll()[2]);
+echo json_encode($stmt->fetchAll()[3]);
 
 ?>

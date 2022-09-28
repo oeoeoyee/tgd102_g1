@@ -54,8 +54,9 @@
                         </li>
 
                         <!-- 代表人電話 -->
-                        <li>
-                            <input type="tel" placeholder="代表人電話" v-model="phone">
+                        <li class="phone">
+                            <input type="tel" placeholder="代表人電話" v-model="phone" id="phone">
+                            <div class="error"></div>
                         </li>
 
                         <!-- 請選擇人數 -->
@@ -92,7 +93,7 @@
                         <li class="login_ckbox_out ckbox_center">
                             <div class="login_ckbox">
                                 <label for="login_ckbox">
-                                    <input type="checkbox" id="login_ckbox" name="signin_sub" v-model="pod" :value="pods">
+                                    <input type="checkbox" id="login_ckbox" name="pod" v-model="pod" :value="pods">
                                     <span>免費索取語音導覽服務</span>
                                 </label>
                             </div>
@@ -101,7 +102,7 @@
                         <li class="login_ckbox_out ckbox_center login_ckbox2">
                             <div class="login_ckbox">
                                 <label for="login_ckbox2">
-                                    <input type="checkbox" id="login_ckbox2" name="signin_sub" v-model="tour" :value="tours">
+                                    <input type="checkbox" id="login_ckbox2" name="tour" v-model="tour" :value="tours">
                                     <span>加購專人導覽服務NTD$500(團體需最少10人以上)</span>
                                 </label>
                             </div>
