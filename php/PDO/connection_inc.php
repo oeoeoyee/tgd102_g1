@@ -1,7 +1,7 @@
 <?php
 //    學校開發環境
 // -----------------------------------------
-$URL = "mysql:host=192.168.0.190;dbname=REVERSE"; // mysql:host= [ SQL 的IP位置 ] ; dbname= [ DB 名稱 ] "
+$URL = "mysql:host=192.168.0.190;dbname=REVERSE"; // mysql:host= [ SQL 的 IP 位置 ] ; dbname= [ DB 名稱 ] "
 $USERNAME = "reverse"; // username
 $PASSWORD = "P@ssw0rd"; // password
 $pdo = new PDO($URL, $USERNAME, $PASSWORD);

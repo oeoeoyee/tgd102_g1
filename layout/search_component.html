@@ -1,0 +1,13 @@
+<input
+  type="text"
+  class="back_search"
+  id="keyWord" 
+  v-model="keyWord"
+  @keyup.13="enter_push"
+  placeholder="查詢關鍵字..."
+/>
+<!--
+ID            for Vue
+v-model       取值用
+@keyup.13     keyup 事件時如果是 Enter (13) 的話執行
+-->

@@ -24,11 +24,11 @@
                 <div class="back_table_title">
                     <h2>電子報清單</h2>
                     <div>
-                        <input type="text" class="back_search" id="keyWord" v-model="keyWord" @keyup.13="enter_push" placeholder="查詢關鍵字...">
+                        @@include('./layout/search_component.html')
                         <span class="icon_create"><a href="/back_newsletter_edit.html"><i class="fa-regular fa-square-plus"></i></a></span>
                     </div>
                 </div>
-                <table class="back_table back_table_p0" data-tbname="NEWSLETTER_LIST">
+                <table id="app_backTable" class="back_table back_table_p0" data-tbname="NEWSLETTER_LIST">
                     <thead>
                         <tr>
                             <th>電子報編號</th>
@@ -38,42 +38,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr v-for="info in tbArray">
+                            <td>{{info.ID}}</td>
+                            <td><a href="./back_newsletter_edit.html">{{info.SUBJECT}}</a></td>
+                            <td>{{info.MAIL_DAY}}</td>
+                            <td>{{info.STATE}}</td>
+                        </tr>
+                        <!-- <tr>
                             <td>1123455552</td>
                             <td><a href="./back_newsletter_edit.html">2022八月電子報</a></td>
                             <td>2022/08/24</td>
                             <td>草稿</td>
-                        </tr>
-                        <tr>
-                            <td>1123455552</td>
-                            <td><a href="#">2022八月電子報</a></td>
-                            <td>2022/08/24</td>
-                            <td>已發送</td>
-                        </tr>
-                        <tr>
-                            <td>1123455552</td>
-                            <td><a href="#">2022八月電子報</a></td>
-                            <td>2022/08/24</td>
-                            <td>已發送</td>
-                        </tr>
-                        <tr>
-                            <td>1123455552</td>
-                            <td><a href="#">2022八月電子報</a></td>
-                            <td>2022/08/24</td>
-                            <td>已發送</td>
-                        </tr>
-                        <tr>
-                            <td>1123455552</td>
-                            <td><a href="#">2022八月電子報</a></td>
-                            <td>2022/08/24</td>
-                            <td>已發送</td>
-                        </tr>
-                        <tr>
-                            <td>1123455552</td>
-                            <td><a href="#">2022八月電子報</a></td>
-                            <td>2022/08/24</td>
-                            <td>已發送</td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
                 <!-- <ul class="news_page">
@@ -91,6 +67,5 @@
         <!-- footer -->
         <!-- @@include('./layout/footer.html') -->
     </div>
-    <script src="./js/back_Search.js"></script>
 </body>
 </html>

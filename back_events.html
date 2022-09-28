@@ -25,12 +25,12 @@
                     <h2>特別展覽</h2>
                     <div>
                         <button class="btn_s_default draft_button"><a href="./back_events_draft.html">草稿</a></button>
-                        <input type="text" class="back_search" id="keyWord" v-model="keyWord" @keyup.13="enter_push" placeholder="查詢關鍵字...">
+                        @@include('./layout/search_component.html')
                         <span class="icon_create"><a href="./back_events_edit.html"><i class="fa-regular fa-square-plus"></i></a></span>
 
                     </div>
                 </div>
-                <table class="back_table back_table_p0" data-tbname="EVENTS">
+                <table id="app_backTable" class="back_table back_table_p0" data-tbname="EVENTS">
                     <thead>
                         <tr>
                             <th>展覽編號</th>
@@ -43,6 +43,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr v-for="info in tbArray">
+                            <td>{{info.ID}}</td>
+                            <td>{{info.start_date}}</td>
+                            <td>{{info.end_date}}</td>
+                            <td><a href="./back_events_edit.html">{{info.name}}</a></td>
+                            <td>預告中</td>
+                            <td>{{info.room}}</td>
+                            <td>
+                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
+                                <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
+                            </td>
+                        </tr>
+                        <!-- 
                         <tr>
                             <td>2022/08/24</td>
                             <td>2022/08/24</td>
@@ -55,78 +68,7 @@
                                 <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td><a href="./back_events_edit.html">亞洲的地獄與靈魂</a></td>
-                            <td>預告中</td>
-                            <td>A ROOM</td>
-                            <td>
-                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td><a href="./back_events_edit.html">亞洲的地獄與靈魂</a></td>
-                            <td>預告中</td>
-                            <td>A ROOM</td>
-                            <td>
-                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td><a href="./back_events_edit.html">亞洲的地獄與靈魂</a></td>
-                            <td>預告中</td>
-                            <td>A ROOM</td>
-                            <td>
-                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td><a href="./back_events_edit.html">亞洲的地獄與靈魂</a></td>
-                            <td>預告中</td>
-                            <td>A ROOM</td>
-                            <td>
-                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td><a href="./back_events_edit.html">亞洲的地獄與靈魂</a></td>
-                            <td>預告中</td>
-                            <td>A ROOM</td>
-                            <td>
-                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td><a href="./back_events_edit.html">亞洲的地獄與靈魂</a></td>
-                            <td>預告中</td>
-                            <td>A ROOM</td>
-                            <td>
-                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
-                            </td>
-                        </tr>
+                         -->
                     </tbody>
                 </table>
                 <!-- <ul class="news_page">
@@ -144,6 +86,11 @@
         <!-- footer -->
         <!-- @@include('./layout/footer.html') -->
     </div>
-    <script src="./js/back_Search.js"></script>
+
+    <script>
+        
+    // Vue 整合至 back_Search.js ( 在 layout/head.html )
+
+    </script>
 </body>
 </html>

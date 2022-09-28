@@ -25,11 +25,11 @@
                     <h2>最新消息</h2>
                     <div>
                         <button class="btn_s_default draft_button"><a href="./back_news_draft.html">草稿</a></button>
-                        <input type="text" class="back_search" id="keyWord" v-model="keyWord" @keyup.13="enter_push" placeholder="查詢關鍵字...">
+                        @@include('./layout/search_component.html')
                         <span class="icon_create"><a href="./back_news_edit.html"><i class="fa-regular fa-square-plus"></i></a></span>
                     </div>
                 </div>
-                <table id="app_backnews" class="back_table back_table_p0" data-tbname="INFORMATION">
+                <table id="app_backTable" class="back_table back_table_p0" data-tbname="INFORMATION">
                     <thead>
                         <tr>
                             <th data-colname="DATE">公告日期</th>
@@ -40,7 +40,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="info in newsArray">
+                        <tr v-for="info in tbArray">
                             <td>{{info.DATE}}</td>
                             <td><a href="./back_news_edit.html">{{info.TITLE}}</a></td>
                             <td>{{info.INFO_TYPE}}</td>
@@ -166,33 +166,8 @@
 
     <script>
         
-        let vm_backNews = new Vue({
-            el: '#app_backnews', 
-            data: {
-                newsArray: [],
-            }, 
-            methods:{
-                news_del(newsID){
-                    // 相當於傳送這段網址到php>>php執行刪除的sql公式
-                    fetch(`./php/back_news_del.php?id=${newsID}`);
-                    const delConfirm = confirm("確定下架這筆資料?");
-                    if(delConfirm){
-                        window.location.reload();
-                    }else{};
-                }
-            },
-            mounted: function(){
-                const api = "./php/news.php"; // 要從哪裡得到資料
-
-                // 老師範例26
-                fetch(api)
-                    .then(res => res.json())
-                    .then(res => this.newsArray = res);
-            }
-            
-        });
+    // Vue 整合至 back_Search.js ( 在 layout/head.html )
 
     </script>
-    <script src="./js/back_Search.js"></script>
 </body>
 </html>

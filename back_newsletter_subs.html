@@ -23,9 +23,9 @@
             <div class="back_main back_flexgrow">
                 <div class="back_table_title">
                     <h2>電子報訂閱名單</h2>
-                    <input type="text" class="back_search" id="keyWord" v-model="keyWord" @keyup.13="enter_push" placeholder="查詢關鍵字...">
+                    @@include('./layout/search_component.html')
                 </div>
-                <table class="back_table" data-tbname="SUB_LIST">
+                <table id="app_backTable" class="back_table" data-tbname="SUB_LIST">
                     <thead>
                         <tr>
                             <th>訂閱者電子信箱</th>
@@ -35,48 +35,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr v-for="info in tbArray">
+                            <td>{{info.EMAIL}}</td>
+                            <td><a href="./back_member_detail.html">{{info.MEMBER_ID}}</a></td>
+                            <td>{{info.NAME}}</td>
+                            <td>{{info.SUVSCRIPTION_DAY}}</td>
+                        </tr> 
+                        <!-- <tr>
                             <td>absssc@gmail.com</td>
                             <td><a href="./back_member_detail.html">M0074683</a></td>
                             <td>山富國際旅行社</td>
                             <td>2020/07/22</td>
-                        </tr>
-                        <tr>
-                            <td>absssc@gmail.com</td>
-                            <td><a href="./back_member_detail.html">M0074683</a></td>
-                            <td>山富國際旅行社</td>
-                            <td>2020/07/22</td>
-                        </tr>
-                        <tr>
-                            <td>absssc@gmail.com</td>
-                            <td></td>
-                            <td></td>
-                            <td>2020/07/22</td>
-                        </tr>
-                        <tr>
-                            <td>absssc@gmail.com</td>
-                            <td><a href="./back_member_detail.html">M0074683</a></td>
-                            <td>山富國際旅行社</td>
-                            <td>2020/07/22</td>
-                        </tr>
-                        <tr>
-                            <td>absssc@gmail.com</td>
-                            <td><a href="./back_member_detail.html">M0074683</a></td>
-                            <td>山富國際旅行社</td>
-                            <td>2020/07/22</td>
-                        </tr>
-                        <tr>
-                            <td>absssc@gmail.com</td>
-                            <td><a href="./back_member_detail.html">M0074683</a></td>
-                            <td>山富國際旅行社</td>
-                            <td>2020/07/22</td>
-                        </tr>
-                        <tr>
-                            <td>absssc@gmail.com</td>
-                            <td></td>
-                            <td></td>
-                            <td>2020/07/22</td>
-                        </tr>
+                        </tr> -->
+                        
                     </tbody>
                 </table>
                 <!-- <ul class="news_page">
@@ -94,6 +65,5 @@
         <!-- footer -->
         <!-- @@include('./layout/footer.html') -->
     </div>
-    <script src="./js/back_Search.js"></script>
 </body>
 </html>
