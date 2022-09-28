@@ -4,7 +4,8 @@
     $delID = $_GET['id'];
     
     // $sql = " SELECT INFO_ID, INFO_TYPE, TITLE, CONTENT, IMAGE, DATE FROM INFORMATION ";
-    $sql = " DELETE FROM INFORMATION WHERE INFO_ID = :id ";
+    // $sql = " DELETE FROM INFORMATION WHERE INFO_ID = :id ";
+    $sql = " UPDATE INFORMATION SET `SITUATION` = '已下架' WHERE INFO_ID = :id ";
     
     // $id = json_to_obj()["INFO_ID"];
     $stmt = $pdo->prepare($sql);

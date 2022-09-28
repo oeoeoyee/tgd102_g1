@@ -193,6 +193,7 @@
         display: inline-block;
         width: 5%;
         height: size(72);
+        cursor: pointer;
         // border-right: size(1) solid $line_light;
         @include p();
         text-align: center;
@@ -255,7 +256,7 @@
     }
     // 最新消息圖片+內容
     .news01_main_content{
-        width: 90%;
+        width: 88%;
         padding-bottom: size(32);
         border-bottom: size(1) solid $line_light;
         border-left: size(1) solid $line_light;
@@ -284,7 +285,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 10%;
+        width: 12%;
         padding-top: size(40);
         border: size(1) solid $line_light;
         a{
@@ -292,11 +293,17 @@
             width: size(30);
             height: size(30);
             margin-top: size(40);
+            text-decoration: none;
+            color: $hf_black;
         }
         i{
             display: block;
             text-align: center;
             font-size: size(40);
+        }
+        .line-it-button, .fb-share-button, .twitter-share-button{
+            margin-top: size(40);
+            // width: size(30);
         }
         @include mobile(){
             display: block;

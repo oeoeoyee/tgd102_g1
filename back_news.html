@@ -44,7 +44,7 @@
                             <td>{{info.DATE}}</td>
                             <td><a href="./back_news_edit.html">{{info.TITLE}}</a></td>
                             <td>{{info.INFO_TYPE}}</td>
-                            <td>已置頂</td>
+                            <td>{{info.situation}}</td>
                             <td>
                                 <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
                                 <span class="icon_del" @click="news_del(info.INFO_ID)"><i class="fa-regular fa-trash-can"></i></span>
@@ -175,7 +175,7 @@
                 news_del(newsID){
                     // 相當於傳送這段網址到php>>php執行刪除的sql公式
                     fetch(`./php/back_news_del.php?id=${newsID}`);
-                    const delConfirm = confirm("確定永久刪除這筆資料?");
+                    const delConfirm = confirm("確定下架這筆資料?");
                     if(delConfirm){
                         window.location.reload();
                     }else{};

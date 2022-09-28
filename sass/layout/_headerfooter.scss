@@ -114,7 +114,7 @@ header{
     transition: all 1s;
     @include mobile(){
         justify-content: space-between;
-        // JS用 rwd時 收放關於我們~會員中心的ul
+        // rwd - 漢堡線收放JS TOGGLE用 
         .header_out{
             transform: translatex(100%);
             transition: all 2s;
@@ -140,7 +140,7 @@ header{
             }
         }
     }
-    // 兩個導覽列
+    // PC + RWD - 導覽列
     nav{
         a{
             display: inline-block;
@@ -148,9 +148,9 @@ header{
             color: $white;
         }
     }
-    // 大導覽列(網頁版時的主導覽列)
+    // PC - 主導覽列
     nav:first-of-type{
-        // 大導覽列_第一層
+        // PC - 主導覽列_第一層
         ul{
             display: flex;
             align-items: center;
@@ -173,10 +173,13 @@ header{
                         display: block;
                         font-size: size(30);
                         margin-top: 50%;
+                        // 已登入狀態
+                        // color: $white;
+                        // 未登入狀態
                         color: $line_mid;
                     }
                 }
-                // 大導覽列_裝飾用方框
+                // PC - 主導覽列_裝飾用框線
                 &:after{
                     content: "";
                     background-color: $white;
@@ -187,11 +190,11 @@ header{
                     bottom: 0;
                     left: size(8);
                 }
-                // 大導覽列_第二層
+                // PC - 主導覽列_第二層
                 ul{
                     display: none;
                 }
-                // 大導覽列_第二層hover設定
+                // PC - 主導覽列_第二層_hover
                 &:hover{
                     ul{
                         display: block;
@@ -214,13 +217,22 @@ header{
                     &:after{
                         opacity: 1;
                     }
+                    // PC - 主導覽列_第二層_hover_判斷登入
+                    // 已登入狀態
+                    // .header_login_false{
+                    //     display: none;
+                    // }
+                    // 未登入狀態
+                    .header_login_true{
+                        display: none;
+                    }
                 }
             }
         }
-        // 大導覽列_rwd(剛開始會是收起來的)
+        // PC - 主導覽列_rwd(剛開始會是收起來的)
         @include mobile(){
             width: 100%;
-            // 大導覽列_rwd_第一層
+            // PC - 主導覽列_rwd_第一層
             ul{
                 // 為了在rwd收合時不要擋到最上面(但好像沒什麼用)
                 z-index: 9;
@@ -248,13 +260,18 @@ header{
                             display: inline-block;
                             margin-top: auto;
                             line-height: rwd(56);
+                            // 已登入狀態
+                            color: $white;
+                            // 未登入狀態
+                            // color: $line_mid;
                         }
                     }
                     &:after{
                         display: none;
                     }
+                    // PC - 主導覽列_rwd_第一層_hover
                     &:nth-last-of-type(n):hover{
-                        // 大導覽列_rwd_第二層
+                        // PC - 主導覽列_rwd_第二層
                         ul{
                             display: block;
                             position: static;
@@ -267,17 +284,26 @@ header{
                                 border: none;
                             }
                         }
+                        // PC - 主導覽列_rwd_第二層_判斷登入
+                        // 已登入狀態
+                        .header_login_false{
+                            display: none;
+                        }
+                        // 未登入狀態
+                        // .header_login_true{
+                        //     display: none;
+                        // }
                     }
                 }
             }
         }
     }
-    // 小導覽列(rwd時的主導覽列)
+    // RWD - 主導覽列
     nav:last-of-type{
         display: none;
         @include mobile(){
             display: block;
-            // 小導覽列(rwd時的主導覽列)_第一層
+            // RWD - 主導覽列_第一層
             ul{
                 display: flex;
                 height: 100%;
@@ -292,6 +318,10 @@ header{
                     i{
                         font-size: rwd(30);
                         width: rwd(36);
+                        // 已登入狀態
+                        color: $white;
+                        // 未登入狀態
+                        // color: $line_mid;
                     }
                     &:last-child a{
                         font-size: rwd(36);
