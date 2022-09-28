@@ -2,25 +2,52 @@
 const url = "./php/back_All_Search.php?keywords=";
 const keyword_input = document.querySelector(".back_search"); // 綁定搜尋欄位的 input
 
-// 綁定 table 的自訂屬性 取得 tbName & colName # 需設定自訂屬性 "data-tbName"
+// 取 table 的自訂屬性的值
 const tbName = document.querySelector("table").dataset.tbname;
 
-// 取出欄位自訂屬性 (暫時無作用)
-let DBcolumn = "";
-const columnAll = document.querySelectorAll("th").forEach((e) => {
-  // 如果有此自訂屬性就取值
-  if (e.dataset.colname) {
-    DBcolumn += e.dataset.colname + ", ";
-  }
+// 此 Vue ID 綁在 app_backTable 的欄位
+let table_vue = new Vue({
+  el: "#app_backTable",
+  data: {
+    tbArray: [],
+  },
+  methods: {
+    news_del(newsID) {
+      // 相當於傳送這段網址到php>>php執行刪除的sql公式
+      fetch(`./php/back_news_del.php?id=${newsID}`);
+      const delConfirm = confirm("確定永久刪除這筆資料?");
+      if (delConfirm) {
+        window.location.reload();
+      } else {
+      }
+    },
+  },
+  mounted: function () {
+    const api = "./php/back_All_Search.php"; // 要從哪裡得到資料
+
+    fetch(api, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        tbName,
+      }),
+    })
+      .then((resp) => resp.json())
+      .then((resp) => (table_vue.tbArray = resp));
+  },
 });
 
-const key_resp = new Vue({
+
+// 此 Vue 是綁在搜尋欄位上
+new Vue({
   el: "#keyWord",
   data: {
     keyWord: "",
-    searchArray: [],
   },
   methods: {
+    // 搜尋欄位綁定 enter 鍵，按下後執行
     enter_push() {
       if (true) {
         fetch(`${url}${keyWord.value}`, {
@@ -30,69 +57,15 @@ const key_resp = new Vue({
           },
           body: JSON.stringify({
             tbName,
-            DBcolumn,
+            // DBcolumn, // 暫時用不到
           }),
         })
           .then((resp) => resp.json())
-          .then((resp) => (this.searchArray = resp));
+          // 將回應直接放近另外一個 Vue 的陣列中
+          // 個網頁獨立的 Vue 名稱如果一樣的話 就可以傳給那一個網頁的 vue!!!
+          // ( back_news 的 Vue -> table_vue )
+          .then((resp) => (table_vue.tbArray = resp));
       }
-      console.log(key_resp.$data.searchArray);
     },
   },
 });
-
-// 取消 除非改寫法
-// 綁定 Enter 送出 改用 Vue 送出請求 需套 Vue
-// function enter_push(e) {
-//   if (e.which == 13) {
-//     fetch(`${url}${keyword_input.value}`, {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({
-//         tbName,
-//         DBcolumn,
-//       }),
-//     })
-//       // 取得資料.json() 轉換資料結構 (?
-//       .then((resp) => resp.json())
-//       // 資料放進 list
-//       .then((table) => {
-//         list.length = 0;
-//         list.push({ ...table });
-//         render(list); // 渲染
-//       });
-//   }
-// }
-
-// 渲染到畫面
-// const list = []; // 空陣列
-// function render(list) {
-//   const tbody = document.querySelector("tbody"); // 綁定 tbody
-
-//   tbody.innerHTML = ""; // 執行時先清空
-
-//   // 針對物件使用 forEach
-//   Object.values(list[0]).forEach((e) => {
-//     const tr = document.createElement("tr"); // 產生 Tr
-
-//     // 需增加動態產生 TD
-//     tr.innerHTML = `
-//     <tr v-for="info in newsArray">
-//     <td>${e.DATE}</td>
-//     <td><a href="./back_news_edit.html">${e.TITLE}</a></td>
-//     <td>${e.INFO_TYPE}</td>
-//     <td>已置頂</td>
-//     <td>
-//         <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-//         <span class="icon_del" @click="news_del(${e.INFO_ID})"><i class="fa-regular fa-trash-can"></i></span>
-//     </td>
-// </tr>
-//    `;
-
-//     const td = document.createElement("td"); // 產生 Td
-
-//     tbody.append(tr); // tr 放進 tbody
-//   });
-// }

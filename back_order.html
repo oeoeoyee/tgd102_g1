@@ -23,9 +23,9 @@
             <div class="back_main back_flexgrow">
                 <div class="back_table_title">
                     <h2>訂單管理</h2>
-                    <input type="text" class="back_search" id="keyWord" v-model="keyWord" @keyup.13="enter_push" placeholder="查詢關鍵字...">
+                    @@include('./layout/search_component.html')
                 </div>
-                <table class="back_table" id="app_backorder" data-tbname="ORDER">
+                <table id="app_backTable" class="back_table" data-tbname="ORDER">
                     <thead>
                         <tr>
                             <th>訂單編號</th>
@@ -39,7 +39,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="order in ordersArray">
+                        <tr v-for="order in tbArray">
                             <td>{{order.DELEGATE_NAME}}</td>
                             <td>{{order.ORDER_DAY}}</td>
                             <td>{{order.EXHIBITION_NAME}}</td>
@@ -59,26 +59,7 @@
                             <td>王曉明</td>
                             <td>付款中</td>
                         </tr>
-                        <tr>
-                            <td><a href="./back_order_group.html">P0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>亞洲的地獄與幽魂</td>
-                            <td>2022/08/24</td>
-                            <td>$1000</td>
-                            <td>超商</td>
-                            <td>山富國際旅行社</td>
-                            <td>付款中</td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">P0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>亞洲的地獄與幽魂</td>
-                            <td>2022/08/24</td>
-                            <td>$1000</td>
-                            <td>超商</td>
-                            <td>山富國際旅行社</td>
-                            <td>付款中</td>
-                        </tr> -->
+                    -->
                     </tbody>
                 </table>
                 <!-- <ul class="news_page">
@@ -95,28 +76,13 @@
 
         <!-- footer -->
         <!-- @@include('./layout/footer.html') -->
+        <!-- vm_backNews.newsArray -->
     </div>
 
     <script>
-        let back_order = new Vue({
-            el: '#app_backorder', 
-            data: {
-                ordersArray: [],
-            }, 
-            
-            mounted: function(){
-                const api = "./php/back_order.php"; // 要從哪裡得到資料
 
-                // 老師範例26
-                fetch(api)
-                    .then(res => res.json())
-                    .then(res => this.ordersArray = res);
-            }
-            
-        })
-        // vm_backNews.$mount('#app_backnews');
+    // Vue 整合至 back_Search.js ( 在 layout/head.html )
 
     </script>
-    <script src="./js/back_Search.js"></script>
 </body>
 </html>

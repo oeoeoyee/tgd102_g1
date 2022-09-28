@@ -23,9 +23,9 @@
             <div class="back_main back_flexgrow">
                 <div class="back_table_title">
                     <h2>會員管理</h2>
-                    <input type="text" class="back_search" id="keyWord" v-model="keyWord" @keyup.13="enter_push" placeholder="查詢關鍵字...">
+                    @@include('./layout/search_component.html')
                 </div>
-                <table class="back_table" id="app_backmember" data-tbname="MEMBER">
+                <table id="app_backTable" class="back_table" data-tbname="MEMBER">
                     <thead>
                         <tr>
                             <th>會員編號</th>
@@ -37,7 +37,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for ="members in membersArray">
+                        <tr v-for ="members in tbArray">
                             <td>{{members.MEMBER_ID}}</td>
                             <td>{{members.REGISTER_DAY}}</td>
                             <td>{{members.LEVEL}}</td>
@@ -45,22 +45,7 @@
                             <td>{{members.PHONE}}</td>
                             <td>{{members.EMAIL}}</td>
                         </tr>
-                        <!-- <tr>
-                            <td><a href="./back_member_detail.html">M0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>PRIME</td>
-                            <td>林小名</td>
-                            <td>0987624358</td>
-                            <td>abfgy6354@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./back_member_detail.html">M0074683</a></td>
-                            <td>2022/08/25</td>
-                            <td>PRIME</td>
-                            <td>林小名</td>
-                            <td>0987624358</td>
-                            <td>abfgy6354@gmail.com</td>
-                        </tr>
+                        <!-- 
                         <tr>
                             <td><a href="./back_member_detail.html">M0074683</a></td>
                             <td>2022/08/24</td>
@@ -69,78 +54,7 @@
                             <td>0987624358</td>
                             <td>abfgy6354@gmail.com</td>
                         </tr>
-                        <tr>
-                            <td><a href="./back_member_detail.html">M0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>PRIME</td>
-                            <td>林小名</td>
-                            <td>0987624358</td>
-                            <td>abfgy6354@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./back_member_detail.html">M0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>PRIME</td>
-                            <td>林小名</td>
-                            <td>0987624358</td>
-                            <td>abfgy6354@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./back_member_detail.html">M0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>PRIME</td>
-                            <td>林小名</td>
-                            <td>0987624358</td>
-                            <td>abfgy6354@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./back_member_detail.html">M0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>PRIME</td>
-                            <td>林小名</td>
-                            <td>0987624358</td>
-                            <td>abfgy6354@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./back_member_detail.html">M0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>PRIME</td>
-                            <td>林小名</td>
-                            <td>0987624358</td>
-                            <td>abfgy6354@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./back_member_detail.html">M0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>PRIME</td>
-                            <td>林小名</td>
-                            <td>0987624358</td>
-                            <td>abfgy6354@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./back_member_detail.html">M0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>PRIME</td>
-                            <td>林小名</td>
-                            <td>0987624358</td>
-                            <td>abfgy6354@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./back_member_detail.html">M0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>PRIME</td>
-                            <td>林小名</td>
-                            <td>0987624358</td>
-                            <td>abfgy6354@gmail.com</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./back_member_detail.html">M0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>PRIME</td>
-                            <td>林小名</td>
-                            <td>0987624358</td>
-                            <td>abfgy6354@gmail.com</td>
-                        </tr> -->
+                        -->
                     </tbody>
                 </table>
                 <!-- <ul class="news_page">
@@ -160,25 +74,9 @@
     </div>
 
     <script>
-        let back_member = new Vue({
-            el: '#app_backmember', 
-            data: {
-                membersArray: [],
-            }, 
-            
-            mounted: function(){
-                const api = "./php/get_member_info.php"; // 要從哪裡得到資料
-
-                // 老師範例26
-                fetch(api)
-                    .then(res => res.json())
-                    .then(res => this.membersArray = res);
-            }
-            
-        })
-        // vm_backNews.$mount('#app_backnews');
+       
+    // Vue 整合至 back_Search.js ( 在 layout/head.html )
 
     </script>
-    <script src="./js/back_Search.js"></script>
 </body>
 </html>

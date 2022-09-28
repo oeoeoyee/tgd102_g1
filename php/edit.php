@@ -1,4 +1,3 @@
-<!-- 會員資料編輯 待改 -->
 <?php
 include("./PDO/connection_inc.php");
 $member = json_decode(file_get_contents("php://input"), true);
@@ -13,13 +12,12 @@ $member = json_decode(file_get_contents("php://input"), true);
 //     ";
 
 // 測試
-// $sql = "
-//       update MEMBER
-//       set PASSWORD = 'newpassword',
-//           NAME = 'newname'
-//       where
-//           NAME = 'test' limit 1
-//   ";
+$sql = "
+update MEMBER
+      set NAME = 'abddc'
+      where
+          NAME = 'abc' limit 1;
+  ";
 // -----------------------------------------------------
 
 $stmt = $pdo->prepare($sql);
