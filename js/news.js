@@ -8,6 +8,8 @@ Vue.component('all', {
     },
 
     mounted(){
+        
+        
         const newsphp = "./php/news.php"; // 要從哪裡得到資料
 
         // 老師範例26
@@ -106,6 +108,8 @@ Vue.component('all', {
     // }
 
     methods:{
+       
+        
     // 取得陣列，讓所有id成一陣列
         // toNews01(newsID){
             // var getUrlString = location.href;

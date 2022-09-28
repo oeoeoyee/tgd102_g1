@@ -9,15 +9,14 @@
     // echo ($news_id);
 
     // -----------------------------------------------------
-    $sql = " SELECT INFO_ID, INFO_TYPE, TITLE, CONTENT, IMAGE, DATE, TOP, SITUATION
-             FROM INFORMATION 
-             WHERE INFO_ID = :id or INFO_ID = (:id+1) or INFO_ID = (:id-1)";
+        $sql = " SELECT INFO_ID, INFO_TYPE, TITLE, CONTENT, IMAGE, DATE, TOP, SITUATION
+                FROM INFORMATION 
+                WHERE INFO_ID = :id ";
     $statement = $pdo->prepare($sql);
     $statement->bindValue(":id", $news_id);
     $statement->execute();
 
     // fetchAll() 取回執行結果的方法
     $news = $statement->fetchAll();
-
     echo json_encode($news);
 ?>

@@ -42,7 +42,11 @@
                     <tbody>
                         <tr v-for="info in newsArray">
                             <td>{{info.DATE}}</td>
-                            <td><a href="./back_news_edit.html">{{info.TITLE}}</a></td>
+                            <td @click="go(info)">
+                                <a :href="'./back_news_edit.html?id='+info.INFO_ID">
+                                {{info.TITLE}}
+                            <!-- </a> -->
+                            </td>
                             <td>{{info.INFO_TYPE}}</td>
                             <td>已置頂</td>
                             <td>
@@ -179,11 +183,16 @@
                     if(delConfirm){
                         window.location.reload();
                     }else{};
+                },
+                go(e){
+                    console.log(e.INFO_ID);
+                    // console.log(e.target.info.id);
+                    
                 }
+
             },
             mounted: function(){
                 const api = "./php/news.php"; // 要從哪裡得到資料
-
                 // 老師範例26
                 fetch(api)
                     .then(res => res.json())
