@@ -20,41 +20,39 @@ new Vue({
 
         // 展覽名稱select
         exhibitions: ['請選擇展覽', '普通常設展', '林布蘭·哈爾曼松', '奇怪殭屍展', '歷代皇帝展', '琺瑯瓷器展'],
-        exhibitionChoose: '',
 
         // 展覽日期input
-        date: '',
+        date: new Date().toISOString().slice(0,10),
 
         // 團體票人數
         groups: ['請選擇', 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-        groupCount: 0,
 
         // 成人票人數
         adults: ['請選擇', 1, 2, 3, 4, 5, 6, 7, 8, 9],
-        adultCount: 0,
 
         // 優待票人數
         services: ['請選擇', 1, 2, 3, 4, 5, 6, 7, 8, 9],
-        serviceCount: 0,
 
         // 兒童票人數
         childs: ['請選擇', 1, 2, 3, 4, 5, 6, 7, 8, 9],
+
+        exhibitionChoose: '',
+        groupCount: 0,
+        adultCount: 0,
+        serviceCount: 0,
         childCount: 0,
 
         // 專人導覽
         tour: false,
-
         // 團體語音導覽
         pod: false,
-
         // 名字
         name: '',
-
         // 電話
         phone: '',
-
         // 付款方式
-        pay: '',
+        pay: '信用卡',
+
     },
     methods:{  //函數 "大部分" 放這裡
         
@@ -79,6 +77,11 @@ new Vue({
             // 日期沒選
             if(this.date === ''){
                 alert('日期沒選')
+                return false
+            }
+
+            if(this.pod && this.tour == true){
+                alert('語音導覽和專人導覽只能選一個')
                 return false
             }
 
@@ -112,15 +115,10 @@ new Vue({
                     ticket: this.ticket,
                     pod: this.pod,
                     tour: this.tour,
-                    
                     pay: this.pay,
                     total: this.total,
-                    
                 })
             })
-
-
-            
 
         },
 
@@ -209,7 +207,26 @@ new Vue({
         },
     },
     mounted() {
+
+        // 姓名不為空
+        $("#name").keyup(function () {
+            if ($(this).val() == "") {
+                $(".name .error").html("姓名不能空白");
+            } else $(".name .error").html("");
+        });
         
+        // 手機驗證
+        $(function(){
+            $('#phone').blur(function(){
+                let phone = $(this).val();
+                let reg = /^09[0-9]{8}$/;
+                if(reg.test(phone)){
+                    $('.phone .error').html('');
+                }else{
+                    $('.phone .error').html('請輸入正確的電話號碼');
+                }
+            });
+        });
     },
     computed: {  // 函數也可以放這裡但是放在這裡的函數 "不能傳參數，一定要有傳回值(return)"
         
@@ -340,40 +357,12 @@ new Vue({
 
     // 送出驗證
     $(".signin_out").submit(function (e) {
-        let error_msg = "";
+        
 
         // 停止預設行為
         e.preventDefault();
 
-        // 姓名不為空
-        if ($("#name").val() == "") {
-            error_msg = error_msg + "姓名、";
-        }
-        // if (!($("#name").val())) {
-        //     error_msg = error_msg + "姓名、";
-        // }
-
-        // 信箱 反轉false送出錯誤警告
-        if (!($("#email").val())) {
-            error_msg = error_msg + "Email錯誤、";
-        }
-
-        // 手機 反轉false送出錯誤警告
-        if (!($("#phone").val())) {
-            error_msg = error_msg + "電話錯誤、";
-        }
-
-        // 密碼 反轉false送出錯誤警告
-        if (!($("#pwd").val())) {
-            error_msg = error_msg + "密碼錯誤";
-        }
-
-        // 無誤後送出
-        if (error_msg == "") {
-            alert("資料成功送出");
-        } else {
-            $("#error").html(error_msg + "，請再次確認");
-        }
+        
     });
 
 // ========登入驗證=========

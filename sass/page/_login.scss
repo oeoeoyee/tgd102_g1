@@ -1226,3 +1226,100 @@
         }
     }
 }
+
+// =================payment.html===============================
+
+.payment_title {
+    // width: size(500);
+    margin: 0 auto;
+    padding: size(35) 0;
+    // border-top: 1px solid #aaa;
+    // border-bottom: 1px solid #aaa;
+    padding: size(100) 0 size(40);
+    text-align: center;
+    @include mobile(){
+        padding: rwd(100) 0 rwd(40);
+    }
+    
+    span{
+        display: block;
+        margin: 0 0 size(15);
+        // font-size: 30px;
+        @include h2();
+    }
+    p{
+        @include h5();
+    }
+}
+
+[placeholder]::-webkit-input-placeholder { color: rgba(0,0,0,.3); }
+[placeholder]:hover::-webkit-input-placeholder { color: rgba(0,0,0,.15); }
+[placeholder]:focus::-webkit-input-placeholder { color: transparent; }
+
+[placeholder]::-moz-placeholder { color: rgba(0,0,0,.3); }
+[placeholder]:hover::-moz-placeholder { color: rgba(0,0,0,.15); }
+[placeholder]:focus::-moz-placeholder { color: transparent; }
+
+[placeholder]:-ms-input-placeholder { color: rgba(0,0,0,.3); }
+[placeholder]:hover:-ms-input-placeholder { color: rgba(0,0,0,.15); }
+[placeholder]:focus:-ms-input-placeholder { color: transparent; }
+
+.credit{
+
+    @include mobile(){
+        width: auto;
+        padding: 0 rwd(50);
+    }
+
+    @include input_out();
+
+    li{
+        margin-bottom: size(32);
+
+        @include mobile(){
+            display: flex;
+            flex-direction: column;
+            margin-bottom: rwd(20);
+        }
+
+        label{
+            @include h4();
+            font-weight: normal;
+            @include mobile(){
+                font-size: rwd(16);
+            }
+        }
+
+        input,select{
+            margin-top: size(10);
+            @include input();
+
+            @include mobile(){
+                width: 100%;
+                height: rwd(40);
+                border: rwd(2) solid $black;
+                font-weight: lighter;
+                padding-left: rwd(10);
+            }
+        }
+    }
+
+    button{
+        // display: block;
+        margin: 0 auto;
+    }
+}
+
+input.invalid {
+    border: 1px solid red;
+}
+
+.validation.failed:after {
+    color: red;
+    content: 'Validation failed';
+}
+
+.validation.passed:after {
+    color: green;
+    content: 'Validation passed';
+}
