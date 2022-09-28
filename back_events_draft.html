@@ -24,12 +24,12 @@
                 <div class="back_table_title">
                     <h2>特別展覽草稿</h2>
                     <div>
-                        <input type="text" class="back_search" name="" id="" placeholder="查詢關鍵字...">
+                        @@include('./layout/search_component.html')
                         <span class="icon_create"><a href="./back_events_edit.html"><i class="fa-regular fa-square-plus"></i></a></span>
                         <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
                     </div>
                 </div>
-                <table class="back_table back_table_p0 back_table_ckbox">
+                <table id="app_backTable" class="back_table back_table_p0 back_table_ckbox" data-tbname="EVENTS">
                     <thead>
                         <tr>
                             <th>
@@ -45,7 +45,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr v-for="info in tbArray">
+                            <td>
+                                <input type="checkbox" name="" id="">
+                            </td>
+                            <td>修正</td>
+                            <td>{{info.start_date}}</td>
+                            <td>{{info.end_date}}</td>
+                            <td><a :href="'./back_events_edit.html?id='+info.INFO_ID"></a>{{info.name}}</a></td>
+                            <td>未來展望</td>
+                            <td>{{info.room}}</td>
+                            <td>
+                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
+                                <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
+                            </td>
+                        </tr>
+                        <!-- <tr>
                             <td>
                                 <input type="checkbox" name="" id="">
                             </td>
@@ -59,82 +74,7 @@
                                 <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
                                 <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="" id="">
-                            </td>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td><a href="./back_events_edit.html">亞洲的地獄與靈魂</a></td>
-                            <td>待上架</td>
-                            <td>A ROOM</td>
-                            <td>
-                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="" id="">
-                            </td>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td><a href="./back_events_edit.html">亞洲的地獄與靈魂</a></td>
-                            <td>待上架</td>
-                            <td>A ROOM</td>
-                            <td>
-                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="" id="">
-                            </td>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td><a href="./back_events_edit.html">亞洲的地獄與靈魂</a></td>
-                            <td>待上架</td>
-                            <td>A ROOM</td>
-                            <td>
-                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="" id="">
-                            </td>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td><a href="./back_events_edit.html">亞洲的地獄與靈魂</a></td>
-                            <td>待上架</td>
-                            <td>A ROOM</td>
-                            <td>
-                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="" id="">
-                            </td>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td>2022/08/24</td>
-                            <td><a href="./back_events_edit.html">亞洲的地獄與靈魂</a></td>
-                            <td>待上架</td>
-                            <td>A ROOM</td>
-                            <td>
-                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
-                            </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
                 <button class="btn_s_default"><a href="./back_events.html">返回</a></button>

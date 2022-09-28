@@ -121,27 +121,27 @@ if (isset($_GET["keywords"])) {
   switch ($DB_info["tbName"]) {
     case 'INFORMATION': // 消息
       $sql = "
-      SELECT INFO_ID, INFO_TYPE, TITLE, CONTENT, DATE, SITUATION
+      SELECT * 
       FROM INFORMATION 
       ORDER by INFO_ID desc;";
       break;
 
     case 'EVENTS':  // 特展
       $sql = "
-      SELECT *
+      SELECT * 
       FROM EVENTS_TEST;";
       break;
 
     case 'EXHIBITION': // 普展
       $sql = "
-      SELECT ID, START_DAY, EXHIBITION_TYPE, NAME, ROOM  
+      SELECT * 
       FROM EXHIBITION;";
       break;
 
     case 'MEMBER': // 會員資料
       $sql = "
-        SELECT MEMBER_ID, REGISTER_DAY, LEVEL, NAME, PHONE, EMAIL 
-        FROM MEMBER;";
+      SELECT * 
+      FROM MEMBER;";
       break;
 
     case 'ORDER': // 訂單資訊
@@ -153,13 +153,13 @@ if (isset($_GET["keywords"])) {
 
     case 'SUB_LIST': // 訂閱
       $sql = "
-      SELECT ID, NAME, MEMBER_ID, EMAIL, SUVSCRIPTION_DAY
+      SELECT * 
       FROM SUB_LIST;";
       break;
 
     case 'NEWSLETTER_LIST': //電子報
       $sql = "
-      SELECT ID, SUBJECT, MAIL_DAY, STATE
+      SELECT * 
       FROM NEWSLETTER;";
       break;
 
