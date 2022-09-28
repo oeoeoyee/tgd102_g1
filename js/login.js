@@ -98,8 +98,7 @@ new Vue({
                 
             }
 
-            alert('成功');
-
+            
 
             // ajax
             fetch('./php/ticket.php',{
@@ -118,7 +117,11 @@ new Vue({
                     pay: this.pay,
                     total: this.total,
                 })
-            })
+            }).then(resp => resp.json())
+            .then(body => {
+                alert(body);
+                location = './payment.html'
+            });
 
         },
 

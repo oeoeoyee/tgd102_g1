@@ -59,10 +59,9 @@
         const n1 = document.querySelector('#n1');
         const n2 = document.querySelector('#n2');
         fetch("./php/succ.php")
-        .then(rsp => rsp.json(
-            console.log(rsp)
-        ))
-        .then(user => {
+        .then(rsp => rsp.json())
+        .then(list => {
+            const user = list[0];
             n1.insertAdjacentHTML('beforeend',`
                 <li>姓名：<span>${user.DELEGATE_NAME}</span></li>
                 <li>電話：<span>${user.DELEGATE_PHONE}</span></li>
