@@ -13,6 +13,6 @@ $stmt = $pdo->prepare($sql);
 // $stmt->bindValue(":password", $member["password"]);
 $stmt->execute();
 
-echo json_encode($stmt->fetchAll()[2]);
+echo json_encode($stmt->fetchAll()[1]);
 
 ?>

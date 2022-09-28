@@ -10,18 +10,18 @@ $sql = " SELECT
             od.DELEGATE_PHONE,
             o.VISIT_DAY,
             o.PAYMENT_ACC
-        FROM REVERSE.ORDER_DETAIL od
-            join REVERSE.order o
+        FROM ORDER_DETAIL od
+            join `ORDER` o
                 on od.ORDER_ID = o.ORDER_ID
-        where od.ORDER_ID = 2
+        where od.ORDER_ID = :orderId
         ";
-
+session_start();
 
 $stmt = $pdo->prepare($sql);
-// $stmt->bindValue(1, $member["name"]);
+$stmt->bindValue(":orderId", $_SESSION["orderId"]);
 // $stmt->bindValue(":password", $member["password"]);
 $stmt->execute();
 
-echo json_encode($stmt->fetchAll()[0]);
+echo json_encode($stmt->fetchAll());
 
 ?>

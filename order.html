@@ -175,7 +175,7 @@
             </tr>
             <tr>
                 <td>語音導覽</td>
-                <td>${user.VOICE_GUIDE}</td>
+                <td>${user.VOICE_GUIDE == 1 ? '有' : '無'}</td>
             </tr>
             <tr>
                 <td>費用總計</td>
@@ -183,7 +183,7 @@
             </tr>
             <tr>
                 <td>付款狀態</td>
-                <td>${user.PAYMENT_STATUS}</td>
+                <td>${user.PAYMENT_STATUS == 1 ? '已付款' : '未付款'}</td>
             </tr>
             <tr>
                 <td>付款方式</td>
@@ -191,7 +191,7 @@
             </tr>
             <tr>
                 <td>付款日期</td>
-                <td>${user.PAYMENT_DAY}</td>
+                <td>${user.PAYMENT_DAY ? user.PAYMENT_DAY : '未付款'}</td>
             </tr>
             <tr>
                 <td class="member_code">會員條碼</td>
