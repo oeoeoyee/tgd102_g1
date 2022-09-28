@@ -3,6 +3,7 @@
     width: 100%;
     text-align: left;
     margin-top: size(40);
+    margin-bottom:size(60);
     th{
         @include h4();
         padding: size(16) size(12) size(16) size(40);
