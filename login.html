@@ -66,7 +66,7 @@
                 <div class="login_icon">
                     <a href="https://www.google.com.tw/?hl=zh_TW" alt=""><img src="./images/login_03_g.png" alt=""></a>
                     <a href="https://zh-tw.facebook.com"><img src="./images/login_02_fb.png" alt=""></a>
-                    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <!-- 臉書登入按鈕<div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div> -->
                 </div>
             </div>
 
@@ -80,9 +80,10 @@
         @@include('./layout/goTop_component.html')
         <!-- goTop 組件 -->
 
+  <!-- 臉書登入功能
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v15.0&appId=631200362022046&autoLogAppEvents=1" nonce="GRY2WCif"></script> 
-<script>
+  <script>
     function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
     console.log('statusChangeCallback');
     console.log(response);                   // The current login status of the person.
@@ -94,13 +95,11 @@
     }
   }
 
-
   function checkLoginState() {               // Called when a person is finished with the Login Button.
     FB.getLoginStatus(function(response) {   // See the onlogin handler
       statusChangeCallback(response);
     });
   }
-
 
   window.fbAsyncInit = function() {
     FB.init({
@@ -132,7 +131,7 @@
     });
   }
 
-</script>
+  </script> -->
 
 </body>
 </html>
