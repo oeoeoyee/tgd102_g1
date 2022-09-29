@@ -2,9 +2,6 @@
 // Vue.component('all', {
 Vue.component('news', {
 
-    // props:{
-    //     type:null
-    // },
     props: ['type'], 
     // 已在html綁定 :type="CURRENT_INFO_TYPE"
 
@@ -150,206 +147,7 @@ Vue.component('news', {
 })
 
 // news頁 - vue - 活動訊息
-// Vue.component('activity', {
-//     props: ['all'],
-//     template: `
-//     <!-- 消息列 -->
-//     <ul class="news_list news_becenter">
-//         <li>
-//             <a href="./news_01.html">
-//                 <!-- 圖片 -->
-//                 <div class="news_list_img">
-//                     <img src="./images/news_07.png" alt="518活動圖片">
-//                 </div>
-//                 <!-- 資訊卡中(特展、最新消息) -->
-//                 <div class="infocard_m">
-//                     <h3>518博物館日 期間限定優惠
-//                         <span>&rarr;</span>
-//                     </h3>
-//                     <h5>新一季常設展覽多出十九世紀主題，新一季常設展覽多出十九世紀主題......</h5>
-//                     <div></div>
-//                     <h5>活動訊息</h5>
-//                     <p>2022.05.13 -  2022.08.31</p>
-//                 </div>
-//             </a>
-//         </li>
-//         <li>
-//             <a href="./news_01.html">
-//                 <!-- 圖片 -->
-//                 <div class="news_list_img">
-//                     <img src="./images/news_08.png" alt="振興券活動圖片">
-//                 </div>
-//                 <!-- 資訊卡中(特展、最新消息) -->
-//                 <div class="infocard_m">
-//                     <h3>博物館振興券活動
-//                         <span>&rarr;</span>
-//                     </h3>
-//                     <h5>新一季常設展覽多出十九世紀主題</h5>
-//                     <div></div>
-//                     <h5>活動訊息</h5>
-//                     <p>2022.05.13 -  2022.08.31</p>
-//                 </div>
-//             </a>
-//         </li>
-//         <li>
-//             <a href="./news_01.html">
-//                 <!-- 圖片 -->
-//                 <div class="news_list_img">
-//                     <img src="./images/news_07.png" alt="518活動圖片">
-//                 </div>
-//                 <!-- 資訊卡中(特展、最新消息) -->
-//                 <div class="infocard_m">
-//                     <h3>518博物館日 期間限定優惠
-//                         <span>&rarr;</span>
-//                     </h3>
-//                     <h5>新一季常設展覽多出十九世紀主題，新一季常設展覽多出十九世紀主題......</h5>
-//                     <div></div>
-//                     <h5>活動訊息</h5>
-//                     <p>2022.05.13 -  2022.08.31</p>
-//                 </div>
-//             </a>
-//         </li>
-//         <li>
-//             <a href="./news_01.html">
-//                 <!-- 圖片 -->
-//                 <div class="news_list_img">
-//                     <img src="./images/news_08.png" alt="振興券活動圖片">
-//                 </div>
-//                 <!-- 資訊卡中(特展、最新消息) -->
-//                 <div class="infocard_m">
-//                     <h3>博物館振興券活動
-//                         <span>&rarr;</span>
-//                     </h3>
-//                     <h5>新一季常設展覽多出十九世紀主題</h5>
-//                     <div></div>
-//                     <h5>活動訊息</h5>
-//                     <p>2022.05.13 -  2022.08.31</p>
-//                 </div>
-//             </a>
-//         </li>
-//         <li>
-//             <a href="./news_01.html">
-//                 <!-- 圖片 -->
-//                 <div class="news_list_img">
-//                     <img src="./images/news_07.png" alt="518活動圖片">
-//                 </div>
-//                 <!-- 資訊卡中(特展、最新消息) -->
-//                 <div class="infocard_m">
-//                     <h3>518博物館日 期間限定優惠
-//                         <span>&rarr;</span>
-//                     </h3>
-//                     <h5>新一季常設展覽多出十九世紀主題，新一季常設展覽多出十九世紀主題......</h5>
-//                     <div></div>
-//                     <h5>活動訊息</h5>
-//                     <p>2022.05.13 -  2022.08.31</p>
-//                 </div>
-//             </a>
-//         </li>
-//     </ul>
-//     `,
-// })
-
 // news頁 - vue - 館方訊息
-// Vue.component('museum', {
-//     template: `
-//     <!-- 消息列 -->
-//     <ul class="news_list news_becenter">
-//         <li>
-//             <a href="./news_01.html">
-//                 <!-- 圖片 -->
-//                 <div class="news_list_img">
-//                     <img src="./images/news_04.jpg" alt="票價調整相關照片">
-//                 </div>
-//                 <!-- 資訊卡中(特展、最新消息) -->
-//                 <div class="infocard_m">
-//                     <h3>新一季參觀須知及票價調整通知
-//                         <span>&rarr;</span>
-//                     </h3>
-//                     <h5>新一季常設展覽多出十九世紀主題，......</h5>
-//                     <div></div>
-//                     <h5>館方訊息</h5>
-//                     <p>2022.05.13 -  2022.08.31</p>
-//                 </div>
-//             </a>
-//         </li>
-//         <li>
-//             <a href="./news_01.html">
-//                 <!-- 圖片 -->
-//                 <div class="news_list_img">
-//                     <!-- 同置頂照片 -->
-//                     <img src="./images/news_06.png" alt="博物館照片">
-//                 </div>
-//                 <!-- 資訊卡中(特展、最新消息) -->
-//                 <div class="infocard_m">
-//                     <h3>冬季館內定期整修公告
-//                         <span>&rarr;</span>
-//                     </h3>
-//                     <h5>新一季常設展覽多出十九世紀主題，......</h5>
-//                     <div></div>
-//                     <h5>館方訊息</h5>
-//                     <p>2022.05.13 -  2022.08.31</p>
-//                 </div>
-//             </a>
-//         </li>
-//         <li>
-//             <a href="./news_01.html">
-//                 <!-- 圖片 -->
-//                 <div class="news_list_img">
-//                     <!-- 同置頂照片 -->
-//                     <img src="./images/news_05.png" alt="博物館外觀照">
-//                 </div>
-//                 <!-- 資訊卡中(特展、最新消息) -->
-//                 <div class="infocard_m">
-//                     <h3>歡迎來到 溯‧REVERSE博物館
-//                         <span>&rarr;</span>
-//                     </h3>
-//                     <h5>新一季常設展覽多出十九世紀主題，......</h5>
-//                     <div></div>
-//                     <h5>館方訊息</h5>
-//                     <p>2022.05.13 -  2022.08.31</p>
-//                 </div>
-//             </a>
-//         </li>
-//         <li>
-//             <a href="./news_01.html">
-//                 <!-- 圖片 -->
-//                 <div class="news_list_img">
-//                     <img src="./images/news_04.jpg" alt="票價調整相關照片">
-//                 </div>
-//                 <!-- 資訊卡中(特展、最新消息) -->
-//                 <div class="infocard_m">
-//                     <h3>新一季參觀須知及票價調整通知
-//                         <span>&rarr;</span>
-//                     </h3>
-//                     <h5>新一季常設展覽多出十九世紀主題，......</h5>
-//                     <div></div>
-//                     <h5>館方訊息</h5>
-//                     <p>2022.05.13 -  2022.08.31</p>
-//                 </div>
-//             </a>
-//         </li>
-//         <li>
-//             <a href="./news_01.html">
-//                 <!-- 圖片 -->
-//                 <div class="news_list_img">
-//                     <!-- 同置頂照片 -->
-//                     <img src="./images/news_06.png" alt="博物館照片">
-//                 </div>
-//                 <!-- 資訊卡中(特展、最新消息) -->
-//                 <div class="infocard_m">
-//                     <h3>冬季館內定期整修公告
-//                         <span>&rarr;</span>
-//                     </h3>
-//                     <h5>新一季常設展覽多出十九世紀主題，......</h5>
-//                     <div></div>
-//                     <h5>館方訊息</h5>
-//                     <p>2022.05.13 -  2022.08.31</p>
-//                 </div>
-//             </a>
-//         </li>
-//     </ul>
-//     `,
-// })
 
 // news頁 - vue
 let news_vm = new Vue({
@@ -358,9 +156,9 @@ let news_vm = new Vue({
         content: 'all',
         CURRENT_INFO_TYPE:'all',
 
-        allNews: true, 
-        museumNews: false,
-        activeNews: false,
+        // allNews: true, 
+        // museumNews: false,
+        // activeNews: false,
 
         options:{
             // option 是 { title:'全部', },....
@@ -378,26 +176,21 @@ let news_vm = new Vue({
         }
     },
     methods: {
-
-        changeType(){
-
-        },
-
-        changeColor(){
-            if(this.content === 'all'){
-                this.allNews = true;
-                this.museumNews =false;
-                this.activeNews = false;
-            }else if(this.content === 'museum'){
-                this.allNews = false;
-                this.museumNews =true;
-                this.activeNews = false;
-            }else if(this.content === 'activity'){
-                this.allNews = false;
-                this.museumNews =false;
-                this.activeNews = true;
-            }
-        },
+        // changeColor(){
+        //     if(this.content === 'all'){
+        //         this.allNews = true;
+        //         this.museumNews =false;
+        //         this.activeNews = false;
+        //     }else if(this.content === 'museum'){
+        //         this.allNews = false;
+        //         this.museumNews =true;
+        //         this.activeNews = false;
+        //     }else if(this.content === 'activity'){
+        //         this.allNews = false;
+        //         this.museumNews =false;
+        //         this.activeNews = true;
+        //     }
+        // },
     },
     computed: {}
 })
