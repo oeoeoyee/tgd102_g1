@@ -42,7 +42,7 @@ Vue.component('news', {
         .then(res => res.json())
         // 將字串20字以後加上....
         .then(function(data){
-            for(i = 0; i < data.length; i++){
+            for(let i = 0; i < data.length; i++){
                 if(data[i]["CONTENT"].toString().length > 20){
                     data[i]["CONTENT"] = data[i]["CONTENT"].toString().slice(0,20) + "......";
                 }
@@ -57,7 +57,7 @@ Vue.component('news', {
             let totalPage = Math.ceil(this.allNewsArray.length / this.perPage);
             // 也可以把t 寫在上面設為變數 但要記得加this.
             let t = 0;
-            for(i = 0; i < totalPage; i++){
+            for(let i = 0; i < totalPage; i++){
                 t++;
                 this.pageArray.push(t);
             }

@@ -74,7 +74,7 @@ var totop_vm = new Vue({
       showTop: function(){          
         // this.scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
         this.scrollTop = window.pageYOffset;
-        if(this.scrollTop>300){
+        if(this.scrollTop>350){
             this.goTop = true;
         }else{
             this.goTop = false;
