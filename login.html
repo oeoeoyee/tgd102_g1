@@ -59,7 +59,12 @@
 
           <!-- 按鈕 -->
           <div class="login_btn_out">
-            <input type="submit" value="登入" class="btn_s_remind" />
+            <input
+              type="submit"
+              id="login_btn"
+              value="登入"
+              class="btn_s_remind"
+            />
             <a href="./signin.html" class="btn_s_default">註冊</a>
           </div>
           <div id="error"></div>
@@ -165,6 +170,8 @@
         });
       }
 
+      //                  登入、sessionStorage.setItem
+      // ################################################################
       (() => {
         // 取欄位值
         const useremail = document.querySelector("#email"); // 信箱 輸入欄
@@ -206,6 +213,7 @@
           // 跳過 (?)
         }
       })();
+      // ################################################################
     </script>
   </body>
 </html>
