@@ -43,7 +43,7 @@ if (count($members) != 0) {
 } else {
   $resp_body = (object) [
     "successful" => false,
-    "message" => "帳號或密碼錯誤"
+    "message" => "信箱或密碼錯誤"
   ];
   echo json_encode($resp_body);
 }

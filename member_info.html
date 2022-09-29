@@ -94,40 +94,45 @@
     <script>
         const member = document.querySelector('tbody');
         fetch("./php/member.php")
-        .then(rsp => rsp.json(
-            // console.log(rsp)
-        ))
-        .then(user => {
-            member.insertAdjacentHTML('beforeend',`
-            <tr>
-                <td width="30%">會員編號</td>
-                <td width="70%">${user.member_id}</td>
-            </tr>
-            <tr>
-                <td>入會日期</td>
-                <td>${user.register_day}</td>
-            </tr>
-            <tr>
-                <td>會員等級</td>
-                <td>${user.level} (到期日：${user.EXPIRE_DAY})</td>
-            </tr>
-            <tr>
-                <td>姓名</td>
-                <td>${user.name}</td>
-            </tr>
-            <tr>
-                <td>電話</td>
-                <td>${user.phone}</td>
-            </tr>
-            <tr>
-                <td>電子信箱</td>
-                <td>${user.email}</td>
-            </tr>
-            <tr>
-                <td class="member_code">會員條碼</td>
-                <td class="member_code_img"><img src="./images/member_01_qrcode.png" alt=""></td>
-            </tr>
-            `);
+        .then(resp => resp.json())
+        .then(resp => {
+            if (resp.successful == '無登入資訊') {
+                location.replace('./login.html');
+            } else {
+                expire_day = resp[0].EXPIRE_DAY ? resp[0].EXPIRE_DAY : '無期限';
+                 member.insertAdjacentHTML('beforeend', `
+                <tr>
+                    <td width="30%">會員編號</td>
+                    <td width="70%">${resp[0].MEMBER_ID}</td>
+                </tr>
+                <tr>
+                    <td>入會日期</td>
+                    <td>${resp[0].register_day}</td>
+                </tr>
+                <tr>
+                    <td>會員等級</td>
+                    <td>${resp[0].level} (到期日：${expire_day})</td>
+                </tr>
+                <tr>
+                    <td>姓名</td>
+                    <td>${resp[0].NAME}</td>
+                </tr>
+                <tr>
+                    <td>電話</td>
+                    <td>${resp[0].PHONE}</td>
+                </tr>
+                <tr>
+                    <td>電子信箱</td>
+                    <td>${resp[0].EMAIL}</td>
+                </tr>
+                <tr>
+                    <td class="member_code">會員條碼</td>
+                    <td class="member_code_img"><img src="./images/member_01_qrcode.png" alt=""></td>
+                </tr>
+                `
+                );
+            }
+             
         })
     </script>
 </body>

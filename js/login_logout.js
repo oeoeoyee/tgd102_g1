@@ -1,54 +1,11 @@
-// 登入功能
-// 先嘗試綁定 沒有綁定到就跳過 try catch
-
+// 登入功能 ( 豋入頁面 login.html)
 (() => {
-  // 取欄位值
-  const useremail = document.querySelector("#email"); // 信箱 輸入欄
-  const password = document.querySelector("#pwd"); // 密碼 輸入欄
-  const errMsg = document.querySelector("#error"); // 錯誤訊息
-
-  // 1. 綁定 id="login_btn" 加入登入功能
-  try {
-    // try 嘗試綁定 沒有就跳過
-    document.getElementById("login_btn").addEventListener("click", () => {
-      fetch("./php/login.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          useremail: useremail.value,
-          password: password.value,
-        }),
-      })
-        .then((resp) => resp.json()) // 2. 取得回應後
-        .then((body) => {
-          errMsg.textContent = "";
-          const { successful, message } = body;
-          if (successful) {
-            // true 就送 SESSION 到 使用者Cookie
-            const { MEMBER_ID, NAME, EMAIL } = body;
-            sessionStorage.setItem("MEMBER_ID", MEMBER_ID);
-            sessionStorage.setItem("NAME", NAME);
-            sessionStorage.setItem("EMAIL", EMAIL);
-            // 成功後 轉址 ? 會員中心
-            location = "./member_info.html";
-          } else {
-            // 失敗將收到的錯誤訊息寫進 HTML
-            errMsg.textContent = message;
-          }
-        });
-    });
-  } catch (error) {
-    // 跳過 (?)
-  }
-})();
-
-(() => {
-  // 取得 sessionStorage 資料
-  const MEMBER_ID = sessionStorage.getItem("MEMBER_ID");
-  const NAME = sessionStorage.getItem("NAME");
-  const EMAIL = sessionStorage.getItem("EMAIL");
-
-  console.log(MEMBER_ID, NAME, EMAIL);
+  // 針對 header 欄位調整!!!
+  //      取得 sessionStorage 資料
+  // const MEMBER_ID = sessionStorage.getItem("MEMBER_ID");
+     const NAME = sessionStorage.getItem("NAME");   // 僅取出必要資訊比對
+  // const EMAIL = sessionStorage.getItem("EMAIL");
+  
   // 綁定
   // 登入狀態 ( 顏色 )
   const user_avatar = document.querySelector("#user_avatar");
@@ -80,7 +37,6 @@
     // document.querySelector("#currentUser").textContent = nickname;
   } else {
     // 沒有 sessionStorage 資料
-    
     // 添加 class ( display none ) 隱藏 會員功能
     my_info.classList.add("hide");
     my_order.classList.add("hide");
@@ -109,7 +65,7 @@
     logout.addEventListener("click", () => {
       // 移除 sessionStorage NAME 值
       sessionStorage.removeItem("NAME");
-      fetch("member/logout");
+      fetch("./php/logout.php");
       location = `${getContextPath()}/tgd102_g1/dist/index.html`;
     });
   } catch (error) {}
