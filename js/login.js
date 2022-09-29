@@ -318,7 +318,7 @@ new Vue({
             if(reg.test(email)){
                 $('.email .error').html('');
             }else{
-                $('.email .error').html('請輸入正確的email地址');
+                $('.email .error').html('請輸入正確的 Email 地址');
             }
         });
     });

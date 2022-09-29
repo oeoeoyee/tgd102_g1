@@ -1,138 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        @@include('./layout/head.html', {
-            "title" : "會員登入"
-        })
-        <script type="module" src="./js/login.js"></script>
-    </head>
-    <body>
-    
-        <div class="wrapper">
-            <!-- header -->
-            @@include('./layout/header.html')
-            
-            <!-- banner -->
-            <div class="login_banner">
-                <img src="./images/login_01.png" alt="">
-            </div>
+  <head>
+    @@include('./layout/head.html', { "title" : "會員登入" })
+    <script type="module" src="./js/login.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- header -->
+      @@include('./layout/header.html')
 
-            <!-- 上面 -->
-            <div class="login_top login_out">
+      <!-- banner -->
+      <div class="login_banner">
+        <img src="./images/login_01.png" alt="" />
+      </div>
 
-                <h2>會員登入</h2>
+      <!-- 上面 -->
+      <div class="login_top login_out">
+        <h2>會員登入</h2>
 
-                <form method="post" action="./index.html">
-                    <ul>
-                        <!-- 電子信箱(帳號) -->
-                        <li class="email">
-                            <input type="email" placeholder="請輸入電子信箱" name="email" id="email">
-                            <div class="error"></div>
-                        </li>
-                        <!-- 密碼 -->
-                        <li class="pwd">
-                            <input type="password" placeholder="密碼：英數混合，六至十二字" name="pwd" id="pwd">
-                            <div class="error"></div>
-                        </li>
+        <form method="post" action="./index.html">
+          <ul>
+            <!-- 電子信箱(帳號) -->
+            <li class="email">
+              <input
+                type="email"
+                placeholder="請輸入電子信箱"
+                name="email"
+                id="email"
+              />
+              <div class="error"></div>
+            </li>
+            <!-- 密碼 -->
+            <li class="pwd">
+              <input
+                type="password"
+                placeholder="密碼：英數混合，六至十二字"
+                name="pwd"
+                id="pwd"
+              />
+              <div class="error"></div>
+            </li>
 
-                        <!-- 記住我/忘記密碼 -->
-                        <li class="login_ckbox_out">
-                            <div class="login_ckbox">
-                                <label for="login_ckbox">
-                                    <input type="checkbox" id="login_ckbox" name="login_rem" value="記住我"><span>記住我</span>
-                                    
-                                </label>
-                            </div>
-                            <a href="./forget.html">忘記密碼</a>
-                        </li>   
-                    </ul>
+            <!-- 記住我/忘記密碼 -->
+            <li class="login_ckbox_out">
+              <div class="login_ckbox">
+                <label for="login_ckbox">
+                  <input
+                    type="checkbox"
+                    id="login_ckbox"
+                    name="login_rem"
+                    value="記住我"
+                  /><span>記住我</span>
+                </label>
+              </div>
+              <a href="./forget.html">忘記密碼</a>
+            </li>
+          </ul>
 
-                    <!-- 按鈕 -->
-                    <div class="login_btn_out">
-                        <input type="submit" value="登入" class="btn_s_remind">
-                        <a href="./signin.html" class="btn_s_default">註冊</a>
-                    </div>
-                    <div id="error"></div>
-                </form>
+          <!-- 按鈕 -->
+          <div class="login_btn_out">
+            <input type="submit" value="登入" class="btn_s_remind" />
+            <a href="./signin.html" class="btn_s_default">註冊</a>
+          </div>
+          <div id="error"></div>
+        </form>
+      </div>
 
-            </div>
+      <!-- 分隔線 -->
+      <div class="login_line"></div>
 
-            <!-- 分隔線 -->
-            <div class="login_line"></div>
-
-            <!-- 其他登入 -->
-            <div class="login_bottom">
-                <h4>以其他方式登入</h4>
-                <div class="login_icon">
-                    <a href="https://www.google.com.tw/?hl=zh_TW" alt=""><img src="./images/login_03_g.png" alt=""></a>
-                    <a href="https://zh-tw.facebook.com"><img src="./images/login_02_fb.png" alt=""></a>
-                    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
-                </div>
-            </div>
-
-            
-            
-            <!-- footer -->
-            @@include('./layout/footer.html')
-            
+      <!-- 其他登入 -->
+      <div class="login_bottom">
+        <h4>以其他方式登入</h4>
+        <div class="login_icon">
+          <a href="https://www.google.com.tw/?hl=zh_TW" alt=""
+            ><img src="./images/login_03_g.png" alt=""
+          /></a>
+          <a href="https://zh-tw.facebook.com"
+            ><img src="./images/login_02_fb.png" alt=""
+          /></a>
+          <div
+            class="fb-login-button"
+            data-width=""
+            data-size="large"
+            data-button-type="continue_with"
+            data-layout="default"
+            data-auto-logout-link="false"
+            data-use-continue-as="false"
+          ></div>
         </div>
-        <!-- goTop 組件 -->
-        @@include('./layout/goTop_component.html')
-        <!-- goTop 組件 -->
+      </div>
 
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v15.0&appId=631200362022046&autoLogAppEvents=1" nonce="GRY2WCif"></script> 
-<script>
-    function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
-    console.log('statusChangeCallback');
-    console.log(response);                   // The current login status of the person.
-    if (response.status === 'connected') {   // Logged into your webpage and Facebook.
-      testAPI();  
-    } else {                                 // Not logged into your webpage or we are unable to tell.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this webpage.';
-    }
-  }
+      <!-- footer -->
+      @@include('./layout/footer.html')
+    </div>
+    <!-- goTop 組件 -->
+    @@include('./layout/goTop_component.html')
+    <!-- goTop 組件 -->
 
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v15.0&appId=631200362022046&autoLogAppEvents=1"
+      nonce="GRY2WCif"
+    ></script>
+    <script>
+      function statusChangeCallback(response) {
+        // Called with the results from FB.getLoginStatus().
+        console.log("statusChangeCallback");
+        console.log(response); // The current login status of the person.
+        if (response.status === "connected") {
+          // Logged into your webpage and Facebook.
+          testAPI();
+        } else {
+          // Not logged into your webpage or we are unable to tell.
+          document.getElementById("status").innerHTML =
+            "Please log " + "into this webpage.";
+        }
+      }
 
-  function checkLoginState() {               // Called when a person is finished with the Login Button.
-    FB.getLoginStatus(function(response) {   // See the onlogin handler
-      statusChangeCallback(response);
-    });
-  }
+      function checkLoginState() {
+        // Called when a person is finished with the Login Button.
+        FB.getLoginStatus(function (response) {
+          // See the onlogin handler
+          statusChangeCallback(response);
+        });
+      }
 
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: "631200362022046",
+          cookie: true, // Enable cookies to allow the server to access the session.
+          xfbml: true, // Parse social plugins on this webpage.
+          version: "v15.0", // Use this Graph API version for this call.
+        });
 
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '631200362022046',
-      cookie     : true,                     // Enable cookies to allow the server to access the session.
-      xfbml      : true,                     // Parse social plugins on this webpage.
-      version    : 'v15.0'           // Use this Graph API version for this call.
-    });
+        (function (d, s, id) {
+          var js,
+            fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {
+            return;
+          }
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "https://connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+        })(document, "script", "facebook-jssdk");
 
-    (function(d, s, id){
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {return;}
-      js = d.createElement(s); js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+        FB.getLoginStatus(function (response) {
+          // Called after the JS SDK has been initialized.
+          statusChangeCallback(response); // Returns the login status.
+        });
+      };
 
-    FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
-      statusChangeCallback(response);        // Returns the login status.
-    });
-  };
+      function testAPI() {
+        // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+        console.log("Welcome!  Fetching your information.... ");
+        FB.api("/me", function (response) {
+          console.log("Successful login for: " + response.name);
+          document.getElementById("status").innerHTML =
+            "Thanks for logging in, " + response.name + "!";
+        });
+      }
 
-  function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
+      (() => {
+        // 取欄位值
+        const useremail = document.querySelector("#email"); // 信箱 輸入欄
+        const password = document.querySelector("#pwd"); // 密碼 輸入欄
+        const errMsg = document.querySelector("#error"); // 錯誤訊息欄
 
-</script>
-
-</body>
+        // 1. 綁定 id="login_btn" 加入登入功能
+        //    先嘗試綁定 沒有綁定到就跳過 try catch
+        try {
+          // try 嘗試綁定 沒有就跳過
+          document.getElementById("login_btn").addEventListener("click", () => {
+            fetch("./php/login.php", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                useremail: useremail.value,
+                password: password.value,
+              }),
+            })
+              .then((resp) => resp.json()) // 2. 取得回應後
+              .then((body) => {
+                errMsg.textContent = "";
+                const { successful, message } = body;
+                if (successful) {
+                  // true 就送 SESSION 到 使用者Cookie
+                  const { MEMBER_ID, NAME, EMAIL } = body;
+                  sessionStorage.setItem("MEMBER_ID", MEMBER_ID);
+                  sessionStorage.setItem("NAME", NAME);
+                  sessionStorage.setItem("EMAIL", EMAIL);
+                  // 成功後 轉址 ? 會員中心
+                  location = "./member_info.html";
+                } else {
+                  // 失敗將收到的錯誤訊息寫進 HTML
+                  errMsg.textContent = message;
+                }
+              });
+          });
+        } catch (error) {
+          // 跳過 (?)
+        }
+      })();
+    </script>
+  </body>
 </html>
