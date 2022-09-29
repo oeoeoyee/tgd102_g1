@@ -350,6 +350,7 @@
         margin-top: size(20); //跟figma不同
         @include mobile(){
             margin-top: rwd(20);
+            margin-left: rwd(27);
         }
     }
 }
