@@ -315,7 +315,7 @@ new Vue({
             if(reg.test(email)){
                 $('.email .error').html('');
             }else{
-                $('.email .error').html('請輸入正確的 Email 地址');
+                $('.email .error').html('請輸入正確的email地址');
             }
         });
     });
@@ -386,7 +386,7 @@ $(".login_out").submit(function (e) {
 
     // 無誤後送出
     if (error_msg == "") {
-        alert("資料成功送出");
+        // alert("資料成功送出"); 拿掉通知...
     } else {
         $("#error").html(error_msg + "，請再次確認");
     }
