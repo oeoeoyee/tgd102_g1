@@ -45,6 +45,14 @@ new Vue({
             console.log(this.img1);
             // re = /-/gi;
             // this.date = this.item.start_day.replace(re,".")  +'\b - \b' + this.item.end_day.replace(re,".")
+        
+   
+        
+        
+
+    }, 
+
+       updated(){
         gsap
         .to(".event01_1 .event01_1_left_title h1",{
             keyframes: [
@@ -99,12 +107,6 @@ new Vue({
             ease: "sine.inOut"
         }); 
         // ---------------------------------------------------------------------------------
-
-        
-
-
-
-        // ---------------------------------------------------------------------------------
         gsap
         .timeline({
             scrollTrigger: {
@@ -139,6 +141,5 @@ new Vue({
         .to('.event01_5 .event01_5_img img', {
             x: "0", y: '-300', scale:.7
         });
-
-    },  
+       }     
 });

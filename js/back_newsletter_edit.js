@@ -1,38 +1,66 @@
-$('#summernote').summernote({
-  placeholder: "編輯資訊",
-  tabsize: 2,
-  height: 200,
-});
-
-var markupStr ="";			
-$(function () {
-  $('#summernote').change(function(){
-    //  markupStr = $('#summernote').summernote('code');
-     console.log(markupStr);
-  })
-});	
-
-
 
   let vm1 = new Vue({
     el:"#app",
     data:{
+      id:"",
       title:"",
       start_day:"",
       summer:"",
       situation:"",
+      summer_note_instance:null
     },
     mounted(){
+      $('#summernote').summernote({
+        placeholder: "編輯資訊",
+        tabsize: 2,
+        height: 200,
+        // callbacks: {
+        //   onChange: function(contents, $editable) {
+        //     console.log('onChange:', contents, $editable);
+        //   }
+        // }
+      });
+
+      const self = this
       
+      var markupStr ="";			
+      // $(function () {
+        $('#summernote').on('summernote.change',function(){
+          markupStr = $('#summernote').summernote('code');
+          self.summer = markupStr;
+          console.log( self.summer);
+           
+        })
+      // });	
+      
+      let that = this;
+        let getUrlString = location.href;
+        let url = new URL(getUrlString);
+        let newsID = url.searchParams.get('id'); //抓id
+        if(newsID !== null){
+            fetch(`./php/back_newsletter_edit_select.php?id=`+newsID,{
+                method: 'POST', 
+                headers: {'Content-Type':'application/json'}, 
+                body: JSON.stringify({
+                ID: newsID,//這是幹嘛用的
+                })
+            })
+            .then(resp => resp.json())
+            .then((info)=>{
+                that.id = info[0].ID;
+                that.title =info[0].SUBJECT;
+                that.start_day =info[0].MAIL_DAY;
+                that.summer =info[0].CONTENT;
+                that.situation =info[0].STATE;
+                let e = $('.note-editable').html(self.summer);
+                if(e !== ""){
+                  $('.note-placeholder').css({"display":"none"});
+                  
+                }
+                
+            })
+        };
     },
-    methods:{
-
-       },
-  })
-
-  let vm2 = new Vue({
-    el:"#app2",
-    data:{},
     methods:{
 
       sent(e){
@@ -42,6 +70,7 @@ $(function () {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
+                ID:vm1.id,
                 title:vm1.title,
                 start_day:vm1.start_day,
                 summer:vm1.summer,
@@ -50,7 +79,6 @@ $(function () {
         })
         // .then(resp => resp.json())
         .then(body => {
-            console.log(body);
             if(body !=""){
             location = e
             alert("發送成功");
@@ -75,3 +103,4 @@ $(function () {
     }
     },
   })
+

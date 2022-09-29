@@ -47,7 +47,7 @@
                             <td>{{info.ID}}</td>
                             <td>{{info.start_date}}</td>
                             <td>{{info.end_date}}</td>
-                            <td><a href="./back_events_edit.html">{{info.name}}</a></td>
+                            <td><a :href="'./back_events_edit.html?id='+info.ID">{{info.name}}</a></td>
                             <td>預告中</td>
                             <td>{{info.room}}</td>
                             <td>
