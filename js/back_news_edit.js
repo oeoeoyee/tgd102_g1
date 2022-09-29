@@ -13,9 +13,9 @@ new Vue({
     },
     mounted(){
         let that = this;
-        var getUrlString = location.href;
-        var url = new URL(getUrlString);
-        var newsID = url.searchParams.get('id'); //抓id
+        let getUrlString = location.href;
+        let url = new URL(getUrlString);
+        let newsID = url.searchParams.get('id'); //抓id
         if(newsID !== null){
             fetch(`./php/back_news_edit_select.php?id=`+newsID,{
                 method: 'POST', 
@@ -26,7 +26,6 @@ new Vue({
             })
             .then(resp => resp.json())
             .then((info)=>{
-                console.log(info[0]);
                 that.title =info[0].TITLE;
                 that.theDate =info[0].DATE;
                 that.image =info[0].IMAGE;
@@ -72,7 +71,7 @@ new Vue({
             .then(body => {
                 console.log(body);
                 if(body !=""){
-                location = e
+                // location = e
                 alert("發送成功");
                 }
             });

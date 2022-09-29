@@ -1,6 +1,7 @@
 new Vue({
     el:"#app",
     data:{
+        id:"",
        name:"",
        types:[
         "請選擇主題",
@@ -36,14 +37,45 @@ new Vue({
        img7:"",
        situation:"",
 
-
-       
-
-
-
     },
     mounted(){
-       
+        let that = this;
+        let getUrlString = location.href;
+        let url = new URL(getUrlString);
+        let newsID = url.searchParams.get('id'); //抓id
+        if(newsID !== null){
+            fetch(`./php/back_exhibition_edit_select.php?id=`+newsID,{
+                method: 'POST', 
+                headers: {'Content-Type':'application/json'}, 
+                body: JSON.stringify({
+                ID: newsID,//這是幹嘛用的
+                })
+            })
+            .then(resp => resp.json())
+            .then((info)=>{
+                console.log(info[0]);
+                that.id = info[0].ID,
+                that.name =  info[0].NAME,
+                that.exhibition_type =  info[0].EXHIBITION_TYPE,
+                that.start_day =  info[0].START_DAY,
+                that.end_day =  info[0].END_DAY,
+                that.main_title =  info[0].MAIN_TITLE,
+                that.room =  info[0].ROOM,
+                that.introduction =  info[0].INTRODUCTION,
+                that.main_img =  info[0].MAIN_IMAGE,
+                that.sub_img =  info[0].SUB_IMAGE,
+                that.other_img =  info[0].OTHER_IMAGE,
+                that.situation = info[0].situation,
+                imgstation2 = that.other_img.split("|"),
+                that.img3= imgstation2[0];
+                that.img4= imgstation2[1];
+                that.img5= imgstation2[2];
+                that.img6= imgstation2[3];
+                that.img7= imgstation2[4];
+                document.getElementById("type").value = that.exhibition_type;
+                document.getElementById("room").value = that.room;
+            })
+        };
     },
     updated(){
     },
@@ -98,6 +130,7 @@ new Vue({
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
+                        ID:this.id,
                         NAME: this.name,
                         EXHIBITION_TYPE: this.exhibition_type,
                         START_DAY: this.start_day,
@@ -124,10 +157,10 @@ new Vue({
             if(e.target.innerHTML =="送出資料")
             {
                 this.situation = "上線";
-                this.sent("./back_exhibition_draft.html")
+                this.sent("./back_exhibition.html")
             }else{
                 this.situation = "草稿";
-                this.sent("./back_exhibition.html")
+                this.sent("./back_exhibition_draft.html")
             }    
         }
         

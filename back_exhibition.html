@@ -43,7 +43,7 @@
                         <tr v-for="info in tbArray">
                             <td>{{info.START_DAY}}</td>
                             <td>{{info.EXHIBITION_TYPE}}</td>
-                            <td><a href="./back_exhibitions_edit.html">{{info.NAME}}</a></td>
+                            <td><a :href="'./back_exhibitions_edit.html?id='+info.ID">{{info.NAME}}</a></td>
                             <td>{{info.ROOM}}</td>
                             <td>
                                 <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
