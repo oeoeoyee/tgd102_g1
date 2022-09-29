@@ -525,7 +525,7 @@ footer{
 
 /* js 導覽列上滑 */
 .-headup{
-    transform: translateY(-90px);
+    transform: translateY(size(-100));
 }
 
 .-headdown{
