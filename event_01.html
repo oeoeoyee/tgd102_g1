@@ -3,7 +3,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/MotionPathPlugin.min.js"></script>
-    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>   
 <head>
     @@include('./layout/head.html', {
         "title" : "林布蘭·哈爾曼松特展"
@@ -54,9 +54,9 @@
             </div>
 
             <div class="event01_2_content">
-                        <div><img :src=`./images/${img1[0]}` alt=""></div>
+                        <div><img :src=`./images/${img1[0]}` alt="" id="img1"></div>
 
-                        <img :src=`./images/${img1[1]}` alt="">
+                        <img :src=`./images/${img1[1]}` alt="" id="img2">
                 <div class="event01_2_annotation">
                     <div>
                         <h4>
