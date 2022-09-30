@@ -10,7 +10,7 @@
 
 // rwd 手機 414px 斷點
 @mixin mobile(){
-    @media screen and (max-width:415px) {
+    @media screen and (max-width:780px) {
         @content;
     }
 }
