@@ -50,6 +50,17 @@
                             </label>
                         </li>
 
+                        <!-- 代表人姓名 -->
+                        <li>
+                            <input type="text" placeholder="代表人姓名" v-model="name">
+                        </li>
+
+                        <!-- 代表人電話 -->
+                        <li class="phone">
+                            <input type="tel" placeholder="代表人電話" v-model="phone" id="phone">
+                            <div class="error"></div>
+                        </li>
+
                         <!-- 請選擇成人票人數 $250/張 -->
                         <li>
                             <select name="adult" id="adult" v-model="adultCount">
@@ -105,7 +116,7 @@
                         <li class="login_ckbox_out ckbox_center">
                             <div class="login_ckbox">
                                 <label for="login_ckbox">
-                                    <input type="checkbox" id="login_ckbox" name="signin_sub" v-model="pod" :value="pods">
+                                    <input type="checkbox" id="login_ckbox" name="pod" v-model="pod" :value="pods">
                                     <span>免費索取語音導覽服務</span>
                                 </label>
                             </div>
@@ -163,14 +174,14 @@
                         <!-- 信用卡 -->
                         <li class="credit">
                             <label for="credit">
-                                <input type="radio" name="pay" id="credit" value="信用卡"><span>信用卡</span>
+                                <input type="radio" name="pay" id="credit" value="信用卡" v-model="pay"><span>信用卡</span>
                             </label>
                         </li>
 
                         <!-- ATM -->
                         <li>
                             <label for="atm">
-                                <input type="radio" name="pay" id="atm" value="ATM"><span>ATM轉帳</span>
+                                <input type="radio" name="pay" id="atm" value="ATM" v-model="pay"><span>ATM轉帳</span>
                             </label>
                         </li>
                     </ul>
@@ -207,8 +218,8 @@
 
                     <!-- 同意ck -->
                     <div class="login_ckbox ckbox_center">
-                        <label for="login_ckbox">
-                            <input type="checkbox" id="login_ckbox" name="signin_sub" value="同意購票須知">
+                        <label for="login_ckbox3">
+                            <input type="checkbox" v-model="check_note" @change="change_function" id="login_ckbox3" name="agree">
                             <span>我已閱讀購票須知</span>
                         </label>
                     </div>
@@ -216,7 +227,7 @@
 
                 <!-- 按鈕 -->
                 <div class="btn_center">
-                    <input type="submit" value="付款" class="btn_s_remind">
+                    <button type="button" class="btn_s_remind" id="payment" @click="submitperson">付款</button>
                 </div>
                     
             </form>
