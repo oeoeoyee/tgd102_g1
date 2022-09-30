@@ -5,6 +5,7 @@
         "title" : "訂單紀錄"
     })
     <script type="module" src="./js/login.js"></script>
+    <script type="module" src="./js/login_status.js"></script>
 </head>
 <body>
 
@@ -35,119 +36,33 @@
             <div class="member_right order_table">
 
                 
-            <!-- 資料表格 -->
-                <form method="post" action="">
-                    <table>
-                        <tbody>
+                <!-- 資料表格 -->
+                <!-- <form method="post" action=""> -->
+                    <table id="app_memberTable" data-wanttodo="MEMBER_ORDER" >
+                        <tbody v-for="info in mbArray">
                             <tr>
                                 <td>訂單編號</td>
-                                <td>P0074683</td>
+                                <td>{{info.ORDER_ID}}</td>
                                 <td rowspan="3" class="order_icon"><a href="./order.html"><i class="fa-solid fa-angle-right"></i></a></td>
                             </tr>
                             <tr>
                                 <td>訂單日期</td>
-                                <td>2022/08/24</td>
+                                <td>{{info.ORDER_DAY}}</td>
                             </tr>
                             <tr>
                                 <td>費用總計</td>
-                                <td>NT$1500</td>
+                                <td>{{info.PRICE}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <div class="order_line"></div>   
+                                </td>         
                             </tr>
                         </tbody>
                     </table>
-                </form>
-                <!-- 分隔線 -->
-                <div class="order_line"></div>
+                <!-- </form> -->
                 
-                <!-- 資料表格 -->
-                <form method="post" action="">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>訂單編號</td>
-                                <td>P0074683</td>
-                                <td rowspan="3" class="order_icon"><i class="fa-solid fa-angle-right"></i></td>
-                            </tr>
-                            <tr>
-                                <td>訂單日期</td>
-                                <td>2022/08/24</td>
-                            </tr>
-                            <tr>
-                                <td>費用總計</td>
-                                <td>NT$1500</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </form>
                 <!-- 分隔線 -->
-                <div class="order_line"></div>
-
-                <!-- 資料表格 -->
-                <form method="post" action="">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>訂單編號</td>
-                                <td>P0074683</td>
-                                <td rowspan="3" class="order_icon"><i class="fa-solid fa-angle-right"></i></td>
-                            </tr>
-                            <tr>
-                                <td>訂單日期</td>
-                                <td>2022/08/24</td>
-                            </tr>
-                            <tr>
-                                <td>費用總計</td>
-                                <td>NT$1500</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </form>
-                <!-- 分隔線 -->
-                <div class="order_line"></div>
-
-                <!-- 資料表格 -->
-                <form method="post" action="">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>訂單編號</td>
-                                <td>P0074683</td>
-                                <td rowspan="3" class="order_icon"><i class="fa-solid fa-angle-right"></i></td>
-                            </tr>
-                            <tr>
-                                <td>訂單日期</td>
-                                <td>2022/08/24</td>
-                            </tr>
-                            <tr>
-                                <td>費用總計</td>
-                                <td>NT$1500</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </form>
-                <!-- 分隔線 -->
-                <div class="order_line"></div>
-
-                <!-- 資料表格 -->
-                <form method="post" action="">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>訂單編號</td>
-                                <td>P0074683</td>
-                                <td rowspan="3" class="order_icon"><i class="fa-solid fa-angle-right"></i></td>
-                            </tr>
-                            <tr>
-                                <td>訂單日期</td>
-                                <td>2022/08/24</td>
-                            </tr>
-                            <tr>
-                                <td>費用總計</td>
-                                <td>NT$1500</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </form>
-                
 
             </div>
             

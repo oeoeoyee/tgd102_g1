@@ -1,11 +1,10 @@
-// 登入功能 ( 豋入頁面 login.html)
 (() => {
   // 針對 header 欄位調整!!!
   //      取得 sessionStorage 資料
   // const MEMBER_ID = sessionStorage.getItem("MEMBER_ID");
-     const NAME = sessionStorage.getItem("NAME");   // 僅取出必要資訊比對
+  const NAME = sessionStorage.getItem("NAME"); // 僅取出必要資訊比對
   // const EMAIL = sessionStorage.getItem("EMAIL");
-  
+
   // 綁定
   // 登入狀態 ( 顏色 )
   const user_avatar = document.querySelector("#user_avatar");
@@ -46,7 +45,7 @@
     // 移除 class ( 不 none ) 顯示 註冊、登入
     register.classList.remove("hide");
     login.classList.remove("hide");
-    
+
     // 登入狀態顏色
     user_avatar.classList.remove("loging");
   }
@@ -59,12 +58,14 @@
     );
   }
 
-  // 登出鍵 功能不完全
+  // 登出鍵
   try {
     // 嘗試綁定
     logout.addEventListener("click", () => {
       // 移除 sessionStorage NAME 值
       sessionStorage.removeItem("NAME");
+      sessionStorage.removeItem("MEMBER_ID");
+      sessionStorage.removeItem("EMAIL");
       fetch("./php/logout.php");
       location = `${getContextPath()}/tgd102_g1/dist/index.html`;
     });
