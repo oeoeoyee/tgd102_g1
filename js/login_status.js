@@ -2,11 +2,15 @@
 //             沒有就送去登入頁面
 const WantToDo = document.querySelector("table").dataset.wanttodo;
 
+// 登出
+const member_logout = document.querySelector("#member_logout");
+
 let member_vue = new Vue({
   el: "#app_memberTable",
   data: {
     mbArray: [],
   },
+
   mounted: function () {
     fetch("./php/login_status.php", {
       method: "POST",
@@ -30,5 +34,13 @@ let member_vue = new Vue({
           member_vue.mbArray = resp;
         }
       });
+  },
+
+  methods: {
+    loggggout() {
+      sessionStorage.removeItem("MEMBER_ID");
+      fetch("./php/logout.php");
+      location = `./index.html`;
+    },
   },
 });

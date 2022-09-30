@@ -1,0 +1,107 @@
+<!-- 可能有需要改名會比較好 member_level -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html', {
+        "title" : "會員等級"
+    })
+    <script type="module" src="./js/login.js"></script>
+    <script type="module" src="./js/login_status.js"></script>
+</head>
+<body>
+
+    <div class="wrapper" >
+        <!-- header -->
+        @@include('./layout/header.html')
+
+        <!-- banner -->
+        <div class="login_banner">
+            <img src="./images/login_01.png" alt="">
+        </div>
+
+        <!-- 手機上主選單 -->
+        <div class="member_phone_nav">
+            @@include('./layout/member_nav.html')
+        </div>
+
+        <h2 class="member_h2">會員等級</h2>
+
+        <!-- ##########  Vue  ########## -->
+        <div id="app_memberTable">
+            <div class="member_out">
+                <!-- 左主選單 -->
+                <div class="member_nav">
+                    @@include('./layout/member_nav.html')
+                </div>
+                <!-- 右邊 -->
+                <div class="member_right">
+                    <table  v-for="info in mbArray" data-WantToDo="MEMBER_LEVEL" >
+                        <!-- level 圈圈 -->
+                        <tr>
+                            <td class="my_level">
+                                <div class="level" >
+                                    <img :src="'./images/level_' + info.LEVEL + '.png'" alt="" :class="info.LEVEL">
+                                    <!-- 圈 -->
+                                    <div class="circle">
+                                        <p>{{info.LEVEL}}</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- prime 說明 -->
+                        <tr>
+                            <td class="my_level">
+                                <div class="prime_top prime_level">
+                                    
+                                    <!-- if normal 顯示邀請 -->
+                                    <template v-if="info.LEVEL=='NORMAL'">
+                                        <h3>加入溯·REVERSE PRIME可立即享有</h3>
+                                        <ul>
+                                            <li><i class="fa-solid fa-circle-check"></i>整年於開放時間隨時入館</li>
+                                            <li><i class="fa-solid fa-circle-check"></i>紀念品商店85折優惠</li>
+                                            <li><i class="fa-solid fa-circle-check"></i>博物館精美周邊禮品乙份</li>
+                                        </ul>
+                                    </template>
+
+                                    <template v-else="info.LEVEL=='PRIME'">
+                                        <h3>到期日：{{info.EXPIRE_DAY}}</h3>
+                                        <h3>溯·REVERSE PRIME可享有</h3>
+                                        <ul>
+                                            <li><i class="fa-solid fa-circle-check"></i>整年於開放時間隨時入館</li>
+                                            <li><i class="fa-solid fa-circle-check"></i>紀念品商店85折優惠</li>
+                                            <li><i class="fa-solid fa-circle-check"></i>博物館精美周邊禮品乙份</li>
+                                        </ul>
+                                    </template>
+                                    
+                                    <!-- <ul>
+                                        <li><i class="fa-solid fa-circle-check"></i>整年於開放時間隨時入館</li>
+                                        <li><i class="fa-solid fa-circle-check"></i>紀念品商店85折優惠</li>
+                                        <li><i class="fa-solid fa-circle-check"></i>博物館精美周邊禮品乙份</li>
+                                    </ul> -->
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 按鈕 -->
+            <div class="login_btn_out btn_center order_btn" v-for="info in mbArray">
+                <input type ="button" class="btn_s_default" onclick="history.back()" value="返回"></input>
+                <a v-if="info.LEVEL=='NORMAL'" href="./prime_pay.html" class="btn_s_remind">加入PRIME</a>
+            </div>
+
+        </div>
+        <!-- ##########  Vue  ########## -->
+       
+
+        <!-- footer -->
+        @@include('./layout/footer.html')
+        
+    </div>
+    <!-- goTop 組件 -->
+    @@include('./layout/goTop_component.html')
+    <!-- goTop 組件 -->
+</body>
+</html>
