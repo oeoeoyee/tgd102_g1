@@ -1,3 +1,4 @@
+<!-- 整合至 login_status -->
 <?php
 include("./PDO/connection_inc.php");
 // SESSION 內的資料
@@ -25,9 +26,11 @@ if (isset($_SESSION["member"])) {
         $stmt->execute();
 
         $data = $stmt->fetchAll();
+
+        echo json_encode($data);
 } else {
         // 沒有的話直接回傳 無登入訊息
         $data["successful"] = '無登入資訊';
-}
 
-echo json_encode($data);
+        echo json_encode($data);
+}

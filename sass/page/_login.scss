@@ -697,6 +697,10 @@
             }
             tbody{
                 tr{
+
+                    .my_level{
+                        width: auto !important;
+                    }
                     
                     td{
                         padding-bottom: size(57);
@@ -716,6 +720,8 @@
                             width: auto;
                         }
                     }
+
+                    
 
                      // 會員條碼
                     .member_code{
@@ -1139,8 +1145,10 @@
 // =========level_prime.html===============
 
 .level{
-    // prime皇冠
-    .queen{
+    // 微調~ 登入狀態 
+    // prime皇冠 
+    // .queen{
+    .PRIME{
         top: size(-90);
         left: size(-30);
         @include mobile{

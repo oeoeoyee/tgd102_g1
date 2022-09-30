@@ -4,6 +4,7 @@ const keyword_input = document.querySelector(".back_search"); // 綁定搜尋欄
 
 // 取 table 的自訂屬性的值
 const tbName = document.querySelector("table").dataset.tbname;
+// 沒設定 data- 的頁面會報錯!!!  之後問老師  低優先度
 
 // 此 Vue ID 綁在 app_backTable 的欄位
 const table_vue = new Vue({
