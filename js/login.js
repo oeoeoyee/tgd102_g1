@@ -51,7 +51,7 @@ new Vue({
         // 電話
         phone: '',
         // 付款方式
-        pay: '信用卡',
+        pay: '',
 
     },
     methods:{  //函數 "大部分" 放這裡
@@ -101,7 +101,7 @@ new Vue({
             
 
             // ajax
-            fetch('./php/ticket.php',{
+            fetch('./php/ticket_group.php',{
                 method: 'POST',
                 headers: { 'Content-Type' : 'application/json' },
                 body: JSON.stringify({
@@ -119,7 +119,7 @@ new Vue({
                 })
             }).then(resp => resp.json())
             .then(body => {
-                alert(body);
+                // alert(body);
                 location = './payment.html'
             });
 
@@ -152,7 +152,33 @@ new Vue({
                 return false
             }
 
-            alert('成功');
+            // alert('成功');
+
+            // ajax
+            fetch('./php/ticket_personal.php',{
+                method: 'POST',
+                headers: { 'Content-Type' : 'application/json' },
+                body: JSON.stringify({
+                    // 變數: this.v-model名
+                    exhibition: this.exhibitionChoose,
+                    date: this.date,
+                    name: this.name,
+                    phone: this.phone,
+                    adult: this.adultCount,
+                    service: this.serviceCount,
+                    child: this.childCount,
+                    adultticket: this.adultticket,
+                    serviceticket: this.serviceticket,
+                    childticket: this.childticket,
+                    pod: this.personpods,
+                    pay: this.pay,
+                    total: this.total,
+                })
+            }).then(resp => resp.json())
+            .then(body => {
+                // alert(body);
+                location = './payment_atm_succ.html'
+            });
         },
 
         // placeholder效果
