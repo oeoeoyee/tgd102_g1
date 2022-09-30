@@ -45,7 +45,7 @@
         text-align: center;
         white-space: nowrap;
         overflow: hidden;
-        animation: typing 4s steps(15) 1 ;
+        animation: typing 2s steps(15) 1 ;
         @keyframes typing {
             from { width: 0; }
         }
@@ -58,7 +58,7 @@
             width: rwd(40);
             line-height: 1.6;
             text-align: center;
-            animation: typing 4s steps(80) 1 ;
+            animation: typing 2s steps(80) 1 ;
             @keyframes typing {
                 from { width: 0; }
             }
@@ -101,7 +101,7 @@
     &:hover{
         opacity: 1;
     }
-    animation: blink 0.75s 4s 3 linear ;
+    animation: blink 0.75s 2s 3 linear ;
     @keyframes blink {
         0% {
             opacity: 0;

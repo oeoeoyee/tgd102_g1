@@ -5,6 +5,7 @@
 
     // -----------------------------------------------------
     $sql = " SELECT INFO_ID, INFO_TYPE, TITLE, CONTENT, DATE FROM INFORMATION 
+            ORDER BY INFO_ID desc
             LIMIT 3";
     $statement = $pdo->prepare($sql);
     // $statement->bindValue(":id", $news_id);

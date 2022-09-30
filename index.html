@@ -224,7 +224,7 @@
                                 </a>
                             </li> -->
                             <li v-for="(item, index) in news">
-                                <a href="./news_01.html">
+                                <a :href="'./news_01.html?id='+item.INFO_ID">
                                     <div class="infocard_s">
                                         <h3>{{item.TITLE}}
                                             <span>&rarr;</span>
