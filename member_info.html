@@ -5,6 +5,7 @@
         "title" : "會員資料"
     })
     <script type="module" src="./js/login.js"></script>
+    <script type="module" src="./js/login_status.js"></script>
 </head>
 <body>
 
@@ -36,11 +37,40 @@
 
                 <!-- 資料表格 -->
 
-                <form method="post" action="#">
+                <!-- <form method="post" action="#"> -->
 
-                    <table>
-                        <tbody>
-                            <!-- <tr>
+                    <table id="app_memberTable" data-WantToDo="MEMBER_INFO">
+                        <tbody v-for="info in mbArray">
+                            <tr>
+                                <td width="30%">會員編號</td>
+                                <td width="70%">{{info.MEMBER_ID}}</td>
+                            </tr>
+                            <tr>
+                                <td>入會日期</td>
+                                <td>{{info.REGISTER_DAY}}</td>
+                            </tr>
+                            <tr>
+                                <td>會員等級</td>
+                                <td>{{info.LEVEL}} (到期日：{{info.EXPIRE_DAY}})</td>
+                            </tr>
+                            <tr>
+                                <td>姓名</td>
+                                <td>{{info.NAME}}</td>
+                            </tr>
+                            <tr>
+                                <td>電話</td>
+                                <td>{{info.PHONE}}</td>
+                            </tr>
+                            <tr>
+                                <td>電子信箱</td>
+                                <td>{{info.EMAIL}}</td>
+                            </tr>
+                            <tr>
+                                <td class="member_code">會員條碼</td>
+                                <td class="member_code_img"><img src="./images/member_01_qrcode.png" alt=""></td>
+                            </tr>
+                        <!-- 
+                            <tr>
                                 <td width="30%">會員編號</td>
                                 <td width="70%">M0074683</td>
                             </tr>
@@ -63,14 +93,15 @@
                             <tr>
                                 <td>電子信箱</td>
                                 <td>hfhr343@gmail.com</td>
-                            </tr> -->
-                            <!-- <tr>
+                            </tr>
+                            <tr>
                                 <td class="member_code">會員條碼</td>
                                 <td class="member_code_img"><img src="./images/member_01_qrcode.png" alt=""></td>
-                            </tr> -->
+                            </tr>
+                         -->
                         </tbody>
                     </table>
-                </form>
+                <!-- </form> -->
 
             </div>
             
@@ -91,44 +122,51 @@
     @@include('./layout/goTop_component.html')
     <!-- goTop 組件 -->
 
-    <script>
+    
+    <!-- <script>
         const member = document.querySelector('tbody');
         fetch("./php/member.php")
-        .then(rsp => rsp.json(
-            // console.log(rsp)
-        ))
-        .then(user => {
-            member.insertAdjacentHTML('beforeend',`
-            <tr>
-                <td width="30%">會員編號</td>
-                <td width="70%">${user.member_id}</td>
-            </tr>
-            <tr>
-                <td>入會日期</td>
-                <td>${user.register_day}</td>
-            </tr>
-            <tr>
-                <td>會員等級</td>
-                <td>${user.level} (到期日：${user.EXPIRE_DAY})</td>
-            </tr>
-            <tr>
-                <td>姓名</td>
-                <td>${user.name}</td>
-            </tr>
-            <tr>
-                <td>電話</td>
-                <td>${user.phone}</td>
-            </tr>
-            <tr>
-                <td>電子信箱</td>
-                <td>${user.email}</td>
-            </tr>
-            <tr>
-                <td class="member_code">會員條碼</td>
-                <td class="member_code_img"><img src="./images/member_01_qrcode.png" alt=""></td>
-            </tr>
-            `);
+        .then(resp => resp.json())
+        .then(resp => {
+            if (resp.successful == '無登入資訊') {
+                location.replace('./login.html');
+            } else {
+                expire_day = resp[0].EXPIRE_DAY ? resp[0].EXPIRE_DAY : '無期限';
+                 member.insertAdjacentHTML('beforeend', `
+                <tr>
+                    <td width="30%">會員編號</td>
+                    <td width="70%">${resp[0].MEMBER_ID}</td>
+                </tr>
+                <tr>
+                    <td>入會日期</td>
+                    <td>${resp[0].register_day}</td>
+                </tr>
+                <tr>
+                    <td>會員等級</td>
+                    <td>${resp[0].level} (到期日：${expire_day})</td>
+                </tr>
+                <tr>
+                    <td>姓名</td>
+                    <td>${resp[0].NAME}</td>
+                </tr>
+                <tr>
+                    <td>電話</td>
+                    <td>${resp[0].PHONE}</td>
+                </tr>
+                <tr>
+                    <td>電子信箱</td>
+                    <td>${resp[0].EMAIL}</td>
+                </tr>
+                <tr>
+                    <td class="member_code">會員條碼</td>
+                    <td class="member_code_img"><img src="./images/member_01_qrcode.png" alt=""></td>
+                </tr>
+                `
+                );
+            }
+             
         })
-    </script>
+    </script>  -->
+
 </body>
 </html>

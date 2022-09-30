@@ -26,16 +26,16 @@
                         <!-- 新一季參觀須知及票價調整通知 /  -->
                         <div>
                             <h4 id="news_top_date"></h4>
-                            <p>新一季常設展覽多出十九世紀主題，帶您遨遊在新藝術運動的世界。<br><br>因應本次新冠疫情，於中央流行疫情指揮中心宣布國門開放前，本館將持續施行藝文推廣專案，所有票價皆調降五十元新台幣。詳細資訊已統一更新於「關於我們 / 票價資訊」內，歡迎各位民眾前來參觀 溯‧REVERSE歷史藝術博物館!</p>
+                            <p id="news_top_content"></p>
                         </div>
                     </div>
                 </div>
                 <div class="news_top">
                     <div class="news_top_word gsap_left">
-                        <h3>歡迎來到 溯‧REVERSE博物館</h3>
+                        <h3 id="news_down_title"></h3>
                         <div>
-                            <h4>2022.03.13  -  2022.06.31</h4>
-                            <p>新一季常設展覽多出十九世紀主題，帶您遨遊在新藝術運動的世界。<br><br>因應本次新冠疫情，於中央流行疫情指揮中心宣布國門開放前，本館將持續施行藝文推廣專案，所有票價皆調降五十元新台幣。詳細資訊已統一更新於「關於我們 / 票價資訊」內，歡迎各位民眾前來參觀 溯‧REVERSE歷史藝術博物館!</p>
+                            <h4 id="news_down_date"></h4>
+                            <p id="news_down_content"></p>
                         </div>
                     </div>
                     <img src="./images/news_03.png" alt="">
@@ -44,6 +44,7 @@
             
             <!-- vuevue -->
             <div id="app_news">
+
                 <!-- 選擇消息類別的nav -->
                 <nav class="news_nav news_becenter">
                     <!-- <h4 @click="content='all'"  v-bind:class="errorClass1">全部消息</h4>
@@ -53,15 +54,19 @@
                     <!-- <h4 @click="content='all'"  v-bind:class="[{ active: isActive }, errorClass]">全部消息</h4>
                     <h4 @click="content='activity'"  v-bind:class="[{ active: isActive }, errorClass]">活動消息</h4>
                     <h4 @click="content='museum'"  v-bind:class="[{ active: isActive }, errorClass]">館方消息</h4> -->
-                    <h4 @click="content='all', changeColor()"  v-bind:class="{'news_nav_choose': allNews}">全部訊息</h4>
+                    <h4 v-for="(option,key) in options" @click="CURRENT_INFO_TYPE = key" :class="{'news_nav_choose': CURRENT_INFO_TYPE === key}">
+                            {{option.title}}
+                    </h4>
+                    <!-- <h4 @click="content='all', changeColor()"  v-bind:class="{'news_nav_choose': allNews}">全部訊息</h4>
                     <h4 @click="content='museum', changeColor()"  v-bind:class="{'news_nav_choose': museumNews}">館方訊息</h4>
-                    <h4 @click="content='activity', changeColor()"  v-bind:class="{'news_nav_choose': activeNews}">活動訊息</h4>
+                    <h4 @click="content='activity', changeColor()"  v-bind:class="{'news_nav_choose': activeNews}">活動訊息</h4> -->
                     
                     <!-- <h4 v-for="news in newsTempArray" @click="changeColor">{{news}}</h4> -->
                 </nav>
                 <!-- 消息列 -->
+               <news :type="CURRENT_INFO_TYPE" :key="CURRENT_INFO_TYPE"></news>
                 
-                <Component :is='content'></Component>
+                <!-- <Component :is='content'></Component> -->
                 
                 <!-- 消息頁數選擇 -->
                 <!-- <ul class="news_page news_becenter">

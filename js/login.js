@@ -98,8 +98,7 @@ new Vue({
                 
             }
 
-            alert('成功');
-
+            
 
             // ajax
             fetch('./php/ticket.php',{
@@ -118,7 +117,11 @@ new Vue({
                     pay: this.pay,
                     total: this.total,
                 })
-            })
+            }).then(resp => resp.json())
+            .then(body => {
+                alert(body);
+                location = './payment.html'
+            });
 
         },
 
@@ -386,7 +389,7 @@ $(".login_out").submit(function (e) {
 
     // 無誤後送出
     if (error_msg == "") {
-        alert("資料成功送出");
+        // alert("資料成功送出"); 拿掉通知...
     } else {
         $("#error").html(error_msg + "，請再次確認");
     }

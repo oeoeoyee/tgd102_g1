@@ -22,8 +22,8 @@ $sql = " SELECT
                 o.PRICE,
                 o.PAYMENT_TYPE,
                 o.PAYMENT_STATUS
-        FROM REVERSE.ORDER_DETAIL od
-                join REVERSE.order o
+        FROM ORDER_DETAIL od
+                join `ORDER` o
                         on od.ORDER_ID = o.ORDER_ID
         ";
 

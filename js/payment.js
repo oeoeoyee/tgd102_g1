@@ -20,6 +20,7 @@ jQuery(function($){
             $('.validation').addClass('failed');
         } else {
             $('.validation').addClass('passed');
+            location = './group_credit_succ.html';
         }
     });
 });
@@ -36,13 +37,13 @@ function checkCard() {
     const cardType = $('#card_type').val();
     switch (cardType) {
         case 'visa':
-            reg = /^4$/;
+            reg = /^4/;
             break;
         case 'jcb':
-            reg = /^3$/;
+            reg = /^3/;
             break;
         case 'master':
-            reg = /^5$/;
+            reg = /^5/;
             break;
     }
     if(reg.test(card)){

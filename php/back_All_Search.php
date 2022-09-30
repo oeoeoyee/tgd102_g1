@@ -17,7 +17,7 @@ $keywords = isset($_GET["keywords"]) ? $_GET["keywords"] : '';
 
 //    請依照需求調整 SQL 語法 拜託了 >.O
 
-// 沒有收到 keyword 就抓全部資料
+// 沒有收到 keyword 就
 if (isset($_GET["keywords"])) {
   switch ($DB_info["tbName"]) {
     case 'INFORMATION': // 消息
@@ -118,59 +118,62 @@ if (isset($_GET["keywords"])) {
   // json_encode 轉換資料結構
   echo json_encode($data);
 } else {
-  switch ($DB_info["tbName"]) {
-    case 'INFORMATION': // 消息
-      $sql = "
+  // 有收到 tbName 就抓全部資料
+  if (isset($DB_info["tbName"])) {
+    switch ($DB_info["tbName"]) {
+      case 'INFORMATION': // 消息
+        $sql = "
       SELECT * 
       FROM INFORMATION 
       ORDER by INFO_ID desc;";
-      break;
+        break;
 
-    case 'EVENTS':  // 特展
-      $sql = "
+      case 'EVENTS':  // 特展
+        $sql = "
       SELECT * 
       FROM EVENTS_TEST;";
-      break;
+        break;
 
-    case 'EXHIBITION': // 普展
-      $sql = "
+      case 'EXHIBITION': // 普展
+        $sql = "
       SELECT * 
       FROM EXHIBITION;";
-      break;
+        break;
 
-    case 'MEMBER': // 會員資料
-      $sql = "
+      case 'MEMBER': // 會員資料
+        $sql = "
       SELECT * 
       FROM MEMBER;";
-      break;
+        break;
 
-    case 'ORDER': // 訂單資訊
-      $sql = "
+      case 'ORDER': // 訂單資訊
+        $sql = "
       SELECT o.ORDER_ID, o.ORDER_DAY, od.EXHIBITION_NAME, o.VISIT_DAY, o.PRICE, o.PAYMENT_TYPE, od.DELEGATE_NAME, o.PAYMENT_STATUS 
       FROM REVERSE.ORDER o join REVERSE.ORDER_DETAIL od 
       on o.ORDER_ID = od.ORDER_ID;";
-      break;
+        break;
 
-    case 'SUB_LIST': // 訂閱
-      $sql = "
+      case 'SUB_LIST': // 訂閱
+        $sql = "
       SELECT * 
       FROM SUB_LIST;";
-      break;
+        break;
 
-    case 'NEWSLETTER_LIST': //電子報
-      $sql = "
+      case 'NEWSLETTER_LIST': //電子報
+        $sql = "
       SELECT * 
       FROM NEWSLETTER;";
-      break;
+        break;
 
-    default:
-      # code... nothing
-      break;
-  };
-  $statement = $pdo->prepare($sql);
-  $statement->execute();
-  $data = $statement->fetchAll();
-  echo json_encode($data);
+      default:
+        # code... nothing
+        break;
+    };
+    $statement = $pdo->prepare($sql);
+    $statement->execute();
+    $data = $statement->fetchAll();
+    echo json_encode($data);
+  }
 };
 
 

@@ -48,23 +48,27 @@
                         <label>發送時間</label>
                         <input type="date" v-model="start_day" >
                     </div>
-                </div>
+
+                    <div class="back_edit_summernote">
+                        <label for="">內文</label>
+                        <textarea id="summernote"></textarea>
+                        <!-- <summernote></summernote> -->
+                    </div>
+                <!-- </div> -->
                 
 
-                <div class="back_edit_summernote">
-                    <label for="">內文</label>
-                    <textarea id="summernote"></textarea>
-                    <!-- <summernote></summernote> -->
+               
+                
+                    <div class="edit_button">
+                        <!-- <a href="./back_news_draft.html"> -->
+                            <button  @click="insert">儲存草稿</button>
+                        <!-- </a> -->
+                        <!-- <a href="./back_news.html"> -->
+                            <button @click="insert">送出資料</button>
+                        <!-- </a> -->
+                    </div>
                 </div>
                 
-                <div class="edit_button" id="app2">
-                    <!-- <a href="./back_news_draft.html"> -->
-                        <button  @click="insert">儲存草稿</button>
-                    <!-- </a> -->
-                    <!-- <a href="./back_news.html"> -->
-                        <button @click="insert">送出資料</button>
-                    <!-- </a> -->
-                </div>
 
 
 

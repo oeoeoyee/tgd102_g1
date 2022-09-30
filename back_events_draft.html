@@ -53,11 +53,11 @@
                             <td>{{info.start_date}}</td>
                             <td>{{info.end_date}}</td>
                             <td><a :href="'./back_events_edit.html?id='+info.INFO_ID"></a>{{info.name}}</a></td>
-                            <td>未來展望</td>
+                            <td>{{info.situation}}</td>
                             <td>{{info.room}}</td>
                             <td>
                                 <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
+                                <span class="icon_del" @click="event_down(info.ID)"><i class="fa-regular fa-trash-can"></i></span>
                             </td>
                         </tr>
                         <!-- <tr>

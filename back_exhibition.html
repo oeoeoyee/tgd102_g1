@@ -43,11 +43,11 @@
                         <tr v-for="info in tbArray">
                             <td>{{info.START_DAY}}</td>
                             <td>{{info.EXHIBITION_TYPE}}</td>
-                            <td><a href="./back_exhibitions_edit.html">{{info.NAME}}</a></td>
+                            <td><a :href="'./back_exhibitions_edit.html?id='+info.ID">{{info.NAME}}</a></td>
                             <td>{{info.ROOM}}</td>
                             <td>
                                 <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
+                                <span class="icon_del" @click="exhib_down(info.ID)"><i class="fa-regular fa-trash-can"></i></span>
                             </td>
                         </tr>
                         <!-- 

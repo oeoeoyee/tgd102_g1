@@ -137,3 +137,26 @@ addEventListener('load', function(){
         window.location.href = `news_01.html?id=${nextID}`;
     });
 })
+
+
+// 分享用function
+function tweetClick() {
+	// var url = "https://tibamef2e.com/tgd102/g1/dist/news_01.html?id= + 'newsID' + ";
+	var url = "http://urlfromcms.com";
+	var text = "分享給您 溯‧REVERSE博物館 的最新消息！";
+	window.open('http://twitter.com/share?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text), '');
+}   
+
+function fbClick() {
+	// var url = "https://tibamef2e.com/tgd102/g1/dist/news_01.html?id= + 'newsID' + ";
+	var url = "http://urlfromcms.com";
+	var text = "分享給您 溯‧REVERSE博物館 的最新消息！";
+	window.open('https://www.facebook.com/sharer.php?u='+encodeURIComponent(url)+'&text='+encodeURIComponent(text), '');
+}
+
+function lineClick() {
+	// var url = "https://tibamef2e.com/tgd102/g1/dist/news_01.html?id= + 'newsID' + ";
+	var url = "http://urlfromcms.com";
+	var text = "分享給您 溯‧REVERSE博物館 的最新消息！";
+	window.open('http://line.naver.jp/R/msg/text/?'+encodeURIComponent(url)+'&text='+encodeURIComponent(text), '');
+}
