@@ -24,9 +24,9 @@ const table_vue = new Vue({
       }
     },
 
-    to(order) {
-      console.log(order.ORDER_ID);
-      sessionStorage.setItem("order", order.ORDER_ID);
+    to(e) {
+      console.log(e.ORDER_ID);
+      sessionStorage.setItem("order", e.ORDER_ID);
     },
     emailGo (title,email,content){
       console.log(1234);

@@ -1,6 +1,7 @@
 <?php
 include("./PDO/connection_inc.php");
 
+
 $member_WhatToDo = json_decode(file_get_contents("php://input"), true);
 // SESSION 內的資料
 session_start();
@@ -25,6 +26,9 @@ if (isset($_SESSION["member"])) {
           from MEMBER
           WHERE MEMBER_ID = :userID;";
 
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":userID", $member["userID"]);
+
         break;
 
       case 'MEMBER_ORDER': // 訂單
@@ -32,6 +36,9 @@ if (isset($_SESSION["member"])) {
           SELECT *
           from `ORDER`
           WHERE MEMBER_ID = :userID;";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":userID", $member["userID"]);
 
         break;
 
@@ -41,10 +48,17 @@ if (isset($_SESSION["member"])) {
           from MEMBER
           WHERE MEMBER_ID = :userID;";
 
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":userID", $member["userID"]);
+
         break;
 
-        case 'MEMBER_ORDER_DETAIL': // 等級
-          $sql = " 
+      case 'MEMBER_ORDER_DETAIL': // 等級
+        // 訂單明細
+        // $ORDER_id = $_GET["id"];
+        $ORDER_id = $member_WhatToDo["my_ORDER_ID"];
+
+        $sql = " 
           SELECT 
             od.ORDER_ID,
             od.EXHIBITION_NAME,
@@ -66,9 +80,14 @@ if (isset($_SESSION["member"])) {
           FROM ORDER_DETAIL od
             join `ORDER` o
             on od.ORDER_ID = o.ORDER_ID
-          WHERE o.ORDER_ID = :userID;";
-  
-          break;
+          WHERE o.ORDER_ID = :ORDER_ID;";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":ORDER_ID", $ORDER_id);
+
+
+
+        break;
 
       default:
         # code... nothing
@@ -76,8 +95,7 @@ if (isset($_SESSION["member"])) {
     }
   };
 
-  $stmt = $pdo->prepare($sql);
-  $stmt->bindValue(":userID", $member["userID"]);
+
   $stmt->execute();
 
   $data = $stmt->fetchAll();

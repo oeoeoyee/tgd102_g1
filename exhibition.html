@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-hant">
   <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
     @@include('./layout/head.html',{ "title":'常設展覽' })
   </head>
 
@@ -230,6 +232,8 @@
       // 出現範圍
       var topSec = document.querySelectorAll(".top");
 
+      gsap.registerPlugin(ScrollTrigger); // GSAP
+
       $(window).scroll(function () {
         var topPos = $(topSec).offset().top;
         var topBot = topPos + $(topSec).outerHeight(true);
@@ -293,6 +297,35 @@
           }
         });
       });
+
+      // 最上層
+      if (780 < document.body.scrollWidth) {
+        // TOP 1
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: ".ex_img1 h3",
+              start: "-=500",
+              end: "-=500",
+              scrub: 3,
+            },
+          })
+          .fromTo(
+            ".ex_img1 h3",
+            {
+              clipPath: "inset(2rem 27rem 3rem 0rem)",
+              x: -100,
+              opacity: 0,
+            },
+            {
+              duration: 2,
+              ease: "sine.inOut",
+              clipPath: "inset(0rem 0rem 0rem 0rem)",
+              x: 0,
+              opacity: 1,
+            }
+          );
+      }
     </script>
   </body>
 </html>

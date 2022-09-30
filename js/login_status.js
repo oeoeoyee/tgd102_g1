@@ -2,6 +2,7 @@
 //             沒有就送去登入頁面
 const WantToDo = document.querySelector("table").dataset.wanttodo;
 
+
 // 登出
 const member_logout = document.querySelector("#member_logout");
 
@@ -12,6 +13,9 @@ let member_vue = new Vue({
   },
 
   mounted: function () {
+
+    const my_ORDER_ID = sessionStorage.getItem('ORDER_ID');
+
     fetch("./php/login_status.php", {
       method: "POST",
       headers: {
@@ -19,6 +23,7 @@ let member_vue = new Vue({
       },
       body: JSON.stringify({
         // 送出會員要到哪頁做什麼事
+        my_ORDER_ID,
         WantToDo,
       }),
     })
@@ -37,10 +42,17 @@ let member_vue = new Vue({
   },
 
   methods: {
+    // 登出
     loggggout() {
       sessionStorage.removeItem("MEMBER_ID");
       fetch("./php/logout.php");
       location = `./index.html`;
+    },
+
+    // 訂單 ID
+    to(e) {
+      console.log(e.ORDER_ID);
+      sessionStorage.setItem("ORDER_ID", e.ORDER_ID);
     },
   },
 });
