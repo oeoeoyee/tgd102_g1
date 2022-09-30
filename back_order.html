@@ -24,6 +24,7 @@
                 <div class="back_table_title">
                     <h2>訂單管理</h2>
                     @@include('./layout/search_component.html')
+                    
                 </div>
                 <table id="app_backTable" class="back_table" data-tbname="ORDER">
                     <thead>
@@ -40,7 +41,12 @@
                     </thead>
                     <tbody>
                         <tr v-for="order in tbArray">
-                            <td>{{order.ORDER_ID}}</td>
+                            <td @click="to(order)">
+                                <!-- <a :href="'./back_order_personal.html?id='+order.ORDER_ID"> -->
+                                <a href="./back_order_personal.html">
+                                {{order.ORDER_ID}}  </a>
+                            </td>
+                                
                             <td>{{order.ORDER_DAY}}</td>
                             <td>{{order.EXHIBITION_NAME}}</td>
                             <td>{{order.VISIT_DAY}}</td>

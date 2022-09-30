@@ -21,6 +21,11 @@ let table_vue = new Vue({
       } else {
       }
     },
+
+    to(order) {
+      console.log(order.ORDER_ID);
+      sessionStorage.setItem("order", order.ORDER_ID);
+    },
   },
   mounted: function () {
     const api = "./php/back_All_Search.php"; // 要從哪裡得到資料

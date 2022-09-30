@@ -25,73 +25,86 @@
                     <h2>訂單明細</h2>
                 </div>
                 <div class="back_table_noline back_table_p20">
-                    <table>
-                        <tbody>
-                            <tr>
+                    <table  id="app_back_order_personal">
+                        <tbody v-for="order_personal in order_personalArray">
+                            <tr >
                                 <td>訂單編號</td>
-                                <td>P0074683</td>
+                                <td>{{order_personal.ORDER_ID}}</td>
                             </tr>
                             <tr>
                                 <td>訂單日期</td>
-                                <td>2022/08/24</td>
+                                <td>{{order_personal.ORDER_DAY}}</td>
                             </tr>
                             <tr>
                                 <td>展覽名稱</td>
-                                <td>林布蘭·哈爾曼松</td>
+                                <td>{{order_personal.EXHIBITION_NAME}}</td>
+
                             </tr>
                             <tr>
                                 <td>入館日期</td>
-                                <td>2022/08/24</td>
+                                <td>{{order_personal.VISIT_DAY}}</td>
                             </tr>
                             <tr>
                                 <td>費用總計</td>
-                                <td>$1000</td>
+                                <td>{{order_personal.PRICE}}</td>
+
                             </tr>
                             <tr>
                                 <td>付款狀態</td>
-                                <td>已付款</td>
+                                <td>{{order_personal.PAYMENT_STATUS}}</td>
+
                             </tr>
                             <tr>
                                 <td>付款方式</td>
-                                <td>信用卡</td>
+                                <td>{{order_personal.PAYMENT_TYPE}}</td>
+
                             </tr>
                             <tr>
                                 <td>付款日期</td>
-                                <td>2022/08/24</td>
+                                <td>{{order_personal.PAYMENT_DAY}}</td>
+
                             </tr>
                         </tbody>
-                        <tbody>
+                        <tbody v-for="order_personal in order_personalArray">
                             <tr>
                                 <td>會員編號</td>
-                                <td>M0074683</td>
+                                <td>{{order_personal.MEMBER_ID}}</td>
+
                             </tr>
                             <tr>
                                 <td>會員電話</td>
-                                <td>0987535427</td>
+                                <td>{{order_personal.DELEGATE_PHONE}}</td>
+
                             </tr>
                             <tr>
                                 <td>會員姓名</td>
-                                <td>林布蘭</td>
+                                <td>{{order_personal.DELEGATE_NAME}}</td>
+
                             </tr>
                             <tr>
                                 <td>成人票</td>
-                                <td>5位</td>
+                                <td>{{order_personal.ADULT_NUM}}</td>
+
                             </tr>
                             <tr>
                                 <td>優待票</td>
-                                <td>5位</td>
+                                <td>{{order_personal.DISCOUNT_NUM}}</td>
+
                             </tr>
                             <tr>
                                 <td>兒童票</td>
-                                <td>5位</td>
+                                <td>{{order_personal.CHILD_NUM}}</td>
+
                             </tr>
                             <tr>
                                 <td>語音導覽</td>
-                                <td>有</td>
+                                <td>{{order_personal.VOICE_GUIDE}}</td>
+
                             </tr>
                             <tr>
                                 <td>付款帳號</td>
-                                <td>822-12345555666644</td>
+                                <td>{{order_personal.PAYMENT_ACC}}</td>
+
                             </tr>
                         </tbody>
                     </table>
@@ -103,5 +116,32 @@
         <!-- footer -->
         <!-- @@include('./layout/footer.html') -->
     </div>
+
+    <script>
+            let back_order_personal = new Vue({
+                el: '#app_back_order_personal',
+                data: {
+                    order_personalArray:[],
+                },
+
+                mounted() {
+                    
+                    let get_order_id = sessionStorage.getItem('order');
+                    const api = `./php/back_order_personal.php?id=`+get_order_id; // 要從哪裡得到資料
+                    
+                    fetch(api,{
+                        method:'POST',
+                        headers:{'Content-Type':'application/json'},
+                        body: JSON.stringify({
+                            ID: get_order_id,
+                        })
+                    })
+                        
+                        .then(res => res.json())
+                        .then(res =>this.order_personalArray = res)
+                }
+            })
+    
+    </script>
 </body>
 </html>
