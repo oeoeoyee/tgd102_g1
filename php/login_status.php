@@ -8,13 +8,13 @@ session_start();
 // 判斷 SESSION 有沒有 member 資料
 if (isset($_SESSION["member"])) {
   // 有就把資料帶入
-  $userNAME = $_SESSION["member"]->NAME; // 名稱
   $userID = $_SESSION["member"]->MEMBER_ID; // ID
-  $userMAIL = $_SESSION["member"]->EMAIL;  // 信箱
+  // $userMAIL = $_SESSION["member"]->EMAIL;  // 信箱
+  // $userNAME = $_SESSION["member"]->NAME; // 名稱
   // 承接
-  $member["userNAME"] = $userNAME;
   $member["userID"] = $userID;
-  $member["userMAIL"] = $userMAIL;
+  // $member["userMAIL"] = $userMAIL;
+  // $member["userNAME"] = $userNAME;
 
   // 將會員要的資料 呈現在對應的頁面
   if (isset($member_WhatToDo["WantToDo"])) {
@@ -23,14 +23,8 @@ if (isset($_SESSION["member"])) {
         $sql = " 
           SELECT MEMBER_ID, NAME, EMAIL, PHONE, REGISTER_DAY, LEVEL, EXPIRE_DAY
           from MEMBER
-          WHERE MEMBER_ID = :userID and NAME = :userNAME;";
+          WHERE MEMBER_ID = :userID;";
 
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(":userID", $member["userID"]);
-        $stmt->bindValue(":userNAME", $member["userNAME"]);
-        $stmt->execute();
-
-        $data = $stmt->fetchAll();
         break;
 
       case 'MEMBER_ORDER': // 訂單
@@ -39,31 +33,54 @@ if (isset($_SESSION["member"])) {
           from `ORDER`
           WHERE MEMBER_ID = :userID;";
 
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(":userID", $member["userID"]);
-        $stmt->execute();
-
-        $data = $stmt->fetchAll();
         break;
 
       case 'MEMBER_LEVEL': // 等級
         $sql = " 
-          SELECT *
+          SELECT LEVEL, EXPIRE_DAY
           from MEMBER
           WHERE MEMBER_ID = :userID;";
 
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(":userID", $member["userID"]);
-        $stmt->execute();
-
-        $data = $stmt->fetchAll();
         break;
+
+        case 'MEMBER_ORDER_DETAIL': // 等級
+          $sql = " 
+          SELECT 
+            od.ORDER_ID,
+            od.EXHIBITION_NAME,
+            od.DELEGATE_NAME,
+            od.DELEGATE_PHONE,
+            od.PAYMENT_DAY,
+            od.CHILD_NUM,
+            od.CHILD_PRICE,
+            od.DISCOUNT_NUM,
+            od.DISCOUNT_PRICE,
+            od.ADULT_NUM,
+            od.ADULT_PRICE,
+            od.VOICE_GUIDE,
+            o.ORDER_DAY,
+            o.VISIT_DAY,
+            o.PRICE,
+            o.PAYMENT_TYPE,
+            o.PAYMENT_STATUS
+          FROM ORDER_DETAIL od
+            join `ORDER` o
+            on od.ORDER_ID = o.ORDER_ID
+          WHERE o.ORDER_ID = :userID;";
+  
+          break;
 
       default:
         # code... nothing
         break;
     }
   };
+
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindValue(":userID", $member["userID"]);
+  $stmt->execute();
+
+  $data = $stmt->fetchAll();
 
   echo json_encode($data);
 } else {

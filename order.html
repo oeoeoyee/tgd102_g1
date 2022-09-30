@@ -5,6 +5,7 @@
         "title" : "訂單明細"
     })
     <script type="module" src="./js/login.js"></script>
+    <script type="module" src="./js/login_status.js"></script>
 </head>
 <body>
 
@@ -24,7 +25,7 @@
 
         <h2 class="member_h2">訂單明細</h2>
 
-        <div class="member_out">
+        <div id="app_memberTable" class="member_out">
 
             <!-- 左主選單 -->
             <div class="member_nav">
@@ -35,68 +36,68 @@
             <div class="member_right">
 
                 <!-- 資料表格 -->
-                <form method="post" action="">
-                    <table>
-                        <tbody>
-                            <!-- <tr>
+                <!-- <form method="post" action=""> -->
+                    <table data-wanttodo="MEMBER_ORDER_DETAIL">
+                        <tbody v-for="info in mbArray">
+                            <tr>
                                 <td width="30%">訂單編號</td>
-                                <td width="70%">P0074683</td>
+                                <td width="70%">{{info.ORDER_ID}}</td>
                             </tr>
                             <tr>
                                 <td>訂單日期</td>
-                                <td>2022/08/24</td>
+                                <td>{{info.ORDER_DAY}}</td>
                             </tr>
                             <tr>
                                 <td>展覽名稱</td>
-                                <td>普通常設展</td>
+                                <td>{{info.EXHIBITION_NAME}}</td>
                             </tr>
                             <tr>
                                 <td>姓名</td>
-                                <td>林布蘭</td>
+                                <td>{{info.DELEGATE_NAME}}</td>
                             </tr>
                             <tr>
                                 <td>電話</td>
-                                <td>0987535427</td>
+                                <td>{{info.DELEGATE_PHONE}}</td>
                             </tr>
                             <tr>
                                 <td>入館日期</td>
-                                <td>2022/09/04</td>
+                                <td>{{info.VISIT_DAY}}</td>
                             </tr>
                             <tr>
                                 <td>成人票數</td>
-                                <td>5位</td>
+                                <td>{{info.ADULT_NUM}}位</td>
                             </tr>
                             <tr>
                                 <td>優待票數</td>
-                                <td>2位</td>
+                                <td>{{info.DISCOUNT_NUM}}位</td>
                             </tr>
                             <tr>
                                 <td>兒童票數</td>
-                                <td>0位</td>
+                                <td>{{info.ADULT_NUM}}位</td>
                             </tr>
                             <tr>
                                 <td>語音導覽</td>
-                                <td>有</td>
+                                <td>{{info.VOICE_GUIDE}}</td>
                             </tr>
                             <tr>
                                 <td>費用總計</td>
-                                <td>NT$1500</td>
+                                <td>NT${{info.PRICE}}</td>
                             </tr>
                             <tr>
                                 <td>付款狀態</td>
-                                <td>已付款</td>
+                                <td>{{info.PAYMENT_STATUS}}</td>
                             </tr>
                             <tr>
                                 <td>付款方式</td>
-                                <td>信用卡</td>
+                                <td>{{info.PAYMENT_TYPE}}</td>
                             </tr>
                             <tr>
                                 <td class="member_code">會員條碼</td>
                                 <td class="member_code_img"><img src="./images/member_01_qrcode.png" alt=""></td>
-                            </tr> -->
+                            </tr>
                         </tbody>
                     </table>
-                </form>
+                <!-- </form> -->
 
                 
             </div>
@@ -129,7 +130,7 @@
     @@include('./layout/goTop_component.html')
     <!-- goTop 組件 -->
 
-    <script>
+    <!-- <script>
         const order = document.querySelector('tbody');
         fetch("./php/order.php")
         .then(rsp => rsp.json(
@@ -199,6 +200,35 @@
             </tr>
             `);
         })
+    </script> -->
+
+    <script>
+        // try 嘗試綁定 沒有就跳過
+        document.querySelectorAll(".order_info").addEventListener("click", () => {
+            fetch("./php/login.php", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                useremail: useremail.value,
+                password: password.value,
+              }),
+            })
+              .then((resp) => resp.json()) // 2. 取得回應後
+              .then((body) => {
+                errMsg.textContent = "";
+                const { successful, message } = body;
+                if (successful) {
+                  // true 就送 SESSION 到 使用者Cookie
+                  const { MEMBER_ID } = body;
+                  sessionStorage.setItem("MEMBER_ID", MEMBER_ID);
+                  // 成功後 轉址 ? 會員中心
+                  location = "./member_info.html";
+                } else {
+                  // 失敗將收到的錯誤訊息寫進 HTML
+                  errMsg.textContent = message;
+                }
+              });
+          });
     </script>
 </body>
 </html>

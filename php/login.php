@@ -13,7 +13,7 @@ if ($member == null) {
 // -----------------------------------------------------
 $sql = "
     select *
-    from member where 
+    from MEMBER where 
     EMAIL = :useremail and password = :password;
   ";
 // -----------------------------------------------------
@@ -37,8 +37,6 @@ if (count($members) != 0) {
   echo json_encode([
     "successful" => true,
     "MEMBER_ID" => $member["MEMBER_ID"],
-    "NAME" => $member["NAME"],
-    "EMAIL" => $member["EMAIL"],
   ]);
 } else {
   $resp_body = (object) [

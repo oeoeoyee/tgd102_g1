@@ -25,7 +25,8 @@
 
         <h2 class="member_h2">訂單明細</h2>
 
-        <div class="member_out">
+        <!-- ##########  Vue  ########## -->
+        <div id="app_memberTable" class="member_out">
 
             <!-- 左主選單 -->
             <div class="member_nav">
@@ -38,7 +39,7 @@
                 
                 <!-- 資料表格 -->
                 <!-- <form method="post" action=""> -->
-                    <table id="app_memberTable" data-wanttodo="MEMBER_ORDER" >
+                    <table data-wanttodo="MEMBER_ORDER" >
                         <tbody v-for="info in mbArray">
                             <tr>
                                 <td>訂單編號</td>
@@ -67,7 +68,7 @@
             </div>
             
         </div>
-        
+        <!-- ##########  Vue  ########## -->
         <!-- 按鈕 -->
         <div class="login_btn_out btn_center">
             <input type ="button" class="btn_s_default" onclick="history.back()" value="返回"></input>
