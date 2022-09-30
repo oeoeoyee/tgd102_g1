@@ -27,7 +27,7 @@
                 <div class="back_table_noline back_table_p20">
                     <table  id="app_back_order_personal">
                         <tbody v-for="order_personal in order_personalArray">
-                            <tr >
+                            <tr @click="to(order)">
                                 <td>訂單編號</td>
                                 <td>{{order_personal.ORDER_ID}}</td>
                             </tr>

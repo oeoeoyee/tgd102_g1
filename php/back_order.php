@@ -7,15 +7,15 @@ $sql = "SELECT
             o.ORDER_ID, o.ORDER_DAY, od.EXHIBITION_NAME,
             o.VISIT_DAY, o.PRICE, o.PAYMENT_TYPE, 
             od.DELEGATE_NAME,
-            o.PAYMENT_STATUS from REVERSE.ORDER o
-            join REVERSE.ORDER_DETAIL od
+            o.PAYMENT_STATUS from `ORDER` o
+            join ORDER_DETAIL od
             on o.ORDER_ID = od.ORDER_ID";
 
 $sql2 = "SELECT 
             o.ORDER_ID, o.ORDER_DAY, od.EXHIBITION_NAME,
             o.VISIT_DAY, o.PAYMENT_TYPE, o.PRICE
-            from REVERSE.ORDER o
-            join REVERSE.ORDER_DETAIL od
+            from `ORDER` o
+            join ORDER_DETAIL od
             on o.ORDER_ID = od.ORDER_ID
             where MEMBER_ID = 3";
 // -----------------------------------------------------

@@ -148,8 +148,9 @@ if (isset($_GET["keywords"])) {
 
       case 'ORDER': // 訂單資訊
         $sql = "
-      SELECT o.ORDER_ID, o.ORDER_DAY, od.EXHIBITION_NAME, o.VISIT_DAY, o.PRICE, o.PAYMENT_TYPE, od.DELEGATE_NAME, o.PAYMENT_STATUS 
-      FROM REVERSE.ORDER o join REVERSE.ORDER_DETAIL od 
+      SELECT *
+      
+      FROM `ORDER` o join ORDER_DETAIL od 
       on o.ORDER_ID = od.ORDER_ID;";
         break;
 

@@ -25,7 +25,95 @@
                     <h2>訂單明細</h2>
                 </div>
                 <div class="back_table_noline back_table_p20">
-                    <table>
+
+                    <table id="app_backTable" data-tbname="ORDER_GROUP">
+                        <tbody v-for="order_personal in tbArray" >
+                            <tr @click="to(order)">
+                                <td>訂單編號</td>
+                                <td>{{order_personal.ORDER_ID}}</td>
+                            </tr>
+                            <tr>
+                                <td>訂單日期</td>
+                                <td>{{order_personal.ORDER_DAY}}</td>
+                            </tr>
+                            <tr>
+                                <td>展覽名稱</td>
+                                <td>{{order_personal.EXHIBITION_NAME}}</td>
+
+                            </tr>
+                            <tr>
+                                <td>入館日期</td>
+                                <td>{{order_personal.VISIT_DAY}}</td>
+                            </tr>
+                            <tr>
+                                <td>費用總計</td>
+                                <td>{{order_personal.PRICE}}</td>
+
+                            </tr>
+                            <tr>
+                                <td>付款狀態</td>
+                                <td>{{order_personal.PAYMENT_STATUS}}</td>
+
+                            </tr>
+                            <tr>
+                                <td>付款方式</td>
+                                <td>{{order_personal.PAYMENT_TYPE}}</td>
+
+                            </tr>
+                            <tr>
+                                <td>付款日期</td>
+                                <td>{{order_personal.PAYMENT_DAY}}</td>
+
+                            </tr>
+                            <tr>
+                                <td>(付款帳號)</td>
+                                <td>{{order_personal.PAYMENT_ACC}}</td>
+                            </tr>
+                        </tbody>
+                        <tbody v-for="order_personal in order_personalArray">
+                            <tr>
+                                <td>會員編號</td>
+                                <td>{{order_personal.MEMBER_ID}}</td>
+
+                            </tr>
+                            <tr>
+                                <td>會員電話</td>
+                                <td>{{order_personal.DELEGATE_PHONE}}</td>
+
+                            </tr>
+                            <tr>
+                                <td>會員姓名</td>
+                                <td>{{order_personal.DELEGATE_NAME}}</td>
+
+                            </tr>
+                            </tr>
+                            <tr>
+                                <td>代表姓名</td>
+                                <td>{{order_personal.DELEGATE_NAME}}</td>
+
+                            </tr>
+                            <tr>
+                                <td>代表電話</td>
+                                <td>{{order_personal.DELEGATE_PHONE}}</td>
+                            </tr>
+                            <tr>
+                                <td>團體人數</td>
+                                <td>{{order_personal.GROUP_NUM}}</td>
+
+                            </tr>
+                            <tr>
+                                <td>語音導覽</td>
+                                <td>{{order_personal.VOICE_GUIDE}}</td>
+
+                            </tr>
+                            <tr>
+                                <td>專人導覽</td>
+                                <td>{{order_personal.NAVIGATE_GUIDE}}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- <table>
                         <tbody>
                             <tr>
                                 <td>訂單編號</td>
@@ -90,19 +178,16 @@
                                 <td>20位</td>
                             </tr>
                             <tr>
-                                <td>導覽方式</td>
+                                <td>語音導覽</td>
+                                <td>有</td>
+                            </tr>
+                            
+                            <tr>
                                 <td>專人導覽</td>
-                            </tr>
-                            <tr>
-                                <td>導覽時段</td>
-                                <td>09:00 ~ 10:00</td>
-                            </tr>
-                            <tr>
-                                <td>導覽人員</td>
-                                <td>2位</td>
+                                <td>無</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table> -->
                 </div>
                 <button class="btn_s_default"><a href="./back_order.html">返回</a></button>
             </div>
@@ -111,5 +196,9 @@
         <!-- footer -->
         <!-- @@include('./layout/footer.html') -->
     </div>
+
+    
+
+    
 </body>
 </html>

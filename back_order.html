@@ -53,7 +53,10 @@
                             <td>{{order.PRICE}}</td>
                             <td>{{order.PAYMENT_TYPE}}</td>
                             <td>{{order.DELEGATE_NAME}}</td>
-                            <td>{{order.PAYMENT_STATUS}}</td>
+                            <td>{{order.PAYMENT_STATUS == 1 ? '已付款' : '未付款'}}</td>
+                            <!-- <td>{{order.PAYMENT_STATUS ? order.PAYMENT_STATUS : '未付款'}}</td> -->
+                            <!-- 上面是null值 -->
+
                         </tr>
                         <!--<tr>
                             <td><a href="./back_order_personal.html">P0074683</a></td>
