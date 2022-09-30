@@ -53,6 +53,163 @@ new Vue({
     }, 
 
        updated(){
+        
+        if(800 < document.body.scrollWidth){
+        gsap
+        .to([".event01_2 .event01_2_content img",".event01_3 .event01_3_img img",".event01_3_title h4",".event01_3_title h5",".event01_3_title div",".event01_2_annotation div",".event01_2 .event01_2_title h4",".event01_2 .event01_2_title h5"],{
+            opacity:0,
+        })
+        gsap //.event01_2 .event01_2_title event01_2_annotation
+        .timeline({
+            scrollTrigger: {
+                trigger: ".event01_2 .event01_2_title",
+                start: "-=500",
+                end: "-=500",
+                scrub: 3
+            }
+        })
+        .to([".event01_2 .event01_2_title h4",".event01_2 .event01_2_title h5"],{
+            keyframes: [
+                {
+                    duration: 0,
+                    opacity:0,
+                    // clipPath: "inset(0rem 65rem 0rem 0rem)"
+                    x:100,
+                }, {
+                    duration: 1.5,
+                    opacity:1,
+                    // clipPath: "inset(0rem 0rem 0rem 0rem)",
+                    x:0,
+                    ease: "sine.inOut"
+                }
+            ]
+        })
+        gsap //.event01_2 .event01_2_title event01_2_annotation
+        .timeline({
+            scrollTrigger: {
+                trigger: ".event01_2_annotation",
+                start: "-=350",
+                end: "-=350",
+                scrub: 3
+            }
+        })
+        .to(".event01_2_annotation div",{
+            keyframes: [
+                {
+                    duration: 0,
+                    opacity:0,
+                    // clipPath: "inset(0rem 65rem 0rem 0rem)"
+                    x:100,
+                }, {
+                    duration: 1.5,
+                    opacity:1,
+                    // clipPath: "inset(0rem 0rem 0rem 0rem)",
+                    x:0,
+                    ease: "sine.inOut"
+                }
+            ]
+        })
+        gsap
+        .timeline({
+            scrollTrigger: {
+                trigger: "#img1",
+                start: "-=500",
+                end: "-=500",
+                scrub: 3
+            }
+        })
+        .to("#img1",{
+            keyframes: [
+                {
+                    duration: 0,
+                    opacity:0,
+                    // clipPath: "inset(0rem 65rem 0rem 0rem)"
+                    x:-100,
+                }, {
+                    duration: 1.5,
+                    opacity:1,
+                    // clipPath: "inset(0rem 0rem 0rem 0rem)",
+                    x:0,
+                    ease: "sine.inOut"
+                }
+            ]
+        })
+        gsap
+        .timeline({
+            scrollTrigger: {
+                trigger: "#img2",
+                start: "-=350",
+                end: "-=350",
+                scrub: 3
+            }
+        })
+        .to("#img2",{
+            keyframes: [
+                {
+                    duration: 0,
+                    opacity:0,
+                    // clipPath: "inset(0rem 65rem 0rem 0rem)"
+                    x:-100,
+                }, {
+                    duration: 1.5,
+                    opacity:1,
+                    // clipPath: "inset(0rem 0rem 0rem 0rem)",
+                    x:0,
+                    ease: "sine.inOut"
+                }
+            ]
+        })
+        gsap 
+        .timeline({
+            scrollTrigger: {
+                trigger: ".event01_3 .event01_3_img img",
+                start: "-=400",
+                end: "-=400",
+                scrub: 3
+            }
+        })
+        .to([".event01_3_title h4",".event01_3_title h5",".event01_3_title div"],{
+            keyframes: [
+                {
+                    duration: 0,
+                    x:-100,
+                    opacity:0,
+                    // clipPath: "inset(0rem 65rem 0rem 0rem)"
+                }, {
+                    duration: 1.5,
+                    opacity:1,
+                    x:0,
+                    // clipPath: "inset(0rem 0rem 0rem 0rem)",
+                    ease: "sine.inOut"
+                }
+            ]
+        })
+        gsap
+        .timeline({
+            scrollTrigger: {
+                trigger: ".event01_3 .event01_3_img img",
+                start: "-=500",
+                end: "-=500",
+                scrub: 3
+            }
+        })
+        .to(".event01_3 .event01_3_img img",{
+            keyframes: [
+                {
+                    duration: 0,
+                    x:100,
+                    opacity:0,
+                    // clipPath: "inset(0rem 65rem 0rem 0rem)"
+                }, {
+                    duration: 1.5,
+                    opacity:1,
+                    x:0,
+                    // clipPath: "inset(0rem 0rem 0rem 0rem)",
+                    ease: "sine.inOut"
+                }
+            ]
+        })
+        //.event01_2 .event01_2_content img
         gsap
         .to(".event01_1 .event01_1_left_title h1",{
             keyframes: [
@@ -74,22 +231,22 @@ new Vue({
             { duration: .7, x: 0, opacity: 1, }, 
             ]
         });
-        gsap
-        .timeline({
-            scrollTrigger: {
-                trigger: '.event01_5 .event01_5_textborder h4',
-                start: "-=500",
-                end: "+=200",
-                scrub: 3
-            }
-        })
-        .fromTo('.event01_5 .event01_5_textborder h4', {
-            x:900
-        }, {
-            x:0,
-            duration: 2,
-            ease: "sine.inOut"
-        })
+        // gsap
+        // .timeline({
+        //     scrollTrigger: {
+        //         trigger: '.event01_5 .event01_5_textborder h4',
+        //         start: "-=500",
+        //         end: "+=200",
+        //         scrub: 3
+        //     }
+        // })
+        // .fromTo('.event01_5 .event01_5_textborder h4', {
+        //     x:900
+        // }, {
+        //     x:0,
+        //     duration: 2,
+        //     ease: "sine.inOut"
+        // })
         gsap
         .timeline({
             scrollTrigger: {
@@ -105,8 +262,7 @@ new Vue({
             x:0,
             duration: 2,
             ease: "sine.inOut"
-        }); 
-        // ---------------------------------------------------------------------------------
+        });
         gsap
         .timeline({
             scrollTrigger: {
@@ -118,28 +274,45 @@ new Vue({
             }
         })
         .to(".event01_5 .event01_5_img .event01_5_text01 div p",{
-            y: '-100', opacity:0,
+            // y: '-100', opacity:0,
+            y: '-5.2vw', opacity:0,
+
         })
         .to('.event01_5 .event01_5_img img', {
-            x: '700', y: '-700',scale:3.5
+            // x: '700', y: '-700',scale:3.5
+            x: '36.45vw', y: '-36.45vw',scale:3.5
+
         })
         .to('.event01_5 .event01_5_img img', {
-            x: '1700', y: '-100',scale:3.5
+            // x: '1700', y: '-100',scale:3.5
+            x: '88.5vw', y: '-5.2vw',scale:3.5
+
         })
         .to('.event01_5 .event01_5_img img', {
-            x: '-1000', y: '0',scale:3.5
+            // x: '-1000', y: '0',scale:3.5
+            x: '-52vw', y: '0',scale:3.5
+
         })
         .to('.event01_5 .event01_5_img img', {
-            x: '-1750', y: '-100',scale:3.5
+            // x: '-1750', y: '-100',scale:3.5
+            x: '-91.1vw', y: '-5.2vw',scale:3.5
+
         })
         .to('.event01_5 .event01_5_img img', {
-            x: '-400', y: '-800',scale:3
+            // x: '-400', y: '-800',scale:3
+            x: '-20.8vw', y: '-41.6vw',scale:3
+
         })
         .to('.event01_5 .event01_5_img img', {
-            x: '0', y: '-300',scale:2
+            // x: '0', y: '-300',scale:2
+            x: '0', y: '-15.6vw',scale:2
+
         })
         .to('.event01_5 .event01_5_img img', {
-            x: "0", y: '-300', scale:.7
+            // x: "0", y: '-300', scale:.7
+            x: "0", y: '-15.6vw', scale:.7
+
         });
        }     
+    }
 });
