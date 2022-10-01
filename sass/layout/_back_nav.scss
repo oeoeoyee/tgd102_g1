@@ -14,14 +14,14 @@
 
         // 頭像
         .user_head{
-            width: size(88);
-            height: size(88);
+            width: size(75);
+            height: size(75);
             background-color: pink;
             border-radius: 50%;
         }
 
         p{
-            font-size: size(36);
+            font-size: size(32);
             font-weight: bold;
             color: $rice;
             margin-left: size(18);
