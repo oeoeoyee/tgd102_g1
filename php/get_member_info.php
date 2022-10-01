@@ -1,6 +1,8 @@
 <?php
 include("./PDO/connection_inc.php");
-$memberId = $_GET["id"];
+// $memberId = $_GET["id"];
+
+$Order_info = json_decode(file_get_contents("php://input"), true);
 
 // // -----------------------------------------------------
 
@@ -13,12 +15,12 @@ $memberId = $_GET["id"];
 // -----------------------------------------------------
 // 路徑==> /tgd102_g1/dist/php/get_member_info.php?memberId=1
 
-// $stmt = $pdo->prepare($sql);
+$stmt = $pdo->prepare($sql);
 
-$stmt->bindValue(":id", $memberId);
+$stmt->bindValue(":id", $Order_info["ID"]);
 $stmt->execute();
 
-// $members = $stmt->fetchAll();
+$members = $stmt->fetchAll();
 
 // // if (count($members) == 1) {
 // //   $member = $members[0];
@@ -30,4 +32,4 @@ $stmt->execute();
 
 // // print_r($members);
 
-// echo json_encode($members);
+echo json_encode($members);
