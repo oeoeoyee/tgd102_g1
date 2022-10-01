@@ -27,7 +27,7 @@
                 </div>
                 <table id="app_backTable" class="back_table" data-tbname="MEMBER">
                     <thead>
-                        <tr>
+                        <tr >
                             <th>會員編號</th>
                             <th>入會日期</th>
                             <th>會員等級</th>
@@ -37,8 +37,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for ="members in tbArray">
-                            <td>{{members.MEMBER_ID}}</td>
+                        <tr v-for ="members in tbArray" >
+                            <td @click="thisMemberID(members)">
+                                <a href="./back_member_detail.html">{{members.MEMBER_ID}}
+                                </a>
+                            </td>
                             <td>{{members.REGISTER_DAY}}</td>
                             <td>{{members.LEVEL}}</td>
                             <td>{{members.NAME}}</td>
@@ -72,11 +75,5 @@
         <!-- footer -->
         <!-- @@include('./layout/footer.html') -->
     </div>
-
-    <script>
-       
-    // Vue 整合至 back_Search.js ( 在 layout/head.html )
-
-    </script>
 </body>
 </html>

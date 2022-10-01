@@ -177,7 +177,7 @@
         //     })
 
         //back_member_detail 下方的歷史紀錄
-            let member_history = new Vue({
+            new Vue({
                 el: '#app_member_history',
                 data: {
                     member_historyArray: [],
@@ -185,13 +185,21 @@
                 },
 
                 mounted() {
-                    const api = "./php/get_member_info.php"; // 要從哪裡得到資料
+                    let get_member_id = sessionStorage.getItem('MEMBER_ID');
+                    const api = `./php/get_member_info.php?id=` + get_member_id; // 要從哪裡得到資料
+
                     // 老師範例26
-                    fetch(api)
-                        .then(res => res.json())
-                        .then(res =>this.member_historyArray = res,)
-                        .then(res =>this.detailsArray = res);
-                }
+                    fetch(api, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            ID: get_member_id,
+                        })
+                    })
+                    .then(res => res.json())
+                    .then(res => this.detailsArray = res)
+                    
+                },
             })
             // vm_backNews.$mount('#app_backnews');
     

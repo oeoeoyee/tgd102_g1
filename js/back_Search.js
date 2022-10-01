@@ -24,9 +24,13 @@ const table_vue = new Vue({
       }
     },
 
-    to(e) {
+    thisOrderID(e) {
       console.log(e.ORDER_ID);
       sessionStorage.setItem("order", e.ORDER_ID);
+    },
+    thisMemberID(e) {
+      console.log(e.MEMBER_ID);
+      sessionStorage.setItem("MEMBER_ID", e.MEMBER_ID);
     },
     emailGo (title,email,content){
       console.log(1234);

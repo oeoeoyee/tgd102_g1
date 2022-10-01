@@ -41,7 +41,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="order in tbArray">
-                            <td @click="to(order)">
+                            <td @click="thisOrderID(order)">
                                 <!-- <a :href="'./back_order_personal.html?id='+order.ORDER_ID"> -->
                                 <a href="./back_order_personal.html">
                                 {{order.ORDER_ID}}  </a>
