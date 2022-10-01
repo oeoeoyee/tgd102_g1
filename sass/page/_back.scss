@@ -7,7 +7,7 @@
 .back_out{
     display: flex;
     background-color: $rice;
-
+    // height: 200%;
     // 右邊
     .back_main{
         h2{
@@ -59,50 +59,72 @@
 
 // 圖表
 .back_chart{
-    width: 100%;
+    // width: 100%;
+    // display: grid;
+    // grid-template-columns: 1fr 1fr;
+    // grid-template-rows: 1fr 1fr;
+    // // display: flex;
+    // margin-top: size(40);
+    // margin-bottom: size(120);
+    // & > div{
+    //     display: inline-block;
+    //     width: auto;
+    //     height: size(400);
+    //     padding: size(20);
+    //     div{
+    //         // border: 1px solid;
+    //         height: 100%;
+    //         img{
+    //             height: 100%;
+    //         }
+    //     }
+    // }
+
+    width: auto;
+    height: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    // display: flex;
+    grid-template-rows: 1fr 1fr 1fr;
     margin-top: size(40);
     margin-bottom: size(120);
-    & > div{
-        display: inline-block;
-        width: auto;
-        height: size(400);
-        padding: size(20);
-        div{
-            // border: 1px solid;
-            height: 100%;
-            img{
-                height: 100%;
-            }
-        }
-        // div:nth-of-type(1){
-        //     grid-row: 1 / 2 ; // startline / endline
-        //     grid-column: 1 / 2 ; // startline / endline
-        // }
-        // div:nth-of-type(2){
-        //     grid-row: 2 / 3 ; // startline / endline
-        //     grid-column: 1 / 2 ; // startline / endline
-        // }
-        // div:nth-of-type(3){
-        //     grid-row: 1 / 2 ; // startline / endline
-        //     grid-column: 2 / 3 ; // startline / endline
-        // }
-        // div:nth-of-type(4){
-        //     grid-row: 2 / 3 ; // startline / endline
-        //     grid-column: 2 / 3 ; // startline / endline
-        // }
-    
+
+    // chart js mon
+    div:nth-of-type(1){
+        grid-row: 1 / 2 ; // startline / endline
+        grid-column: 1 / 2 ; // startline / endline
+        padding: size(20) size(30) size(20) 0;
     }
+    // chart js people
+    div:nth-of-type(2){
+        grid-row: 1 / 3 ; // startline / endline
+        grid-column: 2 / 3 ; // startline / endline
+        padding: size(20) 0 size(20) size(20);
+    }
+    // chart js year
+    div:nth-of-type(3){
+        grid-row: 2 / 3 ; // startline / endline
+        grid-column: 1 / 2 ; // startline / endline
+        padding: size(20) size(30) size(20) 0;
+    }
+    // chart js sub
+    div:nth-of-type(4){
+        grid-row: 3 / 4 ; // startline / endline
+        grid-column: 1 / 2 ; // startline / endline
+        padding: size(20) size(30) size(20) 0;
+    }
+    & > div{
+        // width: auto;
+        // height: size(400);
+        padding: size(20) size(30) size(20) 0;
+    }
+
 }
 
 // 看要不要改整體
 // 為了給後台的main寬度
 .back_flexgrow{
     flex-grow: 1;
-    height: 100vh;
+    // height: 100%;
 }
 
 // =================  ================== // 
