@@ -37,6 +37,7 @@ if (count($members) != 0) {
   echo json_encode([
     "successful" => true,
     "MEMBER_ID" => $member["MEMBER_ID"],
+    "LEVEL" => $member["LEVEL"],
   ]);
 } else {
   $resp_body = (object) [

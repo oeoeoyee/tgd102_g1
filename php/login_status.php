@@ -1,7 +1,6 @@
 <?php
 include("./PDO/connection_inc.php");
 
-
 $member_WhatToDo = json_decode(file_get_contents("php://input"), true);
 // SESSION 內的資料
 session_start();
@@ -96,8 +95,8 @@ if (isset($_SESSION["member"])) {
   };
 
 
+  // 執行
   $stmt->execute();
-
   $data = $stmt->fetchAll();
 
   echo json_encode($data);

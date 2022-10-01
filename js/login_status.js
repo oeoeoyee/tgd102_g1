@@ -1,10 +1,7 @@
+// 這隻是有 SESSIOM 的資料才能繼續進行動作
 // 判斷登入狀態 有就撈對應資料
 //             沒有就送去登入頁面
 const WantToDo = document.querySelector("table").dataset.wanttodo;
-
-
-// 登出
-const member_logout = document.querySelector("#member_logout");
 
 let member_vue = new Vue({
   el: "#app_memberTable",
@@ -13,8 +10,7 @@ let member_vue = new Vue({
   },
 
   mounted: function () {
-
-    const my_ORDER_ID = sessionStorage.getItem('ORDER_ID');
+    const my_ORDER_ID = sessionStorage.getItem("ORDER_ID");
 
     fetch("./php/login_status.php", {
       method: "POST",
@@ -42,16 +38,9 @@ let member_vue = new Vue({
   },
 
   methods: {
-    // 登出
-    loggggout() {
-      sessionStorage.removeItem("MEMBER_ID");
-      fetch("./php/logout.php");
-      location = `./index.html`;
-    },
-
     // 訂單 ID
     to(e) {
-      console.log(e.ORDER_ID);
+      // console.log(e.ORDER_ID);
       sessionStorage.setItem("ORDER_ID", e.ORDER_ID);
     },
   },
