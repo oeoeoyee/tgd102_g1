@@ -164,6 +164,7 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
       i {
         @include h1();
         color: $red;
+        animation: poooog 1s infinite;
       }
     }
 
@@ -172,6 +173,17 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
         display: block;
       }
     }
+  }
+}
+
+@keyframes poooog {
+  0% {
+    color: white;
+    transform: translateX(-100px);
+  }
+  100% {
+    color: $red;
+    transform: translateX(20px);
   }
 }
 
