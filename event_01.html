@@ -31,7 +31,8 @@
                         <!-- 2022.08.13 -  2023.01.31 -->
                         {{date}}
                     </h4>
-                    <img src="./images/event01_01_01.png" alt="">
+                    <!-- <img src="./images/event01_01_01.png" alt=""> event01_01_rwd.png -->
+                    <img :src=`./images/${imgM[1]}` alt="">
                     <h4>台北市中山區南京東路三段219號5樓</h4>
                     <h4>{{item.room}} ROOM</h4>
                     <a href="./ticket.html" class="btn_l">BUY TICKET
@@ -40,7 +41,7 @@
                 </div>
             </div>
             <div class="event01_1_right">
-                <img :src=`./images/${item.main_img}` alt="">
+                <img :src=`./images/${imgM[0]}` alt="">
             </div>
         </section>
         <section class="event01_2">
@@ -127,7 +128,7 @@
             <div class="event01_5_textborder">
                 <h4>
                     <!-- 我只是在畫人，普通人，不是軍隊。 -->
-                    {{pj_title3}}
+                    {{item.pj_title3}}
                 </h4>
             </div>
             <div>
