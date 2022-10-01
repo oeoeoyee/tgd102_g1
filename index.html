@@ -9,10 +9,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-
+    
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper" style="display: none;">
             <!-- header -->
             @@include('./layout/header.html')
         <div class="index_section">    
@@ -277,6 +277,14 @@
     <!-- goTop 組件 -->
     @@include('./layout/goTop_component.html')
     <!-- goTop 組件 -->
+    
+    
+    <script>
+    // 首頁淡入呈現(搭配style= display:none)
+    $(document).ready(function(){
+        $(".wrapper").fadeIn(2000);
+    });
+    </script>
 
     <script src="./js/index.js"></script>
 </body>
