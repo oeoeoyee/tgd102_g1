@@ -45,7 +45,7 @@
                         <tbody>
                             <tr>
                                 <td>會員等級</td>
-                                <td>{{detailsArray[0].LEVEL}}{{detailsArray[0].REGISTER_DAY}}</td>
+                                <td>{{detailsArray[0].LEVEL}}({{detailsArray[0].REGISTER_DAY}})</td>
                             </tr>
                             <tr>
                                 <td>會員電話</td>
@@ -198,6 +198,8 @@
                     })
                     .then(res => res.json())
                     .then(res => this.detailsArray = res)
+                    .then(res => this.member_historyArray = res)
+
                     
                 },
             })

@@ -1,8 +1,9 @@
 <?php
 include("./PDO/connection_inc.php");
-// $memberId = $_GET["id"];
+$memberId = $_GET["id"];
 
-$Order_info = json_decode(file_get_contents("php://input"), true);
+
+// $Oinfo = json_decode(file_get_contents("php://input"), true);
 
 // // -----------------------------------------------------
 
@@ -17,7 +18,7 @@ $Order_info = json_decode(file_get_contents("php://input"), true);
 
 $stmt = $pdo->prepare($sql);
 
-$stmt->bindValue(":id", $Order_info["ID"]);
+$stmt->bindValue(":id", $memberId);
 $stmt->execute();
 
 $members = $stmt->fetchAll();
