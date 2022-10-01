@@ -27,6 +27,8 @@
                 placeholder="請輸入電子信箱"
                 name="email"
                 id="email"
+                
+                value="test@test.com"
               />
               <div class="error"></div>
             </li>
@@ -37,6 +39,8 @@
                 placeholder="密碼：英數混合，六至十二字"
                 name="pwd"
                 id="pwd"
+
+                value="qwer1234"
               />
               <div class="error"></div>
             </li>
@@ -172,10 +176,19 @@
                 const { successful, message } = body;
                 if (successful) {
                   // true 就送 SESSION 到 使用者Cookie
-                  const { MEMBER_ID } = body;
+                  const { MEMBER_ID, LEVEL } = body;
                   sessionStorage.setItem("MEMBER_ID", MEMBER_ID);
+
+                  // ############ 管理員 ############ 低安全性判斷
                   // 成功後 轉址 ? 會員中心
-                  location = "./member_info.html";
+                  if (LEVEL == "ADMIN") {
+                    // 條件 送去後臺頁
+                    location = "./back_chart.html";
+                    sessionStorage.setItem("ADMIN", LEVEL);
+                  } else {
+                    location = "./member_info.html";
+                  }
+                  // ############ 管理員 ############
                 } else {
                   // 失敗將收到的錯誤訊息寫進 HTML
                   errMsg.textContent = message;
