@@ -29,24 +29,32 @@
                 </div>
                 <div class="back_chart">
                     <div>
-                        <div>
+                        <!-- <div>
                             <img src="./images/back_chart1.png" alt="">
-                        </div>
+                        </div> -->
+                        <!-- chart js mon -->
+                        <canvas id="monthChart" width="400" height="200"></canvas>
                     </div>
                     <div>
-                        <div>
+                        <!-- <div>
                             <img src="./images/back_chart2.png" alt="">
-                        </div>
+                        </div> -->
+                        <!-- chart js people -->
+                        <canvas id="peopleChart" width="400" height="400"></canvas>
                     </div>
                     <div>
-                        <div>
+                        <!-- <div>
                             <img src="./images/back_chart3.png" alt="">
-                        </div>
+                        </div> -->
+                        <!-- chart js year -->
+                        <canvas id="yearChart" width="400" height="200"></canvas>
                     </div>
                     <div>
-                        <div>
+                        <!-- <div>
                             <img src="./images/back_chart4.png" alt="">
-                        </div>
+                        </div> -->
+                        <!-- chart js sub -->
+                        <canvas id="subChart" width="400" height="200"></canvas>
                     </div>
                 </div>
             </div>
@@ -54,6 +62,341 @@
         <!-- footer -->
         <!-- @@include('./layout/footer.html') -->
     </div>
+
+
     <script src="./js/back_loginStatus_logout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+
+// var sub_info
+// addEventListener('load', function(){
+//     // let sub_info
+//     fetch(`./php/back_chart_sub.php`)
+//     // .then((info) => {
+//         //     return info;
+//         // });
+//         .then((resp) => resp.json())
+//         .then(function(info){
+//             // console.log(subChart.data.datasets);
+//             subChart.data.datasets.forEach(element => {
+//                 console.log(element.data);
+//                 element.data[0] = 5;
+//                 element.data[1] = 3;
+//             });
+//             // subChart
+//             // sub_info = info;
+//             // console.log(sub_info);
+//             // return sub_info;
+//             // console.log(info);
+//         });
+        
+// });
+
+    
+// chart1 month
+const monCtx = document.getElementById('monthChart').getContext('2d');
+const monthChart = new Chart(monCtx, {
+    type: 'line',
+    data: {
+        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
+        datasets: [{
+            label: '單日門票營收',
+            data: [12, 19, 3, 5, 2, 3],
+            borderColor: [
+                'rgba(54, 162, 235, 1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+        plugins: {
+            title: {
+                display: true,
+                text: '本月門票總營收'
+            }
+        }
+    }
+});
+
+// // chart2 people
+// const peoCtx = document.getElementById('peopleChart').getContext('2d');
+// const peopleChart = new Chart(peoCtx, {
+//     type: 'pie',
+//     data: {
+//         labels: ['常設展', '林布蘭·哈爾曼松', '奇怪殭屍展', '歷代皇帝展', '琺瑯瓷器展',],
+//         datasets: [{
+//             label: '',
+//             data: [12, 19, 3, 5, 3],
+//             backgroundColor: [
+//                 'rgba(255, 99, 132, 0.2)',
+//                 'rgba(54, 162, 235, 0.2)',
+//                 'rgba(255, 206, 86, 0.2)',
+//                 'rgba(75, 192, 192, 0.2)',
+//                 'rgba(153, 102, 255, 0.2)',
+//                 'rgba(255, 159, 64, 0.2)'
+//             ],
+//             // borderWidth: 1,
+//             hoverOffset: 4
+//         }]
+//     },
+//     options: {
+//         scales: {
+//             y: {
+//                 beginAtZero: true
+//             }
+//         },
+//         plugins: {
+//             title: {
+//                 display: true,
+//                 text: '每日觀展人流比率'
+//             }
+//         }
+//     }
+// });
+
+// chart3 year
+const yearCtx = document.getElementById('yearChart').getContext('2d');
+const yearChart = new Chart(yearCtx, {
+    type: 'line',
+    data: {
+        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',],
+        datasets: [{
+            label: '每月營收額',
+            data: [12, 19, 3, 5, 2, 3, 7, 8, 4, 10, 5, 7],
+            borderColor: [
+                'rgba(54, 162, 235, 1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+        plugins: {
+            title: {
+                display: true,
+                text: '本年門票總營收'
+            }
+        }
+    }
+});
+
+// chart4 subscription
+// chartSub();
+// function chartSub(){
+//     const subCtx = document.getElementById('subChart').getContext('2d');
+//     const subChart = new Chart(subCtx, {
+//         type: 'bar',
+//         data: {
+//             labels: ['會員', '非會員',],
+//             datasets: [{
+//                 label: '會員訂閱人數',
+//                 data: [5, 3],
+//                 // data: sub_info,
+//                 backgroundColor: [
+//                     'rgba(255, 99, 132, 0.2)',
+//                     'rgba(153, 102, 255, 0.2)',
+//                 ],
+//                 borderWidth: 1,
+//                 barThickness: 30,
+    
+//                 // barPercentage: 0.5,
+//                 // maxBarThickness: 8,
+//                 // minBarLength: 2,
+//             }]
+//         },
+//         options: {
+//             scales: {
+//                 y: {
+//                     beginAtZero: true
+//                 }
+//             },
+//             plugins: {
+//                 title: {
+//                     display: true,
+//                     text: '本月電子報訂閱人數',
+//                     padding: {
+//                         top: 10,
+//                         bottom: 10
+//                     }
+//                 }
+//             }
+//         }
+//     });
+// }
+
+
+// var sub_info
+addEventListener('load', function(){
+
+    // chart4 - fetch data >> 整理 >> 套用到圖表
+    getSubData();
+    function getSubData(){
+        fetch(`./php/back_chart_sub.php`)
+        .then((resp) => resp.json())
+        .then(function(resp){
+            // 訂閱會員非會員(現在是訊息種類比例)
+            let sub_info = [];
+            let activity = 0;
+            let museum = 0;
+            for(let i = 0; i < resp.length; i++){
+                if(resp[i].INFO_TYPE === "活動訊息"){
+                    activity++;
+                }else{
+                    museum++;
+                }
+            }
+            sub_info.push(activity, museum);
+            
+            // chart4 subscription
+            chartSub();
+            function chartSub(){
+                const subCtx = document.getElementById('subChart').getContext('2d');
+                const subChart = new Chart(subCtx, {
+                    type: 'bar',
+                    data: {
+                        // labels: ['會員', '非會員',],
+                        labels: ['活動訊息', '館方訊息',],
+                        datasets: [{
+                            label: '會員訂閱人數',
+                            // data: [5, 3],
+                            data: sub_info,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                            ],
+                            borderWidth: 1,
+                            barThickness: 30,
+                            
+                            // barPercentage: 0.5,
+                            // maxBarThickness: 8,
+                            // minBarLength: 2,
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        },
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: '本月電子報訂閱人數',
+                                padding: {
+                                    top: 10,
+                                    bottom: 10
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            return resp;
+        });
+        
+    }
+
+
+    // chart2 - fetch data >> 整理 >> 套用到圖表
+    getPeoData();
+    function getPeoData(){
+        fetch(`./php/back_chart_peo.php`)
+        .then((resp) => resp.json())
+        .then(function(resp){
+            // 某天的觀展人流比率(要當天可能會要再新增很多筆資料，就以9/28為例)
+            let peo_array = [0, 0, 0, 0, 0];
+            // 從resp拿回來的所有展覽資料(會有重複值)
+            let resp_exhib_value = [];
+            // 展覽列表(無重複值)
+            let exhib_array = [];
+            // 
+            let total_peo_array = [];
+            resp.forEach(element => {
+                resp_exhib_value.push(element.EXHIBITION_NAME);
+                total_peo_array.push(element.CHILD_NUM + element.ADULT_NUM + element.DISCOUNT_NUM + element.GROUP_NUM);
+            });
+            exhib_array = Array.from(new Set(resp_exhib_value));
+            // 取出resp的每個值>>跟exhib_array比對>>有的話替換peo_array裡第幾項的值+1
+            console.log(total_peo_array);
+
+            // resp_exhib_value.forEach(element => {
+            //     if(exhib_array.indexOf(element) !== -1){
+            //         console.log(exhib_array.indexOf(element)); // 要塞進五個展覽中的第幾個
+            //         // peo_array[exhib_array.indexOf(element)] = (peo_array[exhib_array.indexOf(element)] + 1) * total_peo_array[];
+            //     }else{}
+            // });
+
+            // for(let i = 0; i < resp_exhib_value.length; i++){
+            //     if(exhib_array.indexOf(element) !== -1){
+            //         // console.log(element);
+            //         peo_array[exhib_array.indexOf(element)] = peo_array[exhib_array.indexOf(element)] +( 1 * total_peo_array[i]);
+            //     }else{}
+            // }
+            
+            // console.log(element.from(new Set(element)));
+            // console.log(Object.keys(element));
+
+            // chart2 people flow
+            chartPeo();
+            function chartPeo(){
+                // chart2 people
+                const peoCtx = document.getElementById('peopleChart').getContext('2d');
+                const peopleChart = new Chart(peoCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: exhib_array,
+                        // labels: ['常設展', '林布蘭·哈爾曼松', '奇怪殭屍展', '歷代皇帝展', '琺瑯瓷器展',],
+                        datasets: [{
+                            label: '',
+                            data: peo_array,
+                            // data: [12, 19, 3, 5, 3],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderWidth: 1,
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        },
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: '每日觀展人流比率'
+                            }
+                        }
+                    }
+                });
+            }
+            return resp;
+        });
+        
+    }
+            
+});
+
+</script>
+
+
+
 </body>
 </html>

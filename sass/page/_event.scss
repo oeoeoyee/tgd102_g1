@@ -264,7 +264,8 @@
                     width: size(428);
                     @include mobile() {
                         width: rwd(371);
-                        border: rwd(2) solid $black;
+                        // border: rwd(2) solid $black;
+                        border:0;
                     }
                     &:hover{
                         transform: scale(1.1);
