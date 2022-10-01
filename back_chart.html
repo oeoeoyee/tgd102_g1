@@ -321,13 +321,15 @@ addEventListener('load', function(){
             let exhib_array = [];
             // 
             let total_peo_array = [];
+            
             resp.forEach(element => {
                 resp_exhib_value.push(element.EXHIBITION_NAME);
                 total_peo_array.push(element.CHILD_NUM + element.ADULT_NUM + element.DISCOUNT_NUM + element.GROUP_NUM);
             });
             exhib_array = Array.from(new Set(resp_exhib_value));
             // 取出resp的每個值>>跟exhib_array比對>>有的話替換peo_array裡第幾項的值+1
-            console.log(total_peo_array);
+            console.log("人數陣列 : " + "長度 : " + total_peo_array.length + ":" + total_peo_array);
+            console.log("回傳值的展覽名 : " + "長度 : " + resp_exhib_value.length + ":" + resp_exhib_value);
 
             // resp_exhib_value.forEach(element => {
             //     if(exhib_array.indexOf(element) !== -1){
@@ -336,12 +338,19 @@ addEventListener('load', function(){
             //     }else{}
             // });
 
+            // ===================================修改中
             // for(let i = 0; i < resp_exhib_value.length; i++){
-            //     if(exhib_array.indexOf(element) !== -1){
-            //         // console.log(element);
-            //         peo_array[exhib_array.indexOf(element)] = peo_array[exhib_array.indexOf(element)] +( 1 * total_peo_array[i]);
-            //     }else{}
+            //     resp_exhib_value.forEach(element => {
+            //         if(exhib_array.indexOf(element) !== -1){
+            //             // console.log(element);
+            //             // peo_array[exhib_array.indexOf(element)] = peo_array[exhib_array.indexOf(element)] +( 1 * total_peo_array[i]);
+            //             peo_array[exhib_array.indexOf(element)] ++;
+            //         }else{}
+            //     });
+            //     console.log(peo_array);
             // }
+            // ===================================修改中
+
             
             // console.log(element.from(new Set(element)));
             // console.log(Object.keys(element));
