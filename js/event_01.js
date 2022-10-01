@@ -1,6 +1,7 @@
 new Vue({
     el:"#app",
     data:{
+        id:"",
         date:"",
         artist_content: "林布蘭·哈爾曼松·范萊因是歐洲巴洛克繪畫藝術的代表畫家之一，也是17世紀荷蘭黃金時代繪畫的主要人物，被稱為荷蘭歷史上最偉大的畫家；在2004年票選最偉大的荷蘭人當中，他排行位於第九，次於第八的安妮·法蘭克。他所處的年代被稱為荷蘭黃金時代，荷蘭的科學藝術與商貿成就達到頂峰。",
         artist_img: "event01_04.png",
@@ -25,22 +26,50 @@ new Vue({
         start_day: "2022-08-13",
         title: "林布蘭·哈爾曼松" , 
         img1:"",
+        imgM:"",
         item:{},
 
     },
     mounted() {
-        fetch("./php/event_01.php")
-            .then(e => e.json())
+        let that = this;
+        let getUrlString = location.href;
+        let url = new URL(getUrlString);
+        let newsID = url.searchParams.get('id'); //抓id
+        // fetch("./php/event_01.php")
+        //     .then(e => e.json())
+        //     .then(list => {
+        //         console.log(list);
+        //         for (let item of list) {
+        //             console.log(item);
+        //             this.img1 =item.events_img.split("|")
+        //              let re = /-/gi;
+        //             this.date = item.start_day.replace(re,".")  +'\b - \b' + item.end_day.replace(re,".")
+        //             return this.item = item;
+        //         }
+        //     }),
+        fetch(`./php/event_01.php?id=`+newsID,{
+            method: 'POST', 
+            headers: {'Content-Type':'application/json'}, 
+            body: JSON.stringify({
+            ID: newsID,//這是幹嘛用的
+            })
+        })
+         .then(e => e.json())
             .then(list => {
                 console.log(list);
                 for (let item of list) {
                     console.log(item);
-                    this.img1 =item.events_img.split("|")
+                    this.imgM = item.main_img.split("|")
+                    this.img1 = item.events_img.split("|")
                      let re = /-/gi;
                     this.date = item.start_day.replace(re,".")  +'\b - \b' + item.end_day.replace(re,".")
                     return this.item = item;
                 }
             }),
+
+
+
+
             // this.img1 =this.item.events_img.split("|")
             console.log(this.img1);
             // re = /-/gi;
