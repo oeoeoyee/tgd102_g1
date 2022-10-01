@@ -16,22 +16,22 @@
                 <li>歷史與藝術的時空旅程</li>
             </ul>
             <div class="en_logobutton" style="cursor: pointer;">
-                <a href="./index.html">
+                <!-- <a href="./index.html"> -->
                     <img src="./images/entrance_02.jpg" alt="">
-                </a>
+                <!-- </a> -->
             </div>
         </div>
     </div>
 
     <script>
-        // $(function (e) {			
-		// 	$('.en_logobutton').click(function(){
-		// 		$('.main').fadeOut(1500).delay(1000);
-        //         // setTimeout(() => {
-        //         // window.location.replace("./index.html")
-        //         // }, 2500)
-		// 	})
-		// });	
+        $(function (e) {			
+			$('.en_logobutton').click(function(){
+				$('.main').fadeOut(1500).delay(1000);
+                setTimeout(() => {
+                window.location.href= "./index.html"
+                }, 2500)
+			})
+		});	
 
         // $(e).load(.index.html);
 

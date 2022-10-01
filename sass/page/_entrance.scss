@@ -102,7 +102,7 @@
     &:hover{
         opacity: 1;
     }
-    animation: blink 0.75s 2s 3 linear ;
+    animation: blink 0.75s 2s 2 linear ;
     @keyframes blink {
         0% {
             opacity: 0;
@@ -123,7 +123,6 @@
         padding-top: size(30);
         display: block;
         margin: 0 auto;
-        cursor: pointer;
         @include mobile(){
             width: 80%;
             padding-top: rwd(10);
