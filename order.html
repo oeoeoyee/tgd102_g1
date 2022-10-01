@@ -25,7 +25,7 @@
 
         <h2 class="member_h2">訂單明細</h2>
 
-        <div id="app_memberTable" class="member_out">
+        <div class="member_out">
 
             <!-- 左主選單 -->
             <div class="member_nav">
@@ -37,7 +37,7 @@
 
                 <!-- 資料表格 -->
                 <!-- <form method="post" action=""> -->
-                    <table data-wanttodo="MEMBER_ORDER_DETAIL">
+                    <table  id="app_memberTable" data-wanttodo="MEMBER_ORDER_DETAIL">
                         <tbody v-for="info in mbArray">
                             <tr>
                                 <td width="30%">訂單編號</td>

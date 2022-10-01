@@ -26,7 +26,7 @@
         <h2 class="member_h2">會員資料</h2>
 
         <!-- ##########  Vue  ########## -->
-        <div id="app_memberTable" class="member_out">
+        <div class="member_out">
 
             <!-- 左主選單 -->
             <div class="member_nav">
@@ -40,7 +40,7 @@
 
                 <!-- <form method="post" action="#"> -->
 
-                    <table data-WantToDo="MEMBER_INFO">
+                    <table id="app_memberTable" data-WantToDo="MEMBER_INFO">
                         <tbody v-for="info in mbArray">
                             <tr>
                                 <td width="30%">會員編號</td>

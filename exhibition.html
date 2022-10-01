@@ -300,7 +300,8 @@
 
       // 最上層
       if (780 < document.body.scrollWidth) {
-        // TOP 1
+        // 左側
+        // L1
         gsap
           .timeline({
             scrollTrigger: {
@@ -313,14 +314,379 @@
           .fromTo(
             ".ex_img1 h3",
             {
-              clipPath: "inset(2rem 27rem 3rem 0rem)",
               x: -100,
               opacity: 0,
             },
             {
               duration: 2,
               ease: "sine.inOut",
-              clipPath: "inset(0rem 0rem 0rem 0rem)",
+
+              x: 0,
+              opacity: 1,
+            }
+          );
+
+        // L2
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: ".ex_img3 h3",
+              start: "-=500",
+              end: "-=500",
+              scrub: 3,
+            },
+          })
+          .fromTo(
+            ".ex_img3 h3",
+            {
+              x: -100,
+              opacity: 0,
+            },
+            {
+              duration: 2,
+              ease: "sine.inOut",
+
+              x: 0,
+              opacity: 1,
+            }
+          );
+
+        // L3
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: ".ex_img5 h3",
+              start: "-=500",
+              end: "-=500",
+              scrub: 3,
+            },
+          })
+          .fromTo(
+            ".ex_img5 h3",
+            {
+              x: -100,
+              opacity: 0,
+            },
+            {
+              duration: 2,
+              ease: "sine.inOut",
+
+              x: 0,
+              opacity: 1,
+            }
+          );
+
+        // L4
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: ".ex_img6 h3",
+              start: "-=500",
+              end: "-=500",
+              scrub: 3,
+            },
+          })
+          .fromTo(
+            ".ex_img6 h3",
+            {
+              x: -100,
+              opacity: 0,
+            },
+            {
+              duration: 2,
+              ease: "sine.inOut",
+
+              x: 0,
+              opacity: 1,
+            }
+          );
+
+        // L5
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: ".ex_img8 h3",
+              start: "-=500",
+              end: "-=500",
+              scrub: 3,
+            },
+          })
+          .fromTo(
+            ".ex_img8 h3",
+            {
+              x: -100,
+              opacity: 0,
+            },
+            {
+              duration: 2,
+              ease: "sine.inOut",
+
+              x: 0,
+              opacity: 1,
+            }
+          );
+
+        // LL1
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: [".ex_img2 h4", ".ex_img2 h5"],
+              start: "-=675",
+              end: "-=675",
+              scrub: 3,
+            },
+          })
+          .fromTo(
+            [".ex_img2 h4", ".ex_img2 h5"],
+            {
+              x: -100,
+              opacity: 0,
+            },
+            {
+              duration: 2,
+              ease: "sine.inOut",
+
+              x: 0,
+              opacity: 1,
+            }
+          );
+        // LL2
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: [".ex_img4 h4", ".ex_img4 h5"],
+              start: "-=675",
+              end: "-=675",
+              scrub: 3,
+            },
+          })
+          .fromTo(
+            [".ex_img4 h4", ".ex_img4 h5"],
+            {
+              x: -100,
+              opacity: 0,
+            },
+            {
+              duration: 2,
+              ease: "sine.inOut",
+
+              x: 0,
+              opacity: 1,
+            }
+          );
+        // LL3
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: [".ex_img7 h4", ".ex_img7 h5"],
+              start: "-=675",
+              end: "-=675",
+              scrub: 3,
+            },
+          })
+          .fromTo(
+            [".ex_img7 h4", ".ex_img7 h5"],
+            {
+              x: -100,
+              opacity: 0,
+            },
+            {
+              duration: 2,
+              ease: "sine.inOut",
+
+              x: 0,
+              opacity: 1,
+            }
+          );
+        // 右側
+        // R1
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: [".ex_img1 h4", ".ex_img1 h5"],
+              start: "-=675",
+              end: "-=675",
+              scrub: 3,
+            },
+          })
+          .fromTo(
+            [".ex_img1 h4", ".ex_img1 h5"],
+            {
+              x: 100,
+              opacity: 0,
+            },
+            {
+              duration: 2,
+              ease: "sine.inOut",
+
+              x: 0,
+              opacity: 1,
+            }
+          );
+        // R2
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: [".ex_img3 h4", ".ex_img3 h5"],
+              start: "-=675",
+              end: "-=675",
+              scrub: 3,
+            },
+          })
+          .fromTo(
+            [".ex_img3 h4", ".ex_img3 h5"],
+            {
+              x: 100,
+              opacity: 0,
+            },
+            {
+              duration: 2,
+              ease: "sine.inOut",
+
+              x: 0,
+              opacity: 1,
+            }
+          );
+        // R3
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: [".ex_img5 h4", ".ex_img5 h5"],
+              start: "-=675",
+              end: "-=675",
+              scrub: 3,
+            },
+          })
+          .fromTo(
+            [".ex_img5 h4", ".ex_img5 h5"],
+            {
+              x: 100,
+              opacity: 0,
+            },
+            {
+              duration: 2,
+              ease: "sine.inOut",
+
+              x: 0,
+              opacity: 1,
+            }
+          );
+        // R4
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: [".ex_img6 h4", ".ex_img6 h5"],
+              start: "-=675",
+              end: "-=675",
+              scrub: 3,
+            },
+          })
+          .fromTo(
+            [".ex_img6 h4", ".ex_img6 h5"],
+            {
+              x: 100,
+              opacity: 0,
+            },
+            {
+              duration: 2,
+              ease: "sine.inOut",
+
+              x: 0,
+              opacity: 1,
+            }
+          );
+        // R5
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: [".ex_img8 h4", ".ex_img8 h5"],
+              start: "-=675",
+              end: "-=675",
+              scrub: 3,
+            },
+          })
+          .fromTo(
+            [".ex_img8 h4", ".ex_img8 h5"],
+            {
+              x: 100,
+              opacity: 0,
+            },
+            {
+              duration: 2,
+              ease: "sine.inOut",
+
+              x: 0,
+              opacity: 1,
+            }
+          );
+        // RR1
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: ".ex_img2 h3",
+              start: "-=500",
+              end: "-=500",
+              scrub: 3,
+            },
+          })
+          .fromTo(
+            ".ex_img2 h3",
+            {
+              x: 100,
+              opacity: 0,
+            },
+            {
+              duration: 2,
+              ease: "sine.inOut",
+
+              x: 0,
+              opacity: 1,
+            }
+          );
+        // RR2
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: ".ex_img4 h3",
+              start: "-=500",
+              end: "-=500",
+              scrub: 3,
+            },
+          })
+          .fromTo(
+            ".ex_img4 h3",
+            {
+              x: 100,
+              opacity: 0,
+            },
+            {
+              duration: 2,
+              ease: "sine.inOut",
+
+              x: 0,
+              opacity: 1,
+            }
+          );
+        // RR3
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: ".ex_img7 h3",
+              start: "-=500",
+              end: "-=500",
+              scrub: 3,
+            },
+          })
+          .fromTo(
+            ".ex_img7 h3",
+            {
+              x: 100,
+              opacity: 0,
+            },
+            {
+              duration: 2,
+              ease: "sine.inOut",
+
               x: 0,
               opacity: 1,
             }
@@ -329,3 +695,8 @@
     </script>
   </body>
 </html>
+
+<!--
+// clipPath: "inset(2rem 27rem 3rem 0rem)",
+// clipPath: "inset(0rem 0rem 0rem 0rem)", 
+-->
