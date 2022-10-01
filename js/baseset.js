@@ -31,6 +31,7 @@ window.addEventListener("scroll", function(){
 });
 
 
+// vuevue 到頂的按鈕 
 // $(function(){
 //     let pageHeight = $(document.body).top
 //     $('.totop').click(function(){
@@ -85,3 +86,35 @@ var totop_vm = new Vue({
 });
 
 
+// footer 訂閱電子報(insert email)
+const subButton = document.querySelector('#eletter_sub');
+subButton.addEventListener('click', function(e){
+  let inputEmail = document.querySelector('#eletter_input');
+  let reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+  let delVal = '';
+  if(inputEmail.value !== '' && reg.test(inputEmail.value) === true){
+    // 123@test.com => true ; 123@test.test => true ; 123@erg.regr => true
+    // 123 => false ; 123@test => false
+
+    // fetch('php/eletter_sub.php', {
+    //   method: 'POST', 
+    //   headers: {'Content-Type':'application/json'}, 
+    //   body: JSON.stringify({
+    //       email: inputEmail.value,
+    //   })
+    // })
+    inputEmail.value = delVal;
+    alert("訂閱成功");
+  }else{
+    inputEmail.value = delVal;
+    alert('請輸入正確EMail格式 ! ');
+  }
+})
+
+
+  // fetch(`./php/back_news_del.php?id=${}`);
+  // const delConfirm = confirm("確定下架這筆資料?");
+  // if (delConfirm) {
+  //   window.location.reload();
+  // } else {
+  // }
