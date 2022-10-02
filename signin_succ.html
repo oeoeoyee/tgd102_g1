@@ -68,5 +68,14 @@
     <!-- goTop 組件 -->
     @@include('./layout/goTop_component.html')
     <!-- goTop 組件 -->
+    <script>
+        // ################################################################
+        //            檢查會員是不是登入中 登入中就送去會員中心
+        const AM_I_LOGIN = sessionStorage.getItem("MEMBER_ID");
+        if (AM_I_LOGIN) {
+            location.replace("./member_info.html");
+        }
+        // ################################################################
+    </script>
 </body>
 </html>
