@@ -20,9 +20,10 @@ new Vue({
     packages: [],
   },
 
-  beforeCreate() {
-    // 要資料
-    fetch("./php/ex_info.php?ex_id=1", {
+  mounted() {
+    // let ex_info_ID = this.packages.ID;
+    let ex_info_ID = 1;
+    fetch(`./php/ex_info.php?ex_id=${ex_info_ID}`, {
       mode: "no-cors",
     })
       .then((resp) => resp.json())
@@ -31,8 +32,15 @@ new Vue({
       });
   },
 
-  mounted() {
-    // 預備 :D
+  beforeCreate() {
+    // 要資料
+    // fetch(`./php/ex_info.php?ex_id=${ex_info_ID}`, {
+    //   mode: "no-cors",
+    // })
+    //   .then((resp) => resp.json())
+    //   .then((resp) => {
+    //     this.packages = resp;
+    //   });
   },
 
   beforeUpdate() {

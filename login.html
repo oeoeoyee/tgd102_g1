@@ -27,7 +27,6 @@
                 placeholder="請輸入電子信箱"
                 name="email"
                 id="email"
-                
                 value="test@test.com"
               />
               <div class="error"></div>
@@ -39,7 +38,6 @@
                 placeholder="密碼：英數混合，六至十二字"
                 name="pwd"
                 id="pwd"
-
                 value="qwer1234"
               />
               <div class="error"></div>
@@ -182,13 +180,15 @@
                   // ############ 管理員 ############ 低安全性判斷
                   // 成功後 轉址 ? 會員中心
                   if (LEVEL == "ADMIN") {
+                    alert("歡迎管理員登入 即將跳轉至後臺");
                     // 條件 送去後臺頁
                     location = "./back_chart.html";
                     sessionStorage.setItem("ADMIN", LEVEL);
+                    // ############ 管理員 ############
                   } else {
+                     // ----------- 會員 -----------
                     location = "./member_info.html";
                   }
-                  // ############ 管理員 ############
                 } else {
                   // 失敗將收到的錯誤訊息寫進 HTML
                   errMsg.textContent = message;
