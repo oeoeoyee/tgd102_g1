@@ -145,6 +145,10 @@
                     .then(body => {
                         // console.log(body);
                         if (body.successful) {
+                            // successful 就送 SESSION 到 使用者Cookie
+                            const { MEMBER_ID } = body;
+                            sessionStorage.setItem("MEMBER_ID", MEMBER_ID);
+
                             location = './signin_succ.html';
                         }
                     })

@@ -87,7 +87,10 @@
           <li @click="ex_infoID(ex_Array[0])" class="section ex_main1">
             <a class="navJump" name="section1" id="section1"></a>
             <a href="./exhibition_information.html">
-              <div :class="'ex_img'+ex_Array[0].ID">
+              <div
+                :class="'ex_img1'"
+                :style="{backgroundImage: 'url(../images/'+ex_Array[0].MAIN_IMAGE[2]+')'}"
+              >
                 <h3>{{ex_Array[0].NAME}}</h3>
                 <h5>{{ex_Array[0].START_DAY}} - {{ex_Array[0].END_DAY}}</h5>
                 <h4>{{ex_Array[0].ROOM}} ROOM</h4>
@@ -102,7 +105,10 @@
           <li @click="ex_infoID(ex_Array[1])" class="section ex_main2">
             <a class="navJump" name="section2" id="section2"></a>
             <a href="./exhibition_information.html">
-              <div :class="'ex_img'+ex_Array[1].ID">
+              <div
+                :class="'ex_img2'"
+                :style="{backgroundImage: 'url(../images/'+ex_Array[1].MAIN_IMAGE[2]+')'}"
+              >
                 <h3>{{ex_Array[1].NAME}}</h3>
                 <h5>{{ex_Array[1].START_DAY}} - {{ex_Array[1].END_DAY}}</h5>
                 <h4>{{ex_Array[1].ROOM}} ROOM</h4>
@@ -116,7 +122,10 @@
           <li @click="ex_infoID(ex_Array[2])" class="section ex_main3">
             <a class="navJump" name="section3" id="section3"></a>
             <a href="./exhibition_information.html">
-              <div :class="'ex_img'+ex_Array[2].ID">
+              <div
+                :class="'ex_img3'"
+                :style="{backgroundImage: 'url(../images/'+ex_Array[2].MAIN_IMAGE[2]+')'}"
+              >
                 <h3>{{ex_Array[2].NAME}}</h3>
                 <h5>{{ex_Array[2].START_DAY}} - {{ex_Array[2].END_DAY}}</h5>
                 <h4>{{ex_Array[2].ROOM}} ROOM</h4>
@@ -130,7 +139,10 @@
           <li @click="ex_infoID(ex_Array[3])" class="section ex_main4">
             <a class="navJump" name="section4" id="section4"></a>
             <a href="./exhibition_information.html">
-              <div :class="'ex_img'+ex_Array[3].ID">
+              <div
+                :class="'ex_img4'"
+                :style="{backgroundImage: 'url(../images/'+ex_Array[3].MAIN_IMAGE[2]+')'}"
+              >
                 <h3>{{ex_Array[3].NAME}}</h3>
                 <h5>{{ex_Array[3].START_DAY}} - {{ex_Array[3].END_DAY}}</h5>
                 <h4>{{ex_Array[3].ROOM}} ROOM</h4>
@@ -144,7 +156,10 @@
           <li @click="ex_infoID(ex_Array[4])" class="section ex_main5">
             <a class="navJump" name="section5" id="section5"></a>
             <a href="./exhibition_information.html">
-              <div :class="'ex_img'+ex_Array[4].ID">
+              <div
+                :class="'ex_img5'"
+                :style="{backgroundImage: 'url(../images/'+ex_Array[4].MAIN_IMAGE[2]+')'}"
+              >
                 <h3>{{ex_Array[4].NAME}}</h3>
                 <h5>{{ex_Array[4].START_DAY}} - {{ex_Array[4].END_DAY}}</h5>
                 <h4>{{ex_Array[4].ROOM}} ROOM</h4>
@@ -165,7 +180,10 @@
           <li @click="ex_infoID(ex_Array[5])" class="section ex_main6">
             <a class="navJump" name="section6" id="section6"></a>
             <a href="./exhibition_information.html">
-              <div :class="'ex_img'+ex_Array[5].ID">
+              <div
+                :class="'ex_img6'"
+                :style="{backgroundImage: 'url(../images/'+ex_Array[5].MAIN_IMAGE[2]+')'}"
+              >
                 <h3>{{ex_Array[5].NAME}}</h3>
                 <h5>{{ex_Array[5].START_DAY}} - {{ex_Array[5].END_DAY}}</h5>
                 <h4>{{ex_Array[5].ROOM}} ROOM</h4>
@@ -179,7 +197,10 @@
           <li @click="ex_infoID(ex_Array[6])" class="section ex_main7">
             <a class="navJump" name="section7" id="section7"></a>
             <a href="./exhibition_information.html">
-              <div :class="'ex_img'+ex_Array[6].ID">
+              <div
+                :class="'ex_img7'"
+                :style="{backgroundImage: 'url(../images/'+ex_Array[6].MAIN_IMAGE[2]+')'}"
+              >
                 <h3>{{ex_Array[6].NAME}}</h3>
                 <h5>{{ex_Array[6].START_DAY}} - {{ex_Array[6].END_DAY}}</h5>
                 <h4>{{ex_Array[6].ROOM}} ROOM</h4>
@@ -193,7 +214,10 @@
           <li @click="ex_infoID(ex_Array[7])" class="section ex_main8">
             <a class="navJump" name="section8" id="section8"></a>
             <a href="./exhibition_information.html">
-              <div :class="'ex_img'+ex_Array[7].ID">
+              <div
+                :class="'ex_img8'"
+                :style="{backgroundImage: 'url(../images/'+ex_Array[7].MAIN_IMAGE[2]+')'}"
+              >
                 <h3>{{ex_Array[7].NAME}}</h3>
                 <h5>{{ex_Array[7].START_DAY}} - {{ex_Array[7].END_DAY}}</h5>
                 <h4>{{ex_Array[7].ROOM}} ROOM</h4>
@@ -239,7 +263,7 @@
           gsap
             .timeline({
               scrollTrigger: {
-                trigger: ".ex_img1",
+                trigger: ".ex_img8",
                 start: "-50%",
                 end: "-50%",
                 scrub: 1,
@@ -697,7 +721,7 @@
 
                 $("html, body").animate(
                   {
-                    scrollTop: $(hash).offset().top - 300,
+                    scrollTop: $(hash).offset().top - 200,
                   },
                   800,
                   function () {
@@ -708,6 +732,16 @@
               }
             });
           });
+        },
+
+        beforeUpdate() {
+          this.ex_Array.forEach((el) => {
+            return (
+              // 切割完回傳
+              (el.MAIN_IMAGE = el.MAIN_IMAGE.split("|"))
+            );
+          });
+          console.log(this.ex_Array);
         },
       });
     </script>
