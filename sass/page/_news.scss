@@ -33,15 +33,23 @@
         justify-content:start;
         width: 53%;
         border: size(1) solid $line_light;
-        h3{
+        .news_top_word_h3{
+            position: relative;
             border-bottom: size(1) solid $line_light;
             width: 100%;
             height: size(214);
-            line-height: size(214);
+            // padding-top: size(100);
             padding-left: size(120);
-            @include h3();
+            h3{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 80%;
+                line-height: size(56);
+                @include h3();
+            }
         }
-        div{
+        .news_top_word_h4{
             display: flex;
             width: 100%;
             height: size(760);
@@ -215,8 +223,8 @@
     flex-wrap: wrap;
     margin-top: size(160);  
     margin-bottom: size(120);  
-    h1{
-        @include h1();
+    h2{
+        @include h2();
     }
     h4{
         @include h4();
@@ -227,7 +235,7 @@
     }
     @include mobile(){
         display: block;
-        h1{
+        h2{
             @include h3();
             font-weight: normal;
         }
@@ -245,10 +253,19 @@
         padding: size(24);
         color: $white;
         background-color: $hf_black;
+        h2{
+            width: 89%;
+            line-height: size(56);
+        }
         @include mobile(){
             display: block;
             background-color: $white;
             color: $black;
+            h2{
+                width: 100%;
+                line-height: rwd(40);
+                font-weight: bold;
+            }
             h4{
                 margin-top: rwd(16);
             }
@@ -368,11 +385,13 @@
             height: size(256);
             @include p();
         }
-        h3{
+        h6{
             width: 75%;
             flex-grow: 2;
             padding: 0 size(15);
-            @include h3();
+            line-height: size(36);
+            max-height: 40%;
+            @include h6();
         }
         h4{
             width: 75%;
@@ -382,6 +401,7 @@
         }
         h4:first-of-type{
             flex-grow: 1;
+            padding-top: size(30);
         }
         h4:last-of-type{
             flex-grow: 0;
@@ -398,7 +418,7 @@
                 height: auto;
                 line-height: rwd(22);
             }
-            h3{
+            h6{
                 @include h5();
                 width: 100%;
                 margin-bottom: rwd(8);

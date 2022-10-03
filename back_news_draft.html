@@ -25,15 +25,16 @@
                     <h2>最新消息草稿</h2>
                     <div>
                         @@include('./layout/search_component.html')
-                        <span class="icon_create"><i class="fa-regular fa-square-plus"></i></span>
-                        <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>                  </div>
+                        <!-- <span class="icon_create"><i class="fa-regular fa-square-plus"></i></span>
+                        <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span> -->                  
+                    </div>
                 </div>
                 <table id="app_backTable" class="back_table back_table_p0 back_table_ckbox" data-tbname="INFORMATION">
                     <thead>
                         <tr>
-                            <th>
+                            <!-- <th>
                                 <input type="checkbox" name="" id="">
-                            </th>
+                            </th> -->
                             <th>公告日期</th>
                             <th>公告主旨</th>
                             <th>公告單位</th>
@@ -42,15 +43,16 @@
                     </thead>
                     <tbody>
                         <tr v-for="info in tbArray">
-                            <td>
+                            <!-- <td>
                                 <input type="checkbox" name="" id="">
-                            </td>
+                            </td> -->
                             <td>{{info.DATE}}</td>
                             <td><a :href="'./back_news_edit.html?id='+info.INFO_ID">{{info.TITLE}}</a></td>
                             <td>{{info.INFO_TYPE}}</td>
                             <td>
-                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del" @click="news_down(info.INFO_ID)"><i class="fa-regular fa-trash-can"></i></span>
+                                <!-- <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
+                                <span class="icon_del" @click="news_down(info.INFO_ID)"><i class="fa-regular fa-trash-can"></i></span> -->
+                                <button @click="news_down(info.INFO_ID)">下架</button>
                             </td>
                         </tr>
                         <!-- <tr>

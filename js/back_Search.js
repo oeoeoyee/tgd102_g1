@@ -14,14 +14,29 @@ const table_vue = new Vue({
     subList: [],
   },
   methods: {
-    news_del(newsID) {
-      // 相當於傳送這段網址到php>>php執行刪除的sql公式
-      fetch(`./php/back_news_del.php?id=${newsID}`);
+    // 下架功能 - news頁
+    news_down(newsID) {
       const delConfirm = confirm("確定下架這筆資料?");
       if (delConfirm) {
+        fetch(`./php/back_news_del.php?id=${newsID}`);
         window.location.reload();
-      } else {
-      }
+      } else {}
+    },
+    // 下架功能 - exhibition頁
+    exhib_down(exhibID) {
+      const delConfirm = confirm("確定下架這筆資料?");
+      if (delConfirm) {
+        fetch(`./php/back_exhibition_del.php?id=${exhibID}`);
+        window.location.reload();
+      } else {}
+    },
+    // 下架功能 - events頁
+    event_down(eventsID) {
+      const delConfirm = confirm("確定下架這筆資料?");
+      if (delConfirm) {
+        fetch(`./php/back_events_del.php?id=${eventsID}`);
+        window.location.reload();
+      } else {}
     },
 
     thisOrderID(e) {

@@ -51,8 +51,9 @@
                             <td>{{info.INFO_TYPE}}</td>
                             <td>{{info.SITUATION}}</td>
                             <td>
-                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del" @click="news_down(info.INFO_ID)"><i class="fa-regular fa-trash-can"></i></span>
+                                <!-- <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
+                                <span class="icon_del" @click="news_down(info.INFO_ID)"><i class="fa-regular fa-trash-can"></i></span> -->
+                                <button @click="news_down(info.INFO_ID)">下架</button>
                             </td>
                         </tr>
                     </tbody>
