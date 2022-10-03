@@ -10,6 +10,7 @@ const table_vue = new Vue({
   data: {
     tbArray: [],
     subList: [],
+    tbName:''
   },
   methods: {
     // 下架功能 - news頁
@@ -47,7 +48,8 @@ const table_vue = new Vue({
     },
 
     emailGo(title, email, content) {
-      // console.log(1234);
+      console.log(1234);
+      const that = this
       emailjs.init("DCwlXSLOdGqGTForu");
       const serviceID = "service_95kv0br";
       const templateID = "template_kb00bdg";
@@ -59,7 +61,7 @@ const table_vue = new Vue({
       };
       emailjs.send(serviceID, templateID, templateParams).then(
         function (response) {
-          this.tbArray[t].STATE = "已發送"; //想辦法送給資料庫修改
+          that.tbArray[t].STATE = "已發送"; //想辦法送給資料庫修改
           console.log("SUCCESS!", response.status, response.text);
         },
         function (error) {
@@ -67,6 +69,80 @@ const table_vue = new Vue({
         }
       );
     },
+
+    update_email(){
+      let that;
+      const now = new Date();
+      const nowDate = now.toISOString().split("T")[0];
+      let t = 0;
+      console.log(this.tbName);
+      if ((this.tbName == "NEWSLETTER_LIST")) {
+        // fetch("./php/sentEmail.php")
+        //       .then(e => e.json())
+        //       .then(list => {
+        //         for (let item of list) {
+        //           that.subList.push(item);
+        //         }
+        //       });
+        console.log(this.tbArray);
+        for (let i = 0; i < this.tbArray.length; i++) {
+          // t += 1;
+
+          console.log(nowDate == this.tbArray[i].MAIL_DAY &&
+            this.tbArray[i].STATE == "上線");
+            console.log(nowDate == this.tbArray[i].MAIL_DAY);
+            console.log(this.tbArray[i].STATE == "上線");
+            console.log(this.tbArray[i].STATE);
+
+          if (
+            nowDate == this.tbArray[i].MAIL_DAY &&
+            this.tbArray[i].STATE == "上線"
+          ) {
+            console.log(123);
+            console.log( 'array',this.tbArray);
+            // console.log(123);
+            // console.log(this.subList);
+            let emailInfo = this.tbArray[i]; //兩筆資料
+  
+            console.log('info',emailInfo);
+  
+            this.subList.forEach((userInfo) => {
+              // console.log(userInfo);//3個人名
+              // console.log(emailInfo.SUBJECT);
+              // console.log(emailInfo.CONTENT);
+              // console.log(userInfo.NAME);
+              console.log('email',userInfo.EMAIL);
+              console.log('SUBJECT',emailInfo.SUBJECT);
+              console.log('CONTENT', emailInfo.CONTENT);
+              
+              this.emailGo(emailInfo.SUBJECT, userInfo.EMAIL, emailInfo.CONTENT);
+              // console.log();
+            });
+            emailInfo.STATE = "已發送";
+            fetch("php/back_newsletter_edit.php", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                ID: emailInfo.ID,
+                title: emailInfo.SUBJECT,
+                start_day: emailInfo.MAIL_DAY,
+                summer: emailInfo.CONTENT,
+                situation: emailInfo.STATE,
+              }),
+            })
+              .then((resp) => resp.json())
+              .then((info) => {
+                console.log(info);
+              });
+            //更新狀態成已發送
+            // emailGo (q.SUBJECT,w.Name,w.EMAIL,q.CONTENT)
+            // 取得會員資料(v subList)->把資料裝進信件->寄信(newsletter修改、member)->更改資料庫狀態成已發送
+          }
+        }
+      }
+    }
   },
   mounted: function () {
     let that = this;
@@ -76,6 +152,8 @@ const table_vue = new Vue({
     if (document.querySelector("table")) {
       try {
         const tbName = document.querySelector("table").dataset.tbname;
+
+        that.tbName = tbName
 
         fetch(api, {
           method: "POST",
@@ -87,12 +165,13 @@ const table_vue = new Vue({
           }),
         })
           .then((resp) => resp.json())
-          .then((resp) => (table_vue.tbArray = resp));
+          .then((resp) => (that.tbArray = resp));
 
         const now = new Date();
         const nowDate = now.toISOString().split("T")[0];
         let t = 0;
-        if ((this.tbName = "NEWSLETTER_LIST")) {
+        console.log(that.tbName);
+        if ((that.tbName = "NEWSLETTER_LIST")) {
           fetch("./php/sentEmail.php")
             .then((e) => e.json())
             .then((list) => {
@@ -100,72 +179,17 @@ const table_vue = new Vue({
                 // console.log('asd');
                 that.subList.push(item);
               }
+              this.update_email()
             });
         }
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     }
   },
 
   updated() {
-    let that;
-    const now = new Date();
-    const nowDate = now.toISOString().split("T")[0];
-    let t = 0;
-    if ((this.tbName = "NEWSLETTER_LIST")) {
-      // fetch("./php/sentEmail.php")
-      //       .then(e => e.json())
-      //       .then(list => {
-      //         for (let item of list) {
-      //           that.subList.push(item);
-      //         }
-      //       });
-
-      for (let i = 0; i < this.tbArray.length - 1; i++) {
-        t += 1;
-        if (
-          nowDate == this.tbArray[t].MAIL_DAY &&
-          this.tbArray[t].STATE == "上線"
-        ) {
-          // console.log(123);
-          // console.log(this.subList);
-          let emailInfo = this.tbArray[t]; //兩筆資料
-
-          this.subList.forEach((userInfo) => {
-            // console.log(userInfo);//3個人名
-            // console.log(emailInfo.SUBJECT);
-            // console.log(emailInfo.CONTENT);
-            // console.log(userInfo.NAME);
-            // console.log(userInfo.EMAIL);
-            this.emailGo(emailInfo.SUBJECT, userInfo.EMAIL, emailInfo.CONTENT);
-          });
-          emailInfo.STATE = "已發送";
-          fetch("php/back_newsletter_edit.php", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              ID: emailInfo.ID,
-              title: emailInfo.SUBJECT,
-              start_day: emailInfo.MAIL_DAY,
-              summer: emailInfo.CONTENT,
-              situation: emailInfo.STATE,
-            }),
-          })
-            .then((resp) => resp.json())
-            .then((info) => {
-              // that.ID = info[0].ID;
-              // that.SUBJECT =info[0].SUBJECT;
-              // that.MAIL_DAY =info[0].MAIL_DAY;
-              // that.CONTENT =info[0].CONTENT;
-              // that.STATE =info[0].STATE;
-            });
-          //更新狀態成已發送
-          // emailGo (q.SUBJECT,w.Name,w.EMAIL,q.CONTENT)
-          // 取得會員資料(v subList)->把資料裝進信件->寄信(newsletter修改、member)->更改資料庫狀態成已發送
-        }
-      }
-    }
+    
   },
 });
 
@@ -193,7 +217,7 @@ new Vue({
           // 將回應直接放近另外一個 Vue 的陣列中
           // 個網頁獨立的 Vue 名稱如果一樣的話 就可以傳給那一個網頁的 vue!!!
           // ( back_news 的 Vue -> table_vue )
-          .then((resp) => (table_vue.tbArray = resp));
+          .then((resp) => (this.tbArray = resp));
       }
     },
   },
