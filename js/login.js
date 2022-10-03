@@ -136,6 +136,11 @@ new Vue({
             .then(body => {
                 // alert(body);
                 location = './payment.html'
+                // if(this.pay === '信用卡'){
+                //     location = './payment.html'
+                // }else{
+                //     location = './payment_atm_succ'
+                // }
             });
 
         },
@@ -355,18 +360,6 @@ new Vue({
         } else $(".name .error").html("");
     });
 
-    // $(function(){
-    //     $('#name').blur(function(){
-    //         let name = $(this).val();
-    //         let reg = /^[^\s]*$/;
-    //         if(reg.test(name)){
-    //             $('.name .error').html('');
-    //         }else{
-    //             $('.name .error').html('姓名不能空白');
-    //         }
-    //     });
-    // });
-
     // email不為空 + 驗證
     $(function(){
         $('#email').blur(function(){
@@ -417,11 +410,9 @@ new Vue({
 
     // 送出驗證
     $(".signin_out").submit(function (e) {
-        
 
         // 停止預設行為
         e.preventDefault();
-
         
     });
 
