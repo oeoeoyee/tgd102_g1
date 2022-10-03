@@ -323,49 +323,49 @@
     <!-- -------------------------------網頁滑動--------------------------------------------->
     <script>
 
-        //設計a href錨點來切換至區塊位置，但因為切換沒有滑動效果，所以需要加再上動畫滾動效果
-        $(document).ready(function () {
-            //要執行回到最上方
-            $('.backTop').on('click', function () {
-                $("html,body").animate(
-                    {
-                        scrollTop: 0 //回到第一個區塊
-                    },
-                    800
-                );
-            })
-            //其它連到對應區塊
-            $(".go_about").on("click", function () {
-                var hrefLink = $(this).attr("href");
-
-                let a = hrefLink.split("#")[1];
-                let b = '#'+a
-                
-                console.log(b);
-                $("html,body").animate(
-                    {
-                        scrollTop: $(b).offset().top //直接到相對位置
-                    },
-                    600
-                );
-            });
-        });
-
+        // //設計a href錨點來切換至區塊位置，但因為切換沒有滑動效果，所以需要加再上動畫滾動效果
         // $(document).ready(function () {
-        //   $("a").on("click", function (event) {
-        //     if (this.hash !== "") {
-        //       event.preventDefault();
-        //       var hash = this.hash; //抓取網頁#錨點
-        //       console.log(hash);
-        //       $("html,body").animate(
-        //         {
-        //           scrollTop: $(hash).offset().top
-        //         },
-        //         800
-        //       );
-        //     }
-        //   });
+        //     //要執行回到最上方
+        //     $('.backTop').on('click', function () {
+        //         $("html,body").animate(
+        //             {
+        //                 scrollTop: 0 //回到第一個區塊
+        //             },
+        //             800
+        //         );
+        //     })
+        //     //其它連到對應區塊
+        //     $(".go_about").on("click", function () {
+        //         var hrefLink = $(this).attr("href");
+
+        //         let a = hrefLink.split("#")[1];
+        //         let b = '#'+a
+                
+        //         console.log(b);
+        //         $("html,body").animate(
+        //             {
+        //                 scrollTop: $(b).offset().top //直接到相對位置
+        //             },
+        //             600
+        //         );
+        //     });
         // });
+
+        // // $(document).ready(function () {
+        // //   $("a").on("click", function (event) {
+        // //     if (this.hash !== "") {
+        // //       event.preventDefault();
+        // //       var hash = this.hash; //抓取網頁#錨點
+        // //       console.log(hash);
+        // //       $("html,body").animate(
+        // //         {
+        // //           scrollTop: $(hash).offset().top
+        // //         },
+        // //         800
+        // //       );
+        // //     }
+        // //   });
+        // // });
 
 
 
