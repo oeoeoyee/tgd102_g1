@@ -6,34 +6,28 @@ if (isset($_GET["ex_id"])) {
 
   $ex_id = $_GET["ex_id"];
 
+  // 展覽內頁 1 筆 + 後 3 筆資料
   $sql = "
-  select ID, 
-        NAME, 
-        EXHIBITION_TYPE, 
-        MAIN_TITLE, 
-        INTRODUCTION, 
-        MAIN_IMAGE, 
-        SUB_IMAGE, 
-        OTHER_IMAGE  
-          FROM EXHIBITION 
-          WHERE ID = :id";
+  SELECT 
+    ID,
+    NAME,
+    EXHIBITION_TYPE,
+    MAIN_TITLE,
+    INTRODUCTION,
+    MAIN_IMAGE,
+    SUB_IMAGE,
+    OTHER_IMAGE
+  FROM
+    EXHIBITION
+  WHERE ID <= :id
+  ORDER BY ID desc limit 6";
 
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(":id", $ex_id);
-
   $stmt->execute();
   $exhibitions = $stmt->fetchAll();
 
-  // 展覽內頁 1 筆
-  if (count($exhibitions) == 1) {
-    $info = $exhibitions[0];
-    $info["successful"] = true;
-  } else {
-    $info["successful"] = false;
-    $info["message"] = "無資料";
-  }
-
-  echo json_encode($info);
+  echo json_encode($exhibitions);
 } else {
   // 展覽外頁 8筆
   $sql = "
@@ -46,5 +40,3 @@ if (isset($_GET["ex_id"])) {
 
   echo json_encode($exhibitions);
 }
-
-// <a class="navJump" :name="'section'+info.ID" :id="'section'+info.ID"></a>

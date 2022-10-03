@@ -18,11 +18,11 @@
         <picture>
           <template v-if="packages">
             <source
-              :srcset="'./images/'+ packages.MAIN_IMAGE[0]"
+              :srcset="'./images/'+ packages[0].MAIN_IMAGE[0]"
               media="(min-width:500px)"
             />
             <source
-              :srcset="'./images/'+ packages.MAIN_IMAGE[1]"
+              :srcset="'./images/'+ packages[0].MAIN_IMAGE[1]"
               media="(max-width:500px)"
             />
             <img src="./images/" />
@@ -37,18 +37,16 @@
             ><li class="ex_info_bread1"><p>常設展覽</p></li></a
           >
           <li class="ex_info_bread2">
-            <p>{{packages.EXHIBITION_TYPE}}</p>
+            <p>{{packages[0].EXHIBITION_TYPE}}</p>
           </li>
-          <a :href="'./'+'#'"
-            ><li class="ex_info_bread3"><p>{{packages.NAME}}</p></li></a
-          >
+          <li class="ex_info_bread3"><p>{{packages[0].NAME}}</p></li>
         </ul>
       </div>
       <!-- 展覽簡介 -->
       <div class="ex_info_main ex_center">
         <!-- 標題區塊 -->
         <div class="title">
-          <h2>{{packages.NAME}}</h2>
+          <h2>{{packages[0].NAME}}</h2>
           <p>追朔藝術家們於館內展出的歷史典藏</p>
           <div></div>
         </div>
@@ -56,12 +54,12 @@
         <!-- 圖文區塊 -->
         <div class="ex_info_main_info">
           <!-- <img :src=`./images/${packages.SUB_IMAGE}` /> -->
-          <img :src="'./images/' + packages.SUB_IMAGE" />
+          <img :src="'./images/' + packages[0].SUB_IMAGE" />
           <div class="ex_info_line"></div>
 
           <div class="ex_info_main_text">
             <h4>新藝術風格的繪畫作品</h4>
-            <p>{{packages.INTRODUCTION}}</p>
+            <p>{{packages[0].INTRODUCTION}}</p>
           </div>
         </div>
       </div>
@@ -80,7 +78,7 @@
           <div></div>
         </div>
         <!-- Vue Component -->
-        <ex_info_img :msg="packages"></ex_info_img>
+        <ex_info_img :msg="packages[0]"></ex_info_img>
         <!-- Vue Component -->
       </div>
       <!-- 購票提醒 -->
@@ -93,7 +91,7 @@
       <!-- 相關展覽 -->
       <div class="ex_info_other ex_center">
         <div class="title">
-          <h3>相關展覽</h3>
+          <h3>過往展覽</h3>
           <p>追朔藝術家們於館內展出的歷史典藏</p>
           <div></div>
         </div>
@@ -102,18 +100,62 @@
         <div class="ex_info_wrp">
           <div class="swiper mySwiper ex_info_like">
             <ul class="swiper-wrapper ex_center">
-              <li class="swiper-slide ex_info_like1">
-                <h3>兵器演進</h3>
-              </li>
-              <li class="swiper-slide ex_info_like2">
-                <h3>歷史事件</h3>
-              </li>
-              <li class="swiper-slide ex_info_like3">
-                <h3>探索秘境</h3>
-              </li>
-              <li class="swiper-slide ex_info_like3">
-                <h3>探索秘境</h3>
-              </li>
+              <template v-if="packages.length >= 2">
+                <li
+                  @click="ex_infoID(packages[1])"
+                  class="swiper-slide ex_info_like1"
+                  :style="{backgroundImage: 'url(../images/ex_a'+packages[1].ID+'.jpg)'}"
+                >
+                  <a href="./exhibition_information.html">
+                    <h3>{{packages[1].NAME}}</h3>
+                  </a>
+                </li>
+
+                <template v-if="packages.length >= 3">
+                  <li
+                    @click="ex_infoID(packages[2])"
+                    class="swiper-slide ex_info_like2"
+                    :style="{backgroundImage: 'url(../images/ex_a'+packages[2].ID+'.jpg)'}"
+                  >
+                    <a href="./exhibition_information.html">
+                      <h3>{{packages[2].NAME}}</h3>
+                    </a>
+                  </li>
+                  <template v-if="packages.length >= 4">
+                    <li
+                      @click="ex_infoID(packages[3])"
+                      class="swiper-slide ex_info_like3"
+                      :style="{backgroundImage: 'url(../images/ex_a'+packages[3].ID+'.jpg)'}"
+                    >
+                      <a href="./exhibition_information.html">
+                        <h3>{{packages[3].NAME}}</h3>
+                      </a>
+                    </li>
+                    <template v-if="packages.length >= 5">
+                      <li
+                        @click="ex_infoID(packages[4])"
+                        class="swiper-slide ex_info_like4"
+                        :style="{backgroundImage: 'url(../images/ex_a'+packages[4].ID+'.jpg)'}"
+                      >
+                        <a href="./exhibition_information.html">
+                          <h3>{{packages[4].NAME}}</h3>
+                        </a>
+                      </li>
+                      <template v-if="packages.length >= 6">
+                        <li
+                          @click="ex_infoID(packages[5])"
+                          class="swiper-slide ex_info_like5"
+                          :style="{backgroundImage: 'url(../images/ex_a'+packages[5].ID+'.jpg)'}"
+                        >
+                          <a href="./exhibition_information.html">
+                            <h3>{{packages[5].NAME}}</h3>
+                          </a>
+                        </li>
+                      </template>
+                    </template>
+                  </template>
+                </template>
+              </template>
             </ul>
           </div>
           <!-- SWIPER -->
