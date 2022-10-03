@@ -92,7 +92,8 @@ new Vue({
         },
         
         getFiles1(e){
-             this.main_img =  e.target.files[0].name +'|'+ e.target.files[1].name;
+            this.main_img =  e.target.files[0].name +'|'+ e.target.files[1].name +'|'+ e.target.files[2].name;
+            console.log(this.main_img);
         },
         getFiles2(e){
              this.sub_img =  e.target.files[0].name;
@@ -148,7 +149,7 @@ new Vue({
                 .then(body => {
                     console.log(body);
                     if(body !=""){
-                    location = e
+                    // location = e
                     alert("發送成功");
                     }
                 });
