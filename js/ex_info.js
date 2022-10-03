@@ -21,30 +21,26 @@ new Vue({
   },
 
   mounted() {
-    // let ex_info_ID = this.packages.ID;
-    let ex_info_ID = 1;
-    fetch(`./php/ex_info.php?ex_id=${ex_info_ID}`, {
-      mode: "no-cors",
-    })
+    const ex_infoID = sessionStorage.getItem("ex_infoID");
+    fetch(`./php/ex_info.php?ex_id=${ex_infoID}`)
       .then((resp) => resp.json())
       .then((resp) => {
         this.packages = resp;
       });
   },
 
-  beforeCreate() {
-    // 要資料
-    // fetch(`./php/ex_info.php?ex_id=${ex_info_ID}`, {
-    //   mode: "no-cors",
-    // })
-    //   .then((resp) => resp.json())
-    //   .then((resp) => {
-    //     this.packages = resp;
-    //   });
+  methods: {
+    // 展覽 ID
+    ex_infoID(e) {
+      console.log(e.ID);
+      sessionStorage.setItem("ex_infoID", e.ID);
+    },
   },
 
+  beforeCreate() {},
+
   beforeUpdate() {
-    let splite = [this.packages];
+    let splite = [this.packages[0]];
     splite.map((el) => {
       return (
         // 切割完回傳
