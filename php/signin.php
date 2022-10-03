@@ -5,7 +5,7 @@ include("./PDO/connection_inc.php");
 $member = json_decode(file_get_contents("php://input"), true);
 
 $sql = " 
-    insert into REVERSE.MEMBER(name,email,phone,password,register_day,subscription)
+    insert into REVERSE.MEMBER(NAME,EMAIL,PHONE,PASSWORD,REGISTER_DAY,SUBSCRIPTION)
     values (?,?,?,?,now(),?) 
 ";
 

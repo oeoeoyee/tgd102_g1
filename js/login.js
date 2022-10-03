@@ -80,6 +80,19 @@ new Vue({
                 return false
             }
 
+            // 姓名沒填
+            if(this.name === ''){
+                alert('姓名沒填')
+                return false
+            }
+
+            // 電話沒填
+            if(this.phone === ''){
+                alert('電話沒填')
+                return false
+            }
+
+            // 語音導覽和專人導覽只能選一個
             if(this.pod && this.tour == true){
                 alert('語音導覽和專人導覽只能選一個')
                 return false
@@ -139,6 +152,18 @@ new Vue({
             // 日期沒選
             if(this.date === ''){
                 alert('日期沒選')
+                return false
+            }
+
+            // 姓名沒填
+            if(this.name === ''){
+                alert('姓名沒填')
+                return false
+            }
+
+            // 電話沒填
+            if(this.phone === ''){
+                alert('電話沒填')
                 return false
             }
 

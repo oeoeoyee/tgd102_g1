@@ -5,7 +5,7 @@ include("./PDO/connection_inc.php");
 $member = json_decode(file_get_contents("php://input"), true);
 
 $sql = " 
-    insert into ORDER_DETAIL(ticket_type,PAYMENT_DAY,EXHIBITION_NAME,DELEGATE_NAME,DELEGATE_PHONE,ADULT_NUM,ADULT_PRICE,DISCOUNT_NUM,DISCOUNT_PRICE,CHILD_NUM,CHILD_PRICE,VOICE_GUIDE)
+    insert into ORDER_DETAIL(TICKET_TYPE,PAYMENT_DAY,EXHIBITION_NAME,DELEGATE_NAME,DELEGATE_PHONE,ADULT_NUM,ADULT_PRICE,DISCOUNT_NUM,DISCOUNT_PRICE,CHILD_NUM,CHILD_PRICE,VOICE_GUIDE)
     values ('個人',now(),?,?,?,?,?,?,?,?,?,?)
 ";
 $stmt = $pdo->prepare($sql);
@@ -24,9 +24,19 @@ $orderId = $pdo->lastInsertId();
 session_start();
 $_SESSION["orderId"] = $orderId;
 
+
+// 隨機號碼
+$arr = ['0','1','2','3','4','5','6','7','8','9','0','1','2','3','4','5','6','7','8','9'];
+$ans = '';
+for($i = 0; $i < 12; $i++){
+    shuffle($arr);
+    $ans = $ans.$arr[$i];
+}
+
+
 $sql = " 
-    insert into `ORDER`(member_id, order_id,order_day,VISIT_DAY,payment_type,PRICE,PAYMENT_STATUS) 
-    values (?, ?, now(), ?, ?, ?, 0)
+    insert into `ORDER`(MEMBER_ID, ORDER_ID,ORDER_DAY,VISIT_DAY,PAYMENT_TYPE,PRICE,PAYMENT_STATUS,PAYMENT_ACC) 
+    values (?, ?, now(), ?, ?, ?, 0, ?)
 ";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(1, $member["memberID"]); 
@@ -34,6 +44,7 @@ $stmt->bindValue(2, $orderId);
 $stmt->bindValue(3, $member["date"]); 
 $stmt->bindValue(4, $member["pay"]); 
 $stmt->bindValue(5, $member["total"]); 
+$stmt->bindValue(6, $ans); 
 $stmt->execute();
 // $members = $stmt->fetchAll();
 
