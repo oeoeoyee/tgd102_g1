@@ -4,14 +4,48 @@ include("./PDO/connection_inc.php");
        //建立SQL語法
        $EVENT = json_decode(file_get_contents("php://input"), true);
         // $sql = "SELECT * FROM INFORMATION";
+        $isNew = $EVENT["ID"] == null || strlen($EVENT["ID"]) == 0;
+        if($isNew){
         $sql = "INSERT INTO EVENT(eng_title,title,start_day,end_day,room,main_img,main_content,events_img,events_title,events_content,artist_title,artist_img,artist_content,pj_title1,pj_img1,pj_content1,pj_title2,pj_img2,pj_content2,pj_title3,pj_img3,pj_content3,situation)
           values (:eng_title,:title,:start_day,:end_day,:room,:main_img,:main_content,:events_img,:events_title,:events_content,:artist_title,:artist_img,:artist_content,:pj_title1,:pj_img1,:pj_content1,:pj_title2,:pj_img2,:pj_content2,:pj_title3,:pj_img3,:pj_content3,:situation)";
+        }else{
+          $sql = "UPDATE EVENT SET 
+                  eng_title = :eng_title,
+                  title = :title,
+                  start_day = :start_day,
+                  end_day = :end_day,
+                  room = :room,
+                  main_img = :main_img,
+                  main_content = :main_content,
+                  events_img = :events_img,
+                  events_title = :events_title,
+                  events_content = :events_content,
+                  artist_title = :artist_title,
+                  artist_img = :artist_img,
+                  artist_content = :artist_content,
+                  pj_title1 = :pj_title1,
+                  pj_img1 = :pj_img1,
+                  pj_content1 = :pj_content1,
+                  pj_title2 = :pj_title2,
+                  pj_img2 = :pj_img2,
+                  pj_content2 = :pj_content2,
+                  pj_title3 = :pj_title3,
+                  pj_content3 = :pj_content3,
+                  pj_img3 = :pj_img3,
+                  situation = :situation
+                  WHERE ID = :ID" ;
+
+        }
         // $sql = "INSERT INTO EVENT(eng_title)
         //  values ('aa')";
 
 
        //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
        $statement = $pdo->prepare($sql);
+       if(!$isNew){
+        $statement->bindValue(":ID", $EVENT["ID"]);
+       }
+      //  $statement->bindValue(":ID", $EVENT["ID"]);
         $statement->bindValue(":eng_title", $EVENT["eng_title"]);
         $statement->bindValue(":title", $EVENT["title"]);
         $statement->bindValue(":start_day", $EVENT["start_day"]);

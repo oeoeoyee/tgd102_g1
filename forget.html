@@ -13,6 +13,7 @@
             <!-- header -->
             @@include('./layout/header.html')
             
+            <div id="app_forget">
             <!-- banner -->
             <div class="login_banner">
                 <img src="./images/login_01.png" alt="">
@@ -27,31 +28,33 @@
                     <ul>
                         <!-- 電子信箱(帳號) -->
                         <li class="forget_btn">
-                            <input type="email" class="forget_email" placeholder="請輸入電子信箱" name="email">
-                            <input type="button" class="btn_s_default" value="送出">
+                            <input type="email" class="forget_email" placeholder="請輸入電子信箱" name="email" v-model="email">
+                            <input type="button" class="btn_s_default" value="送出" @click ="emailConfirm()" :disabled="isDisabl">
                         </li>
                         <!-- 驗證碼 -->
                         <li>
-                            <input type="text" placeholder="輸入認證碼(已寄送至電子信箱)" name="code">
+                            <input type="text" placeholder="輸入認證碼(已寄送至電子信箱)" name="code" v-model="Vcode">
                         </li>
                         <!-- 密碼 -->
                         <li>
-                            <input type="password" placeholder="密碼：英數混合，六至十二字" name="pwd">
+                            <input type="password" placeholder="密碼：英數混合，六至十二字" name="pwd" v-model="newpassword"  @blur="check_password1()">
+                            <div class="error" v-text="message1"></div>
                         </li>
                         <!-- 確認密碼 -->
                         <li>
-                            <input type="password" placeholder="確認新密碼：英數混合，六至十二字" name="pwd">
+                            <input type="password" placeholder="確認新密碼：英數混合，六至十二字" name="pwd" v-model="reNewpassword" @blur="check_password2()">
+                            <div class="error" v-text="message2"></div>
                         </li>
                     </ul>
 
                     <!-- 按鈕 -->
                     <div class="login_btn_out signin_btn_out">
-                        <input type="submit" value="確認" class="btn_s_remind">
+                        <input type="submit" value="確認" class="btn_s_remind" @click="correct()">
                     </div>
                 </form>
 
             </div>
-            
+        </div>
             
             <!-- footer -->
             @@include('./layout/footer.html')
@@ -60,6 +63,9 @@
         <!-- goTop 組件 -->
         @@include('./layout/goTop_component.html')
         <!-- goTop 組件 -->
+        <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+        <script src="./js/forget.js"></script>
+
     </body>
 </body>
 </html>
