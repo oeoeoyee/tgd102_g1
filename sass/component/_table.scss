@@ -13,12 +13,17 @@
         font-weight: normal;
         padding: size(12) size(12) size(12) size(40);
     }
-    span{
-        display: inline-block;
-        width: size(32);
-        height: size(32);
-        // background-color: $hf_black;
-        font-size: size(24);
+    // 操作原本要的icon
+    // span{
+    //     display: inline-block;
+    //     width: size(32);
+    //     height: size(32);
+    //     // background-color: $hf_black;
+    //     font-size: size(24);
+    // }
+    button{
+        font-size: size(12);
+        padding: size(2);
     }
     thead{
         tr{
@@ -83,7 +88,7 @@
     }
     // 返回按鈕
     .btn_s_default{
-        margin: size(40) auto 0;
+        margin: size(40) auto size(60);
     }
     .draft_button{
         margin: 0;

@@ -10,25 +10,29 @@ $(function () {
 
 // header 滾動視窗 導覽列收合
 // console.log("aa");
-window.addEventListener("scroll", function(){
-  let scroll_first = window.scrollY;
 
+// 加上 if 判斷有沒有 ID = app_totop 的再去綁定 scroll 事件 ( 除錯 )
+if( document.getElementById('app_totop')){
   window.addEventListener("scroll", function(){
-      let scroll_second = window.scrollY;
-      let header = document.getElementsByTagName("header")[0];
-
-      if((scroll_first - scroll_second) < 0){
-          header.classList.remove("-headdown");
-          header.classList.add("-headup");
-      }else{
-          header.classList.remove("-headup");
-          header.classList.add("-headdown");
-      }
-
-      scroll_first = scroll_second;
+    let scroll_first = window.scrollY;
+  
+    window.addEventListener("scroll", function(){
+        let scroll_second = window.scrollY;
+        let header = document.getElementsByTagName("header")[0];
+  
+        if((scroll_first - scroll_second) < 0){
+            header.classList.remove("-headdown");
+            header.classList.add("-headup");
+        }else{
+            header.classList.remove("-headup");
+            header.classList.add("-headdown");
+        }
+  
+        scroll_first = scroll_second;
+    });
   });
+}
 
-});
 
 
 // vuevue 到頂的按鈕 
@@ -87,8 +91,10 @@ var totop_vm = new Vue({
 
 
 // footer 訂閱電子報(insert email)
-const subButton = document.querySelector('#eletter_sub');
-subButton.addEventListener('click', function(e){
+// 嘗試綁定 ( 除錯 )
+try {
+  const subButton = document.querySelector('#eletter_sub');
+  subButton.addEventListener('click', function(e){
   let inputEmail = document.querySelector('#eletter_input');
   let reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
   let delVal = '';
@@ -110,6 +116,10 @@ subButton.addEventListener('click', function(e){
     alert('請輸入正確EMail格式 ! ');
   }
 })
+} catch (error) {
+  
+}
+
 
 
   // fetch(`./php/back_news_del.php?id=${}`);

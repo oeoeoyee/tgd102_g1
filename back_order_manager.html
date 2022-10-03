@@ -14,7 +14,7 @@
 
         <!-- header -->
         <!-- @@include('./layout/header.html') -->
-        <div class="back_out">
+        <div class="back_out" style="height: 100vh;">
 
             <!-- 主選單 -->
             <nav class="back">
@@ -55,7 +55,7 @@
                                 </tr>
                                 <tr>
                                     <td>付款狀態</td>
-                                    <td>{{order_pg.PAYMENT_STATUS}}</td>
+                                    <td>{{order_pg.PAYMENT_STATUS == 1 ? '已付款' : '未付款'}}</td>
 
                                 </tr>
                                 <tr>
@@ -139,7 +139,7 @@
                                 </tr>
                                 <tr>
                                     <td>付款狀態</td>
-                                    <td>{{order_pg.PAYMENT_STATUS}}</td>
+                                    <td>{{order_pg.PAYMENT_STATUS == 1 ? '已付款' : '未付款'}}</td>
 
                                 </tr>
                                 <tr>
@@ -154,7 +154,7 @@
                                 </tr>
                                 <tr>
                                     <td>(付款帳號)</td>
-                                    <td>{{order_pg.PAYMENT_ACC}}</td>
+                                    <td>{{order_pg.PAYMENT_ACC ? order_pg.PAYMENT_ACC : '尚未設定' }}</td>
                                 </tr>
                             </tbody>
                             <tbody>
@@ -185,11 +185,11 @@
                                 </tr>
                                 <tr>
                                     <td>語音導覽</td>
-                                    <td>{{order_pg.VOICE_GUIDE}}</td>
+                                    <td>{{order_pg.VOICE_GUIDE ? order_pg.VOICE_GUIDE : '無'}}</td>
                                 </tr>
                                 <tr>
                                     <td>專人導覽</td>
-                                    <td>{{order_pg.NAVIGATE_GUIDE}}</td>
+                                    <td>{{order_pg.NAVIGATE_GUIDE ? order_pg.NAVIGATE_GUIDE : '無'}}</td>
                                 </tr>
                             </tbody>
                         </template>
@@ -211,7 +211,7 @@
             },
             mounted() {
 
-                let get_order_id = sessionStorage.getItem('order');
+                let get_order_id = sessionStorage.getItem('ORDER_ID');
                 const api = `./php/back_order_personal.php?id=` + get_order_id; // 要從哪裡得到資料
 
 

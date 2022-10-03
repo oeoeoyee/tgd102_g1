@@ -25,16 +25,16 @@
                     <h2>常設展覽草稿</h2>
                     <div>
                         @@include('./layout/search_component.html')
-                        <span class="icon_create"><a href="./back_exhibitions_edit.html"><i class="fa-regular fa-square-plus"></i></a></span>
-                        <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
+                        <!-- <span class="icon_create"><a href="./back_exhibitions_edit.html"><i class="fa-regular fa-square-plus"></i></a></span>
+                        <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span> -->
                     </div>
                 </div>
                 <table id="app_backTable" class="back_table back_table_p0 back_table_ckbox" data-tbname="EXHIBITION">
                     <thead>
                         <tr>
-                            <th>
+                            <!-- <th>
                                 <input type="checkbox" name="" id="">
-                            </th>
+                            </th> -->
                             <th>開始日期</th>
                             <th>下架日期</th>
                             <th>主題分類</th>
@@ -46,9 +46,9 @@
                     </thead>
                     <tbody>
                         <tr v-for="info in tbArray">
-                            <td>
+                            <!-- <td>
                                 <input type="checkbox" name="" id="">
-                            </td>
+                            </td> -->
                             <td>{{info.START_DAY}}</td>
                             <td>{{info.END_DAY}}</td>
                             <td>{{info.EXHIBITION_TYPE}}</td>
@@ -56,8 +56,9 @@
                             <td>{{info.SITUATION}}</td>
                             <td>{{info.ROOM}}</td>
                             <td>
-                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del" @click="exhib_down(info.ID)"><i class="fa-regular fa-trash-can"></i></span>
+                                <!-- <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
+                                <span class="icon_del" @click="exhib_down(info.ID)"><i class="fa-regular fa-trash-can"></i></span> -->
+                                <button @click="exhib_down(info.ID)">下架</button>
                             </td>
                         </tr>
                         <!-- <tr>

@@ -5,13 +5,13 @@
     @@include('./layout/head.html', {
     "title" : "關於我們"
     })
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"  async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
 </head>
 <!-- <link rel="stylesheet" href="dist/css/style.css"> -->
 
 <body>
 
-    <div class="wrapper">
+    <div class="wrapper"  id="about1">
         <!-- header -->
         @@include('./layout/header.html')
         <!-- 關於我們_1 -->
@@ -30,7 +30,7 @@
 
         </div>
 
-        <div class="line1_spacing"></div>
+        <div class="line1_spacing"  id="about2"></div>
         <!-- 關於我們_2 -->
         <div class="about2">
             <div class="title">
@@ -99,8 +99,8 @@
             </div>
         </div>
 
-        <hr class="about_hr">
-        <div class="line2_spacing"></div>
+        <hr class="about_hr" id="about3">
+        <div class="line2_spacing" ></div>
         <!-- 關於我們_3 -->
 
         <div class="about3">
@@ -116,7 +116,7 @@
 
                 <div class="about3_straight"></div>
                 <div class="about3_line1"></div>
-                
+
                 <div class="about3_inner_right">
                     <h4>團體專人導覽</h4>
                     <p>團體人數須滿10人，此團體導覽將免費享有專人導覽服務。團體語音導覽機為子母機系統，一台母機可對應多台子機，協助您維持團體秩序及掌握時間，輕鬆參觀不費力。
@@ -131,7 +131,7 @@
             </div>
         </div>
 
-        <div class="line3_spacing"></div>
+        <div class="line3_spacing"  id="about4"></div>
         <!-- 關於我們_4 -->
 
         <div class="about4">
@@ -164,8 +164,8 @@
             </div>
         </div>
 
-        <hr class="about_hr">
-        <div class="line4_spacing"></div>
+        <hr class="about_hr"  id="about5">
+        <div class="line4_spacing" ></div>
         <!-- 關於我們_5 -->
 
         <div class="about5">
@@ -214,7 +214,7 @@
             </div>
         </div>
 
-        <div class="line5_spacing"></div>
+        <div class="line5_spacing"  id="about6"></div>
         <!-- 關於我們_6 -->
 
         <div class="about6">
@@ -320,11 +320,60 @@
     @@include('./layout/goTop_component.html')
     <!-- goTop 組件 -->
 
-
+    <!-- -------------------------------網頁滑動--------------------------------------------->
     <script>
-        function doFirst(){
+
+        // //設計a href錨點來切換至區塊位置，但因為切換沒有滑動效果，所以需要加再上動畫滾動效果
+        // $(document).ready(function () {
+        //     //要執行回到最上方
+        //     $('.backTop').on('click', function () {
+        //         $("html,body").animate(
+        //             {
+        //                 scrollTop: 0 //回到第一個區塊
+        //             },
+        //             800
+        //         );
+        //     })
+        //     //其它連到對應區塊
+        //     $(".go_about").on("click", function () {
+        //         var hrefLink = $(this).attr("href");
+
+        //         let a = hrefLink.split("#")[1];
+        //         let b = '#'+a
+                
+        //         console.log(b);
+        //         $("html,body").animate(
+        //             {
+        //                 scrollTop: $(b).offset().top //直接到相對位置
+        //             },
+        //             600
+        //         );
+        //     });
+        // });
+
+        // // $(document).ready(function () {
+        // //   $("a").on("click", function (event) {
+        // //     if (this.hash !== "") {
+        // //       event.preventDefault();
+        // //       var hash = this.hash; //抓取網頁#錨點
+        // //       console.log(hash);
+        // //       $("html,body").animate(
+        // //         {
+        // //           scrollTop: $(hash).offset().top
+        // //         },
+        // //         800
+        // //       );
+        // //     }
+        // //   });
+        // // });
+
+
+
+        // -------------------------------google地圖--------------------------------------------------------
+
+        function doFirst() {
             let area = document.getElementById('map')
-            let position = new google.maps.LatLng(25.04276923170026,121.52491031999084)
+            let position = new google.maps.LatLng(25.04276923170026, 121.52491031999084)
             let options = {
                 zoom: 14,       // 0 ~ 22
                 center: position,
@@ -334,7 +383,7 @@
                 // mapTypeId: google.maps.MapTypeId.ROADMAP
 
             }
-            let map = new google.maps.Map(area,options)
+            let map = new google.maps.Map(area, options)
 
             let marker = new google.maps.Marker({
                 position,
@@ -342,8 +391,8 @@
             })
             marker.setTitle('TGD102')
             // marker.setIcon('../../images/number/dgtp.gif')
-}
-window.addEventListener('load',doFirst) 
+        }
+        window.addEventListener('load', doFirst)
 
     </script>
 </body>

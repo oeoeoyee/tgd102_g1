@@ -25,17 +25,17 @@
                     <h2>特別展覽草稿</h2>
                     <div>
                         @@include('./layout/search_component.html')
-                        <span class="icon_create"><a href="./back_events_edit.html"><i class="fa-regular fa-square-plus"></i></a></span>
-                        <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span>
+                        <!-- <span class="icon_create"><a href="./back_events_edit.html"><i class="fa-regular fa-square-plus"></i></a></span>
+                        <span class="icon_del"><i class="fa-regular fa-trash-can"></i></span> -->
                     </div>
                 </div>
                 <table id="app_backTable" class="back_table back_table_p0 back_table_ckbox" data-tbname="EVENTS">
                     <thead>
                         <tr>
-                            <th>
+                            <!-- <th>
                                 <input type="checkbox" name="" id="">
-                            </th>
-                            <th>預告日期</th>
+                            </th> -->
+                            <!-- <th>預告日期</th> -->
                             <th>開始日期</th>
                             <th>下架日期</th>
                             <th>展覽名稱</th>
@@ -46,18 +46,19 @@
                     </thead>
                     <tbody>
                         <tr v-for="info in tbArray">
-                            <td>
+                            <!-- <td>
                                 <input type="checkbox" name="" id="">
-                            </td>
-                            <td>修正</td>
+                            </td> -->
+                            <!-- <td>修正</td> -->
                             <td>{{info.start_date}}</td>
                             <td>{{info.end_date}}</td>
                             <td><a :href="'./back_events_edit.html?id='+info.INFO_ID"></a>{{info.name}}</a></td>
                             <td>{{info.situation}}</td>
                             <td>{{info.room}}</td>
                             <td>
-                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del" @click="event_down(info.ID)"><i class="fa-regular fa-trash-can"></i></span>
+                                <!-- <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
+                                <span class="icon_del" @click="event_down(info.ID)"><i class="fa-regular fa-trash-can"></i></span> -->
+                                <button @click="event_down(info.ID)">下架</button>
                             </td>
                         </tr>
                         <!-- <tr>

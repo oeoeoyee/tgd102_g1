@@ -46,6 +46,9 @@ Vue.component('news', {
                 if(data[i]["CONTENT"].toString().length > 20){
                     data[i]["CONTENT"] = data[i]["CONTENT"].toString().slice(0,20) + "......";
                 }
+                // if(data[i]["TITLE"].toString().length > 18){
+                //     data[i]["TITLE"] = data[i]["TITLE"].toString().slice(0,18) + "...";
+                // }
             }
             return data;
         })
@@ -97,7 +100,7 @@ Vue.component('news', {
     <!-- 消息列 -->
     <div>
         <ul class="news_list news_becenter">
-            <li v-for="info in newsArray" :key="id">
+            <li v-for="(info, index) in newsArray" :key="id"  @click="toNews01(index.toString())">
                 <a :href="'./news_01.html?id='+info.INFO_ID">
                     <!-- 圖片 -->
                     <div class="news_list_img">
@@ -135,7 +138,13 @@ Vue.component('news', {
     // }
 
     methods:{
-        // 換頁數
+        // 取得當下按的li的index
+        toNews01(i_news){
+            console.log(i_news)
+        //     console.log(info);
+            // sessionStorage.setItem('toNews01', i_news);
+        },
+        // 換下方頁數
         changePage(num){
             this.thisPage = num;
             // return this.thisPage;
@@ -210,12 +219,23 @@ addEventListener('load', function(){
         .then((resp) => resp.json())
         // .then(resp) // 好像也可以?
         .then((info) => {
-            (top_title_top.innerHTML = info[16].TITLE),
-            (top_date_top.innerHTML = info[16].DATE);
-            (top_content_top.innerHTML = info[16].CONTENT);
-            (top_title_down.innerHTML = info[18].TITLE);
-            (top_date_down.innerHTML = info[18].DATE);
-            (top_content_down.innerHTML = info[18].CONTENT);
+            // 設定置頂陣列，讓網頁取用最新設置頂的消息
+            let top1_array = [];
+            let top2_array = [];
+            for(let i = 0; i< info.length; i++){
+                if(info[i].TOP === "Top1"){
+                    top1_array.push(i);
+                }else if(info[i].TOP === "Top2"){
+                    top2_array.push(i);
+                }else{}
+            }
+
+            (top_title_top.innerHTML = info[top1_array[0]].TITLE),
+            (top_date_top.innerHTML = info[top1_array[0]].DATE);
+            (top_content_top.innerHTML = info[top1_array[0]].CONTENT);
+            (top_title_down.innerHTML = info[top2_array[0]].TITLE);
+            (top_date_down.innerHTML = info[top2_array[0]].DATE);
+            (top_content_down.innerHTML = info[top2_array[0]].CONTENT);
         });
 })
 

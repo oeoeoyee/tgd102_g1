@@ -8,9 +8,10 @@ $pdo = new PDO($URL, $USERNAME, $PASSWORD);
 // -----------------------------------------
 //
 //
-//    校外開發環境 ( 需建立個人電腦端測試用 DB ) 
+//    校外開發環境 ( 需建立個人電腦端測試用 DB [REVERSE_TEST] ) 
 // -----------------------------------------
 // $URL = "mysql:host=localhost;dbname=REVERSE_TEST";
+// // $URL = "mysql:host=localhost;dbname=REVERSE";
 // $USERNAME = "root";
 // $PASSWORD = "password";
 // $pdo = new PDO($URL, $USERNAME, $PASSWORD);

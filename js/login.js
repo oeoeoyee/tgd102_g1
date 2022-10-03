@@ -80,6 +80,19 @@ new Vue({
                 return false
             }
 
+            // 姓名沒填
+            if(this.name === ''){
+                alert('姓名沒填')
+                return false
+            }
+
+            // 電話沒填
+            if(this.phone === ''){
+                alert('電話沒填')
+                return false
+            }
+
+            // 語音導覽和專人導覽只能選一個
             if(this.pod && this.tour == true){
                 alert('語音導覽和專人導覽只能選一個')
                 return false
@@ -98,7 +111,8 @@ new Vue({
                 
             }
 
-            
+            // 購買人 ID
+            const my_ID = sessionStorage.getItem("MEMBER_ID");
 
             // ajax
             fetch('./php/ticket_group.php',{
@@ -106,6 +120,7 @@ new Vue({
                 headers: { 'Content-Type' : 'application/json' },
                 body: JSON.stringify({
                     // 變數: this.v-model名
+                    memberID: my_ID,
                     exhibition: this.exhibitionChoose,
                     date: this.date,
                     name: this.name,
@@ -140,6 +155,18 @@ new Vue({
                 return false
             }
 
+            // 姓名沒填
+            if(this.name === ''){
+                alert('姓名沒填')
+                return false
+            }
+
+            // 電話沒填
+            if(this.phone === ''){
+                alert('電話沒填')
+                return false
+            }
+
             // 一般票人數沒選
             if(this.adultCount + this.serviceCount + this.childCount === ''){
                 alert('人數沒選')
@@ -154,12 +181,16 @@ new Vue({
 
             // alert('成功');
 
+            // 購買人 ID
+            const my_ID = sessionStorage.getItem("MEMBER_ID");
+
             // ajax
             fetch('./php/ticket_personal.php',{
                 method: 'POST',
                 headers: { 'Content-Type' : 'application/json' },
                 body: JSON.stringify({
                     // 變數: this.v-model名
+                    memberID: my_ID,
                     exhibition: this.exhibitionChoose,
                     date: this.date,
                     name: this.name,

@@ -4,6 +4,8 @@ include("./PDO/connection_inc.php");
 // 接收前端傳來的JSON格式
 $member = json_decode(file_get_contents("php://input"), true);
 
+
+
 $sql = " SELECT 
             od.ORDER_ID,
             od.DELEGATE_NAME,

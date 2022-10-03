@@ -7,8 +7,8 @@ include ("./PDO/connection_inc.php");
 // $sql = " SELECT MEMBER_ID, SUVSCRIPTION_DAY 
 //          FROM SUB_LIST";
 
-$sql = " SELECT INFO_TYPE, INFO_ID
-         FROM INFORMATION";
+$sql = " SELECT MEMBER_ID, SUVSCRIPTION_DAY
+         FROM SUB_LIST";
 
 $statement = $pdo->prepare($sql);
 $statement->execute();

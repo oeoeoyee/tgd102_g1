@@ -20,23 +20,27 @@ new Vue({
     packages: [],
   },
 
-  beforeCreate() {
-    // 要資料
-    fetch("./php/ex_info.php?ex_id=1", {
-      mode: "no-cors",
-    })
+  mounted() {
+    const ex_infoID = sessionStorage.getItem("ex_infoID");
+    fetch(`./php/ex_info.php?ex_id=${ex_infoID}`)
       .then((resp) => resp.json())
       .then((resp) => {
         this.packages = resp;
       });
   },
 
-  mounted() {
-    // 預備 :D
+  methods: {
+    // 展覽 ID
+    ex_infoID(e) {
+      console.log(e.ID);
+      sessionStorage.setItem("ex_infoID", e.ID);
+    },
   },
 
+  beforeCreate() {},
+
   beforeUpdate() {
-    let splite = [this.packages];
+    let splite = [this.packages[0]];
     splite.map((el) => {
       return (
         // 切割完回傳

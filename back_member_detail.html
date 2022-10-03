@@ -12,7 +12,7 @@
         <!-- header -->
         <!-- @@include('./layout/header.html') -->
 
-        <div class="back_out">
+        <div class="back_out" style="height: 100vh;">
             
             <!-- 主選單 -->
             <nav class="back">
@@ -24,7 +24,7 @@
                 <!-- 右上 -->
                 <div class="back_table_title">
                     <h2>基本資料</h2>
-                    <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
+                    <!-- <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span> -->
                 </div>
                 <div class="back_table_noline">
                     <table>
@@ -45,7 +45,7 @@
                         <tbody>
                             <tr>
                                 <td>會員等級</td>
-                                <td>{{detailsArray[0].LEVEL}}{{detailsArray[0].REGISTER_DAY}}</td>
+                                <td>{{detailsArray[0].LEVEL}}({{detailsArray[0].REGISTER_DAY}})</td>
                             </tr>
                             <tr>
                                 <td>會員電話</td>
@@ -198,6 +198,8 @@
                     })
                     .then(res => res.json())
                     .then(res => this.detailsArray = res)
+                    .then(res => this.member_historyArray = res)
+
                     
                 },
             })

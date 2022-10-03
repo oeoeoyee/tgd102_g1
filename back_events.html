@@ -45,14 +45,15 @@
                     <tbody>
                         <tr v-for="info in tbArray">
                             <td>{{info.ID}}</td>
-                            <td>{{info.start_date}}</td>
-                            <td>{{info.end_date}}</td>
-                            <td><a :href="'./back_events_edit.html?id='+info.ID">{{info.name}}</a></td>
+                            <td>{{info.start_day}}</td>
+                            <td>{{info.end_day}}</td>
+                            <td><a :href="'./back_events_edit.html?id='+info.ID">{{info.title}}</a></td>
                             <td>{{info.situation}}</td>
                             <td>{{info.room}}</td>
                             <td>
-                                <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
-                                <span class="icon_del" @click="event_down(info.ID)"><i class="fa-regular fa-trash-can"></i></span>
+                                <!-- <span class="icon_edit"><i class="fa-regular fa-pen-to-square"></i></span>
+                                <span class="icon_del" @click="event_down(info.ID)"><i class="fa-regular fa-trash-can"></i></span> -->
+                                <button @click="event_down(info.ID)">下架</button>
                             </td>
                         </tr>
                         <!-- 

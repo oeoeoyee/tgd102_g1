@@ -6,7 +6,7 @@
     // -----------------------------------------------------
     $sql = " SELECT INFO_ID, INFO_TYPE, TITLE, CONTENT, IMAGE, DATE
              FROM INFORMATION 
-             WHERE INFO_TYPE = :type
+             WHERE INFO_TYPE = :type AND SITUATION = '上線'
              ORDER BY INFO_ID desc";
 
     $statement = $pdo->prepare($sql);
