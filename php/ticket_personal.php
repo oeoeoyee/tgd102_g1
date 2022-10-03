@@ -5,8 +5,8 @@ include("./PDO/connection_inc.php");
 $member = json_decode(file_get_contents("php://input"), true);
 
 $sql = " 
-    insert into ORDER_DETAIL(ticket_type,EXHIBITION_NAME,DELEGATE_NAME,DELEGATE_PHONE,ADULT_NUM,ADULT_PRICE,DISCOUNT_NUM,DISCOUNT_PRICE,CHILD_NUM,CHILD_PRICE,VOICE_GUIDE)
-    values ('個人',?,?,?,?,?,?,?,?,?,?)
+    insert into ORDER_DETAIL(ticket_type,PAYMENT_DAY,EXHIBITION_NAME,DELEGATE_NAME,DELEGATE_PHONE,ADULT_NUM,ADULT_PRICE,DISCOUNT_NUM,DISCOUNT_PRICE,CHILD_NUM,CHILD_PRICE,VOICE_GUIDE)
+    values ('個人',now(),?,?,?,?,?,?,?,?,?,?)
 ";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(1, $member["exhibition"]); 
