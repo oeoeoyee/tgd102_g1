@@ -149,7 +149,9 @@
                             const { MEMBER_ID } = body;
                             sessionStorage.setItem("MEMBER_ID", MEMBER_ID);
 
-                            location = './signin_succ.html';
+                            if(sessionStorage.getItem("MEMBER_ID")){
+                                location = './signin_succ.html';
+                            }
                         }
                     })
                     
