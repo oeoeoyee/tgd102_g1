@@ -295,6 +295,9 @@
         @include mobile(){
             width: 100%;
             border: none;
+            img{
+                height: rwd(220);
+            }
         }
     }
     // 最新消息右側分享區
