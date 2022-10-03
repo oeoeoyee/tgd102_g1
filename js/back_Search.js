@@ -2,8 +2,6 @@
 const url = "./php/back_All_Search.php?keywords=";
 const keyword_input = document.querySelector(".back_search"); // 綁定搜尋欄位的 input
 
-// 取 table 的自訂屬性的值
-const tbName = document.querySelector("table").dataset.tbname;
 // 沒設定 data- 的頁面會報錯!!!  之後問老師  低優先度
 
 // 此 Vue ID 綁在 app_backTable 的欄位
@@ -47,9 +45,9 @@ const table_vue = new Vue({
       console.log(e.MEMBER_ID);
       sessionStorage.setItem("MEMBER_ID", e.MEMBER_ID);
     },
-    
+
     emailGo(title, email, content) {
-      console.log(1234);
+      // console.log(1234);
       emailjs.init("DCwlXSLOdGqGTForu");
       const serviceID = "service_95kv0br";
       const templateID = "template_kb00bdg";
@@ -74,30 +72,37 @@ const table_vue = new Vue({
     let that = this;
     const api = "./php/back_All_Search.php"; // 要從哪裡得到資料
 
-    fetch(api, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        tbName,
-      }),
-    })
-      .then((resp) => resp.json())
-      .then((resp) => (table_vue.tbArray = resp));
+    // 取 table 的自訂屬性的值
+    if (document.querySelector("table")) {
+      try {
+        const tbName = document.querySelector("table").dataset.tbname;
 
-    const now = new Date();
-    const nowDate = now.toISOString().split("T")[0];
-    let t = 0;
-    if ((this.tbName = "NEWSLETTER_LIST")) {
-      fetch("./php/sentEmail.php")
-        .then((e) => e.json())
-        .then((list) => {
-          for (let item of list) {
-            // console.log('asd');
-            that.subList.push(item);
-          }
-        });
+        fetch(api, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            tbName,
+          }),
+        })
+          .then((resp) => resp.json())
+          .then((resp) => (table_vue.tbArray = resp));
+
+        const now = new Date();
+        const nowDate = now.toISOString().split("T")[0];
+        let t = 0;
+        if ((this.tbName = "NEWSLETTER_LIST")) {
+          fetch("./php/sentEmail.php")
+            .then((e) => e.json())
+            .then((list) => {
+              for (let item of list) {
+                // console.log('asd');
+                that.subList.push(item);
+              }
+            });
+        }
+      } catch (error) {}
     }
   },
 

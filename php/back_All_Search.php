@@ -22,32 +22,35 @@ if (isset($_GET["keywords"])) {
   switch ($DB_info["tbName"]) {
     case 'INFORMATION': // 消息
       $sql = "
-      SELECT INFO_ID, INFO_TYPE, TITLE, CONTENT, DATE  
-      FROM INFORMATION
-      where
+      SELECT INFO_ID, INFO_TYPE, SITUATION, TITLE, CONTENT, DATE  
+        FROM INFORMATION
+      WHERE
         INFO_TYPE like concat(:keywords, '%') 
+        OR SITUATION like concat(:keywords, '%')
         OR TITLE like concat(:keywords, '%')
         OR CONTENT like concat(:keywords, '%')
-        OR DATE like concat(:keywords, '%');";
+        OR DATE like concat(:keywords, '%')
+      ORDER BY INFO_ID desc;";
       break;
 
     case 'EVENTS':  // 特展
       $sql = "
-      SELECT ID, start_date, end_date, name ,room
-      FROM EVENTS_TEST
-      where 
+      SELECT ID, start_day, end_day,situation, title ,room
+      FROM EVENT
+      WHERE 
         ID like concat(:keywords, '%') 
-        OR start_date like concat(:keywords, '%')
-        OR end_date like concat(:keywords, '%')
-        OR name like concat(:keywords, '%')
+        OR start_day like concat(:keywords, '%')
+        OR end_day like concat(:keywords, '%')
+        OR situation like concat(:keywords, '%')
+        OR title like concat(:keywords, '%')
         OR room like concat(:keywords, '%');";
       break;
 
     case 'EXHIBITION': // 普展
       $sql = "
       SELECT ID, START_DAY, EXHIBITION_TYPE, NAME, ROOM  
-      FROM EXHIBITION
-      where 
+        FROM EXHIBITION
+      WHERE 
         ID like concat(:keywords, '%') 
         OR START_DAY like concat(:keywords, '%') 
         OR EXHIBITION_TYPE like concat(:keywords, '%')
@@ -56,22 +59,32 @@ if (isset($_GET["keywords"])) {
       break;
     case 'MEMBER': // 會員資料
       $sql = "
-        SELECT MEMBER_ID, REGISTER_DAY, LEVEL, NAME, PHONE, EMAIL 
+      SELECT MEMBER_ID, REGISTER_DAY, LEVEL, NAME, PHONE, EMAIL 
         FROM MEMBER
-        where 
-          MEMBER_ID like concat(:keywords, '%') 
-          OR REGISTER_DAY like concat(:keywords, '%') 
-          OR LEVEL like concat(:keywords, '%')
-          OR NAME like concat(:keywords, '%')
-          OR PHONE like concat(:keywords, '%')
-          OR EMAIL like concat(:keywords, '%');";
+      WHERE 
+        MEMBER_ID like concat(:keywords, '%') 
+        OR REGISTER_DAY like concat(:keywords, '%') 
+        OR LEVEL like concat(:keywords, '%')
+        OR NAME like concat(:keywords, '%')
+        OR PHONE like concat(:keywords, '%')
+        OR EMAIL like concat(:keywords, '%');";
       break;
     case 'ORDER': // 訂單資訊
       $sql = "
-      SELECT o.ORDER_ID, o.ORDER_DAY, od.EXHIBITION_NAME, o.VISIT_DAY, o.PRICE, o.PAYMENT_TYPE, od.DELEGATE_NAME, o.PAYMENT_STATUS 
-      FROM REVERSE.ORDER o join REVERSE.ORDER_DETAIL od 
-      on o.ORDER_ID = od.ORDER_ID 
-      where
+      SELECT 
+        o.ORDER_ID,
+        o.ORDER_DAY,
+        od.EXHIBITION_NAME,
+        o.VISIT_DAY,
+        o.PRICE,
+        o.PAYMENT_TYPE,
+        od.DELEGATE_NAME,
+        o.PAYMENT_STATUS
+      FROM
+        `ORDER` o
+      JOIN
+        ORDER_DETAIL od ON o.ORDER_ID = od.ORDER_ID 
+      WHERE
         o.ORDER_ID like concat(:keywords, '%') 
         OR o.ORDER_DAY like concat(:keywords, '%') 
         OR od.EXHIBITION_NAME like concat(:keywords, '%')
@@ -96,7 +109,7 @@ if (isset($_GET["keywords"])) {
       $sql = "
       SELECT ID, SUBJECT, MAIL_DAY, STATE
       FROM NEWSLETTER
-      where 
+      WHERE 
         ID like concat(:keywords, '%') 
         OR SUBJECT like concat(:keywords, '%') 
         OR MAIL_DAY like concat(:keywords, '%')
@@ -131,7 +144,7 @@ if (isset($_GET["keywords"])) {
       case 'EVENTS':  // 特展
         $sql = "
       SELECT * 
-      FROM EVENTS_TEST;";
+      FROM EVENT;";
         break;
 
       case 'EXHIBITION': // 普展

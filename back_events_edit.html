@@ -29,13 +29,13 @@
                 <div class="back_edit_title">
                     <label>特展英文</label>
                     <input type="text" v-model="eng_title">
-                    <p>20字</p>
+                    <p></p>
                 </div>
 
                 <div class="back_edit_title">
                     <label>特展名稱</label>
                     <input type="text" v-model="title">
-                    <p>20字</p>
+                    <p></p>
                 </div>
 
                 <div class="back_edit_title">
@@ -61,7 +61,7 @@
                     <label for="">主旨圖片</label>
                     <div class="dragimg">{{main_img}}</div>
                     <label class="pic">
-                        <input type="file" style="display:none;" accept="image/png, image/gif, image/jpeg" @change="getFiles1($event)">
+                        <input type="file" multiple="multiple" style="display:none;" accept="image/png, image/gif, image/jpeg" @change="getFiles1($event)">
                         <p>瀏覽</p>
                     </label>
                 </div>
@@ -69,7 +69,7 @@
                 <div class="back_edit_text">
                     <label for="">展覽介紹</label>
                     <textarea v-model="main_content"></textarea>
-                    <p>205字</p>
+                    <p></p>
                 </div>
 
                 <div class="back_edit_pic">
@@ -84,13 +84,13 @@
                 <div class="back_edit_title">
                     <label for="">作品小標</label>
                     <input type="text" v-model="events_title">
-                    <p>20字</p>
+                    <p></p>
                 </div>
 
                 <div class="back_edit_text">
                     <label for="">作品簡介</label>
                     <textarea v-model="events_content"></textarea>
-                    <p>205字</p>
+                    <p></p>
                 </div>
 
                 
@@ -98,13 +98,13 @@
                 <div class="back_edit_title">
                     <label for="">藝術家標題</label>
                     <input type="text" v-model="artist_title">
-                    <p>20字</p>
+                    <p></p>
                 </div>
 
                 <div class="back_edit_text">
                     <label for="">藝術家內文</label>
                     <textarea v-model="artist_content"></textarea>
-                    <p>205字</p>
+                    <p></p>
                 </div>
 
                 <div class="back_edit_pic">
@@ -119,13 +119,13 @@
                 <div class="back_edit_title">
                     <label for="">作品標題1</label>
                     <input type="text" v-model="pj_title1">
-                    <p>20字</p>
+                    <p></p>
                 </div>
 
                 <div class="back_edit_text">
                     <label for="">作品內文1</label>
                     <textarea v-model="pj_content1"></textarea>
-                    <p>205字</p>
+                    <p></p>
                 </div>
 
                 <div class="back_edit_pic">
@@ -140,13 +140,13 @@
                 <div class="back_edit_title">
                     <label for="">作品標題2</label>
                     <input type="text" v-model="pj_title2">
-                    <p>20字</p>
+                    <p></p>
                 </div>
 
                 <div class="back_edit_text">
                     <label for="">作品內文2</label>
                     <textarea v-model="pj_content2"></textarea>
-                    <p>205字</p>
+                    <p></p>
                 </div>
 
                 <div class="back_edit_pic">
@@ -165,13 +165,13 @@
                 <div class="back_edit_title">
                     <label for="">作品標題last</label>
                     <input type="text" v-model="pj_title3">
-                    <p>20字</p>
+                    <p></p>
                 </div>
 
                 <div class="back_edit_text">
                     <label for="">作品內文last</label>
                     <textarea v-model="pj_content3"></textarea>
-                    <p>205字</p>
+                    <p></p>
                 </div>
 
                 <div class="back_edit_pic">

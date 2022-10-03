@@ -48,6 +48,10 @@
   }
 }
 
+a {
+  text-decoration: none !important;
+}
+
 // 主題
 .ex_list {
   .ex_title {
@@ -204,7 +208,7 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
   .ex_side_bar {
     border: size(2) solid $line_mid;
     background-color: $line_mid;
-    transform: rotate(90deg) scaleX(2.5) translate(45%, 0);
+    transform: rotate(90deg) scaleX(1.6) translate(45%, 0);
     @include mobile() {
       transform: rotate(90deg) scaleX(6) translate(45%, 0);
     }
@@ -281,6 +285,17 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
     p {
       display: none;
     }
+
+    &:hover {
+      display: block !important;
+      p {
+        display: block !important;
+      }
+
+      @include mobile() {
+        display: none !important;
+      }
+    }
   }
 
   .ex_side_other,
@@ -309,17 +324,17 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
 // UL
 .sidebarNav {
   transition: 0.5s;
-  left: -300px;
+  left: size(-300);
   overflow: hidden;
 }
 
 // 淡入
 .sidebarNavIn {
-  left: -80px;
+  left: size(-100);
   margin-right: 0px;
   opacity: 1;
   @include mobile {
-    left: 0;
+    left: -size(20);
   }
 }
 

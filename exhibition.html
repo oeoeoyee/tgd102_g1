@@ -23,204 +23,185 @@
       </div>
 
       <!-- 展覽區塊 -->
-      <div class="ex_list">
+      <div id="exhibition_vue" class="ex_list">
         <!-- 標題 -->
         <div class="top ex_title">
           <h1>常設展覽</h1>
         </div>
 
-        <!-- 側邊欄 -->
+        <!-- 側邊欄 側邊欄 側邊欄 側邊欄 側邊欄-->
         <div class="sidebarNav ex_side">
           <div class="ex_side_bar"></div>
           <ul>
-            <!-- 當前展覽 主題 -->
-            <!-- <a href="">
-              <li class="ex_side_main ex_on">
-                <div><h4>十九世紀</h4></div>
-              </li>
-            </a> -->
-            <!-- 當前展覽 -->
             <a class="scrollLink" href="#section1">
-              <li class="sidebarNavItem ex_side_now ex_on">
-                <div><p>新藝術運動</p></div>
+              <li class="sidebarNavItem ex_side_now ex_on ex_side_other">
+                <div><p>{{ex_Array[0].NAME}}</p></div>
               </li>
             </a>
             <a class="scrollLink" href="#section2">
               <li class="sidebarNavItem ex_side_other">
-                <div><p>兵器演進</p></div>
+                <div><p>{{ex_Array[1].NAME}}</p></div>
               </li>
             </a>
             <a class="scrollLink" href="#section3">
               <li class="sidebarNavItem ex_side_other">
-                <div><p>十九世紀事件</p></div>
+                <div><p>{{ex_Array[2].NAME}}</p></div>
               </li>
             </a>
             <a class="scrollLink" href="#section4">
               <li class="sidebarNavItem ex_side_other">
-                <div><p>探索秘境</p></div>
+                <div><p>{{ex_Array[3].NAME}}</p></div>
               </li>
             </a>
             <a class="scrollLink" href="#section5">
               <li class="sidebarNavItem ex_side_other">
-                <div><p>亞細亞霍亂</p></div>
+                <div><p>{{ex_Array[4].NAME}}</p></div>
               </li>
             </a>
-          </ul>
-
-          <ul>
-            <!-- 非當前展覽 主題 -->
-            <!-- <li class="ex_side_second">
-              <div><h4>十八世紀</h4></div>
-            </li> -->
-
-            <!-- 非當前展覽 -->
             <a class="scrollLink" href="#section6">
               <li class="sidebarNavItem ex_side_other">
-                <div><p>工業革命</p></div>
+                <div><p>{{ex_Array[5].NAME}}</p></div>
               </li>
             </a>
             <a class="scrollLink" href="#section7">
               <li class="sidebarNavItem ex_side_other">
-                <div><p>終極血月</p></div>
+                <div><p>{{ex_Array[6].NAME}}</p></div>
               </li>
             </a>
             <a class="scrollLink" href="#section8">
               <li class="sidebarNavItem ex_side_other">
-                <div><p>埃及神話</p></div>
+                <div><p>{{ex_Array[7].NAME}}</p></div>
               </li>
             </a>
           </ul>
         </div>
+        <!-- 側邊欄 側邊欄 側邊欄 側邊欄 側邊欄-->
 
-        <!-- 展覽 ( 進 ) -->
+        <!-- 展覽 較新 最多 5 筆 -->
         <ul class="ex_new">
           <div class="ex_main_img">
-            <h2>十九世紀</h2>
+            <h2>{{ex_Array[0].EXHIBITION_TYPE}}</h2>
           </div>
-          <li class="section ex_main1">
+
+          <!-- BANNER 1 -->
+          <li @click="ex_infoID(ex_Array[0])" class="section ex_main1">
             <a class="navJump" name="section1" id="section1"></a>
-            <!-- Class = 背景圖/ -->
-
-            <div class="ex_img1">
-              <!-- 展覽名 -->
-              <h3>新藝術運動</h3>
-              <!-- 日期 -->
-              <h5>2022.03.04 - 2023.10.22</h5>
-              <!-- 廳 -->
-              <h4>F ROOM</h4>
-
-              <!-- 內頁連結 -->
-              <div class="ex_link">
-                <a href="./exhibition_information.html"
-                  ><i class="fa-solid fa-angles-right"></i
-                ></a>
+            <a href="./exhibition_information.html">
+              <div :class="'ex_img'+ex_Array[0].ID">
+                <h3>{{ex_Array[0].NAME}}</h3>
+                <h5>{{ex_Array[0].START_DAY}} - {{ex_Array[0].END_DAY}}</h5>
+                <h4>{{ex_Array[0].ROOM}} ROOM</h4>
+                <div class="ex_link">
+                  <i class="fa-solid fa-angles-right"></i>
+                </div>
               </div>
-            </div>
+            </a>
           </li>
 
-          <li class="section ex_main2">
+          <!-- BANNER 2 -->
+          <li @click="ex_infoID(ex_Array[1])" class="section ex_main2">
             <a class="navJump" name="section2" id="section2"></a>
-            <div class="ex_img2">
-              <h3>兵器演進</h3>
-              <h5>2022.03.04 - 2023.10.22</h5>
-              <h4>G ROOM</h4>
-              <div class="ex_link">
-                <a href="./exhibition_information.html"
-                  ><i class="fa-solid fa-angles-right"></i
-                ></a>
+            <a href="./exhibition_information.html">
+              <div :class="'ex_img'+ex_Array[1].ID">
+                <h3>{{ex_Array[1].NAME}}</h3>
+                <h5>{{ex_Array[1].START_DAY}} - {{ex_Array[1].END_DAY}}</h5>
+                <h4>{{ex_Array[1].ROOM}} ROOM</h4>
+                <div class="ex_link">
+                  <i class="fa-solid fa-angles-right"></i>
+                </div>
               </div>
-            </div>
+            </a>
           </li>
-
-          <li class="section ex_main3">
+          <!-- BANNER 3 -->
+          <li @click="ex_infoID(ex_Array[2])" class="section ex_main3">
             <a class="navJump" name="section3" id="section3"></a>
-            <div class="ex_img3">
-              <h3>十九世紀事件</h3>
-              <h5>2022.03.04 - 2023.10.22</h5>
-              <h4>H ROOM</h4>
-              <div class="ex_link">
-                <a href="./exhibition_information.html"
-                  ><i class="fa-solid fa-angles-right"></i
-                ></a>
+            <a href="./exhibition_information.html">
+              <div :class="'ex_img'+ex_Array[2].ID">
+                <h3>{{ex_Array[2].NAME}}</h3>
+                <h5>{{ex_Array[2].START_DAY}} - {{ex_Array[2].END_DAY}}</h5>
+                <h4>{{ex_Array[2].ROOM}} ROOM</h4>
+                <div class="ex_link">
+                  <i class="fa-solid fa-angles-right"></i>
+                </div>
               </div>
-            </div>
+            </a>
           </li>
-
-          <li class="section ex_main4">
+          <!-- BANNER 4 -->
+          <li @click="ex_infoID(ex_Array[3])" class="section ex_main4">
             <a class="navJump" name="section4" id="section4"></a>
-            <div class="ex_img4">
-              <h3>探索秘境</h3>
-              <h5>2022.03.04 - 2023.10.22</h5>
-              <h4>I ROOM</h4>
-              <div class="ex_link">
-                <a href="./exhibition_information.html"
-                  ><i class="fa-solid fa-angles-right"></i
-                ></a>
+            <a href="./exhibition_information.html">
+              <div :class="'ex_img'+ex_Array[3].ID">
+                <h3>{{ex_Array[3].NAME}}</h3>
+                <h5>{{ex_Array[3].START_DAY}} - {{ex_Array[3].END_DAY}}</h5>
+                <h4>{{ex_Array[3].ROOM}} ROOM</h4>
+                <div class="ex_link">
+                  <i class="fa-solid fa-angles-right"></i>
+                </div>
               </div>
-            </div>
+            </a>
           </li>
-
-          <li class="section ex_main5">
+          <!-- BANNER 5 -->
+          <li @click="ex_infoID(ex_Array[4])" class="section ex_main5">
             <a class="navJump" name="section5" id="section5"></a>
-            <div class="ex_img5">
-              <h3>亞細亞霍亂</h3>
-              <h5>2022.03.04 - 2023.10.22</h5>
-              <h4>J ROOM</h4>
-              <div class="ex_link">
-                <a href="./exhibition_information.html"
-                  ><i class="fa-solid fa-angles-right"></i
-                ></a>
+            <a href="./exhibition_information.html">
+              <div :class="'ex_img'+ex_Array[4].ID">
+                <h3>{{ex_Array[4].NAME}}</h3>
+                <h5>{{ex_Array[4].START_DAY}} - {{ex_Array[4].END_DAY}}</h5>
+                <h4>{{ex_Array[4].ROOM}} ROOM</h4>
+                <div class="ex_link">
+                  <i class="fa-solid fa-angles-right"></i>
+                </div>
               </div>
-            </div>
+            </a>
           </li>
         </ul>
 
-        <!-- 展覽 ( 遠 ) -->
+        <!-- 展覽 較舊 最多 3 筆 -->
         <ul class="ex_old">
           <div class="ex_second_img">
-            <h2>十八世紀</h2>
+            <h2>{{ex_Array[5].EXHIBITION_TYPE}}</h2>
           </div>
-
-          <li class="section ex_main6">
+          <!-- BANNER 6 -->
+          <li @click="ex_infoID(ex_Array[5])" class="section ex_main6">
             <a class="navJump" name="section6" id="section6"></a>
-            <div class="ex_img6">
-              <h3>工業革命</h3>
-              <h5>2022.03.04 - 2023.10.22</h5>
-              <h4>K ROOM</h4>
-              <div class="ex_link">
-                <a href="./exhibition_information.html"
-                  ><i class="fa-solid fa-angles-right"></i
-                ></a>
+            <a href="./exhibition_information.html">
+              <div :class="'ex_img'+ex_Array[5].ID">
+                <h3>{{ex_Array[5].NAME}}</h3>
+                <h5>{{ex_Array[5].START_DAY}} - {{ex_Array[5].END_DAY}}</h5>
+                <h4>{{ex_Array[5].ROOM}} ROOM</h4>
+                <div class="ex_link">
+                  <i class="fa-solid fa-angles-right"></i>
+                </div>
               </div>
-            </div>
+            </a>
           </li>
-
-          <li class="section ex_main7">
+          <!-- BANNER 7 -->
+          <li @click="ex_infoID(ex_Array[6])" class="section ex_main7">
             <a class="navJump" name="section7" id="section7"></a>
-            <div class="ex_img7">
-              <h3>終極血月</h3>
-              <h5>2022.03.04 - 2023.10.22</h5>
-              <h4>L ROOM</h4>
-              <div class="ex_link">
-                <a href="./exhibition_information.html"
-                  ><i class="fa-solid fa-angles-right"></i
-                ></a>
+            <a href="./exhibition_information.html">
+              <div :class="'ex_img'+ex_Array[6].ID">
+                <h3>{{ex_Array[6].NAME}}</h3>
+                <h5>{{ex_Array[6].START_DAY}} - {{ex_Array[6].END_DAY}}</h5>
+                <h4>{{ex_Array[6].ROOM}} ROOM</h4>
+                <div class="ex_link">
+                  <i class="fa-solid fa-angles-right"></i>
+                </div>
               </div>
-            </div>
+            </a>
           </li>
-
-          <li class="section ex_main8">
+          <!-- BANNER 8 -->
+          <li @click="ex_infoID(ex_Array[7])" class="section ex_main8">
             <a class="navJump" name="section8" id="section8"></a>
-            <div class="ex_img8">
-              <h3>埃及神話</h3>
-              <h5>2022.03.04 - 2023.10.22</h5>
-              <h4>M ROOM</h4>
-              <div class="ex_link">
-                <a href="./exhibition_information.html"
-                  ><i class="fa-solid fa-angles-right"></i
-                ></a>
+            <a href="./exhibition_information.html">
+              <div :class="'ex_img'+ex_Array[7].ID">
+                <h3>{{ex_Array[7].NAME}}</h3>
+                <h5>{{ex_Array[7].START_DAY}} - {{ex_Array[7].END_DAY}}</h5>
+                <h4>{{ex_Array[7].ROOM}} ROOM</h4>
+                <div class="ex_link">
+                  <i class="fa-solid fa-angles-right"></i>
+                </div>
               </div>
-            </div>
+            </a>
           </li>
         </ul>
       </div>
@@ -229,474 +210,506 @@
     </div>
     @@include('./layout/goTop_component.html')
     <script>
-      // 出現範圍
-      var topSec = document.querySelectorAll(".top");
-
       gsap.registerPlugin(ScrollTrigger); // GSAP
 
-      $(window).scroll(function () {
-        var topPos = $(topSec).offset().top;
-        var topBot = topPos + $(topSec).outerHeight(true);
+      let exhibition_vue = new Vue({
+        el: "#exhibition_vue",
+        data: {
+          ex_Array: [],
+        },
 
-        if ($(window).scrollTop() > topBot) {
-          $(".sidebarNav").addClass("sidebarNavIn");
-        } else {
-          $(".sidebarNav").removeClass("sidebarNavIn");
-        }
-      });
+        mounted: function () {
+          fetch("./php/ex_info.php")
+            .then((resp) => resp.json())
+            .then((resp) => {
+              this.ex_Array = resp;
+            });
+        },
 
-      // slidebar的 li 按鈕
-      var sidebarNavButton = document.querySelectorAll(".sidebarNavItem");
-      // 展覽的 li
-      var sidebarNavLi = document.querySelectorAll(".section");
+        methods: {
+          // 展覽 ID
+          ex_infoID(e) {
+            console.log(e.ID);
+            sessionStorage.setItem("ex_infoID", e.ID);
+          },
+        },
 
-      var header = document.querySelector("header");
-
-      // 抵達時變化 -> 抵達前
-      $(sidebarNavLi).each(function (i) {
-        var navSec = sidebarNavLi[i];
-        var navBut = sidebarNavButton[i];
-
-        $(window).scroll(function () {
-          var navPos = $(navSec).offset().top;
-          var secBot = navPos + $(navSec).outerHeight(true);
-          var headerBot = $(header).outerHeight(true) * 3;
-
-          if (
-            $(this).scrollTop() > navPos - headerBot &&
-            $(this).scrollTop() < secBot - headerBot
-          ) {
-            $(navBut).css("background-color", "#AE2000");
-            $(navBut).find("div>p").css("display", "block");
-            $(navSec).find("div").css("filter", "brightness(100%)");
-          } else {
-            $(navBut).css("background-color", "initial");
-            $(navBut).find("div>p").css("display", "none");
-            $(navSec).find("div").css("filter", "brightness(40%)");
-          }
-        });
-      });
-
-      $(document).ready(function () {
-        $(".scrollLink").on("click", function (e) {
-          if (this.hash !== "") {
-            e.preventDefault();
-
-            var hash = this.hash;
-
-            $("html, body").animate(
-              {
-                scrollTop: $(hash).offset().top - 200,
+        updated() {
+          // 側邊欄淡去
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: ".ex_img1",
+                start: "-50%",
+                end: "-50%",
+                scrub: 1,
               },
-              800,
-              function () {
-                hash = hash - 200;
-                window.location.hash = hash;
+            })
+            .fromTo(
+              ".sidebarNav",
+              {
+                opacity: 1,
+              },
+              {
+                opacity: 0,
               }
             );
+          // GSAP
+          if (780 < document.body.scrollWidth) {
+            // L // R
+            // BANNER 1
+            gsap
+              .timeline({
+                scrollTrigger: {
+                  trigger: ".ex_img1 h3",
+                  start: "-=800",
+                  end: "-=800",
+                  scrub: 3,
+                },
+              })
+              .fromTo(
+                ".ex_img1 h3",
+                {
+                  x: -100,
+                  opacity: 0,
+                },
+                {
+                  duration: 2,
+                  ease: "sine.inOut",
+
+                  x: 0,
+                  opacity: 1,
+                }
+              );
+            gsap // R
+              .timeline({
+                scrollTrigger: {
+                  trigger: [".ex_img1 h4", ".ex_img1 h5"],
+                  start: "-=1000",
+                  end: "-=1000",
+                  scrub: 3,
+                },
+              })
+              .fromTo(
+                [".ex_img1 h4", ".ex_img1 h5"],
+                {
+                  x: 100,
+                  opacity: 0,
+                },
+                {
+                  duration: 2,
+                  ease: "sine.inOut",
+
+                  x: 0,
+                  opacity: 1,
+                }
+              );
+
+            // BANNER 2
+            gsap // L
+              .timeline({
+                scrollTrigger: {
+                  trigger: [".ex_img2 h4", ".ex_img2 h5"],
+                  start: "-=1000",
+                  end: "-=1000",
+                  scrub: 3,
+                },
+              })
+              .fromTo(
+                [".ex_img2 h4", ".ex_img2 h5"],
+                {
+                  x: -100,
+                  opacity: 0,
+                },
+                {
+                  duration: 2,
+                  ease: "sine.inOut",
+
+                  x: 0,
+                  opacity: 1,
+                }
+              );
+            gsap // R
+              .timeline({
+                scrollTrigger: {
+                  trigger: ".ex_img2 h3",
+                  start: "-=800",
+                  end: "-=800",
+                  scrub: 3,
+                },
+              })
+              .fromTo(
+                ".ex_img2 h3",
+                {
+                  x: 100,
+                  opacity: 0,
+                },
+                {
+                  duration: 2,
+                  ease: "sine.inOut",
+
+                  x: 0,
+                  opacity: 1,
+                }
+              );
+
+            // BANNER 3
+            gsap // R
+              .timeline({
+                scrollTrigger: {
+                  trigger: ".ex_img3 h3",
+                  start: "-=800",
+                  end: "-=800",
+                  scrub: 3,
+                },
+              })
+              .fromTo(
+                ".ex_img3 h3",
+                {
+                  x: -100,
+                  opacity: 0,
+                },
+                {
+                  duration: 2,
+                  ease: "sine.inOut",
+
+                  x: 0,
+                  opacity: 1,
+                }
+              );
+            gsap // L
+              .timeline({
+                scrollTrigger: {
+                  trigger: [".ex_img3 h4", ".ex_img3 h5"],
+                  start: "-=1000",
+                  end: "-=1000",
+                  scrub: 3,
+                },
+              })
+              .fromTo(
+                [".ex_img3 h4", ".ex_img3 h5"],
+                {
+                  x: 100,
+                  opacity: 0,
+                },
+                {
+                  duration: 2,
+                  ease: "sine.inOut",
+
+                  x: 0,
+                  opacity: 1,
+                }
+              );
+
+            // BANNER 4
+            gsap // L
+              .timeline({
+                scrollTrigger: {
+                  trigger: [".ex_img4 h4", ".ex_img4 h5"],
+                  start: "-=1000",
+                  end: "-=1000",
+                  scrub: 3,
+                },
+              })
+              .fromTo(
+                [".ex_img4 h4", ".ex_img4 h5"],
+                {
+                  x: -100,
+                  opacity: 0,
+                },
+                {
+                  duration: 2,
+                  ease: "sine.inOut",
+
+                  x: 0,
+                  opacity: 1,
+                }
+              );
+            gsap // R
+              .timeline({
+                scrollTrigger: {
+                  trigger: ".ex_img4 h3",
+                  start: "-=800",
+                  end: "-=800",
+                  scrub: 3,
+                },
+              })
+              .fromTo(
+                ".ex_img4 h3",
+                {
+                  x: 100,
+                  opacity: 0,
+                },
+                {
+                  duration: 2,
+                  ease: "sine.inOut",
+
+                  x: 0,
+                  opacity: 1,
+                }
+              );
+
+            // BANNER 5
+            gsap // R
+              .timeline({
+                scrollTrigger: {
+                  trigger: ".ex_img5 h3",
+                  start: "-=800",
+                  end: "-=800",
+                  scrub: 3,
+                },
+              })
+              .fromTo(
+                ".ex_img5 h3",
+                {
+                  x: -100,
+                  opacity: 0,
+                },
+                {
+                  duration: 2,
+                  ease: "sine.inOut",
+
+                  x: 0,
+                  opacity: 1,
+                }
+              );
+            gsap // L
+              .timeline({
+                scrollTrigger: {
+                  trigger: [".ex_img5 h4", ".ex_img5 h5"],
+                  start: "-=1000",
+                  end: "-=1000",
+                  scrub: 3,
+                },
+              })
+              .fromTo(
+                [".ex_img5 h4", ".ex_img5 h5"],
+                {
+                  x: 100,
+                  opacity: 0,
+                },
+                {
+                  duration: 2,
+                  ease: "sine.inOut",
+
+                  x: 0,
+                  opacity: 1,
+                }
+              );
+
+            // BANNER 6
+            gsap // L
+              .timeline({
+                scrollTrigger: {
+                  trigger: ".ex_img6 h3",
+                  start: "-=800",
+                  end: "-=800",
+                  scrub: 3,
+                },
+              })
+              .fromTo(
+                ".ex_img6 h3",
+                {
+                  x: -100,
+                  opacity: 0,
+                },
+                {
+                  duration: 2,
+                  ease: "sine.inOut",
+
+                  x: 0,
+                  opacity: 1,
+                }
+              );
+            gsap // R
+              .timeline({
+                scrollTrigger: {
+                  trigger: [".ex_img6 h4", ".ex_img6 h5"],
+                  start: "-=1000",
+                  end: "-=1000",
+                  scrub: 3,
+                },
+              })
+              .fromTo(
+                [".ex_img6 h4", ".ex_img6 h5"],
+                {
+                  x: 100,
+                  opacity: 0,
+                },
+                {
+                  duration: 2,
+                  ease: "sine.inOut",
+
+                  x: 0,
+                  opacity: 1,
+                }
+              );
+
+            // BANNER 7
+            gsap // L
+              .timeline({
+                scrollTrigger: {
+                  trigger: [".ex_img7 h4", ".ex_img7 h5"],
+                  start: "-=1000",
+                  end: "-=1000",
+                  scrub: 3,
+                },
+              })
+              .fromTo(
+                [".ex_img7 h4", ".ex_img7 h5"],
+                {
+                  x: -100,
+                  opacity: 0,
+                },
+                {
+                  duration: 2,
+                  ease: "sine.inOut",
+
+                  x: 0,
+                  opacity: 1,
+                }
+              );
+            gsap // R
+              .timeline({
+                scrollTrigger: {
+                  trigger: ".ex_img7 h3",
+                  start: "-=800",
+                  end: "-=800",
+                  scrub: 3,
+                },
+              })
+              .fromTo(
+                ".ex_img7 h3",
+                {
+                  x: 100,
+                  opacity: 0,
+                },
+                {
+                  duration: 2,
+                  ease: "sine.inOut",
+
+                  x: 0,
+                  opacity: 1,
+                }
+              );
+
+            // BANNER 8
+            gsap // L
+              .timeline({
+                scrollTrigger: {
+                  trigger: ".ex_img8 h3",
+                  start: "-=800",
+                  end: "-=800",
+                  scrub: 3,
+                },
+              })
+              .fromTo(
+                ".ex_img8 h3",
+                {
+                  x: -100,
+                  opacity: 0,
+                },
+                {
+                  duration: 2,
+                  ease: "sine.inOut",
+
+                  x: 0,
+                  opacity: 1,
+                }
+              );
+            gsap // R
+              .timeline({
+                scrollTrigger: {
+                  trigger: [".ex_img8 h4", ".ex_img8 h5"],
+                  start: "-=1000",
+                  end: "-=1000",
+                  scrub: 3,
+                },
+              })
+              .fromTo(
+                [".ex_img8 h4", ".ex_img8 h5"],
+                {
+                  x: 100,
+                  opacity: 0,
+                },
+                {
+                  duration: 2,
+                  ease: "sine.inOut",
+
+                  x: 0,
+                  opacity: 1,
+                }
+              );
           }
-        });
+
+          // 出現範圍
+          var topSec = document.querySelectorAll(".top");
+          $(window).scroll(function () {
+            var topPos = $(topSec).offset().top;
+            var topBot = topPos + $(topSec).outerHeight(true);
+
+            if ($(window).scrollTop() > topBot) {
+              $(".sidebarNav").addClass("sidebarNavIn");
+            } else {
+              $(".sidebarNav").removeClass("sidebarNavIn");
+            }
+          });
+
+          // slidebar的 li 按鈕
+          var sidebarNavButton = document.querySelectorAll(".sidebarNavItem");
+          // 展覽的 li
+          var sidebarNavLi = document.querySelectorAll(".section");
+
+          var header = document.querySelector("header");
+
+          // 抵達時變化 -> 抵達前
+          $(sidebarNavLi).each(function (i) {
+            var navSec = sidebarNavLi[i];
+            var navBut = sidebarNavButton[i];
+
+            $(window).scroll(function () {
+              var navPos = $(navSec).offset().top;
+              var secBot = navPos + $(navSec).outerHeight(true);
+              var headerBot = $(header).outerHeight(true) * 3;
+
+              if (
+                $(this).scrollTop() > navPos - headerBot &&
+                $(this).scrollTop() < secBot - headerBot
+              ) {
+                $(navBut).css("background-color", "#AE2000");
+                $(navBut).find("div>p").css("display", "block");
+                $(navSec).find("div").css("filter", "brightness(100%)");
+              } else {
+                $(navBut).css("background-color", "initial");
+                $(navBut).find("div>p").css("display", "none");
+                $(navSec).find("div").css("filter", "brightness(40%)");
+              }
+            });
+          });
+
+          // 錨點
+          $(document).ready(function () {
+            $(".scrollLink").on("click", function (e) {
+              if (this.hash !== "") {
+                e.preventDefault();
+
+                var hash = this.hash;
+
+                $("html, body").animate(
+                  {
+                    scrollTop: $(hash).offset().top - 300,
+                  },
+                  800,
+                  function () {
+                    hash = hash - 200;
+                    window.location.hash = hash;
+                  }
+                );
+              }
+            });
+          });
+        },
       });
-
-      // 最上層
-      if (780 < document.body.scrollWidth) {
-        // 左側
-        // L1
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: ".ex_img1 h3",
-              start: "-=500",
-              end: "-=500",
-              scrub: 3,
-            },
-          })
-          .fromTo(
-            ".ex_img1 h3",
-            {
-              x: -100,
-              opacity: 0,
-            },
-            {
-              duration: 2,
-              ease: "sine.inOut",
-
-              x: 0,
-              opacity: 1,
-            }
-          );
-
-        // L2
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: ".ex_img3 h3",
-              start: "-=500",
-              end: "-=500",
-              scrub: 3,
-            },
-          })
-          .fromTo(
-            ".ex_img3 h3",
-            {
-              x: -100,
-              opacity: 0,
-            },
-            {
-              duration: 2,
-              ease: "sine.inOut",
-
-              x: 0,
-              opacity: 1,
-            }
-          );
-
-        // L3
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: ".ex_img5 h3",
-              start: "-=500",
-              end: "-=500",
-              scrub: 3,
-            },
-          })
-          .fromTo(
-            ".ex_img5 h3",
-            {
-              x: -100,
-              opacity: 0,
-            },
-            {
-              duration: 2,
-              ease: "sine.inOut",
-
-              x: 0,
-              opacity: 1,
-            }
-          );
-
-        // L4
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: ".ex_img6 h3",
-              start: "-=500",
-              end: "-=500",
-              scrub: 3,
-            },
-          })
-          .fromTo(
-            ".ex_img6 h3",
-            {
-              x: -100,
-              opacity: 0,
-            },
-            {
-              duration: 2,
-              ease: "sine.inOut",
-
-              x: 0,
-              opacity: 1,
-            }
-          );
-
-        // L5
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: ".ex_img8 h3",
-              start: "-=500",
-              end: "-=500",
-              scrub: 3,
-            },
-          })
-          .fromTo(
-            ".ex_img8 h3",
-            {
-              x: -100,
-              opacity: 0,
-            },
-            {
-              duration: 2,
-              ease: "sine.inOut",
-
-              x: 0,
-              opacity: 1,
-            }
-          );
-
-        // LL1
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: [".ex_img2 h4", ".ex_img2 h5"],
-              start: "-=675",
-              end: "-=675",
-              scrub: 3,
-            },
-          })
-          .fromTo(
-            [".ex_img2 h4", ".ex_img2 h5"],
-            {
-              x: -100,
-              opacity: 0,
-            },
-            {
-              duration: 2,
-              ease: "sine.inOut",
-
-              x: 0,
-              opacity: 1,
-            }
-          );
-        // LL2
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: [".ex_img4 h4", ".ex_img4 h5"],
-              start: "-=675",
-              end: "-=675",
-              scrub: 3,
-            },
-          })
-          .fromTo(
-            [".ex_img4 h4", ".ex_img4 h5"],
-            {
-              x: -100,
-              opacity: 0,
-            },
-            {
-              duration: 2,
-              ease: "sine.inOut",
-
-              x: 0,
-              opacity: 1,
-            }
-          );
-        // LL3
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: [".ex_img7 h4", ".ex_img7 h5"],
-              start: "-=675",
-              end: "-=675",
-              scrub: 3,
-            },
-          })
-          .fromTo(
-            [".ex_img7 h4", ".ex_img7 h5"],
-            {
-              x: -100,
-              opacity: 0,
-            },
-            {
-              duration: 2,
-              ease: "sine.inOut",
-
-              x: 0,
-              opacity: 1,
-            }
-          );
-        // 右側
-        // R1
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: [".ex_img1 h4", ".ex_img1 h5"],
-              start: "-=675",
-              end: "-=675",
-              scrub: 3,
-            },
-          })
-          .fromTo(
-            [".ex_img1 h4", ".ex_img1 h5"],
-            {
-              x: 100,
-              opacity: 0,
-            },
-            {
-              duration: 2,
-              ease: "sine.inOut",
-
-              x: 0,
-              opacity: 1,
-            }
-          );
-        // R2
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: [".ex_img3 h4", ".ex_img3 h5"],
-              start: "-=675",
-              end: "-=675",
-              scrub: 3,
-            },
-          })
-          .fromTo(
-            [".ex_img3 h4", ".ex_img3 h5"],
-            {
-              x: 100,
-              opacity: 0,
-            },
-            {
-              duration: 2,
-              ease: "sine.inOut",
-
-              x: 0,
-              opacity: 1,
-            }
-          );
-        // R3
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: [".ex_img5 h4", ".ex_img5 h5"],
-              start: "-=675",
-              end: "-=675",
-              scrub: 3,
-            },
-          })
-          .fromTo(
-            [".ex_img5 h4", ".ex_img5 h5"],
-            {
-              x: 100,
-              opacity: 0,
-            },
-            {
-              duration: 2,
-              ease: "sine.inOut",
-
-              x: 0,
-              opacity: 1,
-            }
-          );
-        // R4
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: [".ex_img6 h4", ".ex_img6 h5"],
-              start: "-=675",
-              end: "-=675",
-              scrub: 3,
-            },
-          })
-          .fromTo(
-            [".ex_img6 h4", ".ex_img6 h5"],
-            {
-              x: 100,
-              opacity: 0,
-            },
-            {
-              duration: 2,
-              ease: "sine.inOut",
-
-              x: 0,
-              opacity: 1,
-            }
-          );
-        // R5
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: [".ex_img8 h4", ".ex_img8 h5"],
-              start: "-=675",
-              end: "-=675",
-              scrub: 3,
-            },
-          })
-          .fromTo(
-            [".ex_img8 h4", ".ex_img8 h5"],
-            {
-              x: 100,
-              opacity: 0,
-            },
-            {
-              duration: 2,
-              ease: "sine.inOut",
-
-              x: 0,
-              opacity: 1,
-            }
-          );
-        // RR1
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: ".ex_img2 h3",
-              start: "-=500",
-              end: "-=500",
-              scrub: 3,
-            },
-          })
-          .fromTo(
-            ".ex_img2 h3",
-            {
-              x: 100,
-              opacity: 0,
-            },
-            {
-              duration: 2,
-              ease: "sine.inOut",
-
-              x: 0,
-              opacity: 1,
-            }
-          );
-        // RR2
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: ".ex_img4 h3",
-              start: "-=500",
-              end: "-=500",
-              scrub: 3,
-            },
-          })
-          .fromTo(
-            ".ex_img4 h3",
-            {
-              x: 100,
-              opacity: 0,
-            },
-            {
-              duration: 2,
-              ease: "sine.inOut",
-
-              x: 0,
-              opacity: 1,
-            }
-          );
-        // RR3
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: ".ex_img7 h3",
-              start: "-=500",
-              end: "-=500",
-              scrub: 3,
-            },
-          })
-          .fromTo(
-            ".ex_img7 h3",
-            {
-              x: 100,
-              opacity: 0,
-            },
-            {
-              duration: 2,
-              ease: "sine.inOut",
-
-              x: 0,
-              opacity: 1,
-            }
-          );
-      }
     </script>
   </body>
 </html>
-
-<!--
-// clipPath: "inset(2rem 27rem 3rem 0rem)",
-// clipPath: "inset(0rem 0rem 0rem 0rem)", 
--->
