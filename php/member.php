@@ -16,7 +16,7 @@ if (isset($_SESSION["member"])) {
         $member["userMAIL"] = $userMAIL;
 
         $sql = " 
-        SELECT MEMBER_ID, NAME, EMAIL, PHONE, register_day, level, EXPIRE_DAY
+        SELECT MEMBER_ID, NAME, EMAIL, PHONE, REGISTER_DAY, LEVEL, EXPIRE_DAY
         from MEMBER
         WHERE MEMBER_ID = :userID and NAME = :userNAME;";
 

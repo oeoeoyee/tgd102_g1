@@ -5,7 +5,7 @@ include("./PDO/connection_inc.php");
 $member = json_decode(file_get_contents("php://input"), true);
 
 $sql = " 
-    insert into ORDER_DETAIL(ticket_type,EXHIBITION_NAME,DELEGATE_NAME,DELEGATE_PHONE,GROUP_NUM,GROUP_PRICE,VOICE_GUIDE,NAVIGATE_GUIDE,PAYMENT_DAY)
+    insert into ORDER_DETAIL(TICKET_TYPE,EXHIBITION_NAME,DELEGATE_NAME,DELEGATE_PHONE,GROUP_NUM,GROUP_PRICE,VOICE_GUIDE,NAVIGATE_GUIDE,PAYMENT_DAY)
     values ('團體',?,?,?,?,?,?,?,now())
 ";
 $stmt = $pdo->prepare($sql);
@@ -22,14 +22,15 @@ session_start();
 $_SESSION["orderId"] = $orderId;
 
 $sql = " 
-    insert into `ORDER`(member_id, order_id,order_day,VISIT_DAY,payment_type,PRICE,PAYMENT_STATUS) 
-    values (3, ?, now(), ?, ?, ?, 1)
+    insert into `ORDER`(MEMBER_ID, ORDER_ID,ORDER_DAY,VISIT_DAY,PAYMENT_TYPE,PRICE,PAYMENT_STATUS) 
+    values (?, ?, now(), ?, ?, ?, 1)
 ";
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(1, $orderId); 
-$stmt->bindValue(2, $member["date"]); 
-$stmt->bindValue(3, $member["pay"]); 
-$stmt->bindValue(4, $member["total"]); 
+$stmt->bindValue(1, $member["memberID"]); 
+$stmt->bindValue(2, $orderId); 
+$stmt->bindValue(3, $member["date"]); 
+$stmt->bindValue(4, $member["pay"]); 
+$stmt->bindValue(5, $member["total"]); 
 $stmt->execute();
 // $members = $stmt->fetchAll();
 
