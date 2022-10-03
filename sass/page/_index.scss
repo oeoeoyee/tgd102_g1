@@ -191,17 +191,23 @@
     }
 }
 
+.index_ex_container{
+    width: size(1420);
+    margin: 0 auto;
+    margin-left: size(250);
+    @include mobile(){
+        width: rwd(360);
+        margin: 0 auto;
+        margin-left: rwd(27);
+    }
+}
+
 .index_exhibition_content{
     display: flex;
     margin-top: size(55);
-    // margin-left: size(250);
-    // overflow: hidden;
     @include mobile(){
         display: flex;
-        // justify-content:space-between;
         margin-top: rwd(30);
-        // margin-left: rwd(27);
-        // overflow: hidden;
     }
 }
 
@@ -283,6 +289,13 @@
         }
     }
     
+}
+
+.index_ex_section{
+    position: relative;
+}
+.index-arrow{
+    position: absolute;
 }
 
 .index-arrow:after{

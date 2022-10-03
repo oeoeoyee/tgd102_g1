@@ -1,3 +1,8 @@
+// 首頁淡入呈現(搭配style= display:none)
+$(document).ready(function(){
+    $(".wrapper").fadeIn(2000);
+});
+
 // 首頁 特別展覽 GSAP JS
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,23 +40,25 @@ mm.add("(max-width: 499px)", () => {
 });
 
 // 首頁 常設展覽 Initialize Swiper 
-    let swiper = new Swiper(".swiper-container", {
-        slidesPerView: "auto",
-        centeredSlides: true,
-        spaceBetween: 40,
-        pagination: {
+let swiper = new Swiper(".swiper-container", {
+    slidesPerView: "auto",
+    centeredSlides: false,
+    spaceBetween: 30,
+    pagination: {
         el: ".swiper-pagination",
         clickable: true,
-        },
-        autoplay: {
-        delay: 2000,
-        disableOnInteraction: false,
-        },
-        navigation: {
+    },
+    // autoplay: {
+    //     delay: 2000,
+    //     disableOnInteraction: false,
+    // },
+    navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
-        },
-    });
+    },
+    observer: true,
+    observeParents: true,
+});
 
     // news頁 - 置頂的兩篇文章
 // addEventListener('load', function(){
@@ -81,6 +88,10 @@ let index_news_list = new Vue({
         ]
     },
     methods:{  //函數 "大部分" 放這裡
+        checkTitle(theTitle){
+            return theTitle.slice(0,15)
+        },
+
         checkText(theContent){
             return theContent.slice(0,25)
         },
