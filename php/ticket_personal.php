@@ -26,13 +26,14 @@ $_SESSION["orderId"] = $orderId;
 
 $sql = " 
     insert into `ORDER`(member_id, order_id,order_day,VISIT_DAY,payment_type,PRICE,PAYMENT_STATUS) 
-    values (3, ?, now(), ?, ?, ?, 0)
+    values (?, ?, now(), ?, ?, ?, 0)
 ";
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(1, $orderId); 
-$stmt->bindValue(2, $member["date"]); 
-$stmt->bindValue(3, $member["pay"]); 
-$stmt->bindValue(4, $member["total"]); 
+$stmt->bindValue(1, $member["memberID"]); 
+$stmt->bindValue(2, $orderId); 
+$stmt->bindValue(3, $member["date"]); 
+$stmt->bindValue(4, $member["pay"]); 
+$stmt->bindValue(5, $member["total"]); 
 $stmt->execute();
 // $members = $stmt->fetchAll();
 

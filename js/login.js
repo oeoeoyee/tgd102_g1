@@ -98,7 +98,8 @@ new Vue({
                 
             }
 
-            
+            // 購買人 ID
+            const my_ID = sessionStorage.getItem("MEMBER_ID");
 
             // ajax
             fetch('./php/ticket_group.php',{
@@ -106,6 +107,7 @@ new Vue({
                 headers: { 'Content-Type' : 'application/json' },
                 body: JSON.stringify({
                     // 變數: this.v-model名
+                    memberID: my_ID,
                     exhibition: this.exhibitionChoose,
                     date: this.date,
                     name: this.name,
@@ -154,12 +156,16 @@ new Vue({
 
             // alert('成功');
 
+            // 購買人 ID
+            const my_ID = sessionStorage.getItem("MEMBER_ID");
+
             // ajax
             fetch('./php/ticket_personal.php',{
                 method: 'POST',
                 headers: { 'Content-Type' : 'application/json' },
                 body: JSON.stringify({
                     // 變數: this.v-model名
+                    memberID: my_ID,
                     exhibition: this.exhibitionChoose,
                     date: this.date,
                     name: this.name,

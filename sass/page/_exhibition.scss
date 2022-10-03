@@ -284,8 +284,12 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
 
     &:hover {
       display: block !important;
-      p{
+      p {
         display: block !important;
+      }
+
+      @include mobile() {
+        display: none !important;
       }
     }
   }
@@ -326,7 +330,7 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
   margin-right: 0px;
   opacity: 1;
   @include mobile {
-    left: 0;
+    left: -size(20);
   }
 }
 

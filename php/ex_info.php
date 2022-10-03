@@ -35,7 +35,7 @@ if (isset($_GET["ex_id"])) {
 
   echo json_encode($info);
 } else {
-  // 展覽外頁 多筆
+  // 展覽外頁 8筆
   $sql = "
   select ID, MAIN_IMAGE, EXHIBITION_TYPE, NAME, START_DAY, END_DAY, ROOM
         FROM EXHIBITION ORDER BY ID desc limit 8;";
