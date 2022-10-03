@@ -98,6 +98,8 @@
         border: 1px solid $line_mid;
         @include input();
         background-color: $white;
+        padding: size(8);
+        font-size: (16);
         margin: 0;
     }
     button{
