@@ -2,7 +2,17 @@
 
 html{
     scroll-behavior: smooth;
-  }
+}
+
+p{
+    letter-spacing: size(3); 
+}
+h4,h5{
+    letter-spacing: size(2); 
+
+    
+}
+
 
 .about_hr {
     height: size(4);
@@ -510,6 +520,8 @@ html{
             @include p();
             margin-bottom: size(30);
             line-height: 1.7;
+            letter-spacing: size(3); 
+
 
 
             @include mobile(){
@@ -912,8 +924,8 @@ html{
 
 //自行開車-文字區
             p {
+                line-height: 1.7;
                 @include p();
-
                 @include mobile(){
                     letter-spacing: rwd(1.5);
                     margin-left: rwd(5);
