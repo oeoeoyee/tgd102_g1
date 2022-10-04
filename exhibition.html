@@ -10,7 +10,6 @@
     <div class="wrapper ex_wrapper">
       @@include('./layout/header.html')
       <!-- ====================================================== -->
-      <!-- 大圖 ( 自動換圖 ) -->
       <div class="ex_bigBanner">
         <picture>
           <source srcset="./images/ex_banner1.jpg" media="(min-width:500px)" />
@@ -21,15 +20,14 @@
           <img src="./images/" />
         </picture>
       </div>
-
-      <!-- 展覽區塊 -->
+      
       <div id="exhibition_vue" class="ex_list">
         <!-- 標題 -->
         <div class="top ex_title">
           <h1>常設展覽</h1>
         </div>
 
-        <!-- 側邊欄 側邊欄 側邊欄 側邊欄 側邊欄-->
+        <!-- 側邊欄 -->
         <div class="sidebarNav ex_side">
           <div class="ex_side_bar"></div>
           <ul>
@@ -75,9 +73,9 @@
             </a>
           </ul>
         </div>
-        <!-- 側邊欄 側邊欄 側邊欄 側邊欄 側邊欄-->
+        
 
-        <!-- 展覽 較新 最多 5 筆 -->
+        <!-- 展覽 -->
         <ul class="ex_new">
           <div class="ex_main_img">
             <h2>{{ex_Array[0].EXHIBITION_TYPE}}</h2>
@@ -171,7 +169,7 @@
           </li>
         </ul>
 
-        <!-- 展覽 較舊 最多 3 筆 -->
+        <!-- 展覽 -->
         <ul class="ex_old">
           <div class="ex_second_img">
             <h2>{{ex_Array[5].EXHIBITION_TYPE}}</h2>
