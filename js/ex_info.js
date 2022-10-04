@@ -39,18 +39,6 @@ new Vue({
 
   beforeCreate() {},
 
-  beforeUpdate() {
-    let splite = [this.packages[0]];
-    splite.map((el) => {
-      return (
-        // 切割完回傳
-        (el.MAIN_IMAGE = el.MAIN_IMAGE.split("|")),
-        (el.OTHER_IMAGE = el.OTHER_IMAGE.split("|"))
-      );
-    });
-    return;
-  },
-
   updated() {
     // Swiper 套件
     new Swiper(".mySwiper", {
@@ -62,7 +50,10 @@ new Vue({
         el: ".ex_info_btn",
         clickable: true,
       },
-      // 綁定箭頭的 Class
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
       navigation: {
         nextEl: ".arrow-right",
         prevEl: ".arrow-left",
@@ -83,5 +74,16 @@ new Vue({
         },
       },
     });
+  },
+
+  beforeUpdate() {
+    this.packages.forEach((el) => {
+      return (
+        // 切割完回傳
+        (el.MAIN_IMAGE = el.MAIN_IMAGE.split("|")),
+        (el.OTHER_IMAGE = el.OTHER_IMAGE.split("|"))
+      );
+    });
+    return;
   },
 });
