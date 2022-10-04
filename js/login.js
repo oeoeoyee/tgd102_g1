@@ -1,12 +1,26 @@
 // ===========燈箱=============
-// 燈箱
+// 燈箱 退票 BTN step 1
 $('.lightbox_ck').click(function(){
-    $('.js_lightbox').toggle()
+    $('.js_lightbox1').toggle()
 })
+
+// 燈箱 確定 BTN step 2
+$('.js_lightbox_btn').click(function(){
+    $('.lightbox_ck').addClass('-none')
+    $('.lightbox_ck2').removeClass('-none')
+    $('.js_lightbox1').toggle()
+    $('.re_payment').toggle()
+})
+
+// 退票成功 BTN step 3
+$('.lightbox_ck2').click(function(){
+    $('.js_lightbox2').toggle()
+})
+
 
 // 再想想
 $('.think_btn').click(function(){
-    $('.-none').toggle()
+    $('.js_lightbox1').toggle()
 })
 
 
