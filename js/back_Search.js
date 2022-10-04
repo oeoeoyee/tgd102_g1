@@ -74,10 +74,10 @@ const table_vue = new Vue({
     },
 
     update_email() {
-      let that;
       const now = new Date();
-      const nowDate = now.toISOString().split("T")[0];
-      let t = 0;
+      // console.log(now);
+      const nowDate = now.toISOString().split("T");
+      // console.log(nowDate);
       // console.log(this.tbName);
       if (this.tbName == "NEWSLETTER_LIST") {
         // fetch("./php/sentEmail.php")
@@ -91,11 +91,10 @@ const table_vue = new Vue({
         for (let i = 0; i < this.tbArray.length; i++) {
           // t += 1;
 
-          // console.log(nowDate == this.tbArray[i].MAIL_DAY &&
-            // this.tbArray[i].STATE == "上線");
             // console.log(nowDate == this.tbArray[i].MAIL_DAY);
-            // console.log(this.tbArray[i].STATE == "上線");
-            // console.log(this.tbArray[i].STATE);
+            // console.log(this.tbArray[i].MAIL_DAY);
+            // console.log(nowDate);
+
 
           if (
             nowDate == this.tbArray[i].MAIL_DAY &&

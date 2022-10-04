@@ -82,7 +82,7 @@
         .then(body => {
             if(body !=""){
             location = e
-            // alert("發送成功");
+            alert("發送成功");
             }
         });
       },
