@@ -70,6 +70,7 @@ new Vue ({
             // that.message2 =='' && that.message1 ==''
         },
         emailGo() {
+            let that = this;
             // console.log(1234);
             emailjs.init("DCwlXSLOdGqGTForu");
             const serviceID = "service_95kv0br";
@@ -80,7 +81,8 @@ new Vue ({
             };
             emailjs.send(serviceID, templateID, templateParams).then(
               function (response) {
-                this.isDisabl = true;
+                that.isDisabl = true;
+                console.log(this.isDisabl);
                 alert("驗證信已送出");
                 // console.log("SUCCESS!", response.status, response.text);
               },
