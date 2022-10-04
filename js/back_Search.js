@@ -48,7 +48,7 @@ const table_vue = new Vue({
     },
 
     emailGo(title, email, content) {
-      console.log(1234);
+      // console.log(1234);
       const that = this
       emailjs.init("DCwlXSLOdGqGTForu");
       const serviceID = "service_95kv0br";
@@ -75,7 +75,7 @@ const table_vue = new Vue({
       const now = new Date();
       const nowDate = now.toISOString().split("T")[0];
       let t = 0;
-      console.log(this.tbName);
+      // console.log(this.tbName);
       if ((this.tbName == "NEWSLETTER_LIST")) {
         // fetch("./php/sentEmail.php")
         //       .then(e => e.json())
@@ -84,36 +84,33 @@ const table_vue = new Vue({
         //           that.subList.push(item);
         //         }
         //       });
-        console.log(this.tbArray);
+        // console.log(this.tbArray);
         for (let i = 0; i < this.tbArray.length; i++) {
           // t += 1;
 
-          console.log(nowDate == this.tbArray[i].MAIL_DAY &&
-            this.tbArray[i].STATE == "上線");
-            console.log(nowDate == this.tbArray[i].MAIL_DAY);
-            console.log(this.tbArray[i].STATE == "上線");
-            console.log(this.tbArray[i].STATE);
+          // console.log(nowDate == this.tbArray[i].MAIL_DAY &&
+            // this.tbArray[i].STATE == "上線");
+            // console.log(nowDate == this.tbArray[i].MAIL_DAY);
+            // console.log(this.tbArray[i].STATE == "上線");
+            // console.log(this.tbArray[i].STATE);
 
           if (
             nowDate == this.tbArray[i].MAIL_DAY &&
             this.tbArray[i].STATE == "上線"
           ) {
-            console.log(123);
+            // console.log(123);
             console.log( 'array',this.tbArray);
             // console.log(123);
             // console.log(this.subList);
             let emailInfo = this.tbArray[i]; //兩筆資料
   
-            console.log('info',emailInfo);
+            // console.log('info',emailInfo);
   
             this.subList.forEach((userInfo) => {
               // console.log(userInfo);//3個人名
               // console.log(emailInfo.SUBJECT);
               // console.log(emailInfo.CONTENT);
               // console.log(userInfo.NAME);
-              console.log('email',userInfo.EMAIL);
-              console.log('SUBJECT',emailInfo.SUBJECT);
-              console.log('CONTENT', emailInfo.CONTENT);
               
               this.emailGo(emailInfo.SUBJECT, userInfo.EMAIL, emailInfo.CONTENT);
               // console.log();
@@ -134,7 +131,7 @@ const table_vue = new Vue({
             })
               .then((resp) => resp.json())
               .then((info) => {
-                console.log(info);
+                // console.log(info);
               });
             //更新狀態成已發送
             // emailGo (q.SUBJECT,w.Name,w.EMAIL,q.CONTENT)
@@ -170,7 +167,7 @@ const table_vue = new Vue({
         const now = new Date();
         const nowDate = now.toISOString().split("T")[0];
         let t = 0;
-        console.log(that.tbName);
+        // console.log(that.tbName);
         if ((that.tbName = "NEWSLETTER_LIST")) {
           fetch("./php/sentEmail.php")
             .then((e) => e.json())

@@ -141,7 +141,7 @@ new Vue({
             .then(body => {
                 console.log(body);
                 if(body !=""){
-                // location = e
+                location = e
                 alert("發送成功");
                 }
             });

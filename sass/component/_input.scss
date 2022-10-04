@@ -165,6 +165,10 @@
         margin-right: size(16);
         @include h5();
         color: $black;
+        &:hover{
+            border: 1px solid $black;
+            
+        }
     }
 }
 
