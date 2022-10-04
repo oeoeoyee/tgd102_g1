@@ -50,6 +50,7 @@
 .ex_info_banner {
   img {
     width: 100%;
+    max-height: size(600);
     display: block;
   }
 }
@@ -156,6 +157,9 @@
       }
     }
   }
+}
+.ex_info_other .ex_info_like ul {
+  justify-content: flex-start !important;
 }
 
 // 文物 ( grid )
