@@ -105,6 +105,9 @@
     img {
       display: block;
       width: size(580);
+      @include mobile() {
+        width: rwd(380);
+      }
     }
 
     .ex_info_line {
