@@ -36,7 +36,7 @@ for($i = 0; $i < 12; $i++){
 
 $sql = " 
     insert into `ORDER`(MEMBER_ID, ORDER_ID,ORDER_DAY,VISIT_DAY,PAYMENT_TYPE,PRICE,PAYMENT_STATUS,PAYMENT_ACC) 
-    values (?, ?, now(), ?, ?, ?, '未付款', ?)
+    values (?, ?, now(), ?, ?, ?, '未付款' , ?)
 ";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(1, $member["memberID"]); 
