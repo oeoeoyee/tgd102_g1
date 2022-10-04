@@ -293,15 +293,13 @@
       li {
         height: size(600);
         width: size(460);
-        writing-mode: vertical-lr;
-        background-repeat: no-repeat;
-        background-size: cover;
         text-align: center;
-        line-height: size(460);
+        background-position: center;
+        line-height: size(600);
         overflow: hidden;
         @include mobile() {
-          height: rwd(240);
-          line-height: rwd(128);
+          height: rwd(500);
+          line-height: rwd(500);
         }
 
         a {
@@ -311,7 +309,7 @@
         h3 {
           color: white;
           background: $black;
-          opacity: 0.8;
+          opacity: 0.9;
           display: none;
         }
         &:hover {
