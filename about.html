@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-    
-    <html style="scroll-behavior: smooth;" lang="en">
+<html>
 
 <head>
     @@include('./layout/head.html', {
     "title" : "關於我們"
     })
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+    
 </head>
 
 <body>
 
-    <div class="wrapper"  id="about1">
+    <div class="wrapper" id="about1">
         <!-- header -->
         @@include('./layout/header.html')
         <!-- 關於我們_1 -->
-        <div class="about1">
+        <div class="about1" class="gogogotop">
             <img class="about1_img1" src="images/about_01.png" alt="">
             <div class="title">
                 <h2>緣起</h2>
@@ -30,9 +30,9 @@
 
         </div>
 
-        <div class="line1_spacing"  id="about2"></div>
+        <div class="line1_spacing" id="about2"></div>
         <!-- 關於我們_2 -->
-        <div class="about2">
+        <div class="about2"  class="gogogotop">
             <div class="title">
                 <h2>票價資訊</h2>
                 <p>追溯藝術家們於館內展出的歷史典藏</p>
@@ -100,10 +100,10 @@
         </div>
 
         <hr class="about_hr" id="about3">
-        <div class="line2_spacing" ></div>
+        <div class="line2_spacing"></div>
         <!-- 關於我們_3 -->
 
-        <div class="about3">
+        <div class="about3"  class="gogogotop">
             <div class="title">
                 <h2>導覽服務</h2>
                 <p>追溯藝術家們於館內展出的歷史典藏</p>
@@ -131,10 +131,10 @@
             </div>
         </div>
 
-        <div class="line3_spacing"  id="about4"></div>
+        <div class="line3_spacing" id="about4"></div>
         <!-- 關於我們_4 -->
 
-        <div class="about4">
+        <div class="about4"  class="gogogotop">
             <div class="title">
                 <h2>開放時間</h2>
                 <p>追溯藝術家們於館內展出的歷史典藏</p>
@@ -163,11 +163,11 @@
             </div>
         </div>
 
-        <hr class="about_hr"  id="about5">
-        <div class="line4_spacing" ></div>
+        <hr class="about_hr" id="about5">
+        <div class="line4_spacing"></div>
         <!-- 關於我們_5 -->
 
-        <div class="about5">
+        <div class="about5"  class="gogogotop">
             <div class="title">
                 <h2>參觀須知</h2>
                 <p>追溯藝術家們於館內展出的歷史典藏</p>
@@ -213,10 +213,10 @@
             </div>
         </div>
 
-        <div class="line5_spacing"  id="about6"></div>
+        <div class="line5_spacing" id="about6"></div>
         <!-- 關於我們_6 -->
 
-        <div class="about6">
+        <div class="about6"  class="gogogotop">
             <div class="title">
                 <h2>交通資訊</h2>
                 <p>追溯藝術家們於館內展出的歷史典藏</p>
@@ -321,48 +321,48 @@
     <script>
 
         // //設計a href錨點來切換至區塊位置，但因為切換沒有滑動效果，所以需要加再上動畫滾動效果
+        $(document).ready(function () {
+            //要執行回到最上方
+            $('.backTop').on('click', function () {
+                $("html,body").animate(
+                    {
+                        scrollTop: 0 //回到第一個區塊
+                    },
+                    800
+                );
+            })
+            //其它連到對應區塊
+            $(".go_about").on("click", function () {
+                var hrefLink = $(this).attr("href");
+
+                let a = hrefLink.split("#")[1];
+                let b = '#'+a
+
+                console.log(b);
+                $("html,body").animate(
+                    {
+                        scrollTop: $(b).offset().top //直接到相對位置
+                    },
+                    800
+                );
+            });
+        });
+
         // $(document).ready(function () {
-        //     //要執行回到最上方
-        //     $('.backTop').on('click', function () {
-        //         $("html,body").animate(
-        //             {
-        //                 scrollTop: 0 //回到第一個區塊
-        //             },
-        //             800
-        //         );
-        //     })
-        //     //其它連到對應區塊
-        //     $(".go_about").on("click", function () {
-        //         var hrefLink = $(this).attr("href");
-
-        //         let a = hrefLink.split("#")[1];
-        //         let b = '#'+a
-                
-        //         console.log(b);
-        //         $("html,body").animate(
-        //             {
-        //                 scrollTop: $(b).offset().top //直接到相對位置
-        //             },
-        //             600
-        //         );
-        //     });
+        //   $("gogogotop").on("click", function (event) {
+        //     if (this.hash !== "") {
+        //       event.preventDefault();
+        //       var hash = this.hash; //抓取網頁#錨點
+        //       console.log(hash);
+        //       $("html,body").animate(
+        //         {
+        //           scrollTop: $(hash).offset().top
+        //         },
+        //         800
+        //       );
+        //     }
+        //   });
         // });
-
-        // // $(document).ready(function () {
-        // //   $("a").on("click", function (event) {
-        // //     if (this.hash !== "") {
-        // //       event.preventDefault();
-        // //       var hash = this.hash; //抓取網頁#錨點
-        // //       console.log(hash);
-        // //       $("html,body").animate(
-        // //         {
-        // //           scrollTop: $(hash).offset().top
-        // //         },
-        // //         800
-        // //       );
-        // //     }
-        // //   });
-        // // });
 
 
 

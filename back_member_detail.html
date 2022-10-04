@@ -83,7 +83,7 @@
                         </tr>
                     </thead>
                     <tbody >
-                        <tr v-for="member_history in member_historyArray">
+                        <tr v-for="member_history in detailsArray">
                             <td>{{member_history.ORDER_ID}}</td>
                             <td>{{member_history.ORDER_DAY}}</td>
                             <td>{{member_history.EXHIBITION_NAME}}</td>
@@ -91,92 +91,18 @@
                             <td>{{member_history.PAYMENT_TYPE}}</td>
                             <td>{{member_history.PRICE}}</td>
                         </tr>
-                        <!-- <tr>
-                            <td><a href="./back_order_personal.html">P0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>林布蘭·哈爾曼松</td>
-                            <td>2022/08/24</td>
-                            <td>已付款</td>
-                            <td>費用總計</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./back_order_personal.html">P0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>林布蘭·哈爾曼松</td>
-                            <td>2022/08/24</td>
-                            <td>已付款</td>
-                            <td>費用總計</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./back_order_personal.html">P0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>林布蘭·哈爾曼松</td>
-                            <td>2022/08/24</td>
-                            <td>已付款</td>
-                            <td>費用總計</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./back_order_personal.html">P0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>林布蘭·哈爾曼松</td>
-                            <td>2022/08/24</td>
-                            <td>已付款</td>
-                            <td>費用總計</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./back_order_personal.html">P0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>林布蘭·哈爾曼松</td>
-                            <td>2022/08/24</td>
-                            <td>已付款</td>
-                            <td>費用總計</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./back_order_personal.html">P0074683</a></td>
-                            <td>2022/08/24</td>
-                            <td>林布蘭·哈爾曼松</td>
-                            <td>2022/08/24</td>
-                            <td>已付款</td>
-                            <td>費用總計</td>
-                        </tr> -->
+                     
                     </tbody>
                 </table>
-                <!-- <ul class="news_page">
-                    <li>＜</li>
-                    <li>01</li>
-                    <li>02</li>
-                    <li>03</li>
-                    <li>04</li>
-                    <li>05</li>
-                    <li>＞</li>
-                </ul> -->
+             
                 <button class="btn_s_default"><a href="./back_member.html">返回</a></button>
             </div>
         </div>
 
-        <!-- footer -->
-        <!-- @@include('./layout/footer.html') -->
     </div>
 
     <script>
-        // //back_member_detail 上方的基本資料
-        //     let member_info = new Vue({
-        //         el: '#app_member_details',
-        //         data: {
-        //             detail: "aaa",
-        //     //         detailsArray: [MEMBER_ID,REGISTER_DAY,NAME,LEVEL,PHONE,EMAIL],
-        //         }, 
-                
-        //     //     mounted: function(){
-        //     //         const api = "./php/get_member_info.php"; // 要從哪裡得到資料
-        //     //         // 老師範例26
-        //     //         fetch(api)
-        //     //             .then(res => res.json())
-        //     //             .then(res => this.detailsArray = res);
-        //     //     }
-        //     })
 
-        //back_member_detail 下方的歷史紀錄
             new Vue({
                 el: '#app_member_history',
                 data: {
@@ -189,23 +115,15 @@
                     const api = `./php/get_member_info.php?id=` + get_member_id; // 要從哪裡得到資料
 
                     // 老師範例26
-                    fetch(api, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            ID: get_member_id,
-                        })
-                    })
+                    fetch(api)
                     .then(res => res.json())
                     .then(res => this.detailsArray = res)
-                    .then(res => this.member_historyArray = res)
-
                     
                 },
             })
-            // vm_backNews.$mount('#app_backnews');
     
     </script>
     <script src="./js/back_loginStatus_logout.js"></script>
+
 </body>
 </html>

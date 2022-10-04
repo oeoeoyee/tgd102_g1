@@ -9,7 +9,7 @@ $memberId = $_GET["id"];
 
 // $sql = "select MEMBER_ID, REGISTER_DAY, LEVEL,NAME, PHONE, EMAIL from MEMBER";
     $sql=
-    "SELECT * from member m
+    "SELECT * from MEMBER m
         join `ORDER` o
         on m.MEMBER_ID = o.MEMBER_ID
         where m.MEMBER_ID = :id";

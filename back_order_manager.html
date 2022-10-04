@@ -214,24 +214,22 @@
                 let get_order_id = sessionStorage.getItem('ORDER_ID');
                 const api = `./php/back_order_personal.php?id=` + get_order_id; // 要從哪裡得到資料
 
-
-
                 fetch(api, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        ID: get_order_id,
+                        id: get_order_id,
                     })
                 })
-                
-
                     .then(res => res.json())
                     .then(res => this.order_pgArray = res)
             },
         })
 
     </script>
-    <script src="./js/back_loginStatus_logout.js"></script>
+    <!-- <script src="./js/back_loginStatus_logout.js"></script> -->
+    <script src="https://unpkg.com/vue@2.7.10/dist/vue.min.js"></script>
+
 </body>
 
 </html>
