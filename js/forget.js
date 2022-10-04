@@ -15,7 +15,7 @@ new Vue ({
 
     },
     mounted(){
-         that = this;
+         const that = this;
         //  console.log(this.sentEmail);
         //  console.log(this.newpassword);
          for(var i=0;i<6;i++){
@@ -36,17 +36,20 @@ new Vue ({
             .then(e => e.json())
             .then(list=>{
                 // console.log(list[0].EMAIL);
-                that.sentEmail = list[0].EMAIL;
+                this.sentEmail = list[0].EMAIL;
                 // console.log(list[0].EMAIL);
                 for(var i=0;i<6;i++){
-                    that.Num += Math.floor(Math.random()*10).toString();
+                    this.Num += Math.floor(Math.random()*10).toString();
+
                 };
-                that.emailGo();
+                this.emailGo();
+
+
             })
         },
         correct(){
-            if(that.Vcode == that.Num){
-                if( that.message2 =='' && that.message1 ==''){
+            if(this.Vcode == this.Num){
+                if( this.message2 =='' && this.message1 ==''){
                     fetch(`./php/forget.php`,{
                         method: 'POST', 
                         headers: {'Content-Type':'application/json'}, 
@@ -71,13 +74,13 @@ new Vue ({
             emailjs.init("DCwlXSLOdGqGTForu");
             const serviceID = "service_95kv0br";
             const templateID = "template_kb00bdg";
-            var templateParams = {
-              email: that.sentEmail,
-              message: that.Num,
+            const templateParams = {
+              email: this.sentEmail,
+              message: this.Num,
             };
             emailjs.send(serviceID, templateID, templateParams).then(
               function (response) {
-                that.isDisabl = true;
+                this.isDisabl = true;
                 alert("驗證信已送出");
                 // console.log("SUCCESS!", response.status, response.text);
               },
@@ -88,19 +91,19 @@ new Vue ({
           },
     check_password1(){
         let reg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,12}$/;
-        if(reg.test(that.newpassword)){
-            that.message1 ='';
+        if(reg.test(this.newpassword)){
+            this.message1 ='';
         }else{
-            that.message1 ='請輸入正確的密碼格式';
+            this.message1 ='請輸入正確的密碼格式';
         }
     },
           // 確認密碼
      check_password2() {
-        if(that.newpassword !== that.reNewpassword){
+        if(this.newpassword !== this.reNewpassword){
             // console.log(1234);
-            that.message2 ='密碼不相同';
+            this.message2 ='密碼不相同';
         }else{
-            that.message2 ='';
+            this.message2 ='';
         }
     },
     }
