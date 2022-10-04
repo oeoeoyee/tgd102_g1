@@ -81,6 +81,10 @@
     li {
       margin-right: size(30);
       color: $darkgray;
+
+      &:last-child {
+        color: $black;
+      }
     }
   }
 }
@@ -99,7 +103,7 @@
 
     img {
       display: block;
-      width: 100%;
+      width: size(580);
     }
 
     .ex_info_line {
@@ -294,27 +298,29 @@
         background-size: cover;
         text-align: center;
         line-height: size(460);
+        overflow: hidden;
         @include mobile() {
           height: rwd(240);
           line-height: rwd(128);
         }
+
+        a {
+          text-decoration: none;
+        }
+
         h3 {
-          // display: none;
+          color: white;
+          background: $black;
+          opacity: 0.8;
+          display: none;
+        }
+        &:hover {
+          h3 {
+            display: block;
+          }
         }
       }
     }
-    // .ex_info_like1 {
-    //   background-image: url("../images/ex_a7.jpg");
-    // }
-
-    // .ex_info_like2 {
-    //   background-image: url("../images/ex_a8.jpg");
-    // }
-
-    // .ex_info_like3 {
-    //   background-image: url("../images/ex_a9.jpg");
-    //   margin-right: 0;
-    // }
   }
 }
 

@@ -85,7 +85,7 @@
                             </tr>
                             <tr>
                                 <td>付款狀態</td>
-                                <td>{{info.PAYMENT_STATUS}}</td>
+                                <td id="pay_status">{{info.PAYMENT_STATUS}}</td>
                             </tr>
                             <tr>
                                 <td>付款方式</td>
@@ -103,24 +103,65 @@
             </div>
             
         </div>
+
+        <!-- ##################### -->
+       <div class="re_payment">
+         <!-- 分隔線 -->
+         <div class="login_line"></div>
+
+         <!-- 付款方式 -->
+         <div class="payment">
+             <h3>請選擇付款方式</h3>
+             <ul>
+                 <!-- 信用卡 -->
+                 <li class="credit">
+                     <label for="credit">
+                         <input type="radio" name="pay" id="credit" value="信用卡"><span>信用卡</span>
+                     </label>
+                 </li>
+ 
+                 <!-- ATM -->
+                 <li>
+                     <label for="atm">
+                         <input type="radio" name="pay" id="atm" value="ATM"><span>ATM轉帳</span>
+                     </label>
+                 </li>
+             </ul>
+             <!-- 退票說明 -->
+             <h4>30個工作日內，依您申請的信用卡資料完成退款轉帳。(不需扣除手續費)</h4>
+         </div>
+       </div>
+        <!-- ##################### -->
         
+
         <!-- 按鈕 -->
         <div class="login_btn_out btn_center order_btn">
             <input type ="button" class="btn_s_remind" onclick="history.back()" value="返回"></input>
-            <a class="btn_s_default lightbox_ck">退票</a>
+            <a class="btn_s_default lightbox_ck">退票</a>  <!-- 退票? -->
+            <a class="btn_s_default lightbox_ck2 -none">退票</a>  <!-- 退票成功 -->
         </div>
 
         <!-- alert燈箱效果 -->
         <!-- 確定退票? -->
-        <div class="-none js_lightbox" id="all_lightbox">
+        <div class="-none js_lightbox1" id="all_lightbox">
             <div class="all_alert alert1">
                 <h3>確定要退票嗎?</h3>
                 <div>
-                    <a href="./return_ticket.html" class="btn_s_default">確定</a>
+                    <a class="btn_s_default js_lightbox_btn">確定</a>
                     <a class="btn_s_remind think_btn">再想想</a>
                 </div>
             </div>
         </div>
+        <!-- ##################### -->
+        <!-- 退票成功 -->
+        <div class="-none js_lightbox2" id="all_lightbox">
+            <div class="all_alert alert1">
+                <h3>退票成功!</h3>
+                <a href="./order.html" class="btn_s_default ">確認</a>
+            </div>
+        </div>
+        <!-- ##################### -->
+
 
         <!-- footer -->
         @@include('./layout/footer.html')
