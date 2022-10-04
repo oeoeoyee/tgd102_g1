@@ -7,7 +7,8 @@
       start_day:"",
       summer:"",
       situation:"",
-      summer_note_instance:null
+      summer_note_instance:null,
+      markupStr:"",
     },
     mounted(){
       $('#summernote').summernote({
@@ -23,10 +24,10 @@
 
       const self = this
       
-      var markupStr ="";			
+      // var markupStr ="";			
       // $(function () {
         $('#summernote').on('summernote.change',function(){
-          markupStr = $('#summernote').summernote('code');
+          this.markupStr = $('#summernote').summernote('code');
           self.summer = markupStr;
           console.log( self.summer);
            
@@ -87,8 +88,8 @@
       },
 
       insert(e){
-        markupStr = $('#summernote').summernote('code');
-        vm1.summer = markupStr;
+        this.markupStr = $('#summernote').summernote('code');
+        vm1.summer = this.markupStr;
         if(e.target.innerHTML =="送出資料")
         {
             vm1.situation = "上線";
