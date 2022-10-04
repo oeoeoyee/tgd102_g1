@@ -52,6 +52,9 @@
     width: 100%;
     max-height: size(600);
     display: block;
+    @include mobile() {
+      max-height: rwd(600);
+    }
   }
 }
 
