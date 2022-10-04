@@ -235,9 +235,6 @@ addEventListener('load', function(){
                             borderWidth: 1,
                             barThickness: 30,
                             
-                            // barPercentage: 0.5,
-                            // maxBarThickness: 8,
-                            // minBarLength: 2,
                         }]
                     },
                     options: {

@@ -129,7 +129,6 @@ a {
 $list: img1 img2 img3 img4 img5 img6 img7 img8;
 @each $img in $list {
   .ex_#{$img} {
-    background-image: url("../images/ex_#{$img}.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -140,7 +139,6 @@ $list: img1 img2 img3 img4 img5 img6 img7 img8;
 
     @include mobile() {
       height: rwd(385);
-      background-image: url("../images/ex_rwd_#{$img}.jpg");
       background-position: center;
       padding: rwd(64) rwd(20) 0 rwd(100);
     }

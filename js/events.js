@@ -169,6 +169,7 @@ new Vue({
             lists2: [],
             lists3: [],
             lists4: [],
+            text: '送出前',
         }
     },
     mounted() {  
@@ -193,159 +194,11 @@ new Vue({
                     };
                     
                 }
+                this.send();
             })
     },
-    updated(){
-        gsap.registerPlugin(ScrollTrigger);
-        if(780 < document.body.scrollWidth){
-            gsap.to(".gsap_animation_1 img", {
-                keyframes: [
-                    {
-                        duration: 0,
-                        clipPath: "inset(0rem 27rem 0rem 0rem)"
-                    }, {
-                        duration: 1.5,
-                        clipPath: "inset(0rem 0rem 0rem 0rem)",
-                        ease: "sine.inOut"
-                    }
-                ]
-            }),
-            gsap.to([
-                ".gsap_animation_1 h4", ".gsap_animation_1 h5"
-            ], {
-                keyframes: [
-                    {
-                        duration: 0,
-                        opacity: 0
-                    }, {
-                        duration: .5,
-                        x: 60,
-                        opacity: 0
-                    }, {
-                        duration: .7,
-                        x: 0,
-                        opacity: 1,
-                        ease: "sine.inOut"
-                    }
-                ]
-            }),
-            gsap.to(".gsap_animation_1 .event_title_c", {
-                keyframes: [
-                    {
-                        duration: 0,
-                        opacity: 0
-                    }, {
-                        duration: .5,
-                        y: 60,
-                        opacity: 0
-                    }, {
-                        duration: .7,
-                        y: 0,
-                        opacity: 1,
-                        ease: "sine.inOut"
-                    }
-                ]
-            }),
-            gsap_animation_path(".gsap_animation_2", ".gsap_animation_2 img"),
-            gsap_animation_x(".gsap_animation_2", [".gsap_animation_2 h4", ".gsap_animation_2 h5"]),
-            gsap_animation_y(".gsap_animation_2", ".gsap_animation_2 .event_title_c"),
-            gsap.to([
-                ".event_0 h1", ".event_0 div"
-            ], {
-                keyframes: [
-                    {
-                        duration: 0,
-                        clipPath: "inset(0rem 120rem 0rem 0rem)",
-                        ease: "sine.inOut"
-                    }, {
-                        duration: 1.5,
-                        clipPath: "inset(0rem 0rem 0rem 0rem)",
-                        ease: "sine.inOut"
-                    }
-                ]
-            }),
-            gsap.to([
-                ".event_now_top h2", ".event_now_top .event_left_line"
-            ], {
-                keyframes: [
-                    {
-                        duration: 0,
-                        clipPath: "inset(0rem 0rem 0rem 30rem)",
-                        ease: "sine.inOut"
-                    }, {
-                        duration: 1.5,
-                        clipPath: "inset(0rem 0rem 0rem 0rem)",
-                        ease: "sine.inOut"
-                    }
-                ]
-            })
-        };
-        // 900 < document.body.scrollWidth && (
-        //     gsap_animation_path(".gsap_animation_2", ".gsap_animation_2 img"),
-        //     gsap_animation_x(".gsap_animation_2", [".gsap_animation_2 h4", ".gsap_animation_2 h5"]),
-        //     gsap_animation_y(".gsap_animation_2", ".gsap_animation_2 .event_title_c")
-        // );
-        function gsap_animation_path(e, t) {
-            gsap
-                .timeline({
-                    scrollTrigger: {
-                        trigger: e,
-                        start: "-=500",
-                        end: "-=500",
-                        scrub: 3
-                    }
-                })
-                .fromTo(t, {
-                    clipPath: "inset(2rem 27rem 3rem 0rem)"
-                }, {
-                    duration: 2,
-                    ease: "sine.inOut",
-                    clipPath: "inset(0rem 0rem 0rem 0rem)"
-                })
-        }
-        function gsap_animation_x(e, t) {
-            gsap
-                .timeline({
-                    scrollTrigger: {
-                        trigger: e,
-                        start: "-=500",
-                        end: "-=500",
-                        scrub: 3
-                    }
-                })
-                .fromTo(t, {
-                    x: 60,
-                    opacity: 0
-                }, {
-                    x: 0,
-                    opacity: 1,
-                    duration: 2,
-                    ease: "sine.inOut"
-                })
-        }
-        function gsap_animation_y(e, t) {
-            gsap
-                .timeline({
-                    scrollTrigger: {
-                        trigger: e,
-                        start: "-=500",
-                        end: "-=500",
-                        scrub: 3
-                    }
-                })
-                .fromTo(t, {
-                    y: 60,
-                    opacity: 0
-                }, {
-                    y: 0,
-                    opacity: 1,
-                    duration: 2,
-                    ease: "sine.inOut"
-                })
-        }
-    },
-
     methods: {
+        
         waterfall() {
             let that = this;
             let t = 0;
@@ -361,8 +214,8 @@ new Vue({
             window.addEventListener("scroll", function () {
                 if (t < 10 && !(window.pageYOffset + window.innerHeight + 200 < document.documentElement.offsetHeight))
                     for (let e = 0; e < 3; e++) {
-                    console.log(e);
-                    console.log(that.limit);
+                    // console.log(e);
+                    // console.log(that.limit);
                     t += 1;
                     that.limit+=1;
                     }
@@ -374,6 +227,158 @@ new Vue({
             } else {
                 this.lists3 = this.lists4.filter(item => item.time.includes(year));
             }
+        },
+        send() {
+            this.text = '送出後';
+            this.$nextTick(function () {
+                gsap.registerPlugin(ScrollTrigger);
+                if(780 < document.body.scrollWidth){
+                    gsap.to(".gsap_animation_1 img", {
+                        keyframes: [
+                            {
+                                duration: 0,
+                                clipPath: "inset(0rem 27rem 0rem 0rem)"
+                            }, {
+                                duration: 1.5,
+                                clipPath: "inset(0rem 0rem 0rem 0rem)",
+                                ease: "sine.inOut"
+                            }
+                        ]
+                    }),
+                    gsap.to([
+                        ".gsap_animation_1 h4", ".gsap_animation_1 h5"
+                    ], {
+                        keyframes: [
+                            {
+                                duration: 0,
+                                opacity: 0
+                            }, {
+                                duration: .5,
+                                x: 60,
+                                opacity: 0
+                            }, {
+                                duration: .7,
+                                x: 0,
+                                opacity: 1,
+                                ease: "sine.inOut"
+                            }
+                        ]
+                    }),
+                    gsap.to(".gsap_animation_1 .event_title_c", {
+                        keyframes: [
+                            {
+                                duration: 0,
+                                opacity: 0
+                            }, {
+                                duration: .5,
+                                y: 60,
+                                opacity: 0
+                            }, {
+                                duration: .7,
+                                y: 0,
+                                opacity: 1,
+                                ease: "sine.inOut"
+                            }
+                        ]
+                    }),
+                    gsap_animation_path(".gsap_animation_2", ".gsap_animation_2 img"),
+                    gsap_animation_x(".gsap_animation_2", [".gsap_animation_2 h4", ".gsap_animation_2 h5"]),
+                    gsap_animation_y(".gsap_animation_2", ".gsap_animation_2 .event_title_c"),
+                    gsap.to([
+                        ".event_0 h1", ".event_0 div"
+                    ], {
+                        keyframes: [
+                            {
+                                duration: 0,
+                                clipPath: "inset(0rem 120rem 0rem 0rem)",
+                                ease: "sine.inOut"
+                            }, {
+                                duration: 1.5,
+                                clipPath: "inset(0rem 0rem 0rem 0rem)",
+                                ease: "sine.inOut"
+                            }
+                        ]
+                    }),
+                    gsap.to([
+                        ".event_now_top h2", ".event_now_top .event_left_line"
+                    ], {
+                        keyframes: [
+                            {
+                                duration: 0,
+                                clipPath: "inset(0rem 0rem 0rem 30rem)",
+                                ease: "sine.inOut"
+                            }, {
+                                duration: 1.5,
+                                clipPath: "inset(0rem 0rem 0rem 0rem)",
+                                ease: "sine.inOut"
+                            }
+                        ]
+                    })
+                };
+                // 900 < document.body.scrollWidth && (
+                //     gsap_animation_path(".gsap_animation_2", ".gsap_animation_2 img"),
+                //     gsap_animation_x(".gsap_animation_2", [".gsap_animation_2 h4", ".gsap_animation_2 h5"]),
+                //     gsap_animation_y(".gsap_animation_2", ".gsap_animation_2 .event_title_c")
+                // );
+                function gsap_animation_path(e, t) {
+                    gsap
+                        .timeline({
+                            scrollTrigger: {
+                                trigger: e,
+                                start: "-=500",
+                                end: "-=500",
+                                scrub: 3
+                            }
+                        })
+                        .fromTo(t, {
+                            clipPath: "inset(2rem 27rem 3rem 0rem)"
+                        }, {
+                            duration: 2,
+                            ease: "sine.inOut",
+                            clipPath: "inset(0rem 0rem 0rem 0rem)"
+                        })
+                }
+                function gsap_animation_x(e, t) {
+                    gsap
+                        .timeline({
+                            scrollTrigger: {
+                                trigger: e,
+                                start: "-=500",
+                                end: "-=500",
+                                scrub: 3
+                            }
+                        })
+                        .fromTo(t, {
+                            x: 60,
+                            opacity: 0
+                        }, {
+                            x: 0,
+                            opacity: 1,
+                            duration: 2,
+                            ease: "sine.inOut"
+                        })
+                }
+                function gsap_animation_y(e, t) {
+                    gsap
+                        .timeline({
+                            scrollTrigger: {
+                                trigger: e,
+                                start: "-=500",
+                                end: "-=500",
+                                scrub: 3
+                            }
+                        })
+                        .fromTo(t, {
+                            y: 60,
+                            opacity: 0
+                        }, {
+                            y: 0,
+                            opacity: 1,
+                            duration: 2,
+                            ease: "sine.inOut"
+                        })
+                }
+            })
         }
         // onChange(key){
         //     // console.log(list4);
@@ -400,152 +405,3 @@ new Vue({
 
 })
 
-// ------------------------------------------------------------------------------------------
-// gsap.to([
-//     ".event_0 h1", ".event_0 div"
-// ], {
-//     keyframes: [
-//         {
-//             duration: 0,
-//             clipPath: "inset(0rem 120rem 0rem 0rem)",
-//             ease: "sine.inOut"
-//         }, {
-//             duration: 1.5,
-//             clipPath: "inset(0rem 0rem 0rem 0rem)",
-//             ease: "sine.inOut"
-//         }
-//     ]
-// }),
-// gsap.to([
-//     ".event_now_top h2", ".event_now_top .event_left_line"
-// ], {
-//     keyframes: [
-//         {
-//             duration: 0,
-//             clipPath: "inset(0rem 0rem 0rem 30rem)",
-//             ease: "sine.inOut"
-//         }, {
-//             duration: 1.5,
-//             clipPath: "inset(0rem 0rem 0rem 0rem)",
-//             ease: "sine.inOut"
-//         }
-//     ]
-// })
-
-
-
-
-// gsap.to(".gsap_animation_1 img", {
-//     keyframes: [
-//         {
-//             duration: 0,
-//             clipPath: "inset(0rem 27rem 0rem 0rem)"
-//         }, {
-//             duration: 1.5,
-//             clipPath: "inset(0rem 0rem 0rem 0rem)",
-//             ease: "sine.inOut"
-//         }
-//     ]
-// }),
-// gsap.to([
-//     ".gsap_animation_1 h4", ".gsap_animation_1 h5"
-// ], {
-//     keyframes: [
-//         {
-//             duration: 0,
-//             opacity: 0
-//         }, {
-//             duration: .5,
-//             x: 60,
-//             opacity: 0
-//         }, {
-//             duration: .7,
-//             x: 0,
-//             opacity: 1,
-//             ease: "sine.inOut"
-//         }
-//     ]
-// }),
-// gsap.to(".gsap_animation_1 .event_title_c", {
-//     keyframes: [
-//         {
-//             duration: 0,
-//             opacity: 0
-//         }, {
-//             duration: .5,
-//             y: 60,
-//             opacity: 0
-//         }, {
-//             duration: .7,
-//             y: 0,
-//             opacity: 1,
-//             ease: "sine.inOut"
-//         }
-//     ]
-// }),
-// gsap.registerPlugin(ScrollTrigger),
-// 900 < document.body.scrollWidth && (
-//     gsap_animation_path(".gsap_animation_2", ".gsap_animation_2 img"),
-//     gsap_animation_x(".gsap_animation_2", [".gsap_animation_2 h4", ".gsap_animation_2 h5"]),
-//     gsap_animation_y(".gsap_animation_2", ".gsap_animation_2 .event_title_c")
-// );
-
-
-// function gsap_animation_path(e, t) {
-//     gsap
-//         .timeline({
-//             scrollTrigger: {
-//                 trigger: e,
-//                 start: "-=500",
-//                 end: "-=500",
-//                 scrub: 3
-//             }
-//         })
-//         .fromTo(t, {
-//             clipPath: "inset(2rem 27rem 3rem 0rem)"
-//         }, {
-//             duration: 2,
-//             ease: "sine.inOut",
-//             clipPath: "inset(0rem 0rem 0rem 0rem)"
-//         })
-// }
-// function gsap_animation_x(e, t) {
-//     gsap
-//         .timeline({
-//             scrollTrigger: {
-//                 trigger: e,
-//                 start: "-=500",
-//                 end: "-=500",
-//                 scrub: 3
-//             }
-//         })
-//         .fromTo(t, {
-//             x: 60,
-//             opacity: 0
-//         }, {
-//             x: 0,
-//             opacity: 1,
-//             duration: 2,
-//             ease: "sine.inOut"
-//         })
-// }
-// function gsap_animation_y(e, t) {
-//     gsap
-//         .timeline({
-//             scrollTrigger: {
-//                 trigger: e,
-//                 start: "-=500",
-//                 end: "-=500",
-//                 scrub: 3
-//             }
-//         })
-//         .fromTo(t, {
-//             y: 60,
-//             opacity: 0
-//         }, {
-//             y: 0,
-//             opacity: 1,
-//             duration: 2,
-//             ease: "sine.inOut"
-//         })
-// }

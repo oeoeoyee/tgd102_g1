@@ -1,5 +1,4 @@
 // news頁 - vue - 全部訊息
-// Vue.component('all', {
 Vue.component('news', {
 
     props: ['type'], 
@@ -46,9 +45,6 @@ Vue.component('news', {
                 if(data[i]["CONTENT"].toString().length > 20){
                     data[i]["CONTENT"] = data[i]["CONTENT"].toString().slice(0,20) + "......";
                 }
-                // if(data[i]["TITLE"].toString().length > 18){
-                //     data[i]["TITLE"] = data[i]["TITLE"].toString().slice(0,18) + "...";
-                // }
             }
             return data;
         })
@@ -56,7 +52,6 @@ Vue.component('news', {
             // 定義allNewsArray(全部資料的陣列))(記得加this!)
             this.allNewsArray = data;
             // 定義pageArray(算頁數並做成陣列)
-            // this.pageArray = Math.ceil(this.allNewsArray.length / this.perPage);
             let totalPage = Math.ceil(this.allNewsArray.length / this.perPage);
             // 也可以把t 寫在上面設為變數 但要記得加this.
             let t = 0;
@@ -69,38 +64,13 @@ Vue.component('news', {
             return data;
         })
     },
-
-    // 已不用 - 取得index
-    // template: `
-    // <!-- 消息列 -->
-    // <ul class="news_list news_becenter">
-    //     <li v-for="(info,index) in newsArray" @click="toNews01(index.toString())" id="to_next">
-    //         <a href="./news_01.html">
-    //             <!-- 圖片 -->
-    //             <div class="news_list_img">
-    //                 <img :src="imgPath + info.IMAGE" :alt="info.alt"/>
-    //             </div>
-    //             <!-- 資訊卡中(特展、最新消息) -->
-    //             <div class="infocard_m">
-    //                 <h3>{{info.TITLE}}
-    //                     <span>&rarr;</span>
-    //                 </h3>
-    //                 <h5>{{info.CONTENT}}</h5>
-    //                 <div></div>
-    //                 <h5>{{info.INFO_TYPE}}</h5>
-    //                 <p>{{info.DATE}}</p>
-    //             </div>
-    //         </a>
-    //     </li>
-    // </ul>
-    // `,
     
     // 取得陣列
     template: `
     <!-- 消息列 -->
     <div>
         <ul class="news_list news_becenter">
-            <li v-for="(info, index) in newsArray" :key="id"  @click="toNews01(index.toString())">
+            <li v-for="(info, index) in newsArray" :key="id">
                 <a :href="'./news_01.html?id='+info.INFO_ID">
                     <!-- 圖片 -->
                     <div class="news_list_img">
@@ -126,28 +96,11 @@ Vue.component('news', {
         </ul>
     </div>
     `,
-    // news頁 - 備用 - 取得當下按的li的id
-    // methods:{
-    //     toNews01(i_news){
-    //         // console.log(i_news);
-    //         sessionStorage.setItem('toNews01', i_news);
-    //     },
-    //     // slice20(){
-    //     //     newsArray.CONTENT.slice(0,20) + ".......";
-    //     // },
-    // }
 
     methods:{
-        // 取得當下按的li的index
-        toNews01(i_news){
-            console.log(i_news)
-        //     console.log(info);
-            // sessionStorage.setItem('toNews01', i_news);
-        },
         // 換下方頁數
         changePage(num){
             this.thisPage = num;
-            // return this.thisPage;
             this.newsArray = this.allNewsArray.slice((this.thisPage-1) * this.perPage, this.thisPage * this.perPage);
         },
     },
@@ -155,20 +108,12 @@ Vue.component('news', {
     computed:{}
 })
 
-// news頁 - vue - 活動訊息
-// news頁 - vue - 館方訊息
-
 // news頁 - vue
 let news_vm = new Vue({
     el: '#app_news', 
     data: {
         content: 'all',
         CURRENT_INFO_TYPE:'all',
-
-        // allNews: true, 
-        // museumNews: false,
-        // activeNews: false,
-
         options:{
             // option 是 { title:'全部', },....
             // key 是 'all'、'museum'、'activity'
@@ -183,23 +128,6 @@ let news_vm = new Vue({
                 title:'活動訊息',
             }
         }
-    },
-    methods: {
-        // changeColor(){
-        //     if(this.content === 'all'){
-        //         this.allNews = true;
-        //         this.museumNews =false;
-        //         this.activeNews = false;
-        //     }else if(this.content === 'museum'){
-        //         this.allNews = false;
-        //         this.museumNews =true;
-        //         this.activeNews = false;
-        //     }else if(this.content === 'activity'){
-        //         this.allNews = false;
-        //         this.museumNews =false;
-        //         this.activeNews = true;
-        //     }
-        // },
     },
     computed: {}
 })
