@@ -34,6 +34,10 @@
   footer {
     margin-top: 0;
   }
+
+  a {
+    text-decoration: none !important;
+  }
 }
 
 // 常設展至頂大圖
@@ -46,10 +50,6 @@
       display: block;
     }
   }
-}
-
-a {
-  text-decoration: none !important;
 }
 
 // 主題
