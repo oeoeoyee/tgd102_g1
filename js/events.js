@@ -361,8 +361,8 @@ new Vue({
             window.addEventListener("scroll", function () {
                 if (t < 10 && !(window.pageYOffset + window.innerHeight + 200 < document.documentElement.offsetHeight))
                     for (let e = 0; e < 3; e++) {
-                    console.log(e);
-                    console.log(that.limit);
+                    // console.log(e);
+                    // console.log(that.limit);
                     t += 1;
                     that.limit+=1;
                     }

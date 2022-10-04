@@ -322,7 +322,7 @@
     }
     .center{
         li{
-            padding-top: size(110);
+            // padding-top: size(110);
     
             br{
                 @include mobile(){
@@ -332,6 +332,8 @@
     
             a{
                 line-height: size(44);
+                display: block;
+                padding: size(110) 0;
     
                 @include mobile(){
                     line-height: rwd(20);
