@@ -1,8 +1,9 @@
+// 取網址id
+var getUrlString = location.href;
+var url = new URL(getUrlString);
+var newsID = url.searchParams.get('id');
+
 addEventListener('load', function(){
-    // 取網址id
-    getUrlString = location.href;
-    url = new URL(getUrlString);
-    newsID = url.searchParams.get('id');
     var infoLength;
     var fetchgetArray;  //取得fetch取得之陣列
 
@@ -105,19 +106,19 @@ addEventListener('load', function(){
 // 分享用function
 function tweetClick() {
     var url = `https://tibamef2e.com/tgd102/g1/dist/news_01.html?id=${newsID}`;
-    var text = "分享給您 溯‧REVERSE博物館 的最新消息！";
-    window.open(`http://twitter.com/share?url=${encodeURIComponent(url)}${text}=${encodeURIComponent(text)}`, '');
+    // var text = "分享給您 溯‧REVERSE博物館 的最新消息！";
+    window.open(`http://twitter.com/share?url=${encodeURIComponent(url)}`, '');
 }   
 
 function fbClick() {
-    var url = "'https://tibamef2e.com/tgd102/g1/dist/news_01.html?id='+newsID";
-    var text = "分享給您 溯‧REVERSE博物館 的最新消息！";
-    window.open('https://www.facebook.com/sharer.php?u='+encodeURIComponent(url)+'&text='+encodeURIComponent(text), '');
+    var url = `https://tibamef2e.com/tgd102/g1/dist/news_01.html?id=${newsID}`;
+    // var text = "分享給您 溯‧REVERSE博物館 的最新消息！";
+    window.open(`https://www.facebook.com/sharer.php?u=${encodeURIComponent(url)}`, '');
 }
 
 function lineClick() {
     console.log(newsID);
     var url = `https://tibamef2e.com/tgd102/g1/dist/news_01.html?id=${newsID}`;
-    var text = "分享給您溯‧REVERSE博物館 的最新消息！";
+    // var text = "分享給您溯‧REVERSE博物館 的最新消息！";
     window.open(`http://line.naver.jp/R/msg/text/?${encodeURIComponent(url)}`, '');
 }
