@@ -101,17 +101,13 @@ try {
     console.log(inputEmail.value);
     if(inputEmail.value !== '' && reg.test(inputEmail.value) === true){
       inputEmail.value = delVal;
-
       // fetch('./php/eletter_sub.php', {
       //   method: 'POST', 
       //   headers: {'Content-Type':'application/json'}, 
       //   body: JSON.stringify({
-      //     email: inputEmail.value,
+      //     email: inputEmail.value
       //   })
-      // })
-
-
-
+      // });
       alert("訂閱成功");
     }else{
       inputEmail.value = delVal;
