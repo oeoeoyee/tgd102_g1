@@ -4,11 +4,11 @@ if (AM_I_LOGIN) {
   location.replace("./member_info.html");
 }
 
-const name = document.querySelector("#name");
-const email = document.querySelector("#email");
-const phone = document.querySelector("#phone");
-const pwd = document.querySelector("#pwd");
-const sub = document.querySelector(".signin_sub");
+const signin_name = document.querySelector("#name");
+const signin_email = document.querySelector("#email");
+const signin_phone = document.querySelector("#phone");
+const signin_pwd = document.querySelector("#pwd");
+const signin_sub = document.querySelector(".signin_sub");
 const register = document.querySelector("#signin_submit");
 
 register.addEventListener("click", () => {
@@ -43,19 +43,14 @@ register.addEventListener("click", () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        name: name.value,
-        email: email.value,
-        phone: phone.value,
-        pwd: pwd.value,
-        sub: sub.checked,
+        signin_name: signin_name.value,
+        signin_email: signin_email.value,
+        signin_phone: signin_phone.value,
+        signin_pwd: signin_pwd.value,
+        signin_sub: signin_sub.checked,
       }),
     })
-      .then((resp) =>
-        resp
-          .json
-          // console.log(resp)
-          ()
-      )
+      .then((resp) => resp.json())
       .then((body) => {
         // console.log(body);
         if (body.successful) {

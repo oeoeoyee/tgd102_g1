@@ -5,32 +5,31 @@ include("./PDO/connection_inc.php");
 $member = json_decode(file_get_contents("php://input"), true);
 
 $sql = " 
-    insert into MEMBER(NAME,EMAIL,PHONE,PASSWORD,REGISTER_DAY,SUBSCRIPTION)
-    values (?,?,?,?,now(),?) 
+    INSERT INTO MEMBER(NAME,EMAIL,PHONE,PASSWORD,REGISTER_DAY,SUBSCRIPTION)
+    VALUES (?,?,?,?,now(),?);
 ";
 
 
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(1, $member["name"]);
-$stmt->bindValue(2, $member["email"]);
-$stmt->bindValue(3, $member["phone"]);
-$stmt->bindValue(4, $member["pwd"]);
-$stmt->bindValue(5, $member["sub"] ? 1 : 0);
+$stmt->bindValue(1, $member["signin_name"]);
+$stmt->bindValue(2, $member["signin_email"]);
+$stmt->bindValue(3, $member["signin_phone"]);
+$stmt->bindValue(4, $member["signin_pwd"]);
+$stmt->bindValue(5, $member["signin_sub"] ? 1 : 0);
 $stmt->execute();
 
 
 // echo json_encode($stmt->);
 
-if ($stmt->rowCount() == 1) {
+if ($stmt->rowCount() != 0) {
 
     $sql = "
-    select *
-    from MEMBER where 
-    EMAIL = ? and password = ?;
-    ";
+    SELECT *
+    FROM MEMBER 
+    WHERE EMAIL = ? and password = ? ;";
     $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(1, $member["email"]);
-    $stmt->bindValue(2, $member["pwd"]);
+    $stmt->bindValue(1, $member["signin_email"]);
+    $stmt->bindValue(2, $member["signin_pwd"]);
     $stmt->execute();
 
     $member_ID = $stmt->fetchAll();
