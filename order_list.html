@@ -25,7 +25,6 @@
 
         <h2 class="member_h2">訂單明細</h2>
 
-        <!-- ##########  Vue  ########## -->
         <div class="member_out">
 
             <!-- 左主選單 -->
@@ -37,38 +36,33 @@
             <div class="member_right order_table">
 
                 
-                <!-- 資料表格 -->
-                <!-- <form method="post" action=""> -->
-                    <table id="app_memberTable" data-wanttodo="MEMBER_ORDER" >
-                        <tbody v-for="info in mbArray">
-                            <tr>
-                                <td>訂單編號</td>
-                                <td>{{info.ORDER_ID}}</td>
-                                <td @click="to(info)" rowspan="3" class="order_icon"><a href="./order.html"><i class="fa-solid fa-angle-right"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>訂單日期</td>
-                                <td>{{info.ORDER_DAY}}</td>
-                            </tr>
-                            <tr>
-                                <td>費用總計</td>
-                                <td>{{info.PRICE}}</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">
-                                    <div class="order_line"></div>   
-                                </td>         
-                            </tr>
-                        </tbody>
-                    </table>
-                <!-- </form> -->
+                <table id="app_memberTable" data-wanttodo="MEMBER_ORDER" >
+                    <tbody v-for="info in mbArray">
+                        <tr>
+                            <td>訂單編號</td>
+                            <td>{{info.ORDER_ID}}</td>
+                            <td @click="to(info)" rowspan="3" class="order_icon"><a href="./order.html"><i class="fa-solid fa-angle-right"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td>訂單日期</td>
+                            <td>{{info.ORDER_DAY}}</td>
+                        </tr>
+                        <tr>
+                            <td>費用總計</td>
+                            <td>{{info.PRICE}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <div class="order_line"></div>   
+                            </td>         
+                        </tr>
+                    </tbody>
+                </table>
                 
-                <!-- 分隔線 -->
 
             </div>
             
         </div>
-        <!-- ##########  Vue  ########## -->
         <!-- 按鈕 -->
         <div class="login_btn_out btn_center">
             <input type ="button" class="btn_s_default" onclick="history.back()" value="返回"></input>
@@ -78,8 +72,6 @@
         @@include('./layout/footer.html')
         
     </div>
-    <!-- goTop 組件 -->
     @@include('./layout/goTop_component.html')
-    <!-- goTop 組件 -->
 </body>
 </html>

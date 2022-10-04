@@ -1,8 +1,8 @@
 // 搜尋功能
 const url = "./php/back_All_Search.php?keywords=";
-const keyword_input = document.querySelector(".back_search"); // 綁定搜尋欄位的 input
+const keyword_input = document.querySelector("#keyWord"); // 綁定搜尋欄位的 input
 
-// 沒設定 data- 的頁面會報錯!!!  之後問老師  低優先度
+const tbName = document.querySelector("table").dataset.tbname;
 
 // 此 Vue ID 綁在 app_backTable 的欄位
 const table_vue = new Vue({
@@ -10,7 +10,7 @@ const table_vue = new Vue({
   data: {
     tbArray: [],
     subList: [],
-    tbName:''
+    tbName: "",
   },
   methods: {
     // 下架功能 - news頁
@@ -19,7 +19,8 @@ const table_vue = new Vue({
       if (delConfirm) {
         fetch(`./php/back_news_del.php?id=${newsID}`);
         window.location.reload();
-      } else {}
+      } else {
+      }
     },
     // 下架功能 - exhibition頁
     exhib_down(exhibID) {
@@ -27,7 +28,8 @@ const table_vue = new Vue({
       if (delConfirm) {
         fetch(`./php/back_exhibition_del.php?id=${exhibID}`);
         window.location.reload();
-      } else {}
+      } else {
+      }
     },
     // 下架功能 - events頁
     event_down(eventsID) {
@@ -35,21 +37,22 @@ const table_vue = new Vue({
       if (delConfirm) {
         fetch(`./php/back_events_del.php?id=${eventsID}`);
         window.location.reload();
-      } else {}
+      } else {
+      }
     },
 
     thisOrderID(e) {
-      console.log(e.ORDER_ID);
+      // console.log(e.ORDER_ID);
       sessionStorage.setItem("ORDER_ID", e.ORDER_ID);
     },
     thisMemberID(e) {
-      console.log(e.MEMBER_ID);
+      // console.log(e.MEMBER_ID);
       sessionStorage.setItem("MEMBER_ID", e.MEMBER_ID);
     },
 
     emailGo(title, email, content) {
       // console.log(1234);
-      const that = this
+      const that = this;
       emailjs.init("DCwlXSLOdGqGTForu");
       const serviceID = "service_95kv0br";
       const templateID = "template_kb00bdg";
@@ -62,21 +65,21 @@ const table_vue = new Vue({
       emailjs.send(serviceID, templateID, templateParams).then(
         function (response) {
           that.tbArray[t].STATE = "已發送"; //想辦法送給資料庫修改
-          console.log("SUCCESS!", response.status, response.text);
+          // console.log("SUCCESS!", response.status, response.text);
         },
         function (error) {
-          console.log("FAILED...", error);
+          // console.log("FAILED...", error);
         }
       );
     },
 
-    update_email(){
+    update_email() {
       let that;
       const now = new Date();
       const nowDate = now.toISOString().split("T")[0];
       let t = 0;
       // console.log(this.tbName);
-      if ((this.tbName == "NEWSLETTER_LIST")) {
+      if (this.tbName == "NEWSLETTER_LIST") {
         // fetch("./php/sentEmail.php")
         //       .then(e => e.json())
         //       .then(list => {
@@ -99,20 +102,27 @@ const table_vue = new Vue({
             this.tbArray[i].STATE == "上線"
           ) {
             // console.log(123);
-            console.log( 'array',this.tbArray);
+            // console.log("array", this.tbArray);
             // console.log(123);
             // console.log(this.subList);
             let emailInfo = this.tbArray[i]; //兩筆資料
-  
-            // console.log('info',emailInfo);
-  
+
+            // console.log("info", emailInfo);
+
             this.subList.forEach((userInfo) => {
               // console.log(userInfo);//3個人名
               // console.log(emailInfo.SUBJECT);
               // console.log(emailInfo.CONTENT);
               // console.log(userInfo.NAME);
-              
-              this.emailGo(emailInfo.SUBJECT, userInfo.EMAIL, emailInfo.CONTENT);
+              // console.log("email", userInfo.EMAIL);
+              // console.log("SUBJECT", emailInfo.SUBJECT);
+              // console.log("CONTENT", emailInfo.CONTENT);
+
+              this.emailGo(
+                emailInfo.SUBJECT,
+                userInfo.EMAIL,
+                emailInfo.CONTENT
+              );
               // console.log();
             });
             emailInfo.STATE = "已發送";
@@ -139,7 +149,7 @@ const table_vue = new Vue({
           }
         }
       }
-    }
+    },
   },
   mounted: function () {
     let that = this;
@@ -147,10 +157,19 @@ const table_vue = new Vue({
 
     // 取 table 的自訂屬性的值
     if (document.querySelector("table")) {
-      try {
-        const tbName = document.querySelector("table").dataset.tbname;
+      that.tbName = tbName;
 
-        that.tbName = tbName
+      fetch(api, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          tbName,
+        }),
+      })
+        .then((resp) => resp.json())
+        .then((resp) => (that.tbArray = resp));
 
         fetch(api, {
           method: "POST",
@@ -179,15 +198,10 @@ const table_vue = new Vue({
               this.update_email()
             });
         }
-      } catch (error) {
-        console.log(error);
-      }
     }
   },
 
-  updated() {
-    
-  },
+
 });
 
 // 此 Vue 是綁在搜尋欄位上
@@ -214,7 +228,7 @@ new Vue({
           // 將回應直接放近另外一個 Vue 的陣列中
           // 個網頁獨立的 Vue 名稱如果一樣的話 就可以傳給那一個網頁的 vue!!!
           // ( back_news 的 Vue -> table_vue )
-          .then((resp) => (this.tbArray = resp));
+          .then((resp) => (table_vue.tbArray = resp));
       }
     },
   },
