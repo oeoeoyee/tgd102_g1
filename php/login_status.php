@@ -34,7 +34,8 @@ if (isset($_SESSION["member"])) {
         $sql = " 
           SELECT *
           from `ORDER`
-          WHERE MEMBER_ID = :userID;";
+          WHERE MEMBER_ID = :userID
+          ORDER BY ORDER_ID desc;";
 
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(":userID", $member["userID"]);

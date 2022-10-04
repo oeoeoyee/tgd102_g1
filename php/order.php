@@ -1,4 +1,6 @@
 <?php
+// 寫死測試用
+
 include("./PDO/connection_inc.php");
 
 // 接收前端傳來的JSON格式

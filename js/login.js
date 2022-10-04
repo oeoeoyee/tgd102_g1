@@ -1,12 +1,26 @@
 // ===========燈箱=============
-// 燈箱
+// 燈箱 退票 BTN step 1
 $('.lightbox_ck').click(function(){
-    $('.js_lightbox').toggle()
+    $('.js_lightbox1').toggle()
 })
+
+// 燈箱 確定 BTN step 2
+$('.js_lightbox_btn').click(function(){
+    $('.lightbox_ck').addClass('-none')
+    $('.lightbox_ck2').removeClass('-none')
+    $('.js_lightbox1').toggle()
+    $('.re_payment').toggle()
+})
+
+// 退票成功 BTN step 3
+$('.lightbox_ck2').click(function(){
+    $('.js_lightbox2').toggle()
+})
+
 
 // 再想想
 $('.think_btn').click(function(){
-    $('.-none').toggle()
+    $('.js_lightbox1').toggle()
 })
 
 
@@ -28,13 +42,13 @@ new Vue({
         groups: ['請選擇', 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
 
         // 成人票人數
-        adults: ['請選擇', 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        adults: ['請選擇', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
 
         // 優待票人數
-        services: ['請選擇', 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        services: ['請選擇', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
 
         // 兒童票人數
-        childs: ['請選擇', 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        childs: ['請選擇', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
 
         exhibitionChoose: '',
         groupCount: 0,

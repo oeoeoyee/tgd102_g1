@@ -123,8 +123,9 @@
         }
         p{
             margin: 0 auto;
-            width: size(38);
+            width: size(100);
             font-size: size(16);
+            text-align: center;
             line-height: size(40);
         }
         &:hover{
@@ -165,6 +166,10 @@
         margin-right: size(16);
         @include h5();
         color: $black;
+        &:hover{
+            border: 1px solid $black;
+            
+        }
     }
 }
 

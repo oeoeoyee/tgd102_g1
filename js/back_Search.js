@@ -91,13 +91,11 @@ const table_vue = new Vue({
         for (let i = 0; i < this.tbArray.length; i++) {
           // t += 1;
 
-          // console.log(
-          //   nowDate == this.tbArray[i].MAIL_DAY &&
-          //     this.tbArray[i].STATE == "上線"
-          // );
-          // console.log(nowDate == this.tbArray[i].MAIL_DAY);
-          // console.log(this.tbArray[i].STATE == "上線");
-          // console.log(this.tbArray[i].STATE);
+          // console.log(nowDate == this.tbArray[i].MAIL_DAY &&
+            // this.tbArray[i].STATE == "上線");
+            // console.log(nowDate == this.tbArray[i].MAIL_DAY);
+            // console.log(this.tbArray[i].STATE == "上線");
+            // console.log(this.tbArray[i].STATE);
 
           if (
             nowDate == this.tbArray[i].MAIL_DAY &&
@@ -173,27 +171,37 @@ const table_vue = new Vue({
         .then((resp) => resp.json())
         .then((resp) => (that.tbArray = resp));
 
-      const now = new Date();
-      const nowDate = now.toISOString().split("T")[0];
-      let t = 0;
-      // console.log(that.tbName);
-      if ((that.tbName = "NEWSLETTER_LIST")) {
-        fetch("./php/sentEmail.php")
-          .then((e) => e.json())
-          .then((list) => {
-            for (let item of list) {
-              // console.log('asd');
-              that.subList.push(item);
-            }
-            this.update_email();
-          });
-      }
+        fetch(api, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            tbName,
+          }),
+        })
+          .then((resp) => resp.json())
+          .then((resp) => (that.tbArray = resp));
+
+        const now = new Date();
+        const nowDate = now.toISOString().split("T")[0];
+        let t = 0;
+        // console.log(that.tbName);
+        if ((that.tbName = "NEWSLETTER_LIST")) {
+          fetch("./php/sentEmail.php")
+            .then((e) => e.json())
+            .then((list) => {
+              for (let item of list) {
+                // console.log('asd');
+                that.subList.push(item);
+              }
+              this.update_email()
+            });
+        }
     }
   },
 
-  updated() {
-    
-  },
+
 });
 
 // 此 Vue 是綁在搜尋欄位上

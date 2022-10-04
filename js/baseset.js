@@ -95,36 +95,30 @@ var totop_vm = new Vue({
 try {
   const subButton = document.querySelector('#eletter_sub');
   subButton.addEventListener('click', function(e){
-  let inputEmail = document.querySelector('#eletter_input');
-  let reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
-  let delVal = '';
-  if(inputEmail.value !== '' && reg.test(inputEmail.value) === true){
-    // 123@test.com => true ; 123@test.test => true ; 123@erg.regr => true
-    // 123 => false ; 123@test => false
+    let inputEmail = document.querySelector('#eletter_input');
+    let reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+    let delVal = '';
+    console.log(inputEmail.value);
+    if(inputEmail.value !== '' && reg.test(inputEmail.value) === true){
+      inputEmail.value = delVal;
 
-    // fetch('php/eletter_sub.php', {
-    //   method: 'POST', 
-    //   headers: {'Content-Type':'application/json'}, 
-    //   body: JSON.stringify({
-    //       email: inputEmail.value,
-    //   })
-    // })
-    inputEmail.value = delVal;
-    alert("訂閱成功");
-  }else{
-    inputEmail.value = delVal;
-    alert('請輸入正確EMail格式 ! ');
-  }
-})
-} catch (error) {
-  
-}
+      // fetch('./php/eletter_sub.php', {
+      //   method: 'POST', 
+      //   headers: {'Content-Type':'application/json'}, 
+      //   body: JSON.stringify({
+      //     email: inputEmail.value,
+      //   })
+      // })
 
 
 
-  // fetch(`./php/back_news_del.php?id=${}`);
-  // const delConfirm = confirm("確定下架這筆資料?");
-  // if (delConfirm) {
-  //   window.location.reload();
-  // } else {
-  // }
+      alert("訂閱成功");
+    }else{
+      inputEmail.value = delVal;
+      alert('請輸入正確EMail格式 ! ');
+    }
+  })
+} catch (error) {}
+
+// 
+// curl "https://api.emailable.com/v1/verify?email=john@smith.com&api_key=your_api_key"

@@ -23,7 +23,7 @@ $_SESSION["orderId"] = $orderId;
 
 $sql = " 
     insert into `ORDER`(MEMBER_ID, ORDER_ID,ORDER_DAY,VISIT_DAY,PAYMENT_TYPE,PRICE,PAYMENT_STATUS) 
-    values (?, ?, now(), ?, ?, ?, 1)
+    values (?, ?, now(), ?, ?, ?,'已付款')
 ";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(1, $member["memberID"]); 
