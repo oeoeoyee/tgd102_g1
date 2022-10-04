@@ -1,6 +1,7 @@
 // 搜尋功能
 const url = "./php/back_All_Search.php?keywords=";
-const keyword_input = document.querySelector(".back_search"); // 綁定搜尋欄位的 input
+const keyword_input = document.querySelector("#keyWord"); // 綁定搜尋欄位的 input
+const tbName = document.querySelector("table").dataset.tbname;
 
 // 沒設定 data- 的頁面會報錯!!!  之後問老師  低優先度
 
@@ -18,7 +19,8 @@ const table_vue = new Vue({
       if (delConfirm) {
         fetch(`./php/back_news_del.php?id=${newsID}`);
         window.location.reload();
-      } else {}
+      } else {
+      }
     },
     // 下架功能 - exhibition頁
     exhib_down(exhibID) {
@@ -26,7 +28,8 @@ const table_vue = new Vue({
       if (delConfirm) {
         fetch(`./php/back_exhibition_del.php?id=${exhibID}`);
         window.location.reload();
-      } else {}
+      } else {
+      }
     },
     // 下架功能 - events頁
     event_down(eventsID) {
@@ -34,7 +37,8 @@ const table_vue = new Vue({
       if (delConfirm) {
         fetch(`./php/back_events_del.php?id=${eventsID}`);
         window.location.reload();
-      } else {}
+      } else {
+      }
     },
 
     thisOrderID(e) {
@@ -73,36 +77,31 @@ const table_vue = new Vue({
     const api = "./php/back_All_Search.php"; // 要從哪裡得到資料
 
     // 取 table 的自訂屬性的值
-    if (document.querySelector("table")) {
-      try {
-        const tbName = document.querySelector("table").dataset.tbname;
 
-        fetch(api, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            tbName,
-          }),
-        })
-          .then((resp) => resp.json())
-          .then((resp) => (table_vue.tbArray = resp));
+    fetch(api, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        tbName,
+      }),
+    })
+      .then((resp) => resp.json())
+      .then((resp) => (table_vue.tbArray = resp));
 
-        const now = new Date();
-        const nowDate = now.toISOString().split("T")[0];
-        let t = 0;
-        if ((this.tbName = "NEWSLETTER_LIST")) {
-          fetch("./php/sentEmail.php")
-            .then((e) => e.json())
-            .then((list) => {
-              for (let item of list) {
-                // console.log('asd');
-                that.subList.push(item);
-              }
-            });
-        }
-      } catch (error) {}
+    const now = new Date();
+    const nowDate = now.toISOString().split("T")[0];
+    let t = 0;
+    if ((this.tbName = "NEWSLETTER_LIST")) {
+      fetch("./php/sentEmail.php")
+        .then((e) => e.json())
+        .then((list) => {
+          for (let item of list) {
+            // console.log('asd');
+            that.subList.push(item);
+          }
+        });
     }
   },
 
