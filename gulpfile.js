@@ -45,6 +45,12 @@ function sassstyle(){
     return src('sass/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass.sync().on('error', sass.logError))
+
+    // 壓縮 更改附檔名
+    .pipe(cleanCSS())
+    // 更改附檔名
+    .pipe(rename({ extname: ".min.css" }))
+
     .pipe(sourcemaps.write())
     .pipe(dest('dist/css')) 
 }
