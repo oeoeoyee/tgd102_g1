@@ -36,23 +36,20 @@ new Vue ({
             .then(e => e.json())
             .then(list=>{
                 // console.log(list[0].EMAIL);
-                console.log(this);
                 this.sentEmail = list[0].EMAIL;
-                console.log(this);
                 // console.log(list[0].EMAIL);
                 for(var i=0;i<6;i++){
                     this.Num += Math.floor(Math.random()*10).toString();
-                console.log(this);
 
                 };
                 this.emailGo();
-                console.log(this);
+
 
             })
         },
         correct(){
-            if(that.Vcode == that.Num){
-                if( that.message2 =='' && that.message1 ==''){
+            if(this.Vcode == this.Num){
+                if( this.message2 =='' && this.message1 ==''){
                     fetch(`./php/forget.php`,{
                         method: 'POST', 
                         headers: {'Content-Type':'application/json'}, 
@@ -94,19 +91,19 @@ new Vue ({
           },
     check_password1(){
         let reg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,12}$/;
-        if(reg.test(that.newpassword)){
-            that.message1 ='';
+        if(reg.test(this.newpassword)){
+            this.message1 ='';
         }else{
-            that.message1 ='請輸入正確的密碼格式';
+            this.message1 ='請輸入正確的密碼格式';
         }
     },
           // 確認密碼
      check_password2() {
-        if(that.newpassword !== that.reNewpassword){
+        if(this.newpassword !== this.reNewpassword){
             // console.log(1234);
-            that.message2 ='密碼不相同';
+            this.message2 ='密碼不相同';
         }else{
-            that.message2 ='';
+            this.message2 ='';
         }
     },
     }
