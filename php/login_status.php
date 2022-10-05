@@ -69,6 +69,8 @@ if (isset($_SESSION["member"])) {
             od.CHILD_PRICE,
             od.DISCOUNT_NUM,
             od.DISCOUNT_PRICE,
+            od.GROUP_NUM,
+            od.GROUP_PRICE,
             od.ADULT_NUM,
             od.ADULT_PRICE,
             od.VOICE_GUIDE,
