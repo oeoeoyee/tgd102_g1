@@ -133,4 +133,4 @@ exports.cls = clear;
 exports.default = series(parallel(includeHTML , sassstyle ,img_move ,php_move , Jsminify) ,browser)
 
 // 上線
-exports.online = series(clear, parallel(includeHTML, sassstyle, img_move,php_move, babel5));
+exports.online = series(clear, parallel(includeHTML, sassstyle, img_move, min_images, php_move, babel5));
