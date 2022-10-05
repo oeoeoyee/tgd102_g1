@@ -44,7 +44,7 @@
                         <tr>
                             <td class="my_level">
                                 <div class="level" >
-                                    <img :src="'./images/level_' + info.LEVEL + '.png'" alt="" :class="info.LEVEL">
+                                    <img :src="'./images/level_' + info.LEVEL.toLowerCase() + '.png'" alt="" :class="info.LEVEL">
                                     <!-- 圈 -->
                                     <div class="circle">
                                         <p>{{info.LEVEL}}</p>
