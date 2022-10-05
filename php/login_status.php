@@ -95,6 +95,18 @@ if (isset($_SESSION["member"])) {
     }
   };
 
+  // 會員退票
+  if (isset($member_WhatToDo["refund"])) {
+    $ORDER_id = $member_WhatToDo["my_ORDER_ID"];
+
+    $sql = "UPDATE `ORDER` 
+            SET PAYMENT_STATUS = '已退票' 
+            WHERE ORDER_ID = :ORDER_ID AND MEMBER_ID = :userID;";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(":userID", $member["userID"]);
+    $stmt->bindValue(":ORDER_ID", $ORDER_id);
+  }
 
   // 執行
   $stmt->execute();
