@@ -23,6 +23,11 @@ $('.think_btn').click(function(){
     $('.js_lightbox1').toggle()
 })
 
+// 燈箱 prime 升級成功
+$('.lightbox_ck').click(function(){
+    $('.js_lightbox').toggle()
+})
+
 
 // =============買票小計============
 new Vue({

@@ -1022,10 +1022,10 @@
         }
 
         li{
-            @include h4();
+            @include h5();
             font-weight: normal;
             line-height: size(41);
-            color: $black;
+            color: $darkgray;
 
             //字體跟figma不同
             @include mobile(){
