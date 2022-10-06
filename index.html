@@ -96,23 +96,23 @@
                     <div></div>
                 </div>
             </div>
-            <div class="index_ex_section">
-                <div class="index_ex_container swiper swiper-container">
+            <div class="index_ex_section" id="index_exhibition_list">
+                <div  class="index_ex_container swiper swiper-container">
                     <ul class="index_exhibition_content swiper-wrapper">
-                        <li class="index_exhibition_item swiper-slide">
+                        <li v-for="(item, index) in exhibitions" class="index_exhibition_item swiper-slide">
                             <a href="./exhibition_information.html">
                                 <div class="index_exhibition_num">
-                                    <h4>01</h4>
+                                    <h4>{{index + 1}}</h4>
                                 </div>
-                                <div class="index_exhibition_main">
-                                    <img src="./images/index_03.jpg" alt="">
-                                    <h4>新藝術運動
+                                <div @click="ex_infoID(item)" class="index_exhibition_main">
+                                    <img :src="`./images/`+item.MAIN_IMAGE[1]" alt="">
+                                    <h4>{{item.NAME}}
                                         <span>&rarr;</span>
                                     </h4>
                                 </div>
                             </a>
                         </li>
-                        <li class="index_exhibition_item swiper-slide">
+                        <!-- <li class="index_exhibition_item swiper-slide">
                             <a href="./exhibition_information.html">
                                 <div class="index_exhibition_num">
                                     <h4>02</h4>
@@ -163,7 +163,7 @@
                                     </h4>
                                 </div>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>    
                 </div>
                 <div class="swiper-button-next index-arrow-right" ></div>

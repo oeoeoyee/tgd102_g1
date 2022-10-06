@@ -39,26 +39,7 @@ mm.add("(max-width: 499px)", () => {
     });
 });
 
-// 首頁 常設展覽 Initialize Swiper 
-let swiper = new Swiper(".swiper-container", {
-    slidesPerView: "auto",
-    centeredSlides: false,
-    spaceBetween: 30,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    // autoplay: {
-    //     delay: 2000,
-    //     disableOnInteraction: false,
-    // },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    observer: true,
-    observeParents: true,
-});
+
 
     // news頁 - 置頂的兩篇文章
 // addEventListener('load', function(){
@@ -105,3 +86,60 @@ let index_news_list = new Vue({
     
     },
 })
+
+let index_exhibition_list = new Vue({
+    el: "#index_exhibition_list",
+
+    data: {
+        exhibitions: [],
+    },
+
+    methods: {
+        // 展覽 ID
+        ex_infoID(e) {
+          sessionStorage.setItem("ex_infoID", e.ID);
+        },
+      },
+
+    mounted() {
+        fetch("./php/ex_info.php")
+        .then(res => res.json())
+        .then(res => this.exhibitions = res)
+      ;
+    },
+
+    computed: {},
+
+    updated() {
+        // ## 搬到 Vue 裡所以一到這邊
+        // 首頁 常設展覽 Initialize Swiper 
+        new Swiper(".swiper-container", {
+            slidesPerView: "auto",
+            centeredSlides: false,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            // autoplay: {
+            //     delay: 2000,
+            //     disableOnInteraction: false,
+            // },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            observer: true,
+            observeParents: true,
+        });
+    },
+
+    beforeUpdate() {
+        this.exhibitions.forEach((el) => {
+          return (
+            // 切割完回傳
+            (el.MAIN_IMAGE = el.MAIN_IMAGE.split("|"))
+          );
+        });
+      },
+  });

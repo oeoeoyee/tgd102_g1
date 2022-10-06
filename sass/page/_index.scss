@@ -264,9 +264,11 @@
 
     img{
         width: size(569);
+        height: size(430);
         display: block;
         @include mobile(){
             width: rwd(250);
+            height: rwd(190);
             display: block;
         }
     }
