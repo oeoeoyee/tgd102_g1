@@ -424,6 +424,9 @@ footer{
 /* js 導覽列上滑 */
 .-headup{
     transform: translateY(size(-120));
+    @include mobile(){
+        transform: translateY(rwd(-80));
+    }
 }
 
 .-headdown{
